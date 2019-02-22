@@ -6,41 +6,39 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/21 03:56:57 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:17:30 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void		elevator(t_struct *p)
+void			elevator(t_struct *p)
 {
-
-		if (p->keypress[KEY_1] == 1 || p->keypress[KEY_2] == 1 || p->keypress[KEY_3] == 1
-				|| p->keypress[KEY_4] == 1 || p->keypress[KEY_5] == 1)
-		{
-			if (p->k == 7)
-				p->h = 0;
-			if (p->keypress[KEY_1] == 1)
-				p->k = 7;
-				if (p->keypress[KEY_2] == 1)
-				p->k = 0;
-			else if (p->keypress[KEY_3] == 1)
-				p->k = 5;
-			else if (p->keypress[KEY_4] == 1)
-				p->k = 8;
-			else if (p->keypress[KEY_5] == 1)
-				p->k = 9;
-			p->elevator = 0;
-			p->wrong_level = 0;
-			p->c->p_x = 6.5;
-			p->c->p_y = 7.5;
-			p->c->dir_x = -1;
-			p->c->dir_y = 0;
-			p->c->plane_x = 0;
-			p->c->plane_y = 1;
-			p->porte[0].open = 0;
-			p->porte[0].poort = 1;
-		}
+	if (p->keypress[KEY_1] == 1 || p->keypress[KEY_2] == 1 || p->keypress[KEY_3] == 1
+			|| p->keypress[KEY_4] == 1 || p->keypress[KEY_5] == 1)
+	{
+		if (p->k == 7)
+			p->h = 0;
+		if (p->keypress[KEY_1] == 1)
+			p->k = 7;
+		else if (p->keypress[KEY_2] == 1)
+			p->k = 0;
+		else if (p->keypress[KEY_3] == 1)
+			p->k = 5;
+		else if (p->keypress[KEY_4] == 1)
+			p->k = 8;
+		else if (p->keypress[KEY_5] == 1)
+			p->k = 9;
+		p->elevator = 0;
+		p->c->p_x = 6.5;
+		p->c->p_y = 7.5;
+		p->c->dir_x = -1;
+		p->c->dir_y = 0;
+		p->c->plane_x = 0;
+		p->c->plane_y = 1;
+		p->porte[0].open = 0;
+		p->porte[0].poort = 1;
+	}
 }
 
 void			rotation(t_struct *p, int mod)
@@ -114,15 +112,13 @@ static void		move_up2(t_struct *p, int move)
 
 void			move_up(t_struct *p, int move, int i, double s)
 {
-//		printf("door : %f\n", p->porte[0].open);
-//		printf("poort : %d\n", p->porte[0].poort);
-
 	int t;
+
 	t = 0;
 	while (t < NUMPORTE)
 	{
 		if (p->porte[t].zip == move)
-			break;
+			break ;
 		t++;
 	}
 	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
@@ -139,7 +135,8 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-	else if (move == 0 && (int)p->c->p_x == 7 && (int)p->c->p_y == 7 && p->k != 1 && p->k != 2 && p->k != 3 && p->k != 4)
+	else if (move == 0 && (int)p->c->p_x == 7 && (int)p->c->p_y == 7
+			&& p->k != 1 && p->k != 2 && p->k != 3 && p->k != 4)
 	{
 		if (p->k == 0)
 			p->elevator = 2;
@@ -153,7 +150,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			p->elevator = 5;
 		elevator(p);
 	}
-	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6 ))
+	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
 		while (i < 5)
 		{

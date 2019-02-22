@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 04:29:54 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:09:48 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,8 +277,6 @@ void		raycasting(t_struct *p, int x, int z)
 		}
 		p->zbuff[z - x] = p->c->wall_dist;
 		x++;
-		//	printf("%f ",p->c->camera_x);
-		//printf("%f ", atan2(p->c->r_dir_x,p->c->r_dir_y) * 180 / PI);
 	}
 	order_sprite(p);
 	raysprite(p, 0.0, -1, 0.0);
@@ -303,8 +301,6 @@ void		raycasting(t_struct *p, int x, int z)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[105].img_ptr, 750, 200);
 	if (p->elevator == 5)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[106].img_ptr, 750, 200);
-	if (p->wrong_level == 1)
-		mlx_string_put(p->mlx_ptr, p->w_ptr, 920, 150, 0xffffff, "WRONG LEVEL");
 	if (p->k == 7 && p->c->shadow <= 1)
 	{
 		nb = (rand() % 2);
