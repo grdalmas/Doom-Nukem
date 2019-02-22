@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 04:29:54 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:15:30 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ t_sprite    *init_sprite(void)
 		{5, 82, 9.5, 13.5, 10}, // se rapproche du player 8
 		{5, 82, 7.5, 3.5, 10}, // se rapproche du player 9
 
-		{8, 83, 2.5, 2.5, 10}, // mechant 10
-		{8, 83, 4, 4, 10},
-		{8, 83, 13, 13, 10},
-		{8, 83, 13, 2.5, 10},
-		{8, 83, 7.5, 2, 10},
-		{8, 83, 7.5, 9.5, 10}, // mechant 15
+		{8, 119, 2.5, 2.5, 10}, // mechant 10
+		{8, 119, 4, 4, 10},
+		{8, 119, 13, 13, 10},
+		{8, 119, 13, 2.5, 10},
+		{8, 119, 7.5, 2, 10},
+		{8, 119, 7.5, 9.5, 10}, // mechant 15
 
 		{7, 86, 8.5, 12, 1}, // tronconneuse 16 !
 		{0, 14, 11,11 ,10}, //trump 17
@@ -134,8 +134,11 @@ void		hit_walls(t_struct *p, int x)
 			if (p->map[p->k][p->c->map_x][p->c->map_y] == 115 && p->hit != 2)
 				p->hit = 2;
 			else if (p->map[p->k][p->c->map_x][p->c->map_y] == 5 && p->hit != 3)
+			{
 				p->hit = 3;
-			//else if (p->map[p->k][p->c->map_x][p->c->map_y] == 18 || p->map[p->k][p->c->map_x][p->c->map_y] == 5)
+			
+			}
+				//else if (p->map[p->k][p->c->map_x][p->c->map_y] == 18 || p->map[p->k][p->c->map_x][p->c->map_y] == 5)
 			//	p->hit = 4;
 			else
 				hit = 1;
