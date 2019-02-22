@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 00:41:49 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 01:19:56 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	shoot(t_struct *p)
 	if (p->keypress[KEY_SPACEBAR] == 1 && p->weapon.reload > 11)
 	{
 //		ft_putendl("pan !");
+		system("afplay ./Musiques/shotgun_shot.mp3 &");
 		p->shoot = 1;
 		p->weapon.reload = 0;
 		p->weapon.sprite = 1;
@@ -99,7 +100,11 @@ void	shoot(t_struct *p)
 	else if (p->weapon.reload < 12)
 	{
 		if (p->weapon.reload < 2)
+		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[96].img_ptr, 800, 490);
+		if (p->keypress[KEY_R] == 1)
+			system("afplay ./Musiques/shotgun_pump.mp3 &");
+		}
 		else if (p->weapon.reload < 4)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[97].img_ptr, 800, 490);
 		else if (p->weapon.reload < 6)
@@ -118,9 +123,14 @@ void	shoot(t_struct *p)
 
 void		weapon(t_struct *p)
 {
-//	p->weapon.id = 1;
+
+	p->weapon.id = 1;
+
 	if (p->weapon.id == 1)
 	{
+//		if (rand() >= 2100000000)
+		if (p->temp == 0)
+		system("afplay ./Musiques/chainsaw_sustain.mp3 &");
 		if (p->keypress[KEY_SPACEBAR] == 0) // actionner la tronco
 		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
@@ -128,9 +138,12 @@ void		weapon(t_struct *p)
 
 		//if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
 		//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
-		else if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
+		else if (p->keypress[KEY_SPACEBAR] == 1)// actionner la tronco
+		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583); // tronco 2
-	}
+			
+		}
+		}
 //	if (p->k == 5)
 //	{
 	touch_by_enemy(p);

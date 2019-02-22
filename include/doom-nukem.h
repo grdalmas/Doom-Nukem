@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 04:09:16 by cmartine         ###   ########.fr       */
-=======
-/*   Updated: 2019/02/21 23:31:44 by grdalmas         ###   ########.fr       */
->>>>>>> origin/okay
+/*   Updated: 2019/02/22 01:25:34 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +43,7 @@
 # define MOTIONNOTIFY 6
 # define CLOSEMASK (1L<<17)
 # define NUMSPRITE 23
-<<<<<<< HEAD
-# define TEX 93
-=======
 # define TEX 119
->>>>>>> origin/okay
 # define FOV 60
 # define PI 3.14159256
 # define PORTE 1
@@ -237,6 +229,7 @@ typedef struct		s_struct
 	int				tool;
 	int				maap;
 	char            cure;
+	char			temp;
 	t_game			gm;
 }					t_struct;
 
