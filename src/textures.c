@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 05:19:35 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:35:24 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void		load_textures3(t_struct *p)
 	p->tex[81].str = ft_strdup("textures/wall_flowers.xpm");
 	p->tex[82].str = ft_strdup("textures/enemy1-1.xpm");
 	p->tex[83].str = ft_strdup("textures/enemy1-2.xpm");
-	p->tex[84].str = ft_strdup("textures/skull3.xpm");
-	p->tex[85].str = ft_strdup("textures/skull4.xpm");
+	p->tex[84].str = ft_strdup("textures/enemy2-1.xpm");
+	p->tex[85].str = ft_strdup("textures/enemy2-3.xpm");
 	p->tex[86].str = ft_strdup("textures/tronco.xpm");
 	p->tex[87].str = ft_strdup("textures/tronco1.xpm");
 	p->tex[88].str = ft_strdup("textures/tronco2.xpm");
@@ -116,6 +116,7 @@ void		load_textures3(t_struct *p)
 	p->tex[116].str = ft_strdup("textures/TRUMP2.xpm");
 	p->tex[117].str = ft_strdup("textures/elevator_close.xpm");
 	p->tex[118].str = ft_strdup("textures/TRUMP3.xpm");
+
 	init_textures(p);
 }
 

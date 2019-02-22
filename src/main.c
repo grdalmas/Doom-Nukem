@@ -37,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 5;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -117,6 +117,11 @@ void        sprite_move(t_struct *p)
 	i = 10;
 	while (p->k == 8 && i < 16)
 	{
+		if (p->temp % 20 < 10)
+			p->sprite[i].id = 84;
+		//if (p->sprite[i].id >= 122)
+		else
+			p->sprite[i].id = 85;
 //		printf("%i ", i);
 		if (p->sprite[i].x >= p->c->p_x)
 			sx = -0.02;

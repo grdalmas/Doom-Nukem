@@ -34,13 +34,13 @@ void		which_text(t_struct *p)
 			p->tid = 117;
 			p->porte[0].poort = 1;
 	}
-	/*if (p->k == 2 && p->tid != 24 && p->tid != 13)
+	if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
 	if (p->k == 7 && p->tid != 22)
 		p->tid = 102;
 	if (p->k == 9 && p->tid != 22 && p->tid != 115)
 		p->tid = 4;
-*/
+
 }
 
 void		which_textf(t_struct *p)
@@ -88,7 +88,8 @@ void			color_text2(t_struct *p, int col, int line, double ratio)
 
 void			color_text(t_struct *p, int col, int line, double ratio)
 {
-	which_text(p);
+	if (p->hit == 2)
+			which_text(p);
 	col = col * BPP;
 	line = line * 1024;
 	ratio = 1 - ratio * 0.8;
@@ -102,7 +103,6 @@ void			color_text(t_struct *p, int col, int line, double ratio)
 
 void			color_textf(t_struct *p, int col, int line, double ratio)
 {
-	which_textf(p);
 	col = col * BPP;
 	line = line * 1024;
 	ratio = 1 - ratio * 0.8;
@@ -122,6 +122,7 @@ static void		floor_casting(t_struct *p, int x, int y, int z)
 	int		tex_x;
 	int		tex_y;
 
+	which_textf(p);
 	y = p->c->y_end;
 	z = HEIGHT - y;
 	p->c->what = 1;
@@ -274,6 +275,7 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	if (p->c->y_end > HEIGHT - p->h)
 		p->c->y_end = HEIGHT - 1 - p->h;
 	p->c->y_end += p->h;
+	which_text(p);
 	while (y++ <= p->c->y_end )
 	{
 		tex_y = (y * 2 - HEIGHT + wall_height - p->h * 2)

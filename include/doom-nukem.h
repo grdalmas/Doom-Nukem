@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:10:38 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:37:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,5 +270,5 @@ void				alive(t_struct *p);
 void				spawn(t_struct *p);
 void				rotrump(t_struct *p);
 void        		sprite_move(t_struct *p);
-
+void		which_text(t_struct *p);
 #endif
