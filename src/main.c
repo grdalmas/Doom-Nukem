@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 02:35:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 01:43:02 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 5;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
