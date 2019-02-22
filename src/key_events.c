@@ -75,6 +75,11 @@ int				keypress(int keycode, void *d)
 		if (p->porte[proxyporte(p)].poort == 0)
 			p->porte[proxyporte(p)].poort = 1;
 		else if (p->porte[proxyporte(p)].poort == 1)
+			if (p->sprite[0].k == 6 && p->elev == 0)
+			{
+				p->elev = 1;
+				p->tool = 0;
+			}
 			p->porte[proxyporte(p)].poort = 0;
 		p->keypress[KEY_E] = 1;
 	}

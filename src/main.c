@@ -37,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 8;
+	param->k = 0;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -47,9 +47,10 @@ static void		*init(t_struct *param)
 	param->weapon.reload= 0;
 	param->wrong_level = 0;
 	param->s = -1;
-	param->trump = 0;
+	param->trump = 1;
 	param->temp = 0;
 	param->trons = 0;
+	param->elev = 0;
 	//param->tdoor = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);

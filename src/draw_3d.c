@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 04:52:53 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:31:32 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void		which_text(t_struct *p)
 	}
 	if (p->tid == 5 && p->s > 0)
 		p->tid = 18;
+	if (p->k == 0 && p->tid == 22 && p->elev == 0)
+	{
+			p->tid = 117;
+			p->porte[0].poort = 1;
+	}
 	/*if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
 	if (p->k == 7 && p->tid != 22)

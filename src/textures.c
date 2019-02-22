@@ -114,7 +114,7 @@ void		load_textures3(t_struct *p)
 	p->tex[114].str = ft_strdup("textures/sk8.xpm");
 	p->tex[115].str = ft_strdup("textures/transpa.xpm");
 	p->tex[116].str = ft_strdup("textures/TRUMP2.xpm");
-	p->tex[117].str = ft_strdup("textures/TRUMP2-2.xpm");
+	p->tex[117].str = ft_strdup("textures/elevator_close.xpm");
 	p->tex[118].str = ft_strdup("textures/TRUMP3.xpm");
 	init_textures(p);
 }
