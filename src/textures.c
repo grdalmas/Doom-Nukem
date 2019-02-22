@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/21 05:54:38 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 02:57:59 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ t_porte		*init_door(void)
 	//	p->porte[i].zip = 2;
 	static t_porte porte[NUMPORTE] = {
 		{0, 0.02, 22, 1},
-		{1, 0.02, 24, 1},
+		{1, 0.02, 2, 1},
 	};
 
 	return(porte);

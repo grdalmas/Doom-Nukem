@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 02:33:47 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:55:40 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,22 +137,28 @@ int				key_press_hook(t_struct *p)
 //	printf("ptrump : %d\n", p->trump);
 	double s;
 	int key = 0;
+	float sprint;
+
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
 		rotation(p, 0);
 	if (p->keypress[KEY_RIGHT] == 1)
 		rotation(p, 1);
+	if (p->keypress[KEY_SHIFT] == 1)
+		sprint = 0.3;
+	else
+		sprint = 0.2;
 	//if (p->keypress[KEY_Q] == 1)
 	if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
-		s = (p->keypress[KEY_W] ? 0.2 : -0.2);
+		s = (p->keypress[KEY_W] ? sprint : - sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
 			[(int)((p->c->p_y + p->c->dir_y * s))];
 	}
 	if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1)
 	{
-		s = (p->keypress[KEY_A] ? 0.2 : -0.2);
+		s = (p->keypress[KEY_A] ? sprint : - sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
 			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}

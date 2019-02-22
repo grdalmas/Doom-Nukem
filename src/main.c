@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 02:35:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:23:48 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 5;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -165,7 +165,10 @@ if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
 void			spawn(t_struct *p)
 {
 	int i;
-
+//	printf(" %i ", (int)p->c->p_x);
+	
+//	printf(" %i ", (int)p->c->p_y);
+	if((int)p->c->p_x != 9 || (int)p->c->p_y != 7)
 	p->porte[1].poort = 1;
 	i = 10;
 	while (i < 16)

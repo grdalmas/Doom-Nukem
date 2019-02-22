@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 02:14:51 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:31:57 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	draw_game(void *gm)
 {
 	t_struct	*p;
 	int i;
-
 
 	i = 0;
 	if (!(p = (t_struct*)gm))
@@ -39,7 +38,7 @@ void	draw_game(void *gm)
 		sprite_move(p);
 	else if (p->k == 0 || p->k == 9)
 		rotrump(p);
-	while (i < NUMPORTE )
+	while (i < NUMPORTE)
 	{
 	//	printf("%i ",p->porte[i].poort);
 		if (p->porte[i].poort == 1 && p->porte[i].open > 0)
