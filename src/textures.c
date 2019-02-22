@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 02:57:59 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 05:19:35 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void		load_textures3(t_struct *p)
 	p->tex[79].str = ft_strdup("textures/mozart.xpm");
 	p->tex[80].str = ft_strdup("textures/jack_sparrow.xpm");
 	p->tex[81].str = ft_strdup("textures/wall_flowers.xpm");
-	p->tex[82].str = ft_strdup("textures/skull1.xpm");
-	p->tex[83].str = ft_strdup("textures/skull2.xpm");
+	p->tex[82].str = ft_strdup("textures/enemy1-1.xpm");
+	p->tex[83].str = ft_strdup("textures/enemy1-2.xpm");
 	p->tex[84].str = ft_strdup("textures/skull3.xpm");
 	p->tex[85].str = ft_strdup("textures/skull4.xpm");
 	p->tex[86].str = ft_strdup("textures/tronco.xpm");
