@@ -222,8 +222,6 @@ typedef struct		s_struct
 	int				h;
 	int				shoot;
 	int				elevator;
-	int				wrong_level;
-//	int				tolo;
 	int				hit;
 	int				trump;
 	int				tool;

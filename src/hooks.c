@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 04:55:40 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:24:52 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void		take_object(t_struct *p)
 		if (p->life > 100)
 			p->life = 100;
 	}
-	//	printf("trump1 :%d\n", p->trump);
 }
 
 void			soundstep(t_struct *p)
@@ -116,30 +115,8 @@ void			soundstep(t_struct *p)
 		system("afplay ./musics/pas7.mp3 &");
 }
 
-void			flee(t_struct *p)
-{
-	if ((int)p->sprited[2] == 0 && p->c->tpobj == 0)
-	{
-		p->sprite[2].x = 12;
-		p->c->tpobj++;
-		system("afplay ./musics/flee.mp3 &");
-	}
-	else if ((int)p->sprited[2] == 0 && p->c->tpobj == 1)
-	{
-		p->sprite[2].y = 12;
-		p->c->tpobj++;
-		system("afplay ./musics/flee.mp3 &");
-	}
-	else if ((int)p->sprited[2] == 0 && p->c->tpobj++ == 2)
-	{
-		p->sprite[2].x = 3;
-		system("afplay ./musics/flee.mp3 &");
-	}
-}
-
 int				key_press_hook(t_struct *p)
 {
-//	printf("ptrump : %d\n", p->trump);
 	double s;
 	int key = 0;
 	float sprint;
@@ -154,7 +131,6 @@ int				key_press_hook(t_struct *p)
 		sprint = 0.3;
 	else
 		sprint = 0.2;
-	//if (p->keypress[KEY_Q] == 1)
 	if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
 		s = (p->keypress[KEY_W] ? sprint : - sprint);
@@ -171,9 +147,5 @@ int				key_press_hook(t_struct *p)
 	if (key == 0)
 		p->c->pas += 7;
 	move_up(p, key, 0, s);
-	//	if (p->keypress[KEY_E] == 1)
-	//		take_object(p);
-	if (p->k == 1)
-		flee(p);
 	return (0);
 }
