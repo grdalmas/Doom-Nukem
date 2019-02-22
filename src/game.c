@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 01:19:06 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 02:14:51 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_game(void *gm)
 	i = 0;
 	if (!(p = (t_struct*)gm))
 		return ;
-	if (p->temp < 100)
+	if (p->temp < 80)
 		p->temp++;
 	else
 		p->temp = 0;

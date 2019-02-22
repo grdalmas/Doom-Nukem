@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 01:25:34 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 02:23:56 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,8 @@ typedef struct		s_struct
 	int				maap;
 	char            cure;
 	char			temp;
+	char			soundtmp;
+	char			trons;
 	t_game			gm;
 }					t_struct;
 
