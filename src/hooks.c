@@ -40,7 +40,7 @@ void		take_object(t_struct *p)
 	} */
 	//	printf("iuh");
 	// pour fair apparaitre la tronconneuse
-	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y)
+	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
 	{
 			printf("ilasfjklajflw");
 		p->trump = 3;
@@ -61,15 +61,16 @@ void		take_object(t_struct *p)
 		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		p->sprite[18].id = 14;
 		p->trump = 6;
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y)
+	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->trump != 4 && p->sprite[2].k != 6)
 	{
+		p->trump = 4;
 		p->sprite[2].k = 6;
 		p->weapon.id = 2;
 	}
@@ -80,9 +81,12 @@ void		take_object(t_struct *p)
 	else if (p->k == 7 && p->trump == 3)
 		p->trump = 0;
 	else if (p->trump == 6)
+		p->trump = 7;
+	else if (p->trump == 4)
 		p->trump = 0;
-	if (p->k == 8 && (int)p->sprited[1] == 0)
+	if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
 	{
+		p->trump = 5;
 		p->sprite[1].k = 6;
 		p->cure = 1;
 		p->life += 50;
