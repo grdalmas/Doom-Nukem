@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 06:18:31 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 20:11:27 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int				keypress(int keycode, void *d)
 		p->keypress[KEY_4] = 1;
 	else if (keycode == MLX_KEY_5)
 		p->keypress[KEY_5] = 1;
+	else if (keycode == MLX_KEY_M)
+	 	p->keypress[KEY_M] = 1;
 	else if (keycode == MLX_KEY_E)// && proxyporte(p) != 0)
 	{
 		if (p->porte[proxyporte(p)].poort == 0)
@@ -114,6 +116,8 @@ int				keyrelease(int keycode, void *d)
 
 	if (!(p = (t_struct*)d))
 		return (0);
+	if (keycode == MLX_KEY_M)
+	 	p->keypress[KEY_M] = 0;
 	if (keycode == MLX_KEY_ESCAPE)
 		p->keypress[KEY_ESCAPE] = 0;
 	else if (keycode == MLX_KEY_W)

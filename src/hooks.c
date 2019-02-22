@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:24:52 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 20:10:44 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ int				key_press_hook(t_struct *p)
 	int key = 0;
 	float sprint;
 
+	if (p->keypress[KEY_M] == 1)
+		p->gm.current_state = MAP_CREA;
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)

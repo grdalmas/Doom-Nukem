@@ -6,8 +6,14 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:20 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/19 12:48:31 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/22 20:14:50 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+void	draw_map_creator(void *gm)
+{
+	(void)gm;
+	ft_putstr("toto");
+}

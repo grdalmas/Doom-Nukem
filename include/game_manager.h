@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:12:31 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/21 23:27:57 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/22 22:04:38 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,23 @@ typedef enum	e_menu
 	MENU, GAME, MAP_CREA, NB_MENU_ENTRY,
 }				t_menu;
 
+typedef struct		s_coord
+{
+	int				x;
+	int				y;
+	unsigned int	color;
+}					t_coord;
 
+typedef struct		s_img
+{
+	void			*ptr;
+	char			*data;
+	t_coord			size;
+	int				width;
+	int				bpp;
+	int				endian;
+	unsigned int	octet;
+}					t_img;
 
 typedef void		(*t_draw)(void *gm);
 

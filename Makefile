@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/21 23:25:36 by grdalmas         ###   ########.fr        #
+#    Updated: 2019/02/22 20:14:18 by grdalmas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC =		draw_3d.c\
 			weapon.c\
 			trump.c\
 			init_menu_states.c\
+			map_creator.c\
 			game.c\
 
 OBJ =		$(SRC:.c=.o)

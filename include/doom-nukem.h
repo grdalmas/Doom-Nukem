@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:37:02 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 20:13:50 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef enum	e_keystate
 	LAST_KEY_PRESS,
 	KEY_TAB, KEY_W, KEY_UP, KEY_DOWN, KEY_D, KEY_A, KEY_SHIFT,
 	KEY_C, KEY_LEFT, KEY_RIGHT, KEY_SPACEBAR, KEY_ESCAPE, KEY_Q, KEY_E, KEY_R,
-	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5,
+	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_M,
 	NB_KEYSTATE
 
 }				t_keystate;
@@ -270,5 +270,6 @@ void				alive(t_struct *p);
 void				spawn(t_struct *p);
 void				rotrump(t_struct *p);
 void        		sprite_move(t_struct *p);
-void		which_text(t_struct *p);
+void				which_text(t_struct *p);
+void				draw_map_creator(void *gm);
 #endif
