@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 04:59:09 by cmartine         ###   ########.fr       */
-=======
-/*   Updated: 2019/02/21 06:10:30 by bbataini         ###   ########.fr       */
->>>>>>> origin/okay
+/*   Updated: 2019/02/21 23:59:50 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +15,33 @@
 t_sprite    *init_sprite(void)
 {
 	static t_sprite sprite[NUMSPRITE] = {
-		{2, 0, 7.5, 7,1},
-		{0, 82, 10, 10,1}, //
-		{4, 1, 10, 10,1},
-		{1, 3, 3, 3,1},
+		{2, 0, 7.5, 7,1}, // tools
+
+				{8, 1, 7.5, 9.5, 10}, // medikit
+
+				{5, 95, 7.5, 2, 1}, // pompe
+
+		{1, 3, 3, 3,1}, //map
 		{5, 82, 7.5, 2, 10},  // se raproche du player 4
 		{5, 82, 1.5, 10.5, 10}, // se rapproche du player 5
 		{5, 82, 3.5, 11.5, 10}, // se rapproche du player 6
 		{5, 82, 7.5, 1.5, 10}, // se rapproche du player 7
 		{5, 82, 9.5, 13.5, 10}, // se rapproche du player 8
 		{5, 82, 7.5, 3.5, 10}, // se rapproche du player 9
+
 		{8, 83, 2.5, 2.5, 10}, // mechant 10
 		{8, 83, 4, 4, 10},
 		{8, 83, 13, 13, 10},
 		{8, 83, 13, 2.5, 10},
 		{8, 83, 7.5, 2, 10},
 		{8, 83, 7.5, 9.5, 10}, // mechant 15
+
 		{7, 86, 8.5, 12, 1}, // tronconneuse 16 !
 		{0, 14, 11,11 ,10}, //trump 17
 		{9, 14, 7.5,1.5 ,10}, //trump 18
+
 		{5, 95, 7.5, 2, 1}, // pompe 19
+
 		//        {2, 48, 6, 11,0},
 		//        {2, 48, 9, 11,0},
 		//        {2, 47, 3, 2,0},
@@ -50,7 +53,9 @@ t_sprite    *init_sprite(void)
 		{2, 44, 9.5, 4.5,1},
 		//{2, 45, 13, 8,0},
 		//{1, 33, 7.5, 7.5,1}, // 22 statue
-		{8, 1, 7.5, 9.5,10}, // (22) medikit
+
+//		{8, 1, 7.5, 9.5,10}, // (22) medikit
+
 	};
 
 	return (sprite);
@@ -280,7 +285,7 @@ void		raycasting(t_struct *p, int x, int z)
 	if (p->sprite[0].k == 6 && p->sprite[1].k == 6 && p->sprite[2].k == 6 &&
 			p->sprite[3].k == 6)
 		p->tex[22].img_str = p->tex[6].img_str;
-	if (p->maap == 1)
+//	if (p->maap == 1)
 	{
 		minimap(p);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr, 35, 35);
@@ -289,10 +294,6 @@ void		raycasting(t_struct *p, int x, int z)
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr3, 0, 653);
 	if (p->elevator == 1)
-<<<<<<< HEAD
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[91].img_ptr, 700, 200);
-	if (p->k == 7)
-=======
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[91].img_ptr, 750, 200);
 	if (p->elevator == 2)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[103].img_ptr, 750, 200);
@@ -305,18 +306,13 @@ void		raycasting(t_struct *p, int x, int z)
 	if (p->wrong_level == 1)
 		mlx_string_put(p->mlx_ptr, p->w_ptr, 920, 150, 0xffffff, "WRONG LEVEL");
 	if (p->k == 7 && p->c->shadow <= 1)
->>>>>>> origin/okay
 	{
 		nb = (rand() % 2);
 		if (nb == 1)
 			p->h += 8;
 		else if (nb == 0)
 			p->h -= 8;
-<<<<<<< HEAD
-		printf("nb : %d\n", nb);
-=======
 		//		printf("nb : %d\n", nb);
->>>>>>> origin/okay
 		p->c->shadow += 0.0025;
 	}
 }

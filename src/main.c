@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 05:34:56 by cmartine         ###   ########.fr       */
-=======
-/*   Updated: 2019/02/21 23:29:20 by grdalmas         ###   ########.fr       */
->>>>>>> origin/okay
+/*   Updated: 2019/02/22 01:05:41 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 0;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -51,7 +47,7 @@ static void		*init(t_struct *param)
 	param->weapon.reload= 0;
 	param->wrong_level = 0;
 	param->s = -1;
-	param->trump = 1;
+	param->trump = 0;
 	//param->tdoor = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
@@ -196,7 +192,7 @@ void		alive(t_struct *p)
 		i++;
 	}
 	if (alldead == 1)
-		p->sprite[19].k = 5;
+		p->sprite[1].k = 5;
 }
 
 

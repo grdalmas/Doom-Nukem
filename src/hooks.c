@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 06:37:09 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 01:05:34 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,41 @@
 
 void		take_object(t_struct *p)
 {
-/*
-	int i;
-	int x;
-	int y;
-	i = 0;
-	while (i < 4)
-	{
-		if ((int)p->sprited[i] == 0)
-		{
-//			p->sprite[i].k = 6;
-			if (i == 1 || i == 2)
-				x = -30;
-			if (i == 0 || i == 3)
-				x = 140;
-			if (i == 1 || i == 3)
-				y = 210;
-			if (i == 2 || i == 0)
-				y = 375;
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
-					p->tex[i].img_ptr, x, y);
-			system("afplay ./musics/zip.mp3 &");
-		}
-		i++;
+	/*
+	   int i;
+	   int x;
+	   int y;
+	   i = 0;
+	   while (i < 4)
+	   {
+	   if ((int)p->sprited[i] == 0)
+	   {
+	//			p->sprite[i].k = 6;
+	if (i == 1 || i == 2)
+	x = -30;
+	if (i == 0 || i == 3)
+	x = 140;
+	if (i == 1 || i == 3)
+	y = 210;
+	if (i == 2 || i == 0)
+	y = 375;
+	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+	p->tex[i].img_ptr, x, y);
+	system("afplay ./musics/zip.mp3 &");
+	}
+	i++;
 	} */
-//	printf("iuh");
+	//	printf("iuh");
 	// pour fair apparaitre la tronconneuse
-	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y)
+	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
 	{
-//	printf("iuhii");
+			printf("ilasfjklajflw");
 		p->trump = 3;
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
 	}
 	// pour ramasser caisse a outils et ouvrir ascenceur
-	if (p->k == 2 && (int)p->sprited[0] == 0)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 2 && (int)p->sprited[0] == 0)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		p->tool = 1;
 		p->trump = 2;
@@ -61,16 +61,17 @@ void		take_object(t_struct *p)
 		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		p->sprite[18].id = 14;
 		p->trump = 6;
-//		p->sprite[3].k = 6;
+		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[19].x && (int)p->sprite[19].y == (int)p->c->p_y)
+	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->trump != 4 && p->sprite[2].k != 6)
 	{
-		p->sprite[19].k = 6;
+		p->trump = 4;
+		p->sprite[2].k = 6;
 		p->weapon.id = 2;
 	}
 	else if (p->k == 0 && p->trump == 1)
@@ -80,16 +81,19 @@ void		take_object(t_struct *p)
 	else if (p->k == 7 && p->trump == 3)
 		p->trump = 0;
 	else if (p->trump == 6)
+		p->trump = 7;
+	else if (p->trump == 4)
 		p->trump = 0;
-	if (p->k == 8 && (int)p->sprited[22] == 0)
-		    {
-				        p->sprite[22].k = 6;
-						        p->cure = 1;
-					p->life += 50;
-					if (p->life > 100)
-						p->life = 100;
-								    }
-//	printf("trump1 :%d\n", p->trump);
+	if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
+	{
+		p->trump = 5;
+		p->sprite[1].k = 6;
+		p->cure = 1;
+		p->life += 50;
+		if (p->life > 100)
+			p->life = 100;
+	}
+	//	printf("trump1 :%d\n", p->trump);
 }
 
 void			soundstep(t_struct *p)
@@ -147,20 +151,20 @@ int				key_press_hook(t_struct *p)
 	{
 		s = (p->keypress[KEY_W] ? 0.2 : -0.2);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
-		[(int)((p->c->p_y + p->c->dir_y * s))];
+			[(int)((p->c->p_y + p->c->dir_y * s))];
 	}
 	if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1)
 	{
 		s = (p->keypress[KEY_A] ? 0.2 : -0.2);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
-		[(int)((p->c->p_y + p->c->plane_y * s))];
+			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}
-//	soundstep(p);
+	//	soundstep(p);
 	if (key == 0)
-			p->c->pas += 7;
+		p->c->pas += 7;
 	move_up(p, key, 0, s);
-//	if (p->keypress[KEY_E] == 1)
-//		take_object(p);
+	//	if (p->keypress[KEY_E] == 1)
+	//		take_object(p);
 	if (p->k == 1)
 		flee(p);
 	return (0);

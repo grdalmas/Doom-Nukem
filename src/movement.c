@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 04:27:32 by cmartine         ###   ########.fr       */
-=======
 /*   Updated: 2019/02/21 03:56:57 by cmartine         ###   ########.fr       */
->>>>>>> origin/okay
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,49 +14,9 @@
 
 void		elevator(t_struct *p)
 {
-<<<<<<< HEAD
-//		printf("porte ouverte\n");
-//		printf("x : %d\n", (int)p->c->p_x);
-//		printf("y : %d\n", (int)p->c->p_y);
-//		printf("1 : %d\n", p->keypress[KEY_1]);
-//		printf("elevator : %d\n", p->elevator);
-//		printf("door : %f\n", p->porte[0].open);
-		
-		if (p->keypress[KEY_3] == 1 && p->k == 0)
-		{
-			p->elevator = 0;
-//			printf("je change le k\n");
-			p->k = 5;
-			p->c->p_x = 6.5;
-			p->c->p_y = 7.5;
-			p->c->dir_x = -1;
-			p->c->dir_y = 0;
-			p->c->plane_x = 0;
-			p->c->plane_y = 1;
-			p->porte[0].open = 0;
-			p->porte[0].poort = 1;
-		}
-		if (p->keypress[KEY_1] == 1 && p->k == 0)
-		{
-			p->elevator = 0;
-//			printf("je change le k\n");
-			p->k = 7;
-			p->c->p_x = 6.5;
-			p->c->p_y = 7.5;
-			p->c->dir_x = -1;
-			p->c->dir_y = 0;
-			p->c->plane_x = 0;
-			p->c->plane_y = 1;
-			p->porte[0].open = 0;
-			p->porte[0].poort = 1;
-//			p->c->shadow = 0;
-		}
-		if (p->keypress[KEY_4] == 1 && p->k == 0)
-=======
 
 		if (p->keypress[KEY_1] == 1 || p->keypress[KEY_2] == 1 || p->keypress[KEY_3] == 1
 				|| p->keypress[KEY_4] == 1 || p->keypress[KEY_5] == 1)
->>>>>>> origin/okay
 		{
 			if (p->k == 7)
 				p->h = 0;
