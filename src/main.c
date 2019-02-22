@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 04:23:48 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 05:30:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
-	param->k = 0;
+	param->k = 5;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -47,7 +47,7 @@ static void		*init(t_struct *param)
 	param->weapon.reload= 0;
 	param->wrong_level = 0;
 	param->s = -1;
-	param->trump = 1;
+	param->trump = 0;
 	param->temp = 0;
 	param->trons = 0;
 	param->elev = 0;
@@ -79,10 +79,16 @@ void        sprite_move(t_struct *p)
 
 	int i;
 	int j;
+	int k;
 
 	i = 4;
+	k = 0;
 	while (p->k == 5 && i < 10)
 	{
+		if ((p->temp % 20) < 10)
+			p->sprite[i].id = 82;
+		else
+			p->sprite[i].id = 83;
 		if (p->sprite[i].x >= p->c->p_x)
 			sx = -0.05;
 		else
