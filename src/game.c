@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/21 23:27:26 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/22 01:19:06 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ void	draw_game(void *gm)
 	t_struct	*p;
 	int i;
 
+
 	i = 0;
 	if (!(p = (t_struct*)gm))
 		return ;
+	if (p->temp < 100)
+		p->temp++;
+	else
+		p->temp = 0;
 	p->time.update(&p->time);
 	key_press_hook(p);
 	raycasting(p, 0, 0);
