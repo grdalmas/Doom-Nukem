@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 00:03:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 01:45:38 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		take_object(t_struct *p)
 		p->weapon.id = 1;
 	}
 	// pour ramasser caisse a outils et ouvrir ascenceur
-	else if (p->k == 2 && (int)p->sprited[0] == 0)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 2 && (int)p->sprited[0] == 0 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		p->tool = 1;
 		p->trump = 2;
