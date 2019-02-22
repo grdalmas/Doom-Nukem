@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/21 23:58:48 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:06:28 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,6 @@ static void		sprite(t_struct *p, int c, int alpha, int r)
 	{
 		if (p->sprite[i].k == p->k)
 		{
-			if (p->sprite[i].k == 2)
-				c = 0xFF33DD;
-			else if (p->sprite[i].k == 0)
-				c = 0xFFFF33;
-			else if (p->sprite[i].k == 1)
-				c = 0x33FF49;
-			else if (p->sprite[i].k == 3)
-				c = 0x33FFF6;
-			else if (p->sprite[i].k >= 3)
-				c = 0xFF33DD;
 			alpha = 0;
 			while (alpha <= 360)
 			{

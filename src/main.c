@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 05:30:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:10:03 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void		*init(t_struct *param)
 	param->life = 100;
 	param->h = 0;
 	param->weapon.reload= 0;
-	param->wrong_level = 0;
 	param->s = -1;
 	param->trump = 0;
 	param->temp = 0;

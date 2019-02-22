@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 04:10:02 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:10:38 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,8 +222,6 @@ typedef struct		s_struct
 	int				h;
 	int				shoot;
 	int				elevator;
-	int				wrong_level;
-//	int				tolo;
 	int				hit;
 	int				trump;
 	int				tool;

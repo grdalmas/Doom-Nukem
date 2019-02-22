@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 04:31:32 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 06:21:01 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,12 +141,9 @@ static void		floor_casting(t_struct *p, int x, int y, int z)
 		tex_y = (int)(tmp_fl_y * p->tex[p->tid].height) % p->tex[p->tid].height;
 		color_textf(p, tex_x, tex_y, p->c->shadow );
 		tex_y = y - HEIGHT + abs(p->h);
-		//	printf("%i ",tex_y);
 		draw_pixel2(p, p->img_str2, x, y + p->h);
-		//	write(1,"a",1);
 		if (p->k != 9)
 			draw_pixel2(p, p->img_str2, x, z + p->h);
-		//	write(1,"b",1);
 	}
 	p->c->what = 0;
 }
@@ -190,9 +187,7 @@ void			color_text_sky(t_struct *p, int col, int line, int tex)
 
 	col = col * BPP;
 	line = line * (2556); // p->tex[tex].height * 4;
-	//	}
 	if (col + line + 3 < 1633284 /* p->tex[tex].width * 4 * p->tex[tex].height*/ && col >= 0 && line > 0)
-		//	printf("%i ",col);
 		//	if (col + line + 3 < 262144 && col >= 0 && line >= 0  )
 	{
 		p->color.r = (unsigned char)(p->tex[tex].img_str[col + line]);
@@ -227,11 +222,6 @@ void			skybox(t_struct *p, int y, int x)
 	else if (t >= 270 && t < 360)
 		tex = 110;
 	tx = ((int)((t / 90.0) * (double)p->tex[tex].width) % p->tex[tex].width);
-
-	//	printf("tx : %d\n", tx);
-	//	printf("wt : %d\n", p->tex[107].width);
-//	printf("tx : %d\n", p->tex[107].height);
-
 	while (y-- >= 0 - p->h)
 	{	
 		if (y  < 0)
@@ -261,7 +251,6 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 {
 	int		tex_x;
 	int		tex_y;
-	//	double	distance;
 
 	wall_height = abs((int)(HEIGHT / p->c->wall_dist));
 	y = (int)(-wall_height / 2 + HEIGHT / 2) + p->h;
@@ -270,11 +259,10 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 		y = 0;
 
 	if (p->k == 9)
-		skybox(p, y - p->h, x); // - (p->c->y_end / 2));
+		skybox(p, y - p->h, x);
 	tex_x = hodor(p);
 	draw_floor_3d(p);
 	floor_casting(p, x, 0, 0);
-	//	if (p->k != 7)    A REMETTRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 	if (p->k != 7)
 	{
 		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end - (double)HEIGHT)) * 0.25;
