@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 04:37:30 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:43:49 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,19 @@ int				keypress(int keycode, void *d)
 	}
 		//else if (keycode == MLX_KEY_F && proxyporte(p) >= 0)//&& proxyporte(p) != 0)
 	//	p->porte[proxyporte(p)].poort = 0;
-	if (keycode == MLX_KEY_R)
+	else if (keycode == MLX_KEY_R)
 	{
 		p->keypress[KEY_R] = 1;
 	}
 
-	if (keycode == MLX_KEY_K)
+	else if (keycode == MLX_KEY_K)
 		p->h += 10;
-	if (keycode == MLX_KEY_L)
+	else if (keycode == MLX_KEY_L)
 		p->h -= 10;
-	if (keycode == MLX_KEY_C)
-		p->sprite[16].id = 83;
+	else if (keycode == MLX_KEY_SHIFT_LEFT)
+		p->keypress[KEY_SHIFT] = 1;
+	//else if (keycode == MLX_KEY_C)
+	//	p->sprite[16].id = 83;
 		//p->porte[0].open = 0;
 	p->keypress[LAST_KEY_PRESS] = keycode;
 	// key_press_hook(p->keypress[LAST_KEY_PRESS], d);
@@ -156,6 +158,8 @@ int				keyrelease(int keycode, void *d)
 		p->keypress[KEY_4] = 0;
 		else if (keycode == MLX_KEY_5)
 		p->keypress[KEY_5] = 0;
+	else if (keycode == MLX_KEY_SHIFT_LEFT)
+		p->keypress[KEY_SHIFT] = 0;
 		//key_press_hook(p->keypress[LAST_KEY_PRESS], c);
 	return (1);
 }
