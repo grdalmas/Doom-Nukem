@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/14 22:59:59 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/21 23:58:48 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void		sprite(t_struct *p, int c, int alpha, int r)
 	int i;
 
 	i = 0;
-	while (i < 10)
+	while (i < 20)
 	{
 		if (p->sprite[i].k == p->k)
 		{

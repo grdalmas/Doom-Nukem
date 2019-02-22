@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 05:42:35 by cmartine         ###   ########.fr       */
-=======
 /*   Updated: 2019/02/21 05:54:38 by cmartine         ###   ########.fr       */
->>>>>>> origin/okay
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +86,6 @@ void		load_textures3(t_struct *p)
 	p->tex[89].str = ft_strdup("textures/musique_notes.xpm");
 	p->tex[90].str = ft_strdup("textures/mosaique.xpm");
 	p->tex[91].str = ft_strdup("textures/asc1.xpm");
-<<<<<<< HEAD
-=======
 
 	p->tex[92].str = ft_strdup("textures/gun1.xpm");
 	p->tex[93].str = ft_strdup("textures/gun2.xpm");
@@ -104,13 +98,10 @@ void		load_textures3(t_struct *p)
 	p->tex[100].str = ft_strdup("textures/recharge5.xpm");
 	p->tex[101].str = ft_strdup("textures/recharge6.xpm");
 
->>>>>>> origin/okay
 	p->tex[102].str = ft_strdup("textures/cave.xpm");
 	p->tex[103].str = ft_strdup("textures/asc2.xpm");
 	p->tex[104].str = ft_strdup("textures/asc3.xpm");
 	p->tex[105].str = ft_strdup("textures/asc4.xpm");
-<<<<<<< HEAD
-=======
 	p->tex[106].str = ft_strdup("textures/asc5.xpm");
 
 	p->tex[107].str = ft_strdup("textures/sk1.xpm");
@@ -125,7 +116,6 @@ void		load_textures3(t_struct *p)
 	p->tex[116].str = ft_strdup("textures/TRUMP2.xpm");
 	p->tex[117].str = ft_strdup("textures/TRUMP2-2.xpm");
 	p->tex[118].str = ft_strdup("textures/TRUMP3.xpm");
->>>>>>> origin/okay
 	init_textures(p);
 }
 
@@ -174,16 +164,6 @@ void		load_textures(t_struct *p)
 	p->tex[11].str = ft_strdup("textures/Basic-4.xpm");
 	p->tex[12].str = ft_strdup("textures/bbataini.xpm");
 	p->tex[13].str = ft_strdup("textures/cmartine.xpm");
-<<<<<<< HEAD
-	p->tex[14].str = ft_strdup("textures/Mobil1.xpm");
-	p->tex[15].str = ft_strdup("textures/Mobil2.xpm");
-	p->tex[16].str = ft_strdup("textures/Mobil3.xpm");
-	p->tex[17].str = ft_strdup("textures/Plane_.xpm");
-	p->tex[18].str = ft_strdup("textures/Potatoe_.xpm");
-	p->tex[19].str = ft_strdup("textures/Dinosaur_.xpm");
-	p->tex[20].str = ft_strdup("textures/Tower_.xpm");
-	p->tex[21].str = ft_strdup("textures/Theend.xpm");
-=======
 	p->tex[14].str = ft_strdup("textures/trumpface.xpm");
 	p->tex[15].str = ft_strdup("textures/trumpright.xpm");
 	p->tex[16].str = ft_strdup("textures/trumpleft.xpm");
@@ -192,7 +172,6 @@ void		load_textures(t_struct *p)
 	p->tex[19].str = ft_strdup("textures/TRUMP1.xpm");
 	p->tex[20].str = ft_strdup("textures/TRUMP2.xpm");
 	p->tex[21].str = ft_strdup("textures/doomnukem.xpm");
->>>>>>> origin/okay
 	p->tex[22].str = ft_strdup("textures/door_elevator.xpm");
 	p->tex[23].str = ft_strdup("textures/lego_sol.xpm");
 	load_textures2(p);

@@ -6,11 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/02/14 05:42:52 by cmartine         ###   ########.fr       */
-=======
 /*   Updated: 2019/02/21 04:52:53 by bbataini         ###   ########.fr       */
->>>>>>> origin/okay
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +64,6 @@ void		which_textf(t_struct *p)
 		p->tid = 67;
 	else if (p->k == 3)
 		p->tid = 90;
-<<<<<<< HEAD
-	if (p->k == 7 && p->tid != 22)
-		p->tid = 102;
-=======
 	else if (p->k == 7)
 		p->tid = 102;
 	else if (p->k == 9 && p->tid != 115)
@@ -87,7 +79,6 @@ void			color_text2(t_struct *p, int col, int line, double ratio)
 		p->color.g = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 1]));
 		p->color.b = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 2]));
 }
->>>>>>> origin/okay
 }
 
 void			color_text(t_struct *p, int col, int line, double ratio)
@@ -278,15 +269,6 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	tex_x = hodor(p);
 	draw_floor_3d(p);
 	floor_casting(p, x, 0, 0);
-<<<<<<< HEAD
-	if (p->k != 7)
-	{
-	distance = (double)HEIGHT / (2.0 * (double)p->c->y_end - (double)HEIGHT);
-	p->c->shadow = distance * 0.25;
-	if (p->c->shadow > 1)
-		p->c->shadow = 1;
-	}
-=======
 	//	if (p->k != 7)    A REMETTRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 	if (p->k != 7)
 	{
@@ -298,7 +280,6 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	}
 	if (p->c->y_end > HEIGHT - p->h)
 		p->c->y_end = HEIGHT - 1 - p->h;
->>>>>>> origin/okay
 	p->c->y_end += p->h;
 	while (y++ <= p->c->y_end )
 	{
