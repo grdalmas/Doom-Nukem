@@ -49,6 +49,7 @@ static void		*init(t_struct *param)
 	param->s = -1;
 	param->trump = 0;
 	param->temp = 0;
+	param->trons = 0;
 	//param->tdoor = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
@@ -209,6 +210,13 @@ int		mlx_main_loop(t_struct *p)
 	return (0);
 }
 
+int	deal_key(int key, t_struct *p)
+{
+	key = p->h;
+printf("lol");
+	return(0);
+}
+
 static void		window(t_struct *p, int w, int h)
 {
 	int bpp;
@@ -236,6 +244,7 @@ static void		window(t_struct *p, int w, int h)
 	mlx_hook(p->w_ptr, CLOSE, CLOSEMASK, close_window, p);
 	mlx_hook(p->w_ptr, MOTIONNOTIFY, POINTERMOTIONMASK, rotation2, p);
 	mlx_loop_hook(p->mlx_ptr, mlx_main_loop, p);
+//	mlx_key_hook(p->mlx_ptr, deal_key, p);
 	mlx_loop(p->mlx_ptr);
 }
 

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 01:19:56 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 02:35:28 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,25 +121,49 @@ void	shoot(t_struct *p)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[92].img_ptr, 800, 670);
 }
 
+void		soundtronco(t_struct *p)
+{
+//	if (
+(void)p;
+}
+
 void		weapon(t_struct *p)
 {
 
-	p->weapon.id = 1;
+	p->weapon.id = 2;
 
 	if (p->weapon.id == 1)
 	{
 //		if (rand() >= 2100000000)
-		if (p->temp == 0)
+		if (p->temp == 1)
 		system("afplay ./Musiques/chainsaw_sustain.mp3 &");
+
 		if (p->keypress[KEY_SPACEBAR] == 0) // actionner la tronco
 		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
+			if (p->trons == 0)
+			{
+				p->trons = 1;
+				system("afplay ./Musiques/chainsaw_attack_out.mp3 &");
+			}
+			
 		}
 
 		//if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
 		//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
 		else if (p->keypress[KEY_SPACEBAR] == 1)// actionner la tronco
 		{
+		if (p->temp == 1)
+		system("afplay ./Musiques/chainsaw_attack_middle.mp3 &");
+
+			if (p->trons == 1)
+			{
+				p->trons = 0;
+				system("afplay ./Musiques/chainsaw_attack_in.mp3 &");
+			}
+				soundtronco(p);
+			p->soundtmp = p->temp;
+			
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583); // tronco 2
 			
 		}

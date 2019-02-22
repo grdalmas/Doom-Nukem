@@ -42,10 +42,11 @@ void		take_object(t_struct *p)
 	// pour fair apparaitre la tronconneuse
 	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
 	{
-			printf("ilasfjklajflw");
+	//		printf("ilasfjklajflw");
 		p->trump = 3;
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
+		system("afplay ./Musiques/chainsaw_start.mp3 &");
 	}
 	// pour ramasser caisse a outils et ouvrir ascenceur
 	else if (p->k == 2 && (int)p->sprited[0] == 0 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
@@ -137,7 +138,7 @@ void			flee(t_struct *p)
 
 int				key_press_hook(t_struct *p)
 {
-	printf("ptrump : %d\n", p->trump);
+//	printf("ptrump : %d\n", p->trump);
 	double s;
 	int key = 0;
 	if (p->keypress[KEY_ESCAPE] == 1)
