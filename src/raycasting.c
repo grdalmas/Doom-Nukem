@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 23:59:50 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:29:54 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_sprite    *init_sprite(void)
 {
 	static t_sprite sprite[NUMSPRITE] = {
-		{2, 0, 7.5, 7,1}, // tools
+		{2, 0, 12, 7.5,1}, // tools
 
 				{8, 1, 7.5, 9.5, 10}, // medikit
 

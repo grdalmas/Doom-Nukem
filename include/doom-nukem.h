@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 02:23:56 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:10:02 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,6 +232,7 @@ typedef struct		s_struct
 	char			temp;
 	char			soundtmp;
 	char			trons;
+	char			elev;
 	t_game			gm;
 }					t_struct;
 

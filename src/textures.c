@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/21 05:54:38 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 02:54:51 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void		load_textures3(t_struct *p)
 	p->tex[114].str = ft_strdup("textures/sk8.xpm");
 	p->tex[115].str = ft_strdup("textures/transpa.xpm");
 	p->tex[116].str = ft_strdup("textures/TRUMP2.xpm");
-	p->tex[117].str = ft_strdup("textures/TRUMP2-2.xpm");
+	p->tex[117].str = ft_strdup("textures/elevator_close.xpm");
 	p->tex[118].str = ft_strdup("textures/TRUMP3.xpm");
 	init_textures(p);
 }

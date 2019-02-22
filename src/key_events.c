@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/21 06:35:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/22 04:37:30 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ int				keypress(int keycode, void *d)
 		if (p->porte[proxyporte(p)].poort == 0)
 			p->porte[proxyporte(p)].poort = 1;
 		else if (p->porte[proxyporte(p)].poort == 1)
+			if (p->sprite[0].k == 6 && p->elev == 0)
+			{
+				p->elev = 1;
+				p->tool = 0;
+			}
 			p->porte[proxyporte(p)].poort = 0;
 		p->keypress[KEY_E] = 1;
 	}
