@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:12:31 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 22:04:38 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/23 21:10:10 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,20 @@
 
 
 
-// typedef enum	e_page
-// {
-// 	MAIN_MENU, GAME, MAP_CREATOR, NB_PAGE, GAME_I, MAP_I, NB_IMG,
-// }				t_page;
+typedef enum	e_texture
+{
+	T_MAP_CREATOR, T_CREATOR_INTERFACE, T_FONT,
+	NB_TEXTURE,
+}				t_texture;
+
+ typedef enum	e_page
+ {
+ 	MAIN_MENU, GAME, MAP_CREATOR, NB_PAGE, GAME_I, MAP_I, NB_IMG,
+ }				t_page;
 
 typedef enum	e_menu
 {
-	MENU, GAME, MAP_CREA, NB_MENU_ENTRY,
+	MENU, RUN, MAP_CREA, NB_MENU_ENTRY,
 }				t_menu;
 
 typedef struct		s_coord
