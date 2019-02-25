@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:24:52 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/25 21:43:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,19 @@ void		take_object(t_struct *p)
 
 void			soundstep(t_struct *p)
 {
-	if (p->c->pas == PAS && (p->c->pas = 1) == 1)
+	if (p->c->pas == p->pas && (p->c->pas = 1) == 1)
 		system("afplay ./musics/pas1.mp3 &");
-	else if (p->c->pas == PAS + 1 && (p->c->pas = 2) == 2)
+	else if (p->c->pas == p->pas + 1 && (p->c->pas = 2) == 2)
 		system("afplay ./musics/pas2.mp3 &");
-	else if (p->c->pas == PAS + 2 && (p->c->pas = 3) == 3)
+	else if (p->c->pas == p->pas + 2 && (p->c->pas = 3) == 3)
 		system("afplay ./musics/pas3.mp3 &");
-	else if (p->c->pas == PAS + 3 && (p->c->pas = 4) == 4)
+	else if (p->c->pas == p->pas + 3 && (p->c->pas = 4) == 4)
 		system("afplay ./musics/pas4.mp3 &");
-	else if (p->c->pas == PAS + 4 && (p->c->pas = 5) == 5)
+	else if (p->c->pas == p->pas + 4 && (p->c->pas = 5) == 5)
 		system("afplay ./musics/pas5.mp3 &");
-	else if (p->c->pas == PAS + 5 && (p->c->pas = 6) == 6)
+	else if (p->c->pas ==  p->pas + 5 && (p->c->pas = 6) == 6)
 		system("afplay ./musics/pas6.mp3 &");
-	else if (p->c->pas == PAS + 6 && (p->c->pas = 0) == 0)
+	else if (p->c->pas >= p->pas + 6 && (p->c->pas = 0) == 0)
 		system("afplay ./musics/pas7.mp3 &");
 }
 
@@ -128,10 +128,18 @@ int				key_press_hook(t_struct *p)
 	if (p->keypress[KEY_RIGHT] == 1)
 		rotation(p, 1);
 	if (p->keypress[KEY_SHIFT] == 1)
+	{
 		sprint = 0.3;
-	else
+		p->c->pas += 7;
+		p->pas = 21;
+	}
+		else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1 || p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
+	{
 		sprint = 0.2;
-	if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
+		p->pas = 35;
+		p->c->pas += 7;
+	}
+		if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
 		s = (p->keypress[KEY_W] ? sprint : - sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
@@ -143,9 +151,8 @@ int				key_press_hook(t_struct *p)
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
 			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}
-	//	soundstep(p);
 	if (key == 0)
-		p->c->pas += 7;
+		soundstep(p);
 	move_up(p, key, 0, s);
 	return (0);
 }

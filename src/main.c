@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 06:10:03 by cmartine         ###   ########.fr       */
+/*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
+/*   Updated: 2019/02/26 00:01:54 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,51 +37,94 @@ static void		*init(t_struct *param)
 	camera->pas = 1;
 	camera->youshall = 0;
 	camera->tpobj = 0;
+	param->life = 100;
+	return (NULL);
+}
+
+void			initplayer(t_struct *param)
+{
 	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
 	param->weapon.id = 0;
-	param->life = 100;
 	param->h = 0;
-	param->weapon.reload= 0;
+	param->weapon.reload = 0;
 	param->s = -1;
 	param->trump = 0;
 	param->temp = 0;
 	param->trons = 0;
 	param->elev = 0;
-	//param->tdoor = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
-	return (NULL);
 }
 
-void        sprite_move(t_struct *p)
+void			flyisabug(t_struct *p)
 {
-	float s;
-	int nb;
+	float	s;
+	int		nb;
 
 	s = 0.5;
 	nb = (rand() % 4);
-	//        printf("nb : %d", nb);
-	if ( nb == 0 && p->map[p->k][(int)(p->sprite[4].x + s)][(int)(p->sprite[4].y)] == 0)
+	if (nb == 0 && p->map[p->k][(int)(p->sprite[4].x + s)]
+			[(int)(p->sprite[4].y)] == 0)
 		p->sprite[4].x += s;
-	else if ( nb == 1 && p->map[p->k][(int)(p->sprite[4].x)][(int)(p->sprite[4].y + s)] == 0)
+	else if (nb == 1 && p->map[p->k][(int)(p->sprite[4].x)]
+			[(int)(p->sprite[4].y + s)] == 0)
 		p->sprite[4].y += s;
-	else if (nb == 2 && p->map[p->k][(int)(p->sprite[4].x - s)][(int)(p->sprite[4].y)] == 0)
+	else if (nb == 2 && p->map[p->k][(int)(p->sprite[4].x - s)]
+			[(int)(p->sprite[4].y)] == 0)
 		p->sprite[4].x -= s;
-	else if (nb == 3 && p->map[p->k][(int)(p->sprite[4].x)][(int)(p->sprite[4].y - s)] == 0)
+	else if (nb == 3 && p->map[p->k][(int)(p->sprite[4].x)]
+			[(int)(p->sprite[4].y - s)] == 0)
 		p->sprite[4].y -= s;
+}
 
+void		mvmy(t_struct *p, int i, float sx, float sy)
+{
+	int j;
+
+	j = 4;
+	while (j < 10)
+	{
+		if (p->sprite[j].k == 5 && ((int)(p->sprite[i].x + sx)
+					== (int)p->sprite[j].x &&
+				(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+			break ;
+		else if (j >= 9)
+		{
+			p->sprite[i].x += sx;
+			p->sprite[i].y += sy;
+		}
+		j++;
+	}
+}
+
+void		mvmy2(t_struct *p, int i, float sx, float sy)
+{
+	int j;
+
+	j = 10;
+	while (j < 17)
+	{
+		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
+					== (int)p->sprite[j].x &&
+				(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+			break ;
+		else if (j >= 16)
+		{
+			p->sprite[i].x += sx;
+			p->sprite[i].y += sy;
+		}
+		j++;
+	}
+}
+
+void			movemy(t_struct *p, int i)
+{
 	float sx;
 	float sy;
 
-	int i;
-	int j;
-	int k;
-
-	i = 4;
-	k = 0;
 	while (p->k == 5 && i < 10)
 	{
 		if ((p->temp % 20) < 10)
@@ -96,33 +139,24 @@ void        sprite_move(t_struct *p)
 			sy = -0.05;
 		else
 			sy = 0.05;
-		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)] == 0 && p->sprite[i].k == 5)
-		{
-			j = 4;
-			while (j < 10)
-			{
-				if (p->sprite[j].k == 5 && ((int)(p->sprite[i].x + sx) == (int)p->sprite[j].x && (int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
-					break;
-				else if (j == 9)
-				{
-					p->sprite[i].x += sx;
-					p->sprite[i].y += sy;
-				}
-				j++;
-			}
-		}
+		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
+				== 0 && p->sprite[i].k == 5)
+			mvmy(p, i, sx, sy);
 		i++;
 	}
+}
 
-	i = 10;
-	while (p->k == 8 && i < 16)
+void			movemy2(t_struct *p, int i)
+{
+	float sx;
+	float sy;
+
+	while (p->k == 8 && i < 18)
 	{
 		if (p->temp % 20 < 10)
 			p->sprite[i].id = 84;
-		//if (p->sprite[i].id >= 122)
 		else
 			p->sprite[i].id = 85;
-//		printf("%i ", i);
 		if (p->sprite[i].x >= p->c->p_x)
 			sx = -0.02;
 		else
@@ -131,23 +165,20 @@ void        sprite_move(t_struct *p)
 			sy = -0.02;
 		else
 			sy = 0.02;
-		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)] == 0 && p->sprite[i].k == 8)
-		{
-			j = 14;
-			while (j < 19)
-			{
-				if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx) == (int)p->sprite[j].x) && (int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i)
-					break;
-				else if (j == 18)
-				{
-					p->sprite[i].x += sx;
-					p->sprite[i].y += sy;
-				}
-				j++;
-			}
-		}
+		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
+				== 0 && p->sprite[i].k == 8)
+			mvmy2(p, i, sx,sy);
 		i++;
 	}
+}
+
+void			sprite_move(t_struct *p)
+{
+	flyisabug(p);
+	if (p->k == 5)
+		movemy(p, 4);
+	else if (p->k == 8)
+		movemy2(p, 10);
 }
 
 void			rotrump(t_struct *p)
@@ -160,27 +191,22 @@ void			rotrump(t_struct *p)
 		p->sprite[17].id = 16;
 	else if (p->sprite[17].x < p->c->p_x && p->sprite[17].y > p->c->p_y)
 		p->sprite[17].id = 15;
-
-if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
+	if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
 		p->sprite[18].id = 14;
 	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y < p->c->p_y)
 		p->sprite[18].id = 17;
 	else if (p->sprite[18].x > p->c->p_x && p->sprite[18].y < p->c->p_y)
 		p->sprite[18].id = 16;
-	else if (p->sprite[18].x < p->c->p_x && p->sprite[17].y > p->c->p_y)
+	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y > p->c->p_y)
 		p->sprite[18].id = 15;
-
 }
-
 
 void			spawn(t_struct *p)
 {
 	int i;
-//	printf(" %i ", (int)p->c->p_x);
-	
-//	printf(" %i ", (int)p->c->p_y);
-	if((int)p->c->p_x != 9 || (int)p->c->p_y != 7)
-	p->porte[1].poort = 1;
+
+	if ((int)p->c->p_x != 9 || (int)p->c->p_y != 7)
+		p->porte[1].poort = 1;
 	i = 10;
 	while (i < 16)
 	{
@@ -191,7 +217,6 @@ void			spawn(t_struct *p)
 	p->s = -1;
 }
 
-
 void		alive(t_struct *p)
 {
 	int i;
@@ -199,7 +224,7 @@ void		alive(t_struct *p)
 
 	alldead = 1;
 	i = 0;
-	while (i < 16)
+	while (i < 18)
 	{
 		if (p->sprite[i].pv <= 0)
 			p->sprite[i].k = 6;
@@ -210,7 +235,6 @@ void		alive(t_struct *p)
 	if (alldead == 1)
 		p->sprite[1].k = 5;
 }
-
 
 int		mlx_main_loop(t_struct *p)
 {
@@ -224,13 +248,6 @@ int		mlx_main_loop(t_struct *p)
 	return (0);
 }
 
-int	deal_key(int key, t_struct *p)
-{
-	key = p->h;
-printf("lol");
-	return(0);
-}
-
 static void		window(t_struct *p, int w, int h)
 {
 	int bpp;
@@ -241,24 +258,20 @@ static void		window(t_struct *p, int w, int h)
 	p->w_ptr = mlx_new_window(p->mlx_ptr, 1620, 960, "DOOM ZER");
 	p->img_ptr = mlx_new_image(p->mlx_ptr, WIDTHMAP, HEIGHTMAP);
 	p->img_ptr2 = mlx_new_image(p->mlx_ptr, 1280, 960);
-//	p->img_ptr3 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/W.xpm", &w, &h);
-	p->img_ptr3 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/doomnukem.xpm", &w, &h);
+	p->img_ptr3 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/dom.xpm", &w, &h);
 	p->img_str = mlx_get_data_addr(p->img_ptr, &bpp, &size_l, &endian);
 	p->img_str2 = mlx_get_data_addr(p->img_ptr2, &bpp, &p->size_line, &endian);
-//	p->img_str3 = mlx_get_data_addr(p->img_ptr3, &bpp, &size_l, &endian);
+	//	p->img_str3 = mlx_get_data_addr(p->img_ptr3, &bpp, &size_l, &endian);
 	init(p);
+	initplayer(p);
 	init_menu(&p->gm);
 	load_textures(p);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 35);
-//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[18].img_ptr, 140, 375);
-//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[19].img_ptr, -30, 375);
-//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[20].img_ptr, 140, 210);
 	mlx_hook(p->w_ptr, KEYPRESS, KEYPRESSMASK, keypress, p);
 	mlx_hook(p->w_ptr, KEYRELEASE, KEYRELEASEMASK, keyrelease, p);
 	mlx_hook(p->w_ptr, CLOSE, CLOSEMASK, close_window, p);
 	mlx_hook(p->w_ptr, MOTIONNOTIFY, POINTERMOTIONMASK, rotation2, p);
 	mlx_loop_hook(p->mlx_ptr, mlx_main_loop, p);
-//	mlx_key_hook(p->mlx_ptr, deal_key, p);
 	mlx_loop(p->mlx_ptr);
 }
 

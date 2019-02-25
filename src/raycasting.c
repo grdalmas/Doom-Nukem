@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:09:48 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/25 21:55:07 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,6 @@ t_sprite    *init_sprite(void)
 	return (sprite);
 }
 
-
-
-
-
-
-
 void		wall_dist(t_struct *p)
 {
 	if (p->c->side == 0)
@@ -111,7 +105,6 @@ void		hit_walls(t_struct *p, int x)
 		}
 		if (p->shoot == 1 && x == WIDTH / 2)
 		{
-			//	printf("%iipouhp ",p->shoot);
 			i = 0;
 			while (i < NUMSPRITE)
 			{
@@ -155,17 +148,10 @@ void		hit_walls(t_struct *p, int x)
 			//		}
 			//
 			while (i < NUMPORTE && p->porte[i].zip != p->map[p->k][p->c->map_x][p->c->map_y])
-			{
-				//	p->dodor = i;
-
 				i++;
-			}
 			//	if ((p->map[p->k][p->c->map_x][p->c->map_y] == 22 || p->map[p->k][p->c->map_x][p->c->map_y] == 24)
 			if(p->c->offset < p->porte[i].open - 0.02)
-			{
-				//		printf("%f\n%f",p->porte[0].open, p->porte[1].open);
 				hit = 0;
-			}
 	}
 }
 p->dodor = i;
@@ -252,9 +238,7 @@ void			draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 			draw_pixel2(p, p->img_str2, x, y);
 		}
 	}
-
 }
-
 
 void		raycasting(t_struct *p, int x, int z)
 {
@@ -291,7 +275,7 @@ void		raycasting(t_struct *p, int x, int z)
 		minimap(p);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr, 35, 35);
 	}
-		weapon(p);
+	weapon(p);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr3, 0, 653);
 	if (p->elevator == 1)
@@ -311,7 +295,6 @@ void		raycasting(t_struct *p, int x, int z)
 			p->h += 8;
 		else if (nb == 0)
 			p->h -= 8;
-		//		printf("nb : %d\n", nb);
 		p->c->shadow += 0.0025;
 	}
 }

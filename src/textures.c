@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 06:35:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/25 23:25:05 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ void		load_textures(t_struct *p)
 	p->tex[18].str = ft_strdup("textures/lever1.xpm");
 	p->tex[19].str = ft_strdup("textures/TRUMP1.xpm");
 	p->tex[20].str = ft_strdup("textures/TRUMP2.xpm");
-	p->tex[21].str = ft_strdup("textures/doomnukem.xpm");
+	p->tex[21].str = ft_strdup("textures/dom.xpm");
 	p->tex[22].str = ft_strdup("textures/door_elevator.xpm");
 	p->tex[23].str = ft_strdup("textures/lego_sol.xpm");
 	load_textures2(p);
