@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 02:15:30 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 05:46:28 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void		take_object(t_struct *p)
 	else if (p->trump == 6)
 		p->trump = 7;
 	else if (p->trump == 4)
+		p->trump = 0;
+	else if (p->trump == 5)
 		p->trump = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 01:59:50 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 06:12:36 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void		which_textf(t_struct *p)
 */	//else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] > 1)
 	//	p->tid = p->map[p->k][p->c->map_x % 18][p->c->map_y % 18];
 		p->tid = 7;
-	if (p->k == 5)
-		p->tid = 6;
-	else if (p->k == 2 && p->tid != 24 && p->tid != 13)
+//	if (p->k == 5)
+//		p->tid = 6;
+	if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
 	else if (p->k == 1)
 		p->tid = 65;
@@ -180,6 +180,7 @@ static void		draw_floor_3d(t_struct *p)
 int			hodor(t_struct *p)
 {
 	int	tex_x;
+
 	if (p->tid == p->porte[p->dodor].zip)
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : (p->c->offset - p->porte[p->dodor].open)  * 256));
 	else
@@ -189,7 +190,6 @@ int			hodor(t_struct *p)
 
 void			color_text_sky(t_struct *p, int col, int line, int tex)
 {
-
 	col = col * BPP;
 	line = line * (2556); // p->tex[tex].height * 4;
 	if (col + line + 3 < 1633284 /* p->tex[tex].width * 4 * p->tex[tex].height*/ && col >= 0 && line > 0)
@@ -207,13 +207,14 @@ void			color_text_sky(t_struct *p, int col, int line, int tex)
 
 void			skybox(t_struct *p, int y, int x)
 {
-	double t;
-	int		tex = 0;
-	int        tx;
-	int        ty;
-	int			tmp_y;
-	
-	t = atan2(p->c->r_dir_x,p->c->r_dir_y) * 180 / PI;
+	double	t;
+	int		tex;
+	int		tx;
+	int		ty;
+	int		tmp_y;
+
+	tex = 0;
+	t = atan2(p->c->r_dir_x, p->c->r_dir_y) * 180 / PI;
 	while (t < 0.0)
 		t += 360.0;
 	while (t >= 360.0)
@@ -228,8 +229,8 @@ void			skybox(t_struct *p, int y, int x)
 		tex = 110;
 	tx = ((int)((t / 90.0) * (double)p->tex[tex].width) % p->tex[tex].width);
 	while (y-- >= 0 - p->h)
-	{	
-		if (y  < 0)
+	{
+		if (y < 0)
 		{
 			if (t >= 0 && t < 90)
 				tex = 111;
@@ -239,7 +240,7 @@ void			skybox(t_struct *p, int y, int x)
 				tex = 113;
 			else if (t >= 270 && t < 360)
 				tex = 114;
-			tmp_y = - y;
+			tmp_y = -y;
 			ty = (int)(((double)tmp_y / ((double)((HEIGHT)) / 2.1))
 					* p->tex[tex].height) % (p->tex[tex].height);
 			ty = 639 - ty;
@@ -248,7 +249,7 @@ void			skybox(t_struct *p, int y, int x)
 			ty = (int)(((double)y / ((double)((HEIGHT)) / 2.1))
 					* p->tex[tex].height) % (p->tex[tex].height);
 		color_text_sky(p, tx, ty, tex);
-		draw_pixel2(p, p->img_str2, x, y +p->h);
+		draw_pixel2(p, p->img_str2, x, y + p->h);
 	}
 }
 
@@ -262,7 +263,6 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	p->c->y_end = (int)(wall_height / 2 + HEIGHT / 2);
 	if (y < 0)
 		y = 0;
-
 	if (p->k == 9)
 		skybox(p, y - p->h, x);
 	tex_x = hodor(p);
@@ -280,7 +280,7 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 		p->c->y_end = HEIGHT - 1 - p->h;
 	p->c->y_end += p->h;
 	which_text(p);
-	while (y++ <= p->c->y_end )
+	while (y++ <= p->c->y_end)
 	{
 		tex_y = (y * 2 - HEIGHT + wall_height - p->h * 2)
 			* (p->tex[p->tid].height / 2) / wall_height;
