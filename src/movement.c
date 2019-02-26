@@ -121,21 +121,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			break ;
 		t++;
 	}
-	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
-	{
-		while (i < 5)
-		{
-			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
-					[(int)((p->c->p_y + p->c->plane_y * i * s / 4))] == 1)
-				break ;
-			if (++i == 5)
-			{
-				p->c->p_x += p->c->plane_x * s;
-				p->c->p_y += p->c->plane_y * s;
-			}
-		}
-	}
-	else if (move == 0 && (int)p->c->p_x == 7 && (int)p->c->p_y == 7
+	if (move == 0 && (int)p->c->p_x == 7 && (int)p->c->p_y == 7
 			&& p->k != 1 && p->k != 2 && p->k != 3 && p->k != 4)
 	{
 		if (p->k == 0)
@@ -150,6 +136,21 @@ void			move_up(t_struct *p, int move, int i, double s)
 			p->elevator = 5;
 		elevator(p);
 	}
+	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
+	{
+		while (i < 5)
+		{
+			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
+					[(int)((p->c->p_y + p->c->plane_y * i * s / 4))] == 1)
+				break ;
+			if (++i == 5)
+			{
+				p->c->p_x += p->c->plane_x * s;
+				p->c->p_y += p->c->plane_y * s;
+			}
+		}
+	}
+
 	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
 		while (i < 5)
@@ -164,7 +165,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-	if (move == 12 || move == 13 || move == 68 || move == 66)
+	else if (move == 12 || move == 13 || move == 68 || move == 66)
 		system("afplay ./musics/tp.mp3 &");
 	move_up2(p, move);
 }

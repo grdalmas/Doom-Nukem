@@ -47,8 +47,8 @@ t_sprite    *init_sprite(void)
 		//        {2, 46, 11.5, 2,0},
 		//        {2, 50, 11.5, 13,0},
 		//    {8, 51, 2, 8,0}, //arbre lego
-		{2, 42, 6, 4.5,1},
-		{2, 44, 9.5, 4.5,1},
+//		{2, 42, 6, 4.5,1},
+//		{2, 44, 9.5, 4.5,1},
 		//{2, 45, 13, 8,0},
 		//{1, 33, 7.5, 7.5,1}, // 22 statue
 
@@ -217,9 +217,15 @@ void			draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	//else if (p->hit == 3)
 	//	tex = 5;
 	else if (p->hit == 3 && p->s == - 1)
+	{
 		tex = 5;
+		p->tid = 5;
+	}
 	else if (p->hit == 3 && p->s >= 0)
+	{
 		tex = 18;
+		p->tid = 18;
+	}
 	while (y++ <= p->c->y_end )
 	{
 		//		p->c->what = 2;

@@ -43,7 +43,7 @@ static void		*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 5;
+	param->k = 9;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
