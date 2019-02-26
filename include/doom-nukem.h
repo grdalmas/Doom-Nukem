@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 23:58:46 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 00:02:42 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,5 +278,6 @@ void				rotrump(t_struct *p);
 void        		sprite_move(t_struct *p);
 void				which_text(t_struct *p);
 void				draw_map_creator(void *gm);
-void                creator_map(t_struct *);
+void				creator_map(t_struct *);
+void				minimap2(t_struct *p);
 #endif

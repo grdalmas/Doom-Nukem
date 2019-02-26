@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/26 23:58:59 by bbataini         ###   ########.fr        #
+#    Updated: 2019/02/27 00:02:20 by cmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ INC_DIR =	include\
 	# SOURCES
 SRC =		draw_3d.c\
 			minimap.c\
+			minimap2.c\
 			hooks.c\
 			draw_line.c\
 			draw_line2.c\
