@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/26 23:49:42 by cmartine         ###   ########.fr        #
+#    Updated: 2019/02/26 23:58:59 by bbataini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ SRC =		draw_3d.c\
 			weapon.c\
 			trump.c\
 			init_menu_states.c\
-			map_creator.c\
 			game.c\
 			creator_map.c\
 

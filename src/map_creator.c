@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   map_creator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:35:20 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/26 23:17:48 by cmartine         ###   ########.fr       */
+/*   Created: 2019/02/26 23:39:51 by bbataini          #+#    #+#             */
+/*   Updated: 2019/02/26 23:40:27 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+void		map_creator(t_struct *p)
+{
+	printf("erg");
+	(void)p;
+}
+
+
 /*
 static void put_interface_text(t_struct *p)
 {
