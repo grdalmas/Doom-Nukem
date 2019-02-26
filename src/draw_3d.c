@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 06:21:01 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 01:00:43 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		which_text(t_struct *p)
 {
 	if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] > 1)
 		p->tid = p->map[p->k][p->c->map_x % 18][p->c->map_y % 18];
-	else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] == 1)
+	else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] == 1 && p->tid != 5)
 	{
 		if (p->c->side == 0 && p->c->r_dir_x > 0)
 			p->tid = 9;
@@ -27,20 +27,24 @@ void		which_text(t_struct *p)
 		else
 			p->tid = 8;
 	}
-	if (p->tid == 5 && p->s > 0)
+	if (p->k == 8 && p->tid == 5)// && p->s > 0)
+	{
+		printf("je rentre dans le bon\n");
 		p->tid = 18;
-	if (p->k == 0 && p->tid == 22 && p->elev == 0)
+	}
+	else if (p->k == 0 && p->tid == 22 && p->elev == 0)
 	{
 			p->tid = 117;
 			p->porte[0].poort = 1;
 	}
-	if (p->k == 2 && p->tid != 24 && p->tid != 13)
+	else if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
-	if (p->k == 7 && p->tid != 22)
+	else if (p->k == 7 && p->tid != 22)
 		p->tid = 102;
-	if (p->k == 9 && p->tid != 22 && p->tid != 115)
+	else if (p->k == 9 && p->tid != 22 && p->tid != 115)
 		p->tid = 4;
-
+//	printf("p %d\n", p->k);
+//	printf("ptid %d\n", p->tid);
 }
 
 void		which_textf(t_struct *p)
