@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/25 21:43:02 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 01:12:23 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,15 @@ void		take_object(t_struct *p)
 		p->sprite[2].k = 6;
 		p->weapon.id = 2;
 	}
+	else if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
+	{
+		p->trump = 5;
+		p->sprite[1].k = 6;
+		p->cure = 1;
+		p->life += 50;
+		if (p->life > 100)
+			p->life = 100;
+	}
 	else if (p->k == 0 && p->trump == 1)
 		p->trump = 0;
 	else if (p->k == 2 && p->trump == 2)
@@ -86,15 +95,7 @@ void		take_object(t_struct *p)
 		p->trump = 7;
 	else if (p->trump == 4)
 		p->trump = 0;
-	if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
-	{
-		p->trump = 5;
-		p->sprite[1].k = 6;
-		p->cure = 1;
-		p->life += 50;
-		if (p->life > 100)
-			p->life = 100;
-	}
+
 }
 
 void			soundstep(t_struct *p)
