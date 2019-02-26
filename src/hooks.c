@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/22 20:10:44 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/26 05:46:28 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,23 +70,13 @@ void		take_object(t_struct *p)
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->trump != 4 && p->sprite[2].k != 6)
+	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[19].x && (int)p->sprite[19].y == (int)p->c->p_y && p->trump != 4 && p->sprite[19].k != 6)
 	{
 		p->trump = 4;
-		p->sprite[2].k = 6;
+		p->sprite[19].k = 6;
 		p->weapon.id = 2;
 	}
-	else if (p->k == 0 && p->trump == 1)
-		p->trump = 0;
-	else if (p->k == 2 && p->trump == 2)
-		p->trump = 0;
-	else if (p->k == 7 && p->trump == 3)
-		p->trump = 0;
-	else if (p->trump == 6)
-		p->trump = 7;
-	else if (p->trump == 4)
-		p->trump = 0;
-	if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
+	else if (p->k == 8 && (int)p->sprited[1] == 0)// && p->trump != 5) //&& p->sprite[1].k != 6)
 	{
 		p->trump = 5;
 		p->sprite[1].k = 6;
@@ -95,23 +85,35 @@ void		take_object(t_struct *p)
 		if (p->life > 100)
 			p->life = 100;
 	}
+	else if (p->trump == 1)
+		p->trump = 0;
+	else if (p->trump == 2)
+		p->trump = 0;
+	else if (p->trump == 3)
+		p->trump = 0;
+	else if (p->trump == 6)
+		p->trump = 7;
+	else if (p->trump == 4)
+		p->trump = 0;
+	else if (p->trump == 5)
+		p->trump = 0;
 }
 
 void			soundstep(t_struct *p)
 {
-	if (p->c->pas == PAS && (p->c->pas = 1) == 1)
+	if (p->c->pas == p->pas && (p->c->pas = 1) == 1)
 		system("afplay ./musics/pas1.mp3 &");
-	else if (p->c->pas == PAS + 1 && (p->c->pas = 2) == 2)
+	else if (p->c->pas == p->pas + 1 && (p->c->pas = 2) == 2)
 		system("afplay ./musics/pas2.mp3 &");
-	else if (p->c->pas == PAS + 2 && (p->c->pas = 3) == 3)
+	else if (p->c->pas == p->pas + 2 && (p->c->pas = 3) == 3)
 		system("afplay ./musics/pas3.mp3 &");
-	else if (p->c->pas == PAS + 3 && (p->c->pas = 4) == 4)
+	else if (p->c->pas == p->pas + 3 && (p->c->pas = 4) == 4)
 		system("afplay ./musics/pas4.mp3 &");
-	else if (p->c->pas == PAS + 4 && (p->c->pas = 5) == 5)
+	else if (p->c->pas == p->pas + 4 && (p->c->pas = 5) == 5)
 		system("afplay ./musics/pas5.mp3 &");
-	else if (p->c->pas == PAS + 5 && (p->c->pas = 6) == 6)
+	else if (p->c->pas ==  p->pas + 5 && (p->c->pas = 6) == 6)
 		system("afplay ./musics/pas6.mp3 &");
-	else if (p->c->pas == PAS + 6 && (p->c->pas = 0) == 0)
+	else if (p->c->pas >= p->pas + 6 && (p->c->pas = 0) == 0)
 		system("afplay ./musics/pas7.mp3 &");
 }
 
@@ -130,10 +132,18 @@ int				key_press_hook(t_struct *p)
 	if (p->keypress[KEY_RIGHT] == 1)
 		rotation(p, 1);
 	if (p->keypress[KEY_SHIFT] == 1)
+	{
 		sprint = 0.3;
-	else
+		p->c->pas += 7;
+		p->pas = 21;
+	}
+		else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1 || p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
+	{
 		sprint = 0.2;
-	if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
+		p->pas = 35;
+		p->c->pas += 7;
+	}
+		if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
 		s = (p->keypress[KEY_W] ? sprint : - sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
@@ -145,9 +155,8 @@ int				key_press_hook(t_struct *p)
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
 			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}
-	//	soundstep(p);
 	if (key == 0)
-		p->c->pas += 7;
+		soundstep(p);
 	move_up(p, key, 0, s);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 04:31:57 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 04:48:33 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,23 @@ void	draw_game(void *gm)
 	t_struct	*p;
 	int i;
 
-	i = 0;
+	char *s;
 	if (!(p = (t_struct*)gm))
 		return ;
+	p->time.update(&p->time);
+	i = 0;
 	if (p->temp < 80)
 		p->temp++;
 	else
 		p->temp = 0;
-	p->time.update(&p->time);
+
+	if (p->menu == 1)
+	{
 	key_press_hook(p);
 	raycasting(p, 0, 0);
-	mlx_string_put(p->mlx_ptr, p->w_ptr, 1595, 5, 0xffffff, ft_itoa((int)p->time.fps));
+	s = ft_itoa((int)p->time.fps);
+		mlx_string_put(p->mlx_ptr, p->w_ptr, 1595, 5, 0xffffff, s);
+		free(s);
 	if (p->keypress[KEY_R] == 1 && p->weapon.reload < 12)
 		p->weapon.reload += 1;
 	else
@@ -40,15 +46,12 @@ void	draw_game(void *gm)
 		rotrump(p);
 	while (i < NUMPORTE)
 	{
-	//	printf("%i ",p->porte[i].poort);
 		if (p->porte[i].poort == 1 && p->porte[i].open > 0)
 			p->porte[i].open -= p->porte[i].spd;
 		if (p->porte[i].poort == 0 && p->porte[i].open <= 1)
 			p->porte[i].open += p->porte[i].spd;
 		i++;
 	}
-	//if (p->k == 7)
-	//printf("%i ", (int)p->c->p_y);
 	if (p->keypress[KEY_E] == 1 && p->k == 8 && (int)p->c->p_x == 2 && (int)p->c->p_y == 7 && p->s < 0)
 	{
 		p->s = 0;
@@ -57,7 +60,10 @@ void	draw_game(void *gm)
 		{
 		p->porte[1].poort = 0;
 			p->s++;
-			mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 50, 0xffffff, ft_itoa((int)(11 - p->s/20)));
+			char *str;
+			str = ft_itoa((int)(11 - p->s / 20));
+			mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 50, 0xffffff, str);
+			free(str);
 			if (p->s >= 200)
 				spawn(p);
 		}
@@ -65,6 +71,13 @@ void	draw_game(void *gm)
 		weapon(p);
 		if (p->cure == 0)
 			p->life -= 0.03;
-
-	//printf("%f ", atan2(p->c->dir_x,p->c->dir_y) * 180 / PI);
+	}
+	else if (p->menu == 2) // GAME OVER MODE
+	{
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340, 0);
+		s = ft_itoa(p->temp);
+		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 500, 0xffffff, "Retour au menu :");
+		mlx_string_put(p->mlx_ptr, p->w_ptr, 1080, 500, 0xffffff, s);
+		free(s);
+	}
 }
