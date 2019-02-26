@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/22 06:18:31 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 04:37:42 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				keypress(int keycode, void *d)
 	if (!(p = (t_struct*)d))
 		return (0);
 	if (keycode == MLX_KEY_ESCAPE)
-		p->keypress[KEY_ESCAPE] = 1;
+		close_window(p);
 	else if (keycode == MLX_KEY_W)
 		p->keypress[KEY_W] = 1;
 	else if (keycode == MLX_KEY_D)
@@ -88,7 +88,16 @@ int				keypress(int keycode, void *d)
 	{
 		p->keypress[KEY_R] = 1;
 	}
-
+	else if (keycode == MLX_KEY_P && p->menu != 2) // PAUSE
+	{
+		if (p->menu == 0)
+			p->menu = 1;
+		else
+		{
+			p->menu = 0;
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[120].img_ptr, 340, 0);
+		}
+	}
 	else if (keycode == MLX_KEY_K)
 		p->h += 10;
 	else if (keycode == MLX_KEY_L)
@@ -106,7 +115,6 @@ int				keypress(int keycode, void *d)
 	  }*/
 	return (1);
 }
-
 
 int				keyrelease(int keycode, void *d)
 {

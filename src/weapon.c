@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 00:45:34 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 05:02:22 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@ void		touch_by_enemy(t_struct *p)
 	int i;
 
 	i = 4;
-	while (i < 10)
+	while (i < 16)
 	{
 		if (i < 10 && p->k == p->sprite[i].k && (int)p->sprite[i].x
 	== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y && p->life >= 0)
 			p->life -= 0.2;
 		else if (i < 16 && p->k == p->sprite[i].k && (int)p->sprite[i].x
 	== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y)
-			p->life -= 10;
+			p->life -= 2;
 		i++;
 	}
 	if (p->life < 1)
 	{
 		p->life = 0;
-//		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
+		p->menu = 2;
+		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
 	}
 }
 
@@ -129,7 +130,7 @@ void		soundtronco(t_struct *p)
 void		weapon(t_struct *p)
 {
 
-	p->weapon.id = 2;
+	p->weapon.id = 1;
 
 	if (p->weapon.id == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 01:53:51 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 05:06:17 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void		take_object(t_struct *p)
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->trump != 4 && p->sprite[2].k != 6)
+	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[19].x && (int)p->sprite[19].y == (int)p->c->p_y && p->trump != 4 && p->sprite[19].k != 6)
 	{
 		p->trump = 4;
-		p->sprite[2].k = 6;
+		p->sprite[19].k = 6;
 		p->weapon.id = 2;
 	}
-	else if (p->k == 8 && (int)p->sprited[1] == 0 && p->trump != 5 && p->sprite[1].k != 6)
+	else if (p->k == 8 && (int)p->sprited[1] == 0)// && p->trump != 5) //&& p->sprite[1].k != 6)
 	{
 		p->trump = 5;
 		p->sprite[1].k = 6;
@@ -95,7 +95,6 @@ void		take_object(t_struct *p)
 		p->trump = 7;
 	else if (p->trump == 4)
 		p->trump = 0;
-
 }
 
 void			soundstep(t_struct *p)
@@ -122,8 +121,6 @@ int				key_press_hook(t_struct *p)
 	int key = 0;
 	float sprint;
 
-	if (p->keypress[KEY_ESCAPE] == 1)
-		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
 		rotation(p, 0);
 	if (p->keypress[KEY_RIGHT] == 1)
