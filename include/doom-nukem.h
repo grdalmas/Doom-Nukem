@@ -23,7 +23,7 @@
 # include <math.h>
 
 # define WIDTH 1280
-#define HEIGHT 960
+# define HEIGHT 960
 # define WIDTHMAP 270
 # define HEIGHTMAP 270
 # define UP 126
@@ -61,7 +61,7 @@ typedef enum	e_keystate
 	LAST_KEY_PRESS,
 	KEY_TAB, KEY_W, KEY_UP, KEY_DOWN, KEY_D, KEY_A, KEY_SHIFT,
 	KEY_C, KEY_LEFT, KEY_RIGHT, KEY_SPACEBAR, KEY_ESCAPE, KEY_Q, KEY_E, KEY_R,
-	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5,
+	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_M,
 	NB_KEYSTATE
 
 }				t_keystate;
@@ -235,6 +235,9 @@ typedef struct		s_struct
 	char			trumplive;
 	char			menu;
 	t_game			gm;
+	t_img			image[NB_IMG];
+	t_img			texture[NB_TEXTURE];
+	t_page			current_page;
 }					t_struct;
 
 int					close_window(t_struct *p);
@@ -273,5 +276,6 @@ void				alive(t_struct *p);
 void				spawn(t_struct *p);
 void				rotrump(t_struct *p);
 void        		sprite_move(t_struct *p);
-void		which_text(t_struct *p);
+void				which_text(t_struct *p);
+void				draw_map_creator(void *gm);
 #endif

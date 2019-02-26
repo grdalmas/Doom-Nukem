@@ -123,6 +123,10 @@ int				key_press_hook(t_struct *p)
 	int key = 0;
 	float sprint;
 
+	if (p->keypress[KEY_M] == 1)
+		p->gm.current_state = MAP_CREA;
+	if (p->keypress[KEY_ESCAPE] == 1)
+		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
 		rotation(p, 0);
 	if (p->keypress[KEY_RIGHT] == 1)

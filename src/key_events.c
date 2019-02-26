@@ -69,6 +69,8 @@ int				keypress(int keycode, void *d)
 		p->keypress[KEY_4] = 1;
 	else if (keycode == MLX_KEY_5)
 		p->keypress[KEY_5] = 1;
+	else if (keycode == MLX_KEY_M)
+	 	p->keypress[KEY_M] = 1;
 	else if (keycode == MLX_KEY_E)// && proxyporte(p) != 0)
 	{
 		if (p->porte[proxyporte(p)].poort == 0)
@@ -122,6 +124,8 @@ int				keyrelease(int keycode, void *d)
 
 	if (!(p = (t_struct*)d))
 		return (0);
+	if (keycode == MLX_KEY_M)
+	 	p->keypress[KEY_M] = 0;
 	if (keycode == MLX_KEY_ESCAPE)
 		p->keypress[KEY_ESCAPE] = 0;
 	else if (keycode == MLX_KEY_W)
