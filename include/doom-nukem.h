@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/23 22:04:59 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/26 16:16:49 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <math.h>
 
 # define WIDTH 1280
-#define HEIGHT 960
+# define HEIGHT 960
 # define WIDTHMAP 270
 # define HEIGHTMAP 270
 # define UP 126
@@ -234,6 +234,7 @@ typedef struct		s_struct
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
+	t_page			current_page;
 }					t_struct;
 
 int					close_window(t_struct *p);

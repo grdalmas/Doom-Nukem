@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:25:55 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 06:10:03 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 14:26:32 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void			spawn(t_struct *p)
 {
 	int i;
 //	printf(" %i ", (int)p->c->p_x);
-	
+
 //	printf(" %i ", (int)p->c->p_y);
 	if((int)p->c->p_x != 9 || (int)p->c->p_y != 7)
 	p->porte[1].poort = 1;

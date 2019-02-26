@@ -6,21 +6,58 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:12:31 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/23 21:10:10 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/26 16:11:35 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_MANAGER_H
 # define GAME_MANAGER_H
 
-/*
-**	Menu Principal
-*/
-# define G_NAME "WOLF 3-D"
-# define G_RUN "Game"
-# define G_MC "Map Creator"
-# define G_EXIT "Exit"
+# define PERCENTAGE(p, x) ((p * x) / 100)
 
+/*
+**	Map Creator
+**	TEXT:				Nombre de texture dans la palette.
+**	TEXT_P:				Ecart en pixel, (le pas) entre chaque box de texture.
+**	ITEM_SIZE:			Taille en pixel d'un carre pour representer une texture
+**						/!\ pas encore proportionel a la taille fenetre ...
+**	CUSTOM_MAP_NAME:	Nom du fichier lors d'une save.
+**	MAP_CREA_MAX_MAP:	Nombre de map maximum & Utile aussi pour l'increment
+**						du chiffre dans le nom du fichier.
+*/
+# define MC_TITLE "MAP CREATOR"
+# define MC_INFO "Draw your map"
+# define MC_SAVE "save"
+# define TEXT 11
+# define TEXT_P 16
+# define CUSTOM_MAP_NAME "./custom_map_0.txt"
+# define MAP_CREA_MAX_MAP '9' + 1
+# define ITEM_SIZE 48
+
+/*
+**	Caractere a gerer differement pour l'espacement
+**	lors de l'affichage d'une chaine de caractere.
+**	(Caracteres qui rentre dans une case de 16 x 48 pixel).
+*/
+# define TINY_CHAR ".,1l!':;]Iij|["
+
+/*
+**	Les caracteres sont dans des cases de 32 x 48 pixel.
+**	Afin de ne pas copier les contour de la case, nous recuperons
+**	un rectangle legerement plus petit definit ci dessous.
+**	La premiere case commence au pixel 34 en x et 34 en y.
+*/
+# define FRAME_X 32
+# define FRAME_Y 48
+# define BOX_X FRAME_X - 2
+# define BOX_Y FRAME_Y - 2
+# define START_XY 34
+
+/*
+**	Calcul de la position reel du caractere en pixel.
+*/
+# define GET_POS_X(c) (START_XY + (FRAME_X * GET_X(c)) )
+# define GET_POS_Y(c) (START_XY + (FRAME_Y * GET_Y(c)) )
 
 
 typedef enum	e_texture
