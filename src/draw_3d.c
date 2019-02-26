@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 06:12:36 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 06:11:33 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		which_text(t_struct *p)
 		p->tid = 23;
 	else if (p->k == 7 && p->tid != 22)
 		p->tid = 102;
-	else if (p->k == 9 && p->tid != 22 && p->tid != 115)
+	else if (p->k == 9 && p->tid != 22 && p->tid != 6)
 		p->tid = 4;
 //	printf("p %d\n", p->k);
 //	printf("ptid %d\n", p->tid);
@@ -75,7 +75,7 @@ void		which_textf(t_struct *p)
 		p->tid = 90;
 	else if (p->k == 7)
 		p->tid = 102;
-	else if (p->k == 9 && p->tid != 115)
+	else if (p->k == 9 && p->tid != 6)
 		p->tid = 4;
 }
 

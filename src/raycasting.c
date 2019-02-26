@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 06:07:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 06:09:31 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,8 @@ void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	p->c->y_end += p->h;
 	//	tex_x *= BPP;
 	if (p->hit == 2)
-		tex = 115;
-	else if (p->hit == 3 && p->s == -1)
+		tex = 6;
+	else if (p->hit == 3 && p->s == - 1)
 	{
 		tex = 5;
 		p->tid = 5;
