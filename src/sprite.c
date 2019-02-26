@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/18 21:03:58 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:30:15 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 
 	p->x = p->mspr.startx - 1;
 //	p->c->what = 2;
-	while (++p->x < p->mspr.endx)
+	while (++p->x < p->mspr.endx && p->mspr.endx)
 	{
 		col = (p->x - p->mspr.startx) / d;
 		col = col * BPP;

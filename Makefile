@@ -46,7 +46,6 @@ SRC =		draw_3d.c\
 			weapon.c\
 			trump.c\
 			init_menu_states.c\
-			map_creator.c\
 			game.c\
 			creator_map.c\
 
