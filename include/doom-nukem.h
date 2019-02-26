@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/25 20:58:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 03:25:51 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define MOTIONNOTIFY 6
 # define CLOSEMASK (1L<<17)
 # define NUMSPRITE 23
-# define TEX 119
+# define TEX 121
 # define FOV 60
 # define PI 3.14159256
 # define PORTE 1
@@ -232,6 +232,8 @@ typedef struct		s_struct
 	char			trons;
 	char			elev;
 	char			pas;
+	char			trumplive;
+	char			menu;
 	t_game			gm;
 }					t_struct;
 

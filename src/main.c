@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/26 01:51:22 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 05:01:14 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 0;
+	param->k = 5;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -55,6 +55,8 @@ void			initplayer(t_struct *param)
 	param->temp = 0;
 	param->trons = 0;
 	param->elev = 0;
+	param->trumplive = 1;
+	param->menu = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
 }
@@ -105,13 +107,13 @@ void		mvmy2(t_struct *p, int i, float sx, float sy)
 	int j;
 
 	j = 10;
-	while (j < 17)
+	while (j < 16)
 	{
 		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
 					== (int)p->sprite[j].x &&
 				(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
 			break ;
-		else if (j >= 16)
+		else if (j >= 15)
 		{
 			p->sprite[i].x += sx;
 			p->sprite[i].y += sy;
@@ -232,8 +234,12 @@ void		alive(t_struct *p)
 			alldead = 0;
 		i++;
 	}
-	if (alldead == 1)
+	if (alldead == 1 && p->weapon.id != 2)
+	{
 		p->sprite[19].k = 5;
+	}
+	if (p->sprite[17].k == 6)
+		p->trumplive = 0;
 }
 
 int		mlx_main_loop(t_struct *p)
