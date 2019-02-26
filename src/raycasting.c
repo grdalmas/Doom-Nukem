@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 04:27:45 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 06:09:31 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_sprite    *init_sprite(void)
 {
 	static t_sprite sprite[NUMSPRITE] = {
-		{2, 0, 12, 7.5,1}, // tools
+		{2, 0, 12, 7.5,100}, // tools
 
-		{8, 1, 7.5, 9.5, 10}, // medikit
-		{6, 94, 7.5, 2, 1}, // a remplacer
-		{1, 3, 3, 3,1}, //map
+		{8, 1, 7.5, 9.5, 1000}, // medikit
+		{6, 94, 7.5, 2, 100}, // a remplacer
+		{1, 3, 3, 3, 100}, //map
 		{5, 82, 7.5, 2, 10},  // se raproche du player 4
 		{5, 82, 1.5, 10.5, 10}, // se rapproche du player 5
 		{5, 82, 3.5, 11.5, 10}, // se rapproche du player 6
@@ -38,7 +38,7 @@ t_sprite    *init_sprite(void)
 		{0, 14, 11,11 ,10}, //trump 17
 		{9, 14, 7.5,1.5 ,10}, //trump 18
 
-		{6, 95, 7.5, 2, 1}, // pompe 19
+		{6, 95, 7.5, 2, 50}, // pompe 19
 
 		//        {2, 48, 6, 11,0},
 		//        {2, 48, 9, 11,0},
@@ -122,7 +122,7 @@ void		hit_walls(t_struct *p, int x)
 		if (p->map[p->k][p->c->map_x][p->c->map_y] > 0)
 		{
 
-			if (p->map[p->k][p->c->map_x][p->c->map_y] == 115 && p->hit != 2)
+			if (p->map[p->k][p->c->map_x][p->c->map_y] == 6 && p->hit != 2)
 				p->hit = 2;
 			else if (p->map[p->k][p->c->map_x][p->c->map_y] == 5 && p->hit != 3)
 			{
@@ -213,7 +213,7 @@ void			draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	p->c->y_end += p->h;
 	//	tex_x *= BPP;
 	if (p->hit == 2)
-		tex = 115;
+		tex = 6;
 	//else if (p->hit == 3)
 	//	tex = 5;
 	else if (p->hit == 3 && p->s == - 1)
