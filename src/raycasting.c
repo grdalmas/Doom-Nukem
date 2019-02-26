@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 06:09:31 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:33:39 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_sprite			*init_sprite(void)
 	static t_sprite sprite[NUMSPRITE] = {
 		{2, 0, 12, 7.5, 1}, // tools
 		{8, 1, 7.5, 9.5, 10}, // medikit
-		{6, 94, 7.5, 2, 1}, // a remplacer
+		{0, 51, 9, 2, 1000}, // computer
 		{1, 3, 3, 3, 1}, //map
 		{5, 82, 7.5, 2, 10},  // se raproche du player 4
 		{5, 82, 1.5, 10.5, 10}, // se rapproche du player 5
