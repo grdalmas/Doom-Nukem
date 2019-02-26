@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/26 23:21:49 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 00:18:14 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			initplayer(t_struct *param)
 	param->h = 0;
 	param->weapon.reload = 0;
 	param->s = -1;
-	param->trump = 1;
+	param->trump = 0;
 	param->temp = 0;
 	param->trons = 0;
 	param->elev = 0;
