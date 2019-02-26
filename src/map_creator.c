@@ -6,12 +6,12 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:20 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/26 17:15:05 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:17:48 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"p->w
-
+#include "doom-nukem.h"
+/*
 static void put_interface_text(t_struct *p)
 {
 	t_coord pt;
@@ -37,4 +37,4 @@ void	draw_map_creator(void *gm)
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->image[GAME_I].ptr, 0, p->image[MAP_CREATOR].size.y);
 	put_interface_text(p);
 	draw_pallette(p);
-}
+}*/

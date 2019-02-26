@@ -6,12 +6,12 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 18:30:19 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/23 22:04:03 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:17:13 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
+/*
 void	put_pixel_txt(t_coord pti, t_coord ptt, t_img *txt, t_img *image)
 {
 	unsigned int	pos;
@@ -55,4 +55,4 @@ void	put_texture_on_img(t_img *dest, t_img *text)
 		}
 		pt.y++;
 	}
-}
+}*/
