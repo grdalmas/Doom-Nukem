@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/26 00:01:54 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 00:55:35 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 8;
+	param->k = 5;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -51,7 +51,7 @@ void			initplayer(t_struct *param)
 	param->h = 0;
 	param->weapon.reload = 0;
 	param->s = -1;
-	param->trump = 0;
+	param->trump = 1;
 	param->temp = 0;
 	param->trons = 0;
 	param->elev = 0;
@@ -233,7 +233,7 @@ void		alive(t_struct *p)
 		i++;
 	}
 	if (alldead == 1)
-		p->sprite[1].k = 5;
+		p->sprite[19].k = 5;
 }
 
 int		mlx_main_loop(t_struct *p)

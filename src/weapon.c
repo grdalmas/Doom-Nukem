@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/25 21:39:00 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 00:45:34 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		touch_by_enemy(t_struct *p)
 	if (p->life < 1)
 	{
 		p->life = 0;
-		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
+//		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
 	}
 }
 
@@ -59,7 +59,11 @@ void		life_barre(t_struct *p)
 	p->c->x1 = 310;
 	draw_line2(40, 310, 10, p);
 	draw_line2(40, 10, 40, p);
-	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, ft_itoa(p->life));
+	char *str;
+	str = ft_itoa(p->life);
+	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, str);
+	free(str);
+//	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, ft_itoa(p->life));
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 15, 0xffffff, "%");
 	i = 0;
 	while (i < p->life * 3)

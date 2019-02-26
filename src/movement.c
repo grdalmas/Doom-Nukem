@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 06:17:30 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/26 01:12:58 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ void			move_up(t_struct *p, int move, int i, double s)
 	{
 		while (i < 5)
 		{
-			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * i * s / 4))]
-					[(int)((p->c->p_y + p->c->dir_y * i * s / 4))] == 1)
+			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
+					[(int)((p->c->p_y + p->c->plane_y * i * s / 4))] == 1)
 				break ;
 			if (++i == 5)
 			{
