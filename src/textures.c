@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/26 06:08:08 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 23:30:05 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		load_textures3(t_struct *p)
 	p->tex[48].str = ft_strdup("textures/TRUMP5.xpm");
 	p->tex[49].str = ft_strdup("textures/TRUMP6.xpm");
 	p->tex[50].str = ft_strdup("textures/lego_starship.xpm");
-	p->tex[51].str = ft_strdup("textures/lego_tree.xpm");
+	p->tex[51].str = ft_strdup("textures/computer.xpm");
 	p->tex[52].str = ft_strdup("textures/Van_Gogh_nuit2.xpm");
 	p->tex[53].str = ft_strdup("textures/Van_Gogh_nuit1.xpm");
 	p->tex[54].str = ft_strdup("textures/Claude_Monet_soleil.xpm");
