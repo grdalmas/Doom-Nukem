@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 05:46:28 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 00:25:34 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ void		take_object(t_struct *p)
 	} */
 	//	printf("iuh");
 	// pour fair apparaitre la tronconneuse
-	if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
+	
+	if (p->k == 0 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->menu != -1)
+		p->menu = 3;
+	else if (p->menu == -1)
+		p->menu = 1; //         MENU EDITEUR
+		
+		else if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
 	{
 	//		printf("ilasfjklajflw");
 		p->trump = 3;
