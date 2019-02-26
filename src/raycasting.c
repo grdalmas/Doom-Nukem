@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 01:13:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 02:01:42 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,7 +274,7 @@ void		raycasting(t_struct *p, int x, int z)
 	if (p->sprite[0].k == 6 && p->sprite[1].k == 6 && p->sprite[2].k == 6 &&
 			p->sprite[3].k == 6)
 		p->tex[22].img_str = p->tex[6].img_str;
-//	if (p->maap == 1)
+	if (p->maap == 1)
 	{
 		minimap(p);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr, 35, 35);

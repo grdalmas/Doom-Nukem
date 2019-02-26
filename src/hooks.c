@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/26 01:07:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/26 01:53:51 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void		take_object(t_struct *p)
 		if (p->life > 100)
 			p->life = 100;
 	}
-	else if (p->k == 0 && p->trump == 1)
+	else if (p->trump == 1)
 		p->trump = 0;
-	else if (p->k == 2 && p->trump == 2)
+	else if (p->trump == 2)
 		p->trump = 0;
-	else if (p->k == 7 && p->trump == 3)
+	else if (p->trump == 3)
 		p->trump = 0;
 	else if (p->trump == 6)
 		p->trump = 7;
