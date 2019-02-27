@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 02:20:48 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 05:11:58 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ void	draw_game(void *gm)
 	}
 	else if (p->menu == 3) // MAP EDITOR
 	{
-
+		if (p->edit != 0)
+			img_to_img(p, p->mousex - 350, p->mousey - 20, p->edit, 0.15625);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 //		hookcreator(p);
 		creator_map(p);

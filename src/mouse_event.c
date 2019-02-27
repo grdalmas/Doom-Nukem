@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 04:37:47 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 05:19:19 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int			rotation2(int x, int y, t_struct *p)
 {
 	if (p->menu == 3)
 	{
+		p->mousex = x;
+		p->mousey = y;
 			printf("//%i %i//", x, y);
 		if (p->edit != 0)
 			img_to_img(p, x - 340, y - 20, p->edit, 0.15625);
@@ -62,3 +64,21 @@ int			rotation2(int x, int y, t_struct *p)
 	}
 	return (0);
 }
+
+
+int				mouse_button(int button, int x, int y, t_struct *p)
+{
+	if (p->menu == 3)
+	{
+		if (x > 1183 && x < 1183 + 76 && y > 135 && y < 135 + 76)
+			p->edit = 6;
+		else if (x > 840 && x < 50 && y > 50 && y < 50)
+			p->edit = 6;
+		printf("b : %i \n", button);
+		printf("x : %i \n", x);
+		printf("y : %i \n", y);
+	}
+	return (0);
+}
+
+
