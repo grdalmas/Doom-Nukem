@@ -6,11 +6,12 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 18:21:58 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 22:47:37 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
 
 // void			flyisabug(t_struct *p)
 // {

@@ -7,14 +7,14 @@ void		creator_map(t_struct * p)
 	img_to_img(p, 0, 0, 42, 1); //tes
 	img_to_img(p, 155, 35, 25, 0.15625); //indice pour dessiner sur la mainp
 
-	img_to_img(p, 840, 135, 25, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 840, 240, 24, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 945, 240, 26, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 945, 135, 27, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1050, 240, 28, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1050, 135, 29, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1155, 240, 30, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1155, 135, 31, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 945, 240, 1, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 840, 135, 8, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 840, 240, 1, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 945, 135, 9, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 1050, 240, 1, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 1050, 135, 10, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 1155, 240, 1, 0.3); //gomme
+	img_to_img(p, 1155, 135, 11, 0.3); //indice pour dessiner index tex
 
 
 
@@ -45,5 +45,5 @@ void		creator_map(t_struct * p)
 		i++;
 	}
 
-//	minimap2(p);
+	minimap2(p);
 }
