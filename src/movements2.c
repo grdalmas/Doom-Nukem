@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 15:17:50 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/13 16:18:00 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 17:34:14 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void move_greg(t_struct *p, int move)
+void	move_greg(t_struct *p, int move)
 {
 	if (move == 66)
 	{
@@ -28,7 +28,7 @@ void move_greg(t_struct *p, int move)
 	}
 }
 
-void move_tim(t_struct *p, int move)
+void	move_tim(t_struct *p, int move)
 {
 	if (move == 68)
 	{

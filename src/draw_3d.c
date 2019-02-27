@@ -6,133 +6,27 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 04:25:29 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:56:19 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void		which_text(t_struct *p)
-{
-	if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] > 1)
-		p->tid = p->map[p->k][p->c->map_x % 18][p->c->map_y % 18];
-	else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] == 1 && p->tid != 5)
-	{
-		if (p->c->side == 0 && p->c->r_dir_x > 0)
-			p->tid = 9;
-		else if (p->c->side == 0 && p->c->r_dir_x < 0)
-			p->tid = 10;
-		else if (p->c->side == 1 && p->c->r_dir_y > 0)
-			p->tid = 11;
-		else
-			p->tid = 8;
-	}
-	if (p->k == 8 && p->tid == 5)// && p->s > 0)
-	{
-		printf("je rentre dans le bon\n");
-		p->tid = 18;
-	}
-	else if (p->k == 0 && p->tid == 22 && p->elev == 0)
-	{
-			p->tid = 117;
-			p->porte[0].poort = 1;
-	}
-	else if (p->k == 2 && p->tid != 24 && p->tid != 13)
-		p->tid = 23;
-	else if (p->k == 7 && p->tid != 22)
-		p->tid = 102;
-	else if (p->k == 9 && p->tid != 22 && p->tid != 6)
-		p->tid = 4;
-//	printf("p %d\n", p->k);
-//	printf("ptid %d\n", p->tid);
-}
-
-void		which_textf(t_struct *p)
-{
-/*	if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] == 1)
-	{
-		if (p->c->side == 0 && p->c->r_dir_x > 0)
-			p->tid = 9;
-		else if (p->c->side == 0 && p->c->r_dir_x < 0)
-			p->tid = 10;
-		else if (p->c->side == 1 && p->c->r_dir_y > 0)
-			p->tid = 11;
-		else
-			p->tid = 8;
-	}
-*/	//else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] > 1)
-	//	p->tid = p->map[p->k][p->c->map_x % 18][p->c->map_y % 18];
-		p->tid = 7;
-//	if (p->k == 5)
-//		p->tid = 6;
-	if (p->k == 2 && p->tid != 24 && p->tid != 13)
-		p->tid = 23;
-	else if (p->k == 1)
-		p->tid = 65;
-	else if (p->k == 4)
-		p->tid = 67;
-	else if (p->k == 3)
-		p->tid = 90;
-	else if (p->k == 7)
-		p->tid = 102;
-	else if (p->k == 9 && p->tid != 6)
-		p->tid = 4;
-}
-
-void			color_text2(t_struct *p, int col, int line, double ratio)
-{
-	ratio = 1 - ratio * 0.8;
-	if (col + line + 3 < 262144)
-	{
-		p->color.r = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line]));
-		p->color.g = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 1]));
-		p->color.b = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 2]));
-}
-}
-
-void			color_text(t_struct *p, int col, int line, double ratio)
-{
-	if (p->hit == 2)
-			which_text(p);
-	col = col * BPP;
-	line = line * 1024;
-	ratio = 1 - ratio * 0.8;
-	if (col + line + 3 < 262144)
-	{
-		p->color.r = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line]));
-		p->color.g = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 1]));
-		p->color.b = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 2]));
-}
-}
-
-void			color_textf(t_struct *p, int col, int line, double ratio)
-{
-	col = col * BPP;
-	line = line * 1024;
-	ratio = 1 - ratio * 0.8;
-	if (col + line + 3 < 262144)
-	{
-		p->color.r = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line]));
-		p->color.g = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 1]));
-		p->color.b = (unsigned char)((ratio) * (unsigned char)(p->tex[p->tid].img_str[col + line + 2]));
-}
-}
-
 static void		floor_casting(t_struct *p, int x, int y, int z)
 {
-	double	distance;
-	double	tmp_fl_x;
-	double	tmp_fl_y;
-	int		tex_x;
-	int		tex_y;
+	double		distance;
+	double		tmp_fl_x;
+	double		tmp_fl_y;
+	int			tex_x;
+	int			tex_y;
 
 	which_textf(p);
 	y = p->c->y_end;
 	z = HEIGHT - y;
 	p->c->what = 1;
-	while (y++ < HEIGHT + abs(p->h)  && z-- > 0 - abs(p->h))
+	while (y++ < HEIGHT + abs(p->h) && z-- > 0 - abs(p->h))
 	{
-		distance = (double)HEIGHT / (2.0 * ((double)y ) - (double)HEIGHT);
+		distance = (double)HEIGHT / (2.0 * ((double)y) - (double)HEIGHT);
 		p->c->ra = distance / p->c->wall_dist;
 		if (p->k != 7)
 		{
@@ -144,7 +38,7 @@ static void		floor_casting(t_struct *p, int x, int y, int z)
 		tmp_fl_y = p->c->ra * p->c->floor_y + (1.0 - p->c->ra) * p->c->p_y;
 		tex_x = (int)(tmp_fl_x * p->tex[p->tid].width) % p->tex[p->tid].width;
 		tex_y = (int)(tmp_fl_y * p->tex[p->tid].height) % p->tex[p->tid].height;
-		color_textf(p, tex_x, tex_y, p->c->shadow );
+		color_textf(p, tex_x, tex_y, p->c->shadow);
 		tex_y = y - HEIGHT + abs(p->h);
 		draw_pixel2(p, p->img_str2, x, y + p->h);
 		if (p->k != 9)
@@ -177,86 +71,40 @@ static void		draw_floor_3d(t_struct *p)
 	}
 }
 
-int			hodor(t_struct *p)
+int				hodor(t_struct *p)
 {
-	int	tex_x;
+	int			tex_x;
 
 	if (p->tid == p->porte[p->dodor].zip)
-		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : (p->c->offset - p->porte[p->dodor].open)  * 256));
+		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : (p->c->offset
+			- p->porte[p->dodor].open) * 256));
 	else
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : p->c->offset * 256));
-	return(tex_x);
+	return (tex_x);
 }
 
 void			color_text_sky(t_struct *p, int col, int line, int tex)
 {
 	col = col * BPP;
-	line = line * (2556); // p->tex[tex].height * 4;
-	if (col + line + 3 < 1633284 /* p->tex[tex].width * 4 * p->tex[tex].height*/ && col >= 0 && line > 0)
-		//	if (col + line + 3 < 262144 && col >= 0 && line >= 0  )
+	line = line * (2556); //p->tex[tex].height * 4;
+	if (col + line + 3 < 1633284 /* p->tex[tex].width * 4 * p->tex[tex].height*/
+		&& col >= 0 && line > 0)
+		//if (col + line + 3 < 262144 && col >= 0 && line >= 0  )
 	{
 		p->color.r = (unsigned char)(p->tex[tex].img_str[col + line]);
-		//		p->color.r = (unsigned char)((1 - ratio * 0.8) * p->color.r);
+		//p->color.r = (unsigned char)((1 - ratio * 0.8) * p->color.r);
 		p->color.g = (unsigned char)(p->tex[tex].img_str[col + line + 1]);
-		//		p->color.g = (unsigned char)((1 - ratio * 0.8) * p->color.g);
+		//p->color.g = (unsigned char)((1 - ratio * 0.8) * p->color.g);
 		p->color.b = (unsigned char)(p->tex[tex].img_str[col + line + 2]);
-		//		p->color.b = (unsigned char)((1 - ratio * 0.8) * p->color.b);
-		//		p->color.a = (unsigned char)(p->tex[p->tid].img_str[col + line + 3]);
-	}
-}
-
-void			skybox(t_struct *p, int y, int x)
-{
-	double	t;
-	int		tex;
-	int		tx;
-	int		ty;
-	int		tmp_y;
-
-	tex = 0;
-	t = atan2(p->c->r_dir_x, p->c->r_dir_y) * 180 / PI;
-	while (t < 0.0)
-		t += 360.0;
-	while (t >= 360.0)
-		t -= 360.0;
-	if (t >= 0 && t < 90)
-		tex = 107;
-	else if (t >= 90 && t < 180)
-		tex = 108;
-	else if (t >= 180 && t < 270)
-		tex = 109;
-	else if (t >= 270 && t < 360)
-		tex = 110;
-	tx = ((int)((t / 90.0) * (double)p->tex[tex].width) % p->tex[tex].width);
-	while (y-- >= 0 - p->h)
-	{
-		if (y < 0)
-		{
-			if (t >= 0 && t < 90)
-				tex = 111;
-			else if (t >= 90 && t < 180)
-				tex = 112;
-			else if (t >= 180 && t < 270)
-				tex = 113;
-			else if (t >= 270 && t < 360)
-				tex = 114;
-			tmp_y = -y;
-			ty = (int)(((double)tmp_y / ((double)((HEIGHT)) / 2.1))
-					* p->tex[tex].height) % (p->tex[tex].height);
-			ty = 639 - ty;
-		}
-		else
-			ty = (int)(((double)y / ((double)((HEIGHT)) / 2.1))
-					* p->tex[tex].height) % (p->tex[tex].height);
-		color_text_sky(p, tx, ty, tex);
-		draw_pixel2(p, p->img_str2, x, y + p->h);
+		//p->color.b = (unsigned char)((1 - ratio * 0.8) * p->color.b);
+		//p->color.a = (unsigned char)(p->tex[p->tid].img_str[col + line + 3]);
 	}
 }
 
 void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 {
-	int		tex_x;
-	int		tex_y;
+	int			tex_x;
+	int			tex_y;
 
 	wall_height = abs((int)(HEIGHT / p->c->wall_dist));
 	y = (int)(-wall_height / 2 + HEIGHT / 2) + p->h;
@@ -270,7 +118,8 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	floor_casting(p, x, 0, 0);
 	if (p->k != 7)
 	{
-		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end - (double)HEIGHT)) * 0.25;
+		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
+			- (double)HEIGHT)) * 0.25;
 		//j aimerai bien bidouiller ca si j ai le temps
 		//p->c->shadow = distance * 0.25;
 		if (p->c->shadow > 1)

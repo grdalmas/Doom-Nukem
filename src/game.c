@@ -6,13 +6,11 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 05:11:58 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 17:31:00 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
-
 
 void	draw_game(void *gm)
 {
@@ -28,7 +26,6 @@ void	draw_game(void *gm)
 		p->temp++;
 	else
 		p->temp = 0;
-
 	if (p->menu == 1)
 	{
 	key_press_hook(p);

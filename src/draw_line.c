@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:49:54 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 23:36:42 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:43:44 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		draw_pixel2(t_struct *p, char *img_str, int x, int y)
 {
 	x = x * BPP;
 	y = y * p->size_line;
-	if (x + y + 4 < WHBPP && x >= 0 && y >= 0 )
+	if (x + y + 4 < WHBPP && x >= 0 && y >= 0)
 	{
 		img_str[x + y] = (char)p->color.r;
 		img_str[x + y + 1] = (char)p->color.g;
@@ -42,8 +42,9 @@ static void	draw_case_one(int y1, int x2, int y2, t_struct *p)
 		if (x2 < p->c->x1)
 		{
 			x = x2 - 1;
-			while (++x <= p->c->x1 && (p->c->calc = x + (WIDTHMAP * (y1 + (y2 - y1)
-			* (x - p->c->x1) / (x2 - p->c->x1)))) < WIDTHMAP * HEIGHTMAP)
+			while (++x <= p->c->x1 && (p->c->calc = x + (WIDTHMAP
+				* (y1 + (y2 - y1) * (x - p->c->x1) / (x2 - p->c->x1))))
+					< WIDTHMAP * HEIGHTMAP)
 				if (p->c->calc >= 0 && x >= 0 && x < WIDTHMAP)
 					((int *)p->img_str)[p->c->calc] = p->c->colo;
 		}

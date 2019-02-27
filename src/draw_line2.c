@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 04:29:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/21 05:39:01 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:51:29 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int				*fill_color2(int *str, int x, int y, int c)
 {
-	int w;
-	int h;
+	int			w;
+	int			h;
 
 	w = WIDTH;
 	h = HEIGHT;
@@ -34,10 +34,9 @@ int				*fill_color2(int *str, int x, int y, int c)
 	return (str);
 }
 
-
-static void	draw_case_one(int y1, int x2, int y2, t_struct *p)
+static void		draw_case_one(int y1, int x2, int y2, t_struct *p)
 {
-	int x;
+	int			x;
 
 	if (x2 - p->c->x1 != 0)
 	{
@@ -45,15 +44,15 @@ static void	draw_case_one(int y1, int x2, int y2, t_struct *p)
 		{
 			x = x2 - 1;
 			while (++x <= p->c->x1 && (p->c->calc = x + (WIDTH * (y1 + (y2 - y1)
-			* (x - p->c->x1) / (x2 - p->c->x1)))) < WIDTH * HEIGHT)
+				* (x - p->c->x1) / (x2 - p->c->x1)))) < WIDTH * HEIGHT)
 				if (p->c->calc >= 0 && x >= 0 && x < WIDTH)
 					((int *)p->img_str2)[p->c->calc] = p->c->colo;
 		}
 		else
 		{
 			x = p->c->x1 - 1;
-			while (++x <= x2 && (p->c->calc = (x + (WIDTH * (y1 + (y2 - y1) *
-				(x - p->c->x1) / (x2 - p->c->x1))))) < WIDTH * HEIGHT)
+			while (++x <= x2 && (p->c->calc = (x + (WIDTH * (y1 + (y2 - y1)
+				* (x - p->c->x1) / (x2 - p->c->x1))))) < WIDTH * HEIGHT)
 			{
 				if (p->c->calc >= 0 && x >= 0 && x < WIDTH)
 					((int *)p->img_str2)[p->c->calc] = p->c->colo;
@@ -62,10 +61,10 @@ static void	draw_case_one(int y1, int x2, int y2, t_struct *p)
 	}
 }
 
-static void	draw_case_two(int y1, int x2, int y2, t_struct *p)
+static void		draw_case_two(int y1, int x2, int y2, t_struct *p)
 {
-	int y;
-	int calc;
+	int			y;
+	int			calc;
 
 	if (y2 < y1)
 	{
@@ -91,10 +90,10 @@ static void	draw_case_two(int y1, int x2, int y2, t_struct *p)
 	}
 }
 
-void		draw_line2(int y, int x2, int y2, t_struct *p)
+void			draw_line2(int y, int x2, int y2, t_struct *p)
 {
-	int dx;
-	int dy;
+	int			dx;
+	int			dy;
 
 	dx = abs(p->c->x1 - x2);
 	dy = abs(y - y2);
