@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 01:05:48 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 02:24:54 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,3 +169,9 @@ int				key_press_hook(t_struct *p)
 	move_up(p, key, 0, s);
 	return (0);
 }
+/*
+void			hookcreator(t_struct *p)
+{
+
+	printf("%i", p->mouse_event.x);
+}*/

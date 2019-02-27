@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 01:37:58 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:00:34 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,7 @@ typedef struct		s_struct
 	char			pas;
 	char			trumplive;
 	char			menu;
+	char			edit;
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
