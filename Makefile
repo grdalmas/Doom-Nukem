@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/27 00:02:20 by cmartine         ###   ########.fr        #
+#    Updated: 2019/02/27 01:36:39 by bbataini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC =		draw_3d.c\
 			init_menu_states.c\
 			game.c\
 			creator_map.c\
+			img_to_img.c\
 
 OBJ =		$(SRC:.c=.o)
 
