@@ -63,7 +63,7 @@ void		take_object(t_struct *p)
 		p->tool = 1;
 		p->trump = 2;
 		p->sprite[0].k = 6;
-//		p->elev = 1;
+		p->elev = 1;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
 	else if (p->k == 1 && (int)p->sprited[3] == 0)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)

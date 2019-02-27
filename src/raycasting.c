@@ -219,8 +219,6 @@ void				raycasting(t_struct *p, int x, int z)
 {
 	int nb;
 
-//	printf("pelev : %d\n", p->elev);
-//	printf("poort : %d\n\n", p->porte[0].poort);
 	ft_bzero(p->img_str, (WIDTHMAP) * (HEIGHTMAP) * 4);
 	ft_bzero(p->img_str2, WIDTH * HEIGHT * 4);
 	z = WIDTH - 1;
