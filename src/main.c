@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 00:18:14 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:51:23 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,6 +265,7 @@ static void		window(t_struct *p, int w, int h)
 	p->img_ptr = mlx_new_image(p->mlx_ptr, WIDTHMAP, HEIGHTMAP);
 	p->img_ptr2 = mlx_new_image(p->mlx_ptr, 1280, 960);
 	p->img_ptr3 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/dom.xpm", &w, &h);
+	p->img_ptr4 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/MAP_CREATOR.xpm", &w, &h);
 	p->img_str = mlx_get_data_addr(p->img_ptr, &bpp, &size_l, &endian);
 	p->img_str2 = mlx_get_data_addr(p->img_ptr2, &bpp, &p->size_line, &endian);
 	//	p->img_str3 = mlx_get_data_addr(p->img_ptr3, &bpp, &size_l, &endian);
