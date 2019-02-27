@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 04:37:30 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:51:00 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void				hit_walls(t_struct *p, int x)
 		i = 0;
 		if (p->map[p->k][p->c->map_x][p->c->map_y] > 0)
 		{
-			if (p->map[p->k][p->c->map_x][p->c->map_y] == 115 && p->hit != 2)
+			if (p->map[p->k][p->c->map_x][p->c->map_y] == 6 && p->hit != 2)
 				p->hit = 2;
 			else if (p->map[p->k][p->c->map_x][p->c->map_y] == 5 && p->hit != 3)
 				p->hit = 3;
