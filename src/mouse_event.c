@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 04:07:25 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:37:47 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int			rotation2(int x, int y, t_struct *p)
 {
 	if (p->menu == 3)
 	{
-			printf("%i", x);
+			printf("//%i %i//", x, y);
 		if (p->edit != 0)
-			img_to_img(p, x, y, p->edit, 0.15625);
+			img_to_img(p, x - 340, y - 20, p->edit, 0.15625);
 	}
 	else
 	{
