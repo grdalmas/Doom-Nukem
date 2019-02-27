@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 04:32:35 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 23:41:06 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int			proxyporte(t_struct *p)
 	}
 	return(-1);
 }
-
 
 int				keypress(int keycode, void *d)
 {
