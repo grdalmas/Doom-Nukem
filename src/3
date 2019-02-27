@@ -1,2 +1,0 @@
-			printf("je check le a\n");
-			p->color.a = p->tex[p->tid].img_str[tex_x + tex_y + 3];

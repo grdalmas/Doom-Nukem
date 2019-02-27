@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/27 01:36:39 by bbataini         ###   ########.fr        #
+#    Updated: 2019/02/27 18:31:17 by grdalmas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ INC_DIR =	include\
 
 	# SOURCES
 SRC =		draw_3d.c\
+			draw_3d2.c\
 			minimap.c\
 			minimap2.c\
 			hooks.c\
@@ -47,8 +48,11 @@ SRC =		draw_3d.c\
 			trump.c\
 			init_menu_states.c\
 			game.c\
+			player_events.c\
+			sprite_events.c\
 			creator_map.c\
 			img_to_img.c\
+			textures2.c\
 
 OBJ =		$(SRC:.c=.o)
 

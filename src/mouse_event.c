@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 06:08:56 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 22:54:18 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ int			rotation2(int x, int y, t_struct *p)
 	//else if (p->ox <= x)
 	//	p->c->rotation_speed = difx;
 	tmp_dir_x = p->c->dir_x;
-	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) - p->c->dir_y *
-		 sin(-p->c->rotation_speed);
-	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) + p->c->dir_y *
-		 cos(-p->c->rotation_speed);
+	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) - p->c->dir_y
+		* sin(-p->c->rotation_speed);
+	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) + p->c->dir_y
+		* cos(-p->c->rotation_speed);
 	tmp_plane_x = p->c->plane_x;
-	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) - p->c->plane_y *
-		 sin(-p->c->rotation_speed);
-	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) + p->c->plane_y *
-		 cos(-p->c->rotation_speed);
+	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) - p->c->plane_y
+		* sin(-p->c->rotation_speed);
+	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) + p->c->plane_y
+		* cos(-p->c->rotation_speed);
 
 //	if (p->oy >= y)
 //		p->h += dify;
@@ -73,19 +73,19 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		if (button == 2)
 			p->edit = 0;
 		else if (x > 1183 && x < 1183 + 76 && y > 135 && y < 135 + 76)
-			p->edit = 6;
-		else if (x > 1280 && x < 1280 + 76  && y > 130 && y < 214)
-		p->edit = 7;
-		else if (x > 1383 && x < 1383 + 76 && y > 135 && y < 135 + 76)
 			p->edit = 8;
-		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
+		else if (x > 1280 && x < 1280 + 76  && y > 130 && y < 214)
 		p->edit = 9;
-		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
+		else if (x > 1383 && x < 1383 + 76 && y > 135 && y < 135 + 76)
 			p->edit = 10;
-			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
+		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
 		p->edit = 11;
+		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
+			p->edit = 110;
+			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
+		p->edit = 110;
 			else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
-		p->edit = 12;
+		p->edit = 120;
 		else if (x > 1480 && x < 1557 && y > 240 && y < 240 + 76)
 		p->edit = 13;
 
@@ -102,8 +102,8 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		if (x > 0 && x < 14 && y > 0 && y < 14)
 		{
 			if (x != 7 && y != 13)
-	//			p->map[4][y][x] = 2;
-			  p->map[4][y][x] = p->edit;// A LA PLACE DE CELUI DU DESSUS
+			//	p->map[4][y][x] = 2;
+			  p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
 		}
 	}
 	return (0);

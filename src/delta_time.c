@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 14:46:03 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/13 15:35:46 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 15:45:42 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "delta_time.h"
 #include <stdio.h>
 
-void	ft_putnbrendl(int nb)
+void				ft_putnbrendl(int nb)
 {
 	ft_putnbr(nb);
 	ft_putchar('\n');
@@ -26,7 +26,7 @@ void	ft_putnbrendl(int nb)
 **	Assignation de la fonction update dans la structure.
 */
 
-void			init_time_struct(t_delta_time *ts)
+void				init_time_struct(t_delta_time *ts)
 {
 	if (!ts)
 		return ;
@@ -44,9 +44,9 @@ void			init_time_struct(t_delta_time *ts)
 **	Calcul du delta time.
 */
 
-void			update_time(void *delta_time_struct)
+void				update_time(void *delta_time_struct)
 {
-	t_delta_time *ts;
+	t_delta_time	*ts;
 
 	ts = NULL;
 	if (!(ts = (t_delta_time*)delta_time_struct))
@@ -64,9 +64,9 @@ void			update_time(void *delta_time_struct)
 **	Affichage des variables de la structure delta time
 */
 
-void			print_delta_time(void *delta_time_struct)
+void				print_delta_time(void *delta_time_struct)
 {
-	t_delta_time *ts;
+	t_delta_time	*ts;
 
 	ts = NULL;
 	if (!(ts = (t_delta_time*)delta_time_struct))

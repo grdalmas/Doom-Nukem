@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 04:53:08 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 15:31:55 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 				p->mspr.transy < p->zbuff[p->x])
 		{
 			p->y = p->mspr.starty - 1;
-			while (++p->y < p->mspr.endy )
+			while (++p->y < p->mspr.endy)
 			{
 				line = (p->y - p->mspr.starty) / d;
 				line = (line * p->tex[p->tid].sizeline);
@@ -113,8 +113,8 @@ void				raysprite(t_struct *p, double d, int i, double ratio)
 		if (p->sprite[p->ordersprite[i]].k == p->k)
 		{
 			p->sprited[p->ordersprite[i]] = sprited(p, p->ordersprite[i]);
-	//		if (p->sprited[p->ordersprite[i]] > 0)
-	//		{
+			//if (p->sprited[p->ordersprite[i]] > 0)
+			//{
 			p->tid = p->sprite[p->ordersprite[i]].id;
 			//printf("%f ",p->sprited[p->ordersprite[i]]);
 			matrice_sprite(p, i);
@@ -131,7 +131,7 @@ void				raysprite(t_struct *p, double d, int i, double ratio)
 			if (ratio > 1)
 				ratio = 1;
 			draw_sprite(p, d, ratio, 0);
-	//		}
+			//}
 		}
 	}
 }

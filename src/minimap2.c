@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 02:17:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 22:48:04 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 		i = -1;
 		while (++i < 15)
 		{
-			if (p->map[4][j][i] >= 1)
+//			if (p->map[4][j][i] >= 1)
 			{
-//				p->c->colo = laby_bonus(p, i, j);
+				p->c->colo = 0x5A5E6B;
 				x = j * (40) + 155;
 				y = i * (40) + 35;
 				p->c->x1 = x + cb;
@@ -74,8 +74,6 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 				draw_line2(y, x, y + cb, p);
 //				p->c->x1 = WIDTH / 2;      MET UNE LIGNE AU MILIEU...
 //				draw_line2(0, WIDTH / 2, HEIGHT, p);
-				if (p->map[p->k][j][i] == 22)
-					fill_color((int *)p->img_str, x + 2, y + 2, p->c->colo);
 			}
 		}
 	}
