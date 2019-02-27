@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 05:17:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 22:47:37 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			initplayer(t_struct *param)
 	param->trons = 0;
 	param->elev = 0;
 	param->trumplive = 1;
-	param->menu = 1;
+	param->menu = 3;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
 }
