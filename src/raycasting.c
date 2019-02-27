@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 03:58:40 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:37:30 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,8 +219,8 @@ void				raycasting(t_struct *p, int x, int z)
 {
 	int nb;
 
-	printf("open : %f\n", p->porte[0].open);
-	printf("poort : %d\n\n", p->porte[0].poort);
+//	printf("pelev : %d\n", p->elev);
+//	printf("poort : %d\n\n", p->porte[0].poort);
 	ft_bzero(p->img_str, (WIDTHMAP) * (HEIGHTMAP) * 4);
 	ft_bzero(p->img_str2, WIDTH * HEIGHT * 4);
 	z = WIDTH - 1;
