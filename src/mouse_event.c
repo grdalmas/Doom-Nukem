@@ -94,8 +94,18 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		printf("b : %i \n", button);
 		printf("x : %i \n", x);
 		printf("y : %i \n", y);
+		printf("x good : %i \n", (x - 496) / 40);
+		printf("y good : %i \n", (y - 37) / 40);
+		x = (x - 496) / 40;
+		y = (y - 37) / 40;
+
+		if (x > 0 && x < 14 && y > 0 && y < 14)
+		{
+			if (x != 7 && y != 13)
+				p->map[4][y][x] = 2;
+			//  p->map[4][y][x] = p->edit; A LA PLACE DE CELUI DU DESSUS
+		}
 	}
 	return (0);
 }
-
 

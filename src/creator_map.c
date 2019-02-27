@@ -45,5 +45,5 @@ void		creator_map(t_struct * p)
 		i++;
 	}
 
-	minimap2(p);
+//	minimap2(p);
 }
