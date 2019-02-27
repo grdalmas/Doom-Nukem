@@ -29,5 +29,21 @@ void		creator_map(t_struct * p)
 	img_to_img(p, 1155, 435, 43, 0.3); //indice pour dessiner index tex
 
 
+	int i;
+	int j;
+	
+	i = 0;
+    while (i < 15)
+		    {
+				        j = 0;
+						        while (j < 15)
+									        {
+												            if (p->map[4][j][i] >= 1)
+																                img_to_img(p, 155 + (i * 40), 35 + (j * 40), p->map[4][j][i], 0.15625); //indice pour dessiner sur la mainp
+															            j++;
+																		        }
+								        i++;
+										    }
+
 	minimap2(p);
 }

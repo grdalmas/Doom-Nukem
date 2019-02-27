@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 04:33:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 05:17:35 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,22 +250,6 @@ int		mlx_main_loop(t_struct *p)
 	if (p)
 	{
 		p->gm.draw[p->gm.current_state](p);
-	}
-	return (0);
-}
-
-
-int				mouse_button(int button, int x, int y, t_struct *p)
-{
-	if (p->menu == 3)
-	{
-		if (x > 1183 && x < 1183 + 76 && y > 135 && y < 135 + 76)
-			p->edit = 6;
-		else if (x > 50 && x < 50 && y > 50 && y < 50)
-			p->edit = 6;
-		printf("b : %i \n", button);
-		printf("x : %i \n", x);
-		printf("y : %i \n", y);
 	}
 	return (0);
 }
