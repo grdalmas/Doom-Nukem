@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 05:19:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 05:56:49 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,13 +231,19 @@ void				raycasting(t_struct *p, int x, int z)
 		p->c->r_dir_x = p->c->dir_x + p->c->plane_x * p->c->camera_x;
 		p->c->r_dir_y = p->c->dir_y + p->c->plane_y * p->c->camera_x;
 		walls_sides(p, x);
-		draw_wall_3d(p, z - x, 0, 0);
+		if (p->k != 4)
+			draw_wall_3d(p, z - x, 0, 0);
+		else
+			draw_wall_3d(p, x, 0, 0);
 		if (p->hit == 2 || p->hit == 3)
 		{
 			walls_sides(p, x);
 			draw_transparent_wall(p, z - x, 0, 0);
 		}
-		p->zbuff[z - x] = p->c->wall_dist;
+		if (p->k != 4)
+			p->zbuff[z - x] = p->c->wall_dist;
+		else
+			p->zbuff[x] = p->c->wall_dist;
 		x++;
 	}
 	order_sprite(p);

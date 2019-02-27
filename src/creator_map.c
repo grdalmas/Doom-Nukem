@@ -1,6 +1,6 @@
 # include "../include/doom-nukem.h"
 
- // METTRE LE PROTOTYPE DANS LE .H UNE FOIS CREE
+// METTRE LE PROTOTYPE DANS LE .H UNE FOIS CREE
 void		creator_map(t_struct * p)
 {
 	ft_bzero(p->img_str2, WIDTH * HEIGHT * 4);
@@ -31,19 +31,19 @@ void		creator_map(t_struct * p)
 
 	int i;
 	int j;
-	
-	i = 0;
-    while (i < 15)
-		    {
-				        j = 0;
-						        while (j < 15)
-									        {
-												            if (p->map[4][j][i] >= 1)
-																                img_to_img(p, 155 + (i * 40), 35 + (j * 40), p->map[4][j][i], 0.15625); //indice pour dessiner sur la mainp
-															            j++;
-																		        }
-								        i++;
-										    }
 
-	minimap2(p);
+	i = 0;
+	while (i < 15)
+	{
+		j = 0;
+		while (j < 15)
+		{
+			if (p->map[4][j][i] >= 1)
+				img_to_img(p, 155 + (i * 40), 35 + (j * 40), p->map[4][j][i], 0.15625); //indice pour dessiner sur la mainp
+			j++;
+		}
+		i++;
+	}
+
+//	minimap2(p);
 }

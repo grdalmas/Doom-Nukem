@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 05:19:19 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 05:47:08 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,18 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		printf("b : %i \n", button);
 		printf("x : %i \n", x);
 		printf("y : %i \n", y);
+		printf("x good : %i \n", (x - 496) / 40);
+		printf("y good : %i \n", (y - 37) / 40);
+		x = (x - 496) / 40;
+		y = (y - 37) / 40;
+
+		if (x > 0 && x < 14 && y > 0 && y < 14)
+		{
+			if (x != 7 && y != 13)
+				p->map[4][y][x] = 2;
+			//  p->map[4][y][x] = p->edit; A LA PLACE DE CELUI DU DESSUS
+		}
 	}
 	return (0);
 }
-
 
