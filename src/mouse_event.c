@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 22:54:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 00:51:34 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int			rotation2(int x, int y, t_struct *p)
 //	printf("%f ",(dif));
 	//	if (p->ox >= x)
 		p->c->rotation_speed = difx;
+		if (p->k == 4)
+			p->c->rotation_speed *= -1;
 	//else if (p->ox <= x)
 	//	p->c->rotation_speed = difx;
 	tmp_dir_x = p->c->dir_x;
@@ -81,15 +83,13 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
 		p->edit = 11;
 		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
-			p->edit = 110;
+			p->edit = 58;
 			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
-		p->edit = 110;
+		p->edit = 58;
 			else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
-		p->edit = 120;
+		p->edit = 4;
 		else if (x > 1480 && x < 1557 && y > 240 && y < 240 + 76)
-		p->edit = 13;
-
-
+		p->edit = 121;
 
 		printf("b : %i \n", button);
 		printf("x : %i \n", x);
@@ -99,11 +99,16 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
 
-		if (x > 0 && x < 14 && y > 0 && y < 14)
+		printf("p edit : %d\n", p->edit);
+		if (x >= 0 && x <= 14 && y >= 0 && y <= 14)
 		{
-			if (x != 7 && y != 13)
-			//	p->map[4][y][x] = 2;
-			  p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
+			if (p->edit == 121 || p->edit == 0)
+			{
+				if (x != 0 && x != 14 && y != 0 && y != 14)
+					p->map[4][y][x] = 0;
+			}
+			else
+				p->map[4][y][x] = p->edit;
 		}
 	}
 	return (0);

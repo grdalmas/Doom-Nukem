@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 17:37:50 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 23:42:06 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,10 @@ static void		move_up2(t_struct *p, int move)
 void			move_up(t_struct *p, int move, int i, double s)
 {
 	int t;
+	int tmp;
 
 	t = 0;
+	tmp = 0;
 	while (t < NUMPORTE)
 	{
 		if (p->porte[t].zip == move)
@@ -139,7 +141,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			p->elevator = 5;
 		elevator(p);
 	}
-	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
+	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1) && p->k != 4)
 	{
 		while (i < 5)
 		{
