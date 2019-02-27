@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 00:25:34 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:05:48 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void		take_object(t_struct *p)
 	// pour fair apparaitre la tronconneuse
 	
 	if (p->k == 0 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->menu != -1)
+	{
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
+	}
 	else if (p->menu == -1)
 		p->menu = 1; //         MENU EDITEUR
 		

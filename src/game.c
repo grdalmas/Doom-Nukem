@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/26 23:59:20 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:06:50 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	draw_game(void *gm)
 	else if (p->menu == 3) // MAP EDITOR
 	{
 
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		creator_map(p);
 	}
 }
