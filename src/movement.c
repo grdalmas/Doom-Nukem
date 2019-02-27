@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 06:00:56 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 17:37:50 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void			elevator(t_struct *p)
 {
-	if (p->keypress[KEY_1] == 1 || p->keypress[KEY_2] == 1 || p->keypress[KEY_3] == 1
-			|| p->keypress[KEY_4] == 1 || p->keypress[KEY_5] == 1)
+	if (p->keypress[KEY_1] == 1 || p->keypress[KEY_2] == 1
+		|| p->keypress[KEY_3] == 1 || p->keypress[KEY_4] == 1
+		|| p->keypress[KEY_5] == 1)
 	{
 		if (p->k == 7)
 			p->h = 0;
@@ -152,7 +153,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-
 	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
 		while (i < 5)

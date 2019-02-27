@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 05:36:49 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 18:31:19 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,7 +253,9 @@ void				draw_wall_3d(t_struct *p, int x, int y, int wall_height);
 int					*fill_color(int *str, int x, int y, int c);
 int					*fill_color2(int *str, int x, int y, int c);
 int					hooks(t_struct *param);
+void				init_textures(t_struct *p);
 void				load_textures(t_struct *p);
+void				load_textures4(t_struct *p);
 int					key_press_hook(t_struct *p);
 void				move_up(t_struct *p, int move, int i, double s);
 void				minimap(t_struct *p);
@@ -285,4 +287,21 @@ void				creator_map(t_struct *);
 void				minimap2(t_struct *p);
 void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
 int					mouse_button(int button, int x, int y, t_struct *p);
+void				which_text(t_struct *p);
+void				which_textf(t_struct *p);
+void				color_textf(t_struct *p, int col, int line, double ratio);
+void				skybox(t_struct *p, int y, int x);
+void				color_text_sky(t_struct *p, int col, int line, int tex);
+void				initplayer(t_struct *param);
+void				*init(t_struct *param);
+
+
+/*
+**					sprite_event.c
+*/
+void				flyisabug(t_struct *p);
+void				mvmy(t_struct *p, int i, float sx, float sy);
+void				mvmy2(t_struct *p, int i, float sx, float sy);
+void				movemy(t_struct *p, int i);
+void				movemy2(t_struct *p, int i);
 #endif

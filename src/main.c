@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
 /*   Updated: 2019/02/27 22:47:37 by cmartine         ###   ########.fr       */
@@ -12,167 +12,119 @@
 
 #include "doom-nukem.h"
 
-int				close_window(t_struct *p)
-{
-	mlx_destroy_image(p->mlx_ptr, p->img_ptr);
-	mlx_destroy_window(p->mlx_ptr, p->w_ptr);
-	system("killall afplay");
-	exit(EXIT_SUCCESS);
-}
 
-static void		*init(t_struct *param)
-{
-	t_camera	*camera;
+// void			flyisabug(t_struct *p)
+// {
+// 	float	s;
+// 	int		nb;
 
-	if (!(camera = (t_camera *)malloc(sizeof(t_camera))))
-		return (NULL);
-	param->c = camera;
-	camera->p_x = 6.5;
-	camera->p_y = 7.5;
-	camera->dir_x = -1;
-	camera->dir_y = 0;
-	camera->plane_x = 0;
-	camera->plane_y = 1;
-	camera->move_speed = 0.2;
-	camera->pas = 1;
-	camera->youshall = 0;
-	camera->tpobj = 0;
-	param->life = 100;
-	return (NULL);
-}
+// 	s = 0.5;
+// 	nb = (rand() % 4);
+// 	if (nb == 0 && p->map[p->k][(int)(p->sprite[4].x + s)]
+// 			[(int)(p->sprite[4].y)] == 0)
+// 		p->sprite[4].x += s;
+// 	else if (nb == 1 && p->map[p->k][(int)(p->sprite[4].x)]
+// 			[(int)(p->sprite[4].y + s)] == 0)
+// 		p->sprite[4].y += s;
+// 	else if (nb == 2 && p->map[p->k][(int)(p->sprite[4].x - s)]
+// 			[(int)(p->sprite[4].y)] == 0)
+// 		p->sprite[4].x -= s;
+// 	else if (nb == 3 && p->map[p->k][(int)(p->sprite[4].x)]
+// 			[(int)(p->sprite[4].y - s)] == 0)
+// 		p->sprite[4].y -= s;
+// }
 
-void			initplayer(t_struct *param)
-{
-	param->k = 0;
-	param->keypress[KEY_Q] = 2;
-	param->porte = init_door();
-	param->sprite = init_sprite();
-	param->weapon.id = 0;
-	param->h = 0;
-	param->weapon.reload = 0;
-	param->s = -1;
-	param->trump = 1;
-	param->temp = 1;
-	param->trons = 0;
-	param->elev = 0;
-	param->trumplive = 1;
-	param->menu = 3;
-	system("afplay ./musics/amblobby.mp3 &");
-	init_time_struct(&param->time);
-}
+// void		mvmy(t_struct *p, int i, float sx, float sy)
+// {
+// 	int j;
 
-void			flyisabug(t_struct *p)
-{
-	float	s;
-	int		nb;
+// 	j = 4;
+// 	while (j < 10)
+// 	{
+// 		if (p->sprite[j].k == 5 && ((int)(p->sprite[i].x + sx)
+// 					== (int)p->sprite[j].x &&
+// 					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+// 			break ;
+// 		else if (j >= 9)
+// 		{
+// 			p->sprite[i].x += sx;
+// 			p->sprite[i].y += sy;
+// 		}
+// 		j++;
+// 	}
+// }
 
-	s = 0.5;
-	nb = (rand() % 4);
-	if (nb == 0 && p->map[p->k][(int)(p->sprite[4].x + s)]
-			[(int)(p->sprite[4].y)] == 0)
-		p->sprite[4].x += s;
-	else if (nb == 1 && p->map[p->k][(int)(p->sprite[4].x)]
-			[(int)(p->sprite[4].y + s)] == 0)
-		p->sprite[4].y += s;
-	else if (nb == 2 && p->map[p->k][(int)(p->sprite[4].x - s)]
-			[(int)(p->sprite[4].y)] == 0)
-		p->sprite[4].x -= s;
-	else if (nb == 3 && p->map[p->k][(int)(p->sprite[4].x)]
-			[(int)(p->sprite[4].y - s)] == 0)
-		p->sprite[4].y -= s;
-}
+// void		mvmy2(t_struct *p, int i, float sx, float sy)
+// {
+// 	int j;
 
-void		mvmy(t_struct *p, int i, float sx, float sy)
-{
-	int j;
+// 	j = 10;
+// 	while (j < 16)
+// 	{
+// 		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
+// 					== (int)p->sprite[j].x &&
+// 					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+// 			break ;
+// 		else if (j >= 15)
+// 		{
+// 			p->sprite[i].x += sx;
+// 			p->sprite[i].y += sy;
+// 		}
+// 		j++;
+// 	}
+// }
 
-	j = 4;
-	while (j < 10)
-	{
-		if (p->sprite[j].k == 5 && ((int)(p->sprite[i].x + sx)
-					== (int)p->sprite[j].x &&
-					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
-			break ;
-		else if (j >= 9)
-		{
-			p->sprite[i].x += sx;
-			p->sprite[i].y += sy;
-		}
-		j++;
-	}
-}
+// void			movemy(t_struct *p, int i)
+// {
+// 	float sx;
+// 	float sy;
 
-void		mvmy2(t_struct *p, int i, float sx, float sy)
-{
-	int j;
+// 	while (p->k == 5 && i < 10)
+// 	{
+// 		if ((p->temp % 20) < 10)
+// 			p->sprite[i].id = 82;
+// 		else
+// 			p->sprite[i].id = 83;
+// 		if (p->sprite[i].x >= p->c->p_x)
+// 			sx = -0.05;
+// 		else
+// 			sx = 0.05;
+// 		if (p->sprite[i].y >= p->c->p_y)
+// 			sy = -0.05;
+// 		else
+// 			sy = 0.05;
+// 		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
+// 				== 0 && p->sprite[i].k == 5)
+// 			mvmy(p, i, sx, sy);
+// 		i++;
+// 	}
+// }
 
-	j = 10;
-	while (j < 16)
-	{
-		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
-					== (int)p->sprite[j].x &&
-					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
-			break ;
-		else if (j >= 15)
-		{
-			p->sprite[i].x += sx;
-			p->sprite[i].y += sy;
-		}
-		j++;
-	}
-}
+// void			movemy2(t_struct *p, int i)
+// {
+// 	float sx;
+// 	float sy;
 
-void			movemy(t_struct *p, int i)
-{
-	float sx;
-	float sy;
-
-	while (p->k == 5 && i < 10)
-	{
-		if ((p->temp % 20) < 10)
-			p->sprite[i].id = 82;
-		else
-			p->sprite[i].id = 83;
-		if (p->sprite[i].x >= p->c->p_x)
-			sx = -0.05;
-		else
-			sx = 0.05;
-		if (p->sprite[i].y >= p->c->p_y)
-			sy = -0.05;
-		else
-			sy = 0.05;
-		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
-				== 0 && p->sprite[i].k == 5)
-			mvmy(p, i, sx, sy);
-		i++;
-	}
-}
-
-void			movemy2(t_struct *p, int i)
-{
-	float sx;
-	float sy;
-
-	while (p->k == 8 && i < 18)
-	{
-		if (p->temp % 20 < 10)
-			p->sprite[i].id = 84;
-		else
-			p->sprite[i].id = 85;
-		if (p->sprite[i].x >= p->c->p_x)
-			sx = -0.02;
-		else
-			sx = 0.02;
-		if (p->sprite[i].y >= p->c->p_y)
-			sy = -0.02;
-		else
-			sy = 0.02;
-		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
-				== 0 && p->sprite[i].k == 8)
-			mvmy2(p, i, sx,sy);
-		i++;
-	}
-}
+// 	while (p->k == 8 && i < 18)
+// 	{
+// 		if (p->temp % 20 < 10)
+// 			p->sprite[i].id = 84;
+// 		else
+// 			p->sprite[i].id = 85;
+// 		if (p->sprite[i].x >= p->c->p_x)
+// 			sx = -0.02;
+// 		else
+// 			sx = 0.02;
+// 		if (p->sprite[i].y >= p->c->p_y)
+// 			sy = -0.02;
+// 		else
+// 			sy = 0.02;
+// 		if (p->map[p->k][(int)(p->sprite[i].x + sx)][(int)(p->sprite[i].y + sy)]
+// 				== 0 && p->sprite[i].k == 8)
+// 			mvmy2(p, i, sx,sy);
+// 		i++;
+// 	}
+// }
 
 void			sprite_move(t_struct *p)
 {
@@ -201,45 +153,6 @@ void			rotrump(t_struct *p)
 		p->sprite[18].id = 16;
 	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y > p->c->p_y)
 		p->sprite[18].id = 15;
-}
-
-void			spawn(t_struct *p)
-{
-	int i;
-
-	if ((int)p->c->p_x != 9 || (int)p->c->p_y != 7)
-		p->porte[1].poort = 1;
-	i = 10;
-	while (i < 16)
-	{
-		p->sprite[i].k = 8;
-		p->sprite[i].pv = 10;
-		i++;
-	}
-	p->s = -1;
-}
-
-void		alive(t_struct *p)
-{
-	int i;
-	int alldead;
-
-	alldead = 1;
-	i = 0;
-	while (i < 18)
-	{
-		if (p->sprite[i].pv <= 0)
-			p->sprite[i].k = 6;
-		if (p->sprite[i].k != 6 && i > 4 && i < 10)
-			alldead = 0;
-		i++;
-	}
-	if (alldead == 1 && p->weapon.id != 2)
-	{
-		p->sprite[19].k = 5;
-	}
-	if (p->sprite[17].k == 6)
-		p->trumplive = 0;
 }
 
 int		mlx_main_loop(t_struct *p)
