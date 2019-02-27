@@ -43,15 +43,15 @@ int			rotation2(int x, int y, t_struct *p)
 	//else if (p->ox <= x)
 	//	p->c->rotation_speed = difx;
 	tmp_dir_x = p->c->dir_x;
-	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) - p->c->dir_y *
-		 sin(-p->c->rotation_speed);
-	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) + p->c->dir_y *
-		 cos(-p->c->rotation_speed);
+	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) - p->c->dir_y
+		* sin(-p->c->rotation_speed);
+	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) + p->c->dir_y
+		* cos(-p->c->rotation_speed);
 	tmp_plane_x = p->c->plane_x;
-	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) - p->c->plane_y *
-		 sin(-p->c->rotation_speed);
-	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) + p->c->plane_y *
-		 cos(-p->c->rotation_speed);
+	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) - p->c->plane_y
+		* sin(-p->c->rotation_speed);
+	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) + p->c->plane_y
+		* cos(-p->c->rotation_speed);
 
 //	if (p->oy >= y)
 //		p->h += dify;
