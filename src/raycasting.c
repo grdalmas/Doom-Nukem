@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 01:51:55 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 03:58:40 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,8 @@ void				raycasting(t_struct *p, int x, int z)
 {
 	int nb;
 
+	printf("open : %f\n", p->porte[0].open);
+	printf("poort : %d\n\n", p->porte[0].poort);
 	ft_bzero(p->img_str, (WIDTHMAP) * (HEIGHTMAP) * 4);
 	ft_bzero(p->img_str2, WIDTH * HEIGHT * 4);
 	z = WIDTH - 1;
@@ -249,7 +251,6 @@ void				raycasting(t_struct *p, int x, int z)
 	}
 	weapon(p);
 //	creator_map(p);
-	img_to_img(p, 0, 0, 0, 1); //tes
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr3, 0, 653);
 	if (p->elevator == 1)

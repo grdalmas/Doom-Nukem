@@ -51,8 +51,8 @@ void			initplayer(t_struct *param)
 	param->h = 0;
 	param->weapon.reload = 0;
 	param->s = -1;
-	param->trump = 0;
-	param->temp = 0;
+	param->trump = 1;
+	param->temp = 1;
 	param->trons = 0;
 	param->elev = 0;
 	param->trumplive = 1;
