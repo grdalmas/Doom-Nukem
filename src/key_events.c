@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 00:23:07 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:01:40 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ int				keypress(int keycode, void *d)
 				p->elev = 1;
 				p->tool = 0;
 			}
-		p->porte[proxyporte(p)].poort = 0;
+		if (p->sprite[0].k == 6)
+			p->porte[proxyporte(p)].poort = 0;
 		p->keypress[KEY_E] = 1;
 	}
 	//else if (keycode == MLX_KEY_F && proxyporte(p) >= 0)//&& proxyporte(p) != 0)

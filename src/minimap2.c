@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 01:14:08 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 02:17:18 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 			if (p->map[4][j][i] >= 1)
 			{
 //				p->c->colo = laby_bonus(p, i, j);
-				x = j * (40) + 50;
+				x = j * (40) + 155;
 				y = i * (40) + 35;
 				p->c->x1 = x + cb;
 				draw_line2(y, x + cb, y + cb, p);
