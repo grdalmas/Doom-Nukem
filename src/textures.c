@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/26 23:30:05 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:40:27 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void		load_textures2(t_struct *p)
 	p->tex[39].str = ft_strdup("textures/Basquiat.xpm");
 	p->tex[40].str = ft_strdup("textures/aphrodite.xpm");
 	p->tex[41].str = ft_strdup("textures/chagall.xpm");
-	p->tex[42].str = ft_strdup("textures/lego_tresure.xpm");
+	p->tex[42].str = ft_strdup("textures/MAP_CREATOR.xpm");
 	p->tex[43].str = ft_strdup("textures/lego_woman.xpm");
 	p->tex[44].str = ft_strdup("textures/TRUMP4.xpm");
 	p->tex[45].str = ft_strdup("textures/minimap.xpm");

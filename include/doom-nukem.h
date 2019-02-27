@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 00:02:42 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:42:55 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,7 @@ typedef struct		s_struct
 	void			*img_ptr;
 	void			*img_ptr2;
 	void			*img_ptr3;
+	void			*img_ptr4;
 	char			*img_str;
 	char			*img_str2;
 	char			*img_str3;
