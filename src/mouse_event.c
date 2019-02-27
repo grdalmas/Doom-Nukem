@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 05:19:19 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 06:01:20 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,27 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 {
 	if (p->menu == 3)
 	{
-		if (x > 1183 && x < 1183 + 76 && y > 135 && y < 135 + 76)
+		if (button == 2)
+			p->edit = 0;
+		else if (x > 1183 && x < 1183 + 76 && y > 135 && y < 135 + 76)
 			p->edit = 6;
-		else if (x > 840 && x < 50 && y > 50 && y < 50)
-			p->edit = 6;
+		else if (x > 1280 && x < 1280 + 76  && y > 130 && y < 214)
+		p->edit = 7;
+		else if (x > 1383 && x < 1383 + 76 && y > 135 && y < 135 + 76)
+			p->edit = 8;
+		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
+		p->edit = 9;
+		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
+			p->edit = 10;
+			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
+		p->edit = 11;
+			else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
+		p->edit = 12;
+		else if (x > 1480 && x < 1557 && y > 240 && y < 240 + 76)
+		p->edit = 13;
+
+
+
 		printf("b : %i \n", button);
 		printf("x : %i \n", x);
 		printf("y : %i \n", y);
