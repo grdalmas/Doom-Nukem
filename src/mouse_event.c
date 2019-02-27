@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 06:01:20 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/27 06:08:56 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		if (x > 0 && x < 14 && y > 0 && y < 14)
 		{
 			if (x != 7 && y != 13)
-				p->map[4][y][x] = 2;
-			//  p->map[4][y][x] = p->edit; A LA PLACE DE CELUI DU DESSUS
+	//			p->map[4][y][x] = 2;
+			  p->map[4][y][x] = p->edit;// A LA PLACE DE CELUI DU DESSUS
 		}
 	}
 	return (0);
