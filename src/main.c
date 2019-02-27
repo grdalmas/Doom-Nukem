@@ -6,7 +6,7 @@
 /*   By: bbataini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 04:02:14 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/27 04:08:01 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void		mvmy(t_struct *p, int i, float sx, float sy)
 	{
 		if (p->sprite[j].k == 5 && ((int)(p->sprite[i].x + sx)
 					== (int)p->sprite[j].x &&
-				(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
 			break ;
 		else if (j >= 9)
 		{
@@ -111,7 +111,7 @@ void		mvmy2(t_struct *p, int i, float sx, float sy)
 	{
 		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
 					== (int)p->sprite[j].x &&
-				(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
+					(int)(p->sprite[i].y + sy) == (int)p->sprite[j].y && j != i))
 			break ;
 		else if (j >= 15)
 		{
@@ -254,6 +254,21 @@ int		mlx_main_loop(t_struct *p)
 	return (0);
 }
 
+
+int				mouse_button(int button, int x, int y, t_struct *p)
+{
+	if (p->menu == 3)
+	{
+		if (x > 50 && x < 50 && y > 50 && y < 50)
+			p->edit = 6;
+		else if (x > 50 && x < 50 && y > 50 && y < 50)
+			p->edit = 6;
+		printf("%i ", button);
+	}
+	return (0);
+}
+
+
 static void		window(t_struct *p, int w, int h)
 {
 	int bpp;
@@ -276,6 +291,7 @@ static void		window(t_struct *p, int w, int h)
 	mlx_hook(p->w_ptr, KEYPRESS, KEYPRESSMASK, keypress, p);
 	mlx_hook(p->w_ptr, KEYRELEASE, KEYRELEASEMASK, keyrelease, p);
 	mlx_hook(p->w_ptr, CLOSE, CLOSEMASK, close_window, p);
+	mlx_mouse_hook(p->w_ptr, mouse_button, p);
 	mlx_hook(p->w_ptr, MOTIONNOTIFY, POINTERMOTIONMASK, rotation2, p);
 	mlx_loop_hook(p->mlx_ptr, mlx_main_loop, p);
 	mlx_loop(p->mlx_ptr);
