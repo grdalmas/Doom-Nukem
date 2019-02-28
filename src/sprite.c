@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:13:08 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 06:44:03 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 {
 	int line;
 
+	printf("drawsprit\n");
 	p->x = p->mspr.startx - 1;
+	printf("endx %i\n",p->mspr.endx);
+	printf("endx %i\n",p->mspr.endy);
 //	p->c->what = 2;
 	while (++p->x < p->mspr.endx && p->mspr.endx < 1380)
 	{
@@ -76,11 +79,12 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 			}
 		}
 	}
+	printf("drawspritend\n");
 }
 
 static void			matrice_sprite(t_struct *p, int i)
 {
-	double		invdet;
+//	double		invdet;
 	double		spritex;
 	double		spritey;
 	double		transformx;
@@ -88,30 +92,36 @@ static void			matrice_sprite(t_struct *p, int i)
 
 	spritex = (p->sprite[p->ordersprite[i]].x - p->c->p_x);
 	spritey = (p->sprite[p->ordersprite[i]].y - p->c->p_y);
-	invdet = 1.0 / (p->c->plane_x
-			* p->c->dir_y - p->c->dir_x * p->c->plane_y);
-	transformx = invdet * (p->c->dir_y * spritex - p->c->dir_x * spritey);
-	p->mspr.transy = invdet
-		* (-p->c->plane_y * spritex + p->c->plane_x * spritey);
+//	invdet = 1.0 / (p->c->plane_x
+//			* p->c->dir_y - p->c->dir_x * p->c->plane_y);
+	transformx = 1 * (p->c->dir_y * spritex - p->c->dir_x * spritey);
+	p->mspr.transy = 1 * (-p->c->plane_y * spritex + p->c->plane_x * spritey);
+	if ((int)p->mspr.transy == 0)
+	//	return ;
+	printf("inv %f\n", p->mspr.transy);
 	p->mspr.spritescreenx = ((WIDTH / 2) * (1 + transformx / p->mspr.transy));
 	spriteheight = abs((int)(HEIGHT / (p->mspr.transy)));
 	p->mspr.starty = -spriteheight / 2 + HEIGHT / 2;
 	p->mspr.endy = spriteheight / 2 + HEIGHT / 2;
+	printf("endy %i\n",p->mspr.endy);
 	if (p->mspr.starty < 0)
 		p->mspr.starty = 0;
 	if (p->mspr.endy >= HEIGHT + abs(p->h))
 		p->mspr.endy = HEIGHT - 1 + abs(p->h);
+	printf("endyy %i\n", HEIGHT +abs(p->h));
 }
 
 void				raysprite(t_struct *p, double d, int i, double ratio)
 {
 	double		spritewidth;
 	int			drawtmp;
-
+	
+	printf("raysprite\n");
 	while (++i < NUMSPRITE)
 	{
 		if (p->sprite[p->ordersprite[i]].k == p->k)
 		{
+			printf("%i\n", p->ordersprite[i]);
 			p->sprited[p->ordersprite[i]] = sprited(p, p->ordersprite[i]);
 			//if (p->sprited[p->ordersprite[i]] > 0)
 			//{
@@ -134,4 +144,5 @@ void				raysprite(t_struct *p, double d, int i, double ratio)
 			//}
 		}
 	}
+	printf("rayspritend\n");
 }
