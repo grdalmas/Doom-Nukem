@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 02:45:15 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 04:59:58 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		if (p->edits > 19)
 			p->edit = 0;
 
-		/*
 		//		printf("b : %i \n", button);
 
 		printf("y : %i \n", y);
@@ -123,8 +122,8 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			if (p->map[4][y][x] == 0)
 			{
 				p->sprite[p->edits].k = 4;
-				p->sprite[p->edits].y = x;
-				p->sprite[p->edits].x = y;
+				p->sprite[p->edits].y =  (int)x + 0.5;
+				p->sprite[p->edits].x = (int)y + 0.5;
 			}
 		}
 	}
@@ -147,6 +146,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 				i++;
 			}
 			if (i == 24)
+			{
 				if (x == 7)
 				{
 					if (y == 13 || y == 14)
@@ -154,6 +154,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 				}
 			if (i != 100)
 				p->map[4][y][x] = p->edit;
+			}
 		}
 	}
 	printf("x good : %i \n", x);
