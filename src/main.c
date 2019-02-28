@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/28 11:20:40 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 00:13:41 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int				mlx_main_loop(t_struct *p)
 	i = 0;
 	if (p)
 	{
-		p->gm.draw[p->gm.current_state](p);
+		draw_game(p);
+	//	p->gm.draw[p->gm.current_state](p);
 	}
 	return (0);
 }
@@ -71,7 +72,7 @@ static void		window(t_struct *p, int w, int h)
 	initplayer(p);
 	init_menu(&p->gm);
 	load_textures(p);
-	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 35);
+	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[123].img_ptr, 0, 0);
 	mlx_hook(p->w_ptr, KEYPRESS, KEYPRESSMASK, keypress, p);
 	mlx_hook(p->w_ptr, KEYRELEASE, KEYRELEASEMASK, keyrelease, p);
 	mlx_hook(p->w_ptr, CLOSE, CLOSEMASK, close_window, p);
