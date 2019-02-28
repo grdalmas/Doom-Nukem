@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:01:22 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 23:53:52 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 00:30:42 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		load_textures6(t_struct *p)
 	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.xpm");
 	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.xpm");
 	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.xpm");
+	p->tex[137].str = ft_strdup("textures/menu/DIFFICULTY.xpm");
 	init_textures(p);
 }
 
