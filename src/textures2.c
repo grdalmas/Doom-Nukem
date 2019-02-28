@@ -24,6 +24,21 @@ void		load_textures6(t_struct *p)
 	p->tex[119].str = ft_strdup("textures/game_over.xpm");
 	p->tex[120].str = ft_strdup("textures/pause.xpm");
 	p->tex[121].str = ft_strdup("textures/eraser.xpm");
+	p->tex[122].str = ft_strdup("textures/menu/MENU.xpm");
+	p->tex[123].str = ft_strdup("textures/menu/MENU_START.xpm");
+	p->tex[124].str = ft_strdup("textures/menu/MENU_SETTINGS.xpm");
+	p->tex[125].str = ft_strdup("textures/menu/MENU_QUIT.xpm");
+	p->tex[126].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON.xpm");
+	p->tex[127].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF.xpm");
+	p->tex[128].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-RETURN.xpm");
+	p->tex[129].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-DIFFICULTY.xpm");
+	p->tex[130].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-COLOR.xpm");
+	p->tex[131].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-RETURN.xpm");
+	p->tex[132].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-DIFFICULTY.xpm");
+	p->tex[133].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-COLOR.xpm");
+	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.xpm");
+	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.xpm");
+	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.xpm");
 	init_textures(p);
 }
 
