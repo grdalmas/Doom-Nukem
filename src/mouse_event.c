@@ -109,8 +109,10 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 
 		/*
 		//		printf("b : %i \n", button);
-		printf("y : %i \n", y);*/
 
+		printf("y : %i \n", y);
+		printf("x good : %i \n", (x - 496) / 40);
+		printf("y good : %i \n", (y - 37) / 40);
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
 	}
