@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 01:57:38 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 06:05:51 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 0;
+	param->k = 9;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -70,7 +70,7 @@ void			initplayer(t_struct *param)
 	param->trons = 0;
 	param->elev = 0;
 	param->trumplive = 1;
-	param->menu = 3;
+	param->menu = 1;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
 }

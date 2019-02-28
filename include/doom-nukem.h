@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:00:34 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:31:45 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,6 @@ typedef enum	e_keystate
 
 }				t_keystate;
 
-/*typedef struct		s_enemy
-{
-	int			k;
-	int			id;
-	float		x;
-	float		y;
-	float		ang;
-}					t_enemy;
-*/
 typedef struct		s_porte
 {
 	float	open;

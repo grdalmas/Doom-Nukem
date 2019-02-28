@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 02:00:21 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:24:58 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,7 @@ t_sprite			*init_sprite(void)
 		{6, 33, 0, 0, 0},
 		{6, 46, 0, 0, 0},
 		{6, 50, 0, 0, 0},//editeur
-		//        {2, 48, 6, 11,0},
-		//        {2, 48, 9, 11,0},
-		//        {2, 47, 3, 2,0},
-		//        {2, 43, 3.5, 13,0},
-		//        {2, 46, 11.5, 2,0},
-		//        {2, 50, 11.5, 13,0},
-		//    {8, 51, 2, 8,0}, //arbre lego
-		//		{2, 42, 6, 4.5,1},
-		//		{2, 44, 9.5, 4.5,1},
-		//{2, 45, 13, 8,0},
 		{1, 33, 7.5, 7.5,1}, // 22 statue
-		//		{8, 1, 7.5, 9.5,10}, // (22) medikit
 	};
 	return (sprite);
 }
@@ -107,8 +96,6 @@ void				hit_walls(t_struct *p, int x)
 					p->sprite[i].pv -= 10;
 					p->shoot = 0;
 				}
-				//if (p->sprite[i].pv >= 10)
-				//	p->sprite[i].k = 6;
 				i++;
 			}
 		}
@@ -124,11 +111,6 @@ void				hit_walls(t_struct *p, int x)
 			if (x == WIDTH / 2)
 				p->shoot = 0;
 			wall_dist(p);
-			//	while (i < NUMPORTE)
-			//		if (p->map[p->k][p->c->map_x][p->c->map_y] == 22 ||
-			//		p->dodor = p->map[p->k][p->c->map_x][p->c->map_y];
-			//i++;
-			//		}
 			while (i < NUMPORTE && p->porte[i].zip != p->map[p->k][p->c->map_x][p->c->map_y])
 				i++;
 			if (p->c->offset < p->porte[i].open - 0.02)
@@ -233,13 +215,13 @@ void				raycasting(t_struct *p, int x, int z)
 		p->c->r_dir_x = p->c->dir_x + p->c->plane_x * p->c->camera_x;
 		p->c->r_dir_y = p->c->dir_y + p->c->plane_y * p->c->camera_x;
 		walls_sides(p, x);
-			draw_wall_3d(p, z - x, 0, 0);
+		draw_wall_3d(p, z - x, 0, 0);
 		if (p->hit == 2 || p->hit == 3)
 		{
 			walls_sides(p, x);
 			draw_transparent_wall(p, z - x, 0, 0);
 		}
-			p->zbuff[z - x] = p->c->wall_dist;
+		p->zbuff[z - x] = p->c->wall_dist;
 		x++;
 	}
 	order_sprite(p);
@@ -250,19 +232,26 @@ void				raycasting(t_struct *p, int x, int z)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr, 35, 35);
 	}
 	weapon(p);
-//	creator_map(p);
+	//	creator_map(p);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr3, 0, 653);
-	if (p->elevator == 1)
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[91].img_ptr, 750, 200);
-	if (p->elevator == 2)
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[103].img_ptr, 750, 200);
-	if (p->elevator == 3)
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[104].img_ptr, 750, 200);
-	if (p->elevator == 4)
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[105].img_ptr, 750, 200);
-	if (p->elevator == 5)
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[106].img_ptr, 750, 200);
+	if (p->elevator != 0)
+	{
+
+		if ((int)p->c->p_x == 7 && (int)p->c->p_y == 7)
+		{
+			if (p->elevator == 1)
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[91].img_ptr, 750, 200);
+			if (p->elevator == 2)
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[103].img_ptr, 750, 200);
+			if (p->elevator == 3)
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[104].img_ptr, 750, 200);
+			if (p->elevator == 4)
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[105].img_ptr, 750, 200);
+			if (p->elevator == 5)
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[106].img_ptr, 750, 200);
+		}
+	}
 	if (p->k == 7 && p->c->shadow <= 1)
 	{
 		nb = (rand() % 2);
