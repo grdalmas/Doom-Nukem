@@ -39,6 +39,8 @@ int			rotation2(int x, int y, t_struct *p)
 //	printf("%f ",(dif));
 	//	if (p->ox >= x)
 		p->c->rotation_speed = difx;
+		if (p->k == 4)
+			p->c->rotation_speed *= -1;
 	//else if (p->ox <= x)
 	//	p->c->rotation_speed = difx;
 	tmp_dir_x = p->c->dir_x;
@@ -84,13 +86,13 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
 		p->edit = 11;
 		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
-			p->edit = 110;
+			p->edit = 58;
 			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
-		p->edit = 110;
+		p->edit = 58;
 			else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
-		p->edit = 120;
+		p->edit = 4;
 		else if (x > 1480 && x < 1557 && y > 240 && y < 240 + 76)
-		p->edit = 13;
+		  p->edit = 121;
 
 		if (p->edit != 0)
 			p->edits = -1;
@@ -108,6 +110,7 @@ else if (x > 1490 && x < 1550 && y > 444 && y < 512)
 if (p->edits > 19)
 	p->edit = 0;
 
+
 //		printf("b : %i \n", button);
 		printf("x : %i \n", x);
 		printf("y : %i \n", y);
@@ -118,18 +121,29 @@ if (p->edits > 19)
 
 		if (x > 0 && x < 14 && y > 0 && y < 140)
 		{
-			if (p->edits > 19)
+
+			if ((x != 7 && y != 13))
+			//	p->map[4][y][x] = 2;
+			  p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
+
+		printf("p edit : %d\n", p->edit);
+		if (x >= 0 && x <= 14 && y >= 0 && y <= 14)
+		{
+      			if (p->edits > 19)
 			{
 				//printf(%
 				p->sprite[p->edits].k = 4;
 				p->sprite[p->edits].y = y;
 				p->sprite[p->edits].x = x;
 			}
+			else if (p->edit == 121 || p->edit == 0)
+			{
+				if (x != 0 && x != 14 && y != 0 && y != 14)
+					p->map[4][y][x] = 0;
+			}
 			else
-			if ((x != 7 && y != 13))
-			//	p->map[4][y][x] = 2;
-			  p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
-		}
+				p->map[4][y][x] = p->edit;
+    }
 	}
 	return (0);
 }

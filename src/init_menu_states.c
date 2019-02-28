@@ -70,7 +70,7 @@ void			initplayer(t_struct *param)
 	param->trons = 0;
 	param->elev = 0;
 	param->trumplive = 1;
-	param->menu = 1;
+	param->menu = 3;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
 }

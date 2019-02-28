@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:01:22 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 15:15:11 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/02/27 23:53:52 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void		load_textures6(t_struct *p)
 	p->tex[118].str = ft_strdup("textures/TRUMP3.xpm");
 	p->tex[119].str = ft_strdup("textures/game_over.xpm");
 	p->tex[120].str = ft_strdup("textures/pause.xpm");
+	p->tex[121].str = ft_strdup("textures/eraser.xpm");
 	init_textures(p);
 }
 
