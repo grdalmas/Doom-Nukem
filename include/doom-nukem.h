@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:31:45 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:35:49 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ typedef struct		s_struct
 	int				edits;
 	int				mousex;
 	int				mousey;
+	char			floor;
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];

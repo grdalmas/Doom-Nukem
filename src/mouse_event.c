@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 04:59:58 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:35:08 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,15 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		//		printf("b : %i \n", button);
 
 		printf("y : %i \n", y);
-		printf("x good : %i \n", (x - 496) / 40);
-		printf("y good : %i \n", (y - 37) / 40);
+		printf("x good : %i \n", x );
+		printf("y good : %i \n", y );
+
+		if (x > 1357 && x < 1396 && y > 600 && 638 > y && p->edit > 0)
+			p->floor = p->edit;
+
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
-	}
+	
 	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
 	{
 		if (p->edits > 19)
@@ -162,6 +166,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 
 	printf("x sprite : %d\n", (int)p->sprite[20].y);
 	printf("y sprite : %d\n", (int)p->sprite[20].x);
+	}
 	return (0);
 
 }

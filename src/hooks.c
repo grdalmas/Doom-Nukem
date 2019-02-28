@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:05:21 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 06:44:41 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,6 @@
 
 void		take_object(t_struct *p)
 {
-	/*
-	   int i;
-	   int x;
-	   int y;
-	   i = 0;
-	   while (i < 4)
-	   {
-	   if ((int)p->sprited[i] == 0)
-	   {
-	//			p->sprite[i].k = 6;
-	if (i == 1 || i == 2)
-	x = -30;
-	if (i == 0 || i == 3)
-	x = 140;
-	if (i == 1 || i == 3)
-	y = 210;
-	if (i == 2 || i == 0)
-	y = 375;
-	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
-	p->tex[i].img_ptr, x, y);
-	system("afplay ./musics/zip.mp3 &");
-	}
-	i++;
-	} */
-	//	printf("iuh");
-	// pour fair apparaitre la tronconneuse
-
 	if (p->k == 0 && (int)p->c->p_x == (int)p->sprite[2].x && (int)p->sprite[2].y == (int)p->c->p_y && p->menu != -1)
 	{
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
@@ -55,7 +28,6 @@ void		take_object(t_struct *p)
 
 		else if (p->k == 7 && (int)p->c->p_x == (int)p->sprite[16].x && (int)p->sprite[16].y == (int)p->c->p_y && p->trump != 3 && p->sprite[16].k != 6)
 	{
-	//		printf("ilasfjklajflw");
 		p->trump = 3;
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
