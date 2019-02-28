@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 01:35:29 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 02:45:15 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 
 		if (p->edit != 0)
 			p->edits = -1;
-		/////////////// SPRITE ////////////////
 
+		/////////////// SPRITE ////////////////
 		if (x > 1190 && x < 1250 && y > 444 && y < 512)
 			p->edits = 20;
 		else if (x > 1290 && x < 1350 && y > 444 && y < 512)
@@ -107,41 +107,59 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		if (p->edits > 19)
 			p->edit = 0;
 
-
+		/*
 		//		printf("b : %i \n", button);
-		printf("y : %i \n", y);
-		printf("x good : %i \n", (x - 496) / 40);
-		printf("y good : %i \n", (y - 37) / 40);*/
+		printf("y : %i \n", y);*/
+
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
-
-		if (x > 0 && x < 14 && y > 0 && y < 140)
+	}
+	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
+	{
+		if (p->edits > 19)
 		{
-
-			if ((x != 7 && y != 13))
-				//	p->map[4][y][x] = 2;
-				p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
-
-			if (x >= 0 && x <= 14 && y >= 0 && y <= 14)
+			if (p->map[4][y][x] == 0)
 			{
-				if (p->edits > 19)
-				{
-
-					p->sprite[p->edits].k = 4;
-					p->sprite[p->edits].y = y;
-					p->sprite[p->edits].x = x;
-				}
-				else if (p->edit == 121 || p->edit == 0)
-				{
-					if (x != 0 && x != 14 && y != 0 && y != 14)
-						p->map[4][y][x] = 0;
-				}
-				else
-					p->map[4][y][x] = p->edit;
+				p->sprite[p->edits].k = 4;
+				p->sprite[p->edits].y = x;
+				p->sprite[p->edits].x = y;
 			}
 		}
 	}
-			return (0);
+
+	int i;
+	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit != 0)
+	{
+		if (p->edit == 121)
+		{
+			if (x != 0 && x != 14 && y != 0 && y != 14)
+				p->map[4][y][x] = 0;
+		}
+		else
+		{
+			i = 20;
+			while (i < 24)
+			{
+				if (p->sprite[i].x == y && p->sprite[i].y == x)
+					break ;
+				i++;
+			}
+			if (i == 24)
+				if (x == 7)
+				{
+					if (y == 13 || y == 14)
+						i = 100;
+				}
+			if (i != 100)
+				p->map[4][y][x] = p->edit;
+		}
+	}
+	printf("x good : %i \n", x);
+	printf("y good : %i \n", y);
+
+	printf("x sprite : %d\n", (int)p->sprite[20].y);
+	printf("y sprite : %d\n", (int)p->sprite[20].x);
+	return (0);
 
 }
 

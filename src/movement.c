@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/28 01:17:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 02:54:55 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			p->elevator = 5;
 		elevator(p);
 	}
-	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1) && p->k != 4)
+	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 	{
 		while (i < 5)
 		{
