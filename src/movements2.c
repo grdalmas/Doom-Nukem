@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 15:17:50 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 02:26:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:01:33 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	move_greg(t_struct *p, int move)
 		system("afplay ./musics/Doom_1.mp3 &");
 		if (p->k == 4)
 		{
+			inverse_map(p);
 			system("killall afplay");
 			system("afplay ./musics/amblobby.mp3 &");
 		}

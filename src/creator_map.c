@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 01:58:17 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 04:38:59 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void		creator_map(t_struct * p)
 	{
 				if (p->sprite[i].k == 4)
 				{
-				img_to_img(p, 155 + (p->sprite[i].y * 40),
-						35 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
+				img_to_img(p, 135 + (p->sprite[i].y * 40),
+						15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
 				}
 				i++;
 	}

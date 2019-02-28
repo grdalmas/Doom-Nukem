@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 22:48:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:10:56 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,31 +77,46 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 			}
 		}
 	}
+				p->c->x1 = x + cb + 300;
+				draw_line2(y, x + cb + 300, y + cb, p);
+				p->c->x1 = x + 300;
+				draw_line2(y, x + cb + 300, y, p);
+				draw_line2(y + cb, x + cb + 300, y + cb, p);
+				draw_line2(y, x + 300, y + cb, p);
 }
-/*
-static void		sprite(t_struct *p, int c, int alpha, int r)
+
+void		*inverse_map(t_struct *p)
 {
 	int i;
+	int j;
+	int k;
+	int *tmp;
 
 	i = 0;
-	while (i < 20)
+	while (i < 15)
 	{
-		if (p->sprite[i].k == p->k)
+		if (!(tmp = (int *)malloc(sizeof(int) * 16)))
+			return (NULL);
+		j = 14;
+		k = 0;
+		while (j >= 0)
 		{
-			alpha = 0;
-			while (alpha <= 360)
-			{
-				draw_pixel(p->img_str, p->sprite[i].x * 18 + r * cos(alpha),
-						p->sprite[i].y * 18 * 3 + r * sin(alpha), c);
-				alpha++;
-			}
+			tmp[k] = p->map[4][i][j];
+			j--;
+			k++;
 		}
+		j = 0;
+		while (j++ < 15)
+			p->map[4][i][j] = tmp[j];
+		free(tmp);
 		i++;
 	}
+	return (0);
 }
-*/
+
 void			minimap2(t_struct *p)
 {
+//	inverse_map(p);
 	labyrinthe(p, 0, 0, 40);
 //	sprite(p, 0xFFFF, 0, 5);
 	p->c->x1 = p->c->p_x * (40);
