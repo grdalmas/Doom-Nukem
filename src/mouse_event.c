@@ -95,24 +95,23 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			p->edits = -1;
 		/////////////// SPRITE ////////////////
 
-		if (x > 1190 && x < 1550 && y > 444 && y < 512)
-			p->edits = 51;
-		else if (x > 1290 && x < 1550 && y > 444 && y < 512)
-			p->edits = 33;
-		else if (x > 1390 && x < 1550 && y > 444 && y < 512)
-			p->edits = 46;
+		if (x > 1190 && x < 1250 && y > 444 && y < 512)
+			p->edits = 20;
+		else if (x > 1290 && x < 1350 && y > 444 && y < 512)
+			p->edits = 21;
+		else if (x > 1390 && x < 1450 && y > 444 && y < 512)
+			p->edits = 22;
 		else if (x > 1490 && x < 1550 && y > 444 && y < 512)
-			p->edits = 50;
+			p->edits = 23;
 
 		if (p->edits > 19)
 			p->edit = 0;
 
 
 		//		printf("b : %i \n", button);
-		printf("x : %i \n", x);
 		printf("y : %i \n", y);
 		printf("x good : %i \n", (x - 496) / 40);
-		printf("y good : %i \n", (y - 37) / 40);
+		printf("y good : %i \n", (y - 37) / 40);*/
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
 
@@ -123,12 +122,11 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 				//	p->map[4][y][x] = 2;
 				p->map[4][y][x] = p->edit; //A LA PLACE DE CELUI DU DESSUS
 
-			printf("p edit : %d\n", p->edit);
 			if (x >= 0 && x <= 14 && y >= 0 && y <= 14)
 			{
 				if (p->edits > 19)
 				{
-					//printf(%
+
 					p->sprite[p->edits].k = 4;
 					p->sprite[p->edits].y = y;
 					p->sprite[p->edits].x = x;
@@ -144,5 +142,6 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		}
 	}
 			return (0);
+
 }
 
