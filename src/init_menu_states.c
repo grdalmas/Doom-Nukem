@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 23:51:31 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 00:12:17 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			*init(t_struct *param)
 	camera->plane_y = 1;
 	camera->move_speed = 0.2;
 	camera->pas = 1;
-	camera->youshall = 0;
+	camera->youshall = 0; // suprimer tous les youshall
 	camera->tpobj = 0;
 	param->life = 100;
 	return (NULL);
