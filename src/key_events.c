@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 23:41:06 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 01:45:35 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int				keypress(int keycode, void *d)
 	{
 		p->keypress[KEY_R] = 1;
 	}
-	else if (keycode == MLX_KEY_P && p->menu != 2) // PAUSE
+	else if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0)) // PAUSE
 	{
 		if (p->menu == 0)
 			p->menu = 1;
