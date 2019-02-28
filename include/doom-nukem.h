@@ -66,15 +66,6 @@ typedef enum	e_keystate
 
 }				t_keystate;
 
-/*typedef struct		s_enemy
-{
-	int			k;
-	int			id;
-	float		x;
-	float		y;
-	float		ang;
-}					t_enemy;
-*/
 typedef struct		s_porte
 {
 	float	open;

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:11:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/14 07:48:16 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 06:01:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,21 @@ static void		create_map2(t_struct *p, int i, char **l_s, int k)
 				&& (p->map[k][i][j] < 0 || p->map[k][i][j] > TEX))
 		{
 			ft_putendl("error, invalid map");
+			// FREE AVANT DE SORTIR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			exit(EXIT_FAILURE);
 		}
 		if ((j == 0 || j == 14)
 				&& (p->map[k][i][j] < 0 || p->map[k][i][j] > TEX))
 		{
 			ft_putendl("error, invalid map");
+			// FREE AVANT DE SORTIR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			exit(EXIT_FAILURE);
 		}
 	}
 	if (j != 15)
 	{
 		ft_putendl("error, invalid map");
+			// FREE AVANT DE SORTIR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		exit(EXIT_FAILURE);
 	}
 }
@@ -74,6 +77,7 @@ static void		create_map(t_struct *info, int fd, int k)
 	if (i != 15)
 	{
 		ft_putendl("error, invalid map");
+			// FREE AVANT DE SORTIR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		exit(EXIT_FAILURE);
 	}
 }

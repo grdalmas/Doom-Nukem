@@ -6,13 +6,13 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/27 18:31:17 by grdalmas         ###   ########.fr        #
+#    Updated: 2019/02/28 05:37:13 by cmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 	# COMPILATION
 CC =		clang
-C_FLAGS =	-Werror -Wextra -Wall #-Weverything -g # -fsanitize=address -g3 # PENSER A ENLEVER LE G !!
+C_FLAGS =	-Werror -Wextra -Wall # -fsanitize=address -g3 # PENSER A ENLEVER LE G !!
 ADD_FLAGS =
 
 	# BINARY
