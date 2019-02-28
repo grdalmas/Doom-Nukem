@@ -14,8 +14,8 @@
 
 void			init_menu(t_game *gm)
 {
-	//gm->draw[MENU] = draw_main_menu;
-	gm->draw[RUN] = draw_game;
+	gm->draw[MENU] = draw_main_menu;
+	//gm->draw[RUN] = draw_game;
 	//gm->draw[MAP_CREA] = draw_map_creator;
 	//gm->event_key[MENU] = eventk_menu;
 	//gm->event_key[GAME] = eventk_game;
@@ -23,7 +23,7 @@ void			init_menu(t_game *gm)
 	//gm->event_mouse[MENU] = eventm_menu;
 	//gm->event_mouse[GAME] = eventm_game;
 	//gm->event_mouse[MAP_CREA] = eventm_map_creator;
-	gm->current_state = RUN;
+	gm->current_state = MENU;
 }
 
 int				close_window(t_struct *p)
@@ -72,6 +72,9 @@ void			initplayer(t_struct *param)
 	param->elev = 0;
 	param->trumplive = 1;
 	param->menu = 1;
+	param->choice = 0;
+	param->sound = 1;
+	param->difficulty = 0;
 	system("afplay ./musics/amblobby.mp3 &");
 	init_time_struct(&param->time);
 }

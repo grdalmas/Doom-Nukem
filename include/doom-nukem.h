@@ -43,7 +43,7 @@
 # define MOTIONNOTIFY 6
 # define CLOSEMASK (1L<<17)
 # define NUMSPRITE 25
-# define TEX 122
+# define TEX 137
 # define FOV 60
 # define PI 3.14159256
 # define PORTE 1
@@ -230,6 +230,9 @@ typedef struct		s_struct
 	int				mousex;
 	int				mousey;
 	char			floor;
+	int				choice;
+	int				sound;
+	int				difficulty;
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
@@ -288,6 +291,14 @@ void				color_text_sky(t_struct *p, int col, int line, int tex);
 void				initplayer(t_struct *param);
 void				*init(t_struct *param);
 void				*inverse_map(t_struct *p);
+
+void				draw_main_menu(void *gm);
+int					mouse_motion_settings(int x, int y, t_struct *p);
+int					mouse_clic_settings(int b, int x, int y, t_struct *p);
+int					mouse_release_settings(int b, int x, int y, t_struct *p);
+int					mouse_motion_diff(int x, int y, t_struct *p);
+int					mouse_clic_diff(int b, int x, int y, t_struct *p);
+int					mouse_release_diff(int b, int x, int y, t_struct *p);
 
 
 /*

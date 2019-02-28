@@ -53,6 +53,9 @@ SRC =		draw_3d.c\
 			creator_map.c\
 			img_to_img.c\
 			textures2.c\
+			menu.c\
+			settings_hook.c\
+			difficulty_hook.c\
 
 OBJ =		$(SRC:.c=.o)
 
