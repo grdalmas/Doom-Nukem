@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 06:44:41 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 13:16:41 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,10 @@ void			soundstep(t_struct *p)
 int				key_press_hook(t_struct *p)
 {
 	double s;
-	int key = 0;
+	int key;
 	float sprint;
 
+	key = 0;
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
@@ -120,7 +121,8 @@ int				key_press_hook(t_struct *p)
 		p->c->pas += 7;
 		p->pas = 21;
 	}
-		else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1 || p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
+		else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1
+			|| p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
 		sprint = 0.2;
 		p->pas = 35;

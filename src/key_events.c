@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 01:45:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 11:21:05 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int				keyrelease(int keycode, void *d)
 	if (!(p = (t_struct*)d))
 		return (0);
 	if (keycode == MLX_KEY_M)
-	 	p->keypress[KEY_M] = 0;
+		p->keypress[KEY_M] = 0;
 	if (keycode == MLX_KEY_ESCAPE)
 		p->keypress[KEY_ESCAPE] = 0;
 	else if (keycode == MLX_KEY_W)

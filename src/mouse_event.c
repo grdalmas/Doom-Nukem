@@ -110,15 +110,15 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		//		printf("b : %i \n", button);
 
 		printf("y : %i \n", y);
-		printf("x good : %i \n", x );
-		printf("y good : %i \n", y );
+		printf("x good : %i \n", x);
+		printf("y good : %i \n", y);
 
 		if (x > 1357 && x < 1396 && y > 600 && 638 > y && p->edit > 0)
 			p->floor = p->edit;
 
 		x = (x - 496) / 40;
 		y = (y - 37) / 40;
-	
+
 	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
 	{
 		if (p->edits > 19)
@@ -126,7 +126,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			if (p->map[4][y][x] == 0)
 			{
 				p->sprite[p->edits].k = 4;
-				p->sprite[p->edits].y =  (int)x + 0.5;
+				p->sprite[p->edits].y = (int)x + 0.5;
 				p->sprite[p->edits].x = (int)y + 0.5;
 			}
 		}
@@ -163,11 +163,8 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 	}
 	printf("x good : %i \n", x);
 	printf("y good : %i \n", y);
-
 	printf("x sprite : %d\n", (int)p->sprite[20].y);
 	printf("y sprite : %d\n", (int)p->sprite[20].x);
 	}
 	return (0);
-
 }
-

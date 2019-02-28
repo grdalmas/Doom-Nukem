@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creator_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 04:38:59 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 12:52:54 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ void		creator_map(t_struct * p)
 	i = 20;
 	while (i < 24)
 	{
-				if (p->sprite[i].k == 4)
-				{
-				img_to_img(p, 135 + (p->sprite[i].y * 40),
-						15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
-				}
-				i++;
+		if (p->sprite[i].k == 4)
+		{
+		img_to_img(p, 135 + (p->sprite[i].y * 40),
+				15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
+		}
+		i++;
 	}
 	minimap2(p);
 }

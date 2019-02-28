@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:24:58 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 12:37:14 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-t_sprite			*init_sprite(void)
+t_sprite	*init_sprite(void)
 {
 	static t_sprite sprite[NUMSPRITE] = {
 		{2, 0, 7.5, 7.5, 1}, // tools
@@ -44,7 +44,7 @@ t_sprite			*init_sprite(void)
 	return (sprite);
 }
 
-void				wall_dist(t_struct *p)
+void		wall_dist(t_struct *p)
 {
 	if (p->c->side == 0)
 	{
@@ -65,7 +65,7 @@ void				wall_dist(t_struct *p)
 	p->c->offset -= floor(p->c->offset);
 }
 
-void				hit_walls(t_struct *p, int x)
+void		hit_walls(t_struct *p, int x)
 {
 	int hit;
 	int i;
@@ -91,7 +91,8 @@ void				hit_walls(t_struct *p, int x)
 			i = 0;
 			while (i < NUMSPRITE)
 			{
-				if (p->k == p->sprite[i].k && p->c->map_x == (int)p->sprite[i].x && p->c->map_y == (int)p->sprite[i].y)
+				if (p->k == p->sprite[i].k && p->c->map_x == (int)p->sprite[i].x
+					&& p->c->map_y == (int)p->sprite[i].y)
 				{
 					p->sprite[i].pv -= 10;
 					p->shoot = 0;
@@ -111,7 +112,8 @@ void				hit_walls(t_struct *p, int x)
 			if (x == WIDTH / 2)
 				p->shoot = 0;
 			wall_dist(p);
-			while (i < NUMPORTE && p->porte[i].zip != p->map[p->k][p->c->map_x][p->c->map_y])
+			while (i < NUMPORTE && p->porte[i].zip
+				!= p->map[p->k][p->c->map_x][p->c->map_y])
 				i++;
 			if (p->c->offset < p->porte[i].open - 0.02)
 				hit = 0;
@@ -121,7 +123,7 @@ void				hit_walls(t_struct *p, int x)
 	wall_dist(p);
 }
 
-void				walls_sides(t_struct *p, int x)
+void		walls_sides(t_struct *p, int x)
 {
 	p->c->map_x = (int)p->c->p_x;
 	p->c->map_y = (int)p->c->p_y;
@@ -149,7 +151,7 @@ void				walls_sides(t_struct *p, int x)
 	hit_walls(p, x);
 }
 
-void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
+void		draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 {
 	int		tex_x;
 	int		tex_y;
@@ -165,7 +167,8 @@ void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : p->c->offset * 256));
 	col = tex_x * BPP;
 	//	if (p->k != 7)    A REMETTRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
-	p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end - (double)HEIGHT)) * 0.25;
+	p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
+		- (double)HEIGHT)) * 0.25;
 	if (p->c->shadow > 1)
 		p->c->shadow = 1;
 	if (p->c->y_end > HEIGHT - p->h)
@@ -174,7 +177,7 @@ void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	//	tex_x *= BPP;
 	if (p->hit == 2)
 		tex = 6;
-	else if (p->hit == 3 && p->s == - 1)
+	else if (p->hit == 3 && p->s == -1)
 	{
 		tex = 5;
 		p->tid = 5;
@@ -199,7 +202,7 @@ void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	}
 }
 
-void				raycasting(t_struct *p, int x, int z)
+void		raycasting(t_struct *p, int x, int z)
 {
 	int nb;
 
@@ -237,19 +240,23 @@ void				raycasting(t_struct *p, int x, int z)
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr3, 0, 653);
 	if (p->elevator != 0)
 	{
-
 		if ((int)p->c->p_x == 7 && (int)p->c->p_y == 7)
 		{
 			if (p->elevator == 1)
-				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[91].img_ptr, 750, 200);
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+					p->tex[91].img_ptr, 750, 200);
 			if (p->elevator == 2)
-				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[103].img_ptr, 750, 200);
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+					p->tex[103].img_ptr, 750, 200);
 			if (p->elevator == 3)
-				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[104].img_ptr, 750, 200);
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+					p->tex[104].img_ptr, 750, 200);
 			if (p->elevator == 4)
-				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[105].img_ptr, 750, 200);
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+					p->tex[105].img_ptr, 750, 200);
 			if (p->elevator == 5)
-				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[106].img_ptr, 750, 200);
+				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr,
+					p->tex[106].img_ptr, 750, 200);
 		}
 	}
 	if (p->k == 7 && p->c->shadow <= 1)

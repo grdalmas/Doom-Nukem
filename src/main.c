@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 23:40:42 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 11:20:40 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void			rotrump(t_struct *p)
 		p->sprite[18].id = 15;
 }
 
-int		mlx_main_loop(t_struct *p)
+int				mlx_main_loop(t_struct *p)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	if (p)
@@ -53,12 +53,11 @@ int		mlx_main_loop(t_struct *p)
 	return (0);
 }
 
-
 static void		window(t_struct *p, int w, int h)
 {
-	int bpp;
-	int size_l;
-	int endian;
+	int			bpp;
+	int			size_l;
+	int			endian;
 
 	p->mlx_ptr = mlx_init();
 	p->w_ptr = mlx_new_window(p->mlx_ptr, 1620, 960, "DOOM ZER");

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 05:35:49 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 15:19:47 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 **	pour agir en consequence dans l'expose.
 */
 
-typedef enum	e_keystate
+typedef enum		e_keystate
 {
 	LAST_KEY_PRESS,
 	KEY_TAB, KEY_W, KEY_UP, KEY_DOWN, KEY_D, KEY_A, KEY_SHIFT,
@@ -64,7 +64,7 @@ typedef enum	e_keystate
 	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_M,
 	NB_KEYSTATE
 
-}				t_keystate;
+}					t_keystate;
 
 typedef struct		s_porte
 {
@@ -237,14 +237,8 @@ typedef struct		s_struct
 }					t_struct;
 
 int					close_window(t_struct *p);
-void				color_text(t_struct *p, int col, int line, double ratio);
-void				draw_line(int y, int x2, int y2, t_struct *p);
-void				draw_line2(int y, int x2, int y2, t_struct *p);
-void				draw_pixel(char *img_str, int x, int y, int color);
 void				draw_pixel2(t_struct *p, char *img_str, int x, int y);
-void				draw_wall_3d(t_struct *p, int x, int y, int wall_height);
 int					*fill_color(int *str, int x, int y, int c);
-int					*fill_color2(int *str, int x, int y, int c);
 int					hooks(t_struct *param);
 void				init_textures(t_struct *p);
 void				load_textures(t_struct *p);
@@ -266,7 +260,6 @@ int					rotation2(int x, int y, t_struct *p);
 t_porte				*init_door(void);
 t_sprite            *init_sprite(void);
 void				weapon(t_struct *p);
-void				color_text2(t_struct *p, int col,int line, double ratio);
 void				trump(t_struct *p);
 void				take_object(t_struct *p);
 void				init_menu(t_game *gm);
@@ -280,15 +273,37 @@ void				creator_map(t_struct *);
 void				minimap2(t_struct *p);
 void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
 int					mouse_button(int button, int x, int y, t_struct *p);
-void				which_text(t_struct *p);
-void				which_textf(t_struct *p);
-void				color_textf(t_struct *p, int col, int line, double ratio);
 void				skybox(t_struct *p, int y, int x);
-void				color_text_sky(t_struct *p, int col, int line, int tex);
 void				initplayer(t_struct *param);
 void				*init(t_struct *param);
 void				*inverse_map(t_struct *p);
 
+/*
+**					draw_line.c
+*/
+void				draw_pixel(char *img_str, int x, int y, int color);
+void				draw_line(int y, int x2, int y2, t_struct *p);
+
+/*
+**					draw_line2.c
+*/
+void				draw_line2(int y, int x2, int y2, t_struct *p);
+int					*fill_color2(int *str, int x, int y, int c);
+
+/*
+**					draw_3d.c
+*/
+void				color_text_sky(t_struct *p, int col, int line, int tex);
+void				draw_wall_3d(t_struct *p, int x, int y, int wall_height);
+
+/*
+**					draw_3d2.c
+*/
+void				which_text(t_struct *p);
+void				which_textf(t_struct *p);
+void				color_text(t_struct *p, int col, int line, double ratio);
+void				color_text2(t_struct *p, int col,int line, double ratio);
+void				color_textf(t_struct *p, int col, int line, double ratio);
 
 /*
 **					sprite_event.c

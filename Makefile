@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/02/28 05:37:13 by cmartine         ###   ########.fr        #
+#    Updated: 2019/02/28 11:21:31 by grdalmas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC =		draw_3d.c\
 			mouse_event.c\
 			weapon.c\
 			trump.c\
-			init_menu_states.c\
+			init.c\
 			game.c\
 			player_events.c\
 			sprite_events.c\

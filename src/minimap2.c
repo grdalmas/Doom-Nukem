@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   minimap2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/28 05:10:56 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 11:44:46 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
 /*
 int				*fill_color(int *str, int x, int y, int c)
 {
@@ -50,6 +51,7 @@ static int		laby_bonus(t_struct *p, int i, int j)
 	return (c);
 }
 */
+
 static void		labyrinthe(t_struct *p, int x, int y, int cb)
 {
 	int i;
@@ -85,7 +87,7 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 				draw_line2(y, x + 300, y + cb, p);
 }
 
-void		*inverse_map(t_struct *p)
+void			*inverse_map(t_struct *p)
 {
 	int i;
 	int j;
