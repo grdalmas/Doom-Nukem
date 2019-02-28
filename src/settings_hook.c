@@ -8,30 +8,30 @@ int		mouse_motion_settings(int x, int y, t_struct *p)
 		if (x >= 600 && x <= 1025 && y >= 562 && y <= 610)
         {
 			if (p->sound == 1)
-                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[132].img_ptr, 0, 35);
+                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[132].img_ptr, 0, 0);
             else if (p->sound == 0)
-			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[129].img_ptr, 0, 35);
+			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[129].img_ptr, 0, 0);
         }
 		else if (x >= 790 && x <= 900 && y >= 835 && y <= 930)
         {
             if (p->sound == 1)
-                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[133].img_ptr, 0, 35);
+                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[133].img_ptr, 0, 0);
             else if (p->sound == 0)
-			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[130].img_ptr, 0, 35);
+			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[130].img_ptr, 0, 0);
         }
 		else if (x >= 1105 && x <= 1320 && y >= 895 && y <= 930)
         {
 			if (p->sound == 1)
-                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[131].img_ptr, 0, 35);
+                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[131].img_ptr, 0, 0);
             else if (p->sound == 0)
-			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[128].img_ptr, 0, 35);
+			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[128].img_ptr, 0, 0);
         }
 		else
         {
             if (p->sound == 1)
-			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[126].img_ptr, 0, 35);
+			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[126].img_ptr, 0, 0);
             else if (p->sound == 0)
-                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[127].img_ptr, 0, 35);
+                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[127].img_ptr, 0, 0);
         }
     }
 	return (1);
@@ -73,9 +73,9 @@ int		mouse_release_settings(int b, int x, int y, t_struct *p)
 		else
         {
             if (p->sound == 1)
-			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[126].img_ptr, 0, 35);
+			    mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[126].img_ptr, 0, 0);
             else if (p->sound == 0)
-                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[127].img_ptr, 0, 35);
+                mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[127].img_ptr, 0, 0);
         }
     }
 	return (1);
