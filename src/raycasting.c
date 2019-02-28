@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 23:45:30 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 01:17:06 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,8 +184,6 @@ void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height)
 	col = tex_x * BPP;
 	//	if (p->k != 7)    A REMETTRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 	p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end - (double)HEIGHT)) * 0.25;
-	//j aimerai bien bidouiller ca si j ai le temps
-	//p->c->shadow = distance * 0.25;
 	if (p->c->shadow > 1)
 		p->c->shadow = 1;
 	if (p->c->y_end > HEIGHT - p->h)
@@ -235,19 +233,13 @@ void				raycasting(t_struct *p, int x, int z)
 		p->c->r_dir_x = p->c->dir_x + p->c->plane_x * p->c->camera_x;
 		p->c->r_dir_y = p->c->dir_y + p->c->plane_y * p->c->camera_x;
 		walls_sides(p, x);
-		if (p->k != 4)
 			draw_wall_3d(p, z - x, 0, 0);
-		else
-			draw_wall_3d(p, x, 0, 0);
 		if (p->hit == 2 || p->hit == 3)
 		{
 			walls_sides(p, x);
 			draw_transparent_wall(p, z - x, 0, 0);
 		}
-		if (p->k != 4)
 			p->zbuff[z - x] = p->c->wall_dist;
-		else
-			p->zbuff[x] = p->c->wall_dist;
 		x++;
 	}
 	order_sprite(p);
