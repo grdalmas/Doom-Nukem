@@ -43,7 +43,7 @@ int		mouse_release_menu(int b, int x, int y, t_struct *p)
         {
             p->choice = 1;
 			mlx_clear_window(p->mlx_ptr, p->w_ptr);
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 0);
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 35);
             //p->gm.draw[RUN] = draw_game;
             //p->gm.current_state = RUN;
 			p->menu = 1;
