@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 00:48:52 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 01:09:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void		creator_map(t_struct * p)
 
 
 
-	img_to_img(p, 840, 435, 14, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 840, 540, 15, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 945, 540, 16, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 945, 435, 17, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1050, 540, 0, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1050, 435, 1, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1155, 540, 12, 0.3); //indice pour dessiner index tex
-	img_to_img(p, 1155, 435, 43, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 840, 435, 51, 0.3); //indice pour dessiner index tex
+//	img_to_img(p, 840, 540, 15, 0.3); //indice pour dessiner index tex
+//	img_to_img(p, 945, 540, 16, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 945, 435, 33, 0.3); //indice pour dessiner index tex
+//	img_to_img(p, 1050, 540, 0, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 1050, 435, 46, 0.3); //indice pour dessiner index tex
+//	img_to_img(p, 1155, 540, 12, 0.3); //indice pour dessiner index tex
+	img_to_img(p, 1155, 435, 50, 0.3); //indice pour dessiner index tex
 
 
 	int i;

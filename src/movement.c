@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 23:42:06 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/02/28 01:17:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void			rotation(t_struct *p, int mod)
 		p->c->rotation_speed = 0.1;
 	if (mod == 1)
 		p->c->rotation_speed = -0.1;
-	if (p->k == 4)
-		p->c->rotation_speed *= -1;
 	tmp_dir_x = p->c->dir_x;
 	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) -
 		p->c->dir_y * sin(-p->c->rotation_speed);

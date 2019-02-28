@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 01:36:14 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/02/28 01:35:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int			rotation2(int x, int y, t_struct *p)
 		//	printf("%f ",(dif));
 		//	if (p->ox >= x)
 		p->c->rotation_speed = difx;
-		if (p->k == 4)
-			p->c->rotation_speed *= -1;
 		//else if (p->ox <= x)
 		//	p->c->rotation_speed = difx;
 		tmp_dir_x = p->c->dir_x;
@@ -53,7 +51,6 @@ int			rotation2(int x, int y, t_struct *p)
 			* sin(-p->c->rotation_speed);
 		p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) + p->c->plane_y
 			* cos(-p->c->rotation_speed);
-
 		//	if (p->oy >= y)
 		//		p->h += dify;
 		//	if (p->oy <= y)
@@ -86,7 +83,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 		else if (x > 1493 && x < 1496 + 76 && y > 140 && y < 214)
 			p->edit = 11;
 		else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
-			p->edit = 58;
+			p->edit = 23;
 		else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
 			p->edit = 58;
 		else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
@@ -112,7 +109,6 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 
 
 		//		printf("b : %i \n", button);
-/*		printf("x : %i \n", x);
 		printf("y : %i \n", y);
 		printf("x good : %i \n", (x - 496) / 40);
 		printf("y good : %i \n", (y - 37) / 40);*/
@@ -130,6 +126,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			{
 				if (p->edits > 19)
 				{
+
 					p->sprite[p->edits].k = 4;
 					p->sprite[p->edits].y = y;
 					p->sprite[p->edits].x = x;
@@ -144,6 +141,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			}
 		}
 	}
-		return (0);
+			return (0);
+
 }
 
