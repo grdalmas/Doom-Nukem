@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/01 06:31:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:52:28 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 		else
 			printf("4\n");
 */
-				// POUR GERER LES GLITCHS...
+				// POUR GERER LES GLITCHS... PAS AU POINT
 	if (p->k == 4)
 	{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
