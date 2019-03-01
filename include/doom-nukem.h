@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 04:39:28 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:42:24 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,10 +231,13 @@ typedef struct		s_struct
 	int				mousex;
 	int				mousey;
 	char			floor;
+	char			soundpain;
+	char			soundpainmum;
 	int				choice;
 	int				sound;
 	int				difficulty;
 	int			dead;
+
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
