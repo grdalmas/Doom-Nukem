@@ -76,6 +76,6 @@ void			initplayer(t_struct *param)
 	param->choice = 0;
 	param->sound = 1;
 	param->difficulty = 0;
-	system("afplay ./musics/amblobby.mp3 &");
+	param->sound = 1;
 	init_time_struct(&param->time);
 }

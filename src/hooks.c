@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 02:37:44 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:12:57 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		take_object(t_struct *p)
 		p->trump = 3;
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
+		if (p->sound == 1)
 		system("afplay ./Musiques/chainsaw_start.mp3 &");
 	}
 	// pour ramasser caisse a outils et ouvrir ascenceur
@@ -166,7 +167,7 @@ int				key_press_hook(t_struct *p)
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
 			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}
-	if (key == 0)
+	if (key == 0 && p->sound == 1)
 		soundstep(p);
 	move_up(p, key, 0, s);
 	return (0);

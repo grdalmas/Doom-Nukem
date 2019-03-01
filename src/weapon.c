@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:24:53 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:29:40 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,30 @@ void		touch_by_enemy(t_struct *p)
 			p->life -= 0.2;
 		else if (i < 16 && p->k == p->sprite[i].k && (int)p->sprite[i].x \
 				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y)
+			p->life -= 1;
+		i++;
+	}
+	if (p->life < 1)
+	{
+		p->life = 0;
+		p->menu = 2;
+		p->temp = 0;
+	}
+}
+
+void		touch_by_enemyhard(t_struct *p)
+{
+	int i;
+
+	i = 4;
+	while (i < 16)
+	{
+		if (i < 10 && p->k == p->sprite[i].k && (int)p->sprite[i].x \
+				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y \
+				&& p->life >= 0)
+			p->life -= 0.4;
+		else if (i < 16 && p->k == p->sprite[i].k && (int)p->sprite[i].x \
+				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y)
 			p->life -= 2;
 		i++;
 	}
@@ -33,7 +57,6 @@ void		touch_by_enemy(t_struct *p)
 		p->life = 0;
 		p->menu = 2;
 		p->temp = 0;
-		//mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
 	}
 }
 
@@ -83,7 +106,7 @@ void		reload(t_struct *p)
 	{
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[96].img_ptr, 800, \
 			490);
-		if (p->keypress[KEY_R] == 1)
+		if (p->keypress[KEY_R] == 1 && p->sound == 1)
 			system("afplay ./Musiques/shotgun_pump.mp3 &");
 	}
 	else if (p->weapon.reload < 4)
@@ -107,6 +130,7 @@ void		shoot(t_struct *p)
 {
 	if (p->keypress[KEY_SPACEBAR] == 1 && p->weapon.reload > 11)
 	{
+		if (p->sound == 1)
 		system("afplay ./Musiques/shotgun_shot.mp3 &");
 		p->shoot = 1;
 		p->weapon.reload = 0;
@@ -141,7 +165,7 @@ void		weapon(t_struct *p)
 {
 	if (p->weapon.id == 1)
 	{
-		if (p->temp == 1)
+		if (p->temp == 1 && p->sound == 1)
 			system("afplay ./Musiques/chainsaw_sustain.mp3 &");
 		if (p->keypress[KEY_SPACEBAR] == 0)// actionner la tronco
 		{
@@ -150,6 +174,7 @@ void		weapon(t_struct *p)
 			if (p->trons == 0)
 			{
 				p->trons = 1;
+				if (p->sound == 1)
 				system("afplay ./Musiques/chainsaw_attack_out.mp3 &");
 			}
 		}
@@ -157,11 +182,12 @@ void		weapon(t_struct *p)
 		//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
 		else if (p->keypress[KEY_SPACEBAR] == 1)// actionner la tronco
 		{
-			if (p->temp == 1)
+			if (p->temp == 1 && p->sound == 1)
 				system("afplay ./Musiques/chainsaw_attack_middle.mp3 &");
 			if (p->trons == 1)
 			{
 				p->trons = 0;
+				if (p->sound == 1)
 				system("afplay ./Musiques/chainsaw_attack_in.mp3 &");
 			}
 			soundtronco(p);
@@ -170,7 +196,10 @@ void		weapon(t_struct *p)
 				610, 583); // tronco 2
 		}
 	}
-	touch_by_enemy(p);
+	if (p->difficulty == 0)
+		touch_by_enemy(p);
+	else
+		touch_by_enemyhard(p);
 	if (p->weapon.id == 1)
 		hit_enemy(p);
 	if (p->weapon.id == 2)

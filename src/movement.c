@@ -216,7 +216,6 @@ int			against_glitch(t_struct * p, int move, double s)
 }
 
 
-
 		void			move_up(t_struct *p, int move, int i, double s)
 		{
 			int t;
@@ -281,7 +280,12 @@ int			against_glitch(t_struct * p, int move, double s)
 					}
 				}
 			}
-			else if (move == 12 || move == 13 || move == 68 || move == 66)
-				system("afplay ./musics/tp.mp3 &");
-			move_up2(p, move);
-		}
+	else if (move == 12 || move == 13 || move == 68 || move == 66)
+	{
+		move_up2(p, move);
+		if (p->sound == 1)
+		system("afplay ./musics/tp.mp3 &");
+		else
+			system("killall afplay");
+	}
+	}
