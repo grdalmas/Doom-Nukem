@@ -141,7 +141,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 	}
 	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 	{
-//		write(1, "1\n", 2);
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
@@ -195,8 +194,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 
 	if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
-//		write(1, "2\n", 2);
-//	if ((p->c->middle_wall_dist > 0.5) && )
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * i * s / 4))]
@@ -210,6 +207,11 @@ void			move_up(t_struct *p, int move, int i, double s)
 		}
 	}
 	else if (move == 12 || move == 13 || move == 68 || move == 66)
+	{
+		move_up2(p, move);
+		if (p->sound == 1)
 		system("afplay ./musics/tp.mp3 &");
-	move_up2(p, move);
-}
+		else
+			system("killall afplay");
+	}
+	}

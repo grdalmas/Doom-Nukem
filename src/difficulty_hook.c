@@ -2,14 +2,14 @@
 
 int		mouse_motion_diff(int x, int y, t_struct *p)
 {
-	y+=30;
+//	y+=30;
     if (p->choice == 3)
     {
-		if (x >= 715 && x <= 905 && y >= 555 && y <= 600)
+		if (x >= 715 && x <= 905 && y >= 523 && y <= 585)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[134].img_ptr, 0, 0);
-		else if (x >= 710 && x <= 910 && y >= 685 && y <= 735)
+		else if (x >= 710 && x <= 910 && y >= 650 && y <= 700)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[135].img_ptr, 0, 0);
-		else if (x >= 1105 && x <= 1320 && y >= 905 && y <= 940)
+		else if (x >= 1105 && x <= 1320 && y >= 855 && y <= 900)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[136].img_ptr, 0, 0);
 		else
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[137].img_ptr, 0, 0);
@@ -38,15 +38,22 @@ int		mouse_clic_diff(int b, int x, int y, t_struct *p)
 
 int		mouse_release_diff(int b, int x, int y, t_struct *p)
 {
-	y+=30;
+	printf("x%i\n ", x);
+	printf("y%i\n ", y);
+//	y+=30;
     if (p->choice == 3)
     {
-		if ((b == 1) && x >= 715 && x <= 905 && y >= 555 && y <= 600)
+		if ((b == 1) && x >= 715 && x <= 905 && y >= 523 && y <= 585)
+		{
             p->difficulty = 0;
-		else if ((b == 1) && x >= 710 && x <= 910 && y >= 685 && y <= 735)
+		}
+		else if ((b == 1) && x >= 710 && x <= 910 && y >= 650 && y <= 704)
             p->difficulty = 1;
-		else if ((b == 1) && x >= 1105 && x <= 1320 && y >= 905 && y <= 940)
+		else if ((b == 1) && x >= 1105 && x <= 1320 && y >= 855 && y <= 900)
+		{
 			p->choice = 2;
+			mouse_release_settings(b, x, y, p);
+		}
 		else
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[137].img_ptr, 0, 0);
     }
