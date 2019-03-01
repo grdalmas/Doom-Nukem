@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:09:53 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:03:18 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 	int line;
 
 	p->x = p->mspr.startx - 1;
-//	p->c->what = 2;
 	while (++p->x < p->mspr.endx && p->mspr.endx < 1380)
 	{
 		col = (p->x - p->mspr.startx) / d;
@@ -130,7 +129,6 @@ void				raysprite(t_struct *p, double d, int i, double ratio)
 				ratio = 1;
 			draw_sprite(p, d, ratio, 0);
 			}
-			//}
 		}
 	}
 }
