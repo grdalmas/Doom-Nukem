@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 12:52:54 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:15:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ void		creator_map(t_struct * p)
 		j = 0;
 		while (j < 15)
 		{
-			if (p->map[4][j][i] >= 1)
+
+			if (p->map[4][j][i] == 1)
+			{
+				img_to_img(p, 155 + (i * 40),
+						35 + (j * 40), 9, 0.15625);
+			}
+			if (p->map[4][j][i] > 1)
 			{
 				img_to_img(p, 155 + (i * 40),
 						35 + (j * 40), p->map[4][j][i], 0.15625);
@@ -59,8 +65,8 @@ void		creator_map(t_struct * p)
 	{
 		if (p->sprite[i].k == 4)
 		{
-		img_to_img(p, 135 + (p->sprite[i].y * 40),
-				15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
+			img_to_img(p, 135 + (p->sprite[i].y * 40),
+					15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
 		}
 		i++;
 	}

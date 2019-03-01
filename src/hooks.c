@@ -6,11 +6,35 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 13:16:41 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:09:48 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+
+void		print_map(t_struct *p)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < 15)
+	{
+		j= 0;
+	while (j < 15)
+	{
+		printf("%d ",p->map[4][i][j]);
+		j++;
+	}
+i++;
+		printf("\n");
+
+	}
+		printf("\n");
+}
+
+
 
 void		take_object(t_struct *p)
 {
@@ -19,10 +43,12 @@ void		take_object(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
 		inverse_map(p);
+		print_map(p);
 	}
 	else if (p->menu == -1)
 	{
 		inverse_map(p);
+		print_map(p);
 		p->menu = 1; //         MENU EDITEUR
 	}
 

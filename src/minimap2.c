@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/28 11:44:46 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:11:41 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,11 @@ void			*inverse_map(t_struct *p)
 			k++;
 		}
 		j = 0;
-		while (j++ < 15)
+		while (j < 15)
+		{
 			p->map[4][i][j] = tmp[j];
+			j++;
+		}
 		free(tmp);
 		i++;
 	}
