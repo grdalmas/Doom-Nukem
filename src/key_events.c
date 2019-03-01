@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 04:27:17 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:10:14 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int			proxyporte(t_struct *p)
 {
 	int i;
 	i = 0;
-	printf("%i", p->porte[i].zip);
 	while (i < NUMPORTE -1)
 	{
 		if (p->map[p->k][(int)p->c->p_x][(int)p->c->p_y] == p->porte[i].zip ||

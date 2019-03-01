@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 04:24:01 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 23:26:10 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	draw_game(void *gm)
 	}
 	if (p->keypress[KEY_E] == 1 && p->k == 8 && (int)p->c->p_x == 2 && (int)p->c->p_y == 7 && p->s < 0)
 	{
+		if (p->sound == 1)
+			system ("afplay ./Musiques/elevator_button.mp3 &");
 		p->s = 0;
 	}
 		if (p->s >= 0)

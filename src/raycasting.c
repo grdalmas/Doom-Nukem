@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 05:10:26 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 23:18:42 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_sprite	*init_sprite(void)
 {
-	printf("--------------->INIT SPRITE\n");
 	static t_sprite sprite[NUMSPRITE] = {
 		{2, 0, 7.5, 7.5, 1}, // tools
 		{8, 1, 7.5, 9.5, 10}, // medikit

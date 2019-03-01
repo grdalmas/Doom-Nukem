@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 06:29:40 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:10:21 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void		life_barre(t_struct *p)
 	i = 0;
 	while (i < p->life * 3)
 	{
+		//if ((int)p->life % 9 == 0)
 		p->c->x1 = 10 + i;
 		draw_line2(10, 10 + i, 40, p);
 		i++;

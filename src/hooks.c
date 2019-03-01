@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 06:12:57 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 23:12:35 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ void		take_object(t_struct *p)
 	// pour ramasser caisse a outils et ouvrir ascenceur
 	else if (p->k == 2 && (int)p->sprited[0] == 0 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
+		
+	
+		if (p->sound == 1)
+		system("afplay ./Musiques/trump_message_pop.mp3 &");
 		p->tool = 1;
 		p->trump = 2;
 		p->sprite[0].k = 6;
@@ -77,6 +81,8 @@ void		take_object(t_struct *p)
 	}
 	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
+		if (p->sound == 1)
+		system("afplay ./Musiques/trump_message_pop.mp3 &");
 		p->sprite[18].id = 14;
 		p->trump = 6;
 		//		p->sprite[3].k = 6;
@@ -84,12 +90,16 @@ void		take_object(t_struct *p)
 	}
 	else if (p->k == 5 && (int)p->c->p_x == (int)p->sprite[19].x && (int)p->sprite[19].y == (int)p->c->p_y && p->trump != 4 && p->sprite[19].k != 6)
 	{
+		if (p->sound == 1)
+		system("afplay ./Musiques/trump_message_pop.mp3 &");
 		p->trump = 4;
 		p->sprite[19].k = 6;
 		p->weapon.id = 2;
 	}
 	else if (p->k == 8 && (int)p->sprited[1] == 0)// && p->trump != 5) //&& p->sprite[1].k != 6)
 	{
+		if (p->sound == 1)
+		system("afplay ./Musiques/trump_message_pop.mp3 &");
 		p->trump = 5;
 		p->sprite[1].k = 6;
 		p->cure = 1;
