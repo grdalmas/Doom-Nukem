@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:42:58 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 04:39:28 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ typedef struct		s_camera
 	int				calc;
 
 //	float			offse;
+	double			middle_wall_dist;
 }					t_camera;
 
 typedef struct		s_struct

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/01 02:34:08 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:31:04 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 	}
 	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 	{
-		write(1, "1\n", 2);
+//		write(1, "1\n", 2);
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
@@ -154,9 +154,49 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-	if ((move == 0 && (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)) || (t < NUMPORTE && p->porte[t].open >= 0.6))
+
+/*
+		if (p->c->side == 0 && p->c->dir_x > 0)
+			printf("1\n");
+		else if (p->c->side == 0 && p->c->dir_x < 0)
+			printf("2\n");
+		else if (p->c->side == 1 && p->c->dir_y > 0)
+			printf("3\n");
+		else
+			printf("4\n");
+*/
+				// POUR GERER LES GLITCHS...
+	if (p->k == 4)
 	{
-		write(1, "2\n", 2);
+			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
+					[(int)((p->c->p_y + p->c->dir_y * s))] == 0)
+			{
+				if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
+					[(int)((p->c->p_y + p->c->dir_y * s)) + 1] > 0
+				&& (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s)) + 1]
+					[(int)((p->c->p_y + p->c->dir_y * s))] > 0))
+				{
+					if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s)) + 1]
+					[(int)((p->c->p_y + p->c->dir_y * s)) + 1] == 0)
+					{
+						printf("y a un coin !!!\n");
+						printf("dir x : %f\n", p->c->dir_x * s);
+						if ((int)(p->c->p_x + p->c->dir_x * s) == (int)p->c->p_x + 1)
+							move = 1;
+						if ((int)(p->c->p_y + p->c->dir_y * s) == (int)p->c->p_y + 1)
+							move = 1;
+					}
+				}
+
+
+			}
+
+	}
+
+	if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
+	{
+//		write(1, "2\n", 2);
+//	if ((p->c->middle_wall_dist > 0.5) && )
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * i * s / 4))]

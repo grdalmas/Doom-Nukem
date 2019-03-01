@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 12:37:14 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 05:10:26 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_sprite	*init_sprite(void)
 {
+	printf("--------------->INIT SPRITE\n");
 	static t_sprite sprite[NUMSPRITE] = {
 		{2, 0, 7.5, 7.5, 1}, // tools
 		{8, 1, 7.5, 9.5, 10}, // medikit
@@ -225,6 +226,11 @@ void		raycasting(t_struct *p, int x, int z)
 			draw_transparent_wall(p, z - x, 0, 0);
 		}
 		p->zbuff[z - x] = p->c->wall_dist;
+		if (x == WIDTH / 2)
+		{
+			p->c->middle_wall_dist = p->c->wall_dist;
+//			printf("wall dist : %f\n", p->c->wall_dist);
+		}
 		x++;
 	}
 	order_sprite(p);
