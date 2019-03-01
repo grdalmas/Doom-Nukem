@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 00:10:21 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 23:15:45 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void			elevator(t_struct *p)
 			|| p->keypress[KEY_3] == 1 || p->keypress[KEY_4] == 1
 			|| p->keypress[KEY_5] == 1)
 	{
-		if (p->k == 7)
+		
+		if (p->sound == 1)
+			system("afplay ./Musiques/elevator_beep.mp3 &");
+			if (p->k == 7)
 			p->h = 0;
 		if (p->keypress[KEY_1] == 1)
 			p->k = 7;
