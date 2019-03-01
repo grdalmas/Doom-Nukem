@@ -5,6 +5,7 @@ int		mouse_motion_menu(int x, int y, t_struct *p)
 {
     if (p->choice == 0)
     {
+		y = y+30;
 		if (x >= 635 && x <= 990 && y >= 565 && y <= 635)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[123].img_ptr, 0, 0);
 		else if (x >= 630 && x <= 990 && y >= 768 && y <= 815)

@@ -2,6 +2,7 @@
 
 int		mouse_motion_diff(int x, int y, t_struct *p)
 {
+	y+=30;
     if (p->choice == 3)
     {
 		if (x >= 715 && x <= 905 && y >= 555 && y <= 600)
@@ -37,6 +38,7 @@ int		mouse_clic_diff(int b, int x, int y, t_struct *p)
 
 int		mouse_release_diff(int b, int x, int y, t_struct *p)
 {
+	y+=30;
     if (p->choice == 3)
     {
 		if ((b == 1) && x >= 715 && x <= 905 && y >= 555 && y <= 600)
