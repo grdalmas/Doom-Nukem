@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 02:43:25 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:21:31 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	draw_game(void *gm)
 		}
 		alive(p);
 		weapon(p);
-		if (p->cure == 0 &&  p->k == 9)
-			p->life -= 4;
-		else if (p->cure == 0)
+		if (p->cure == 0 && p->difficulty == 0)
+			p->life -= 0.01;
+		else if (p->cure == 0 &&  p->difficulty == 1)
 			p->life -= 0.02;
-
+		else if (p->cure == 0 &&  p->k == 9)
+			p->life -= 4;
 
 	}
 	else if (p->menu == 2) // GAME OVER MODE
@@ -106,6 +107,7 @@ void	draw_game(void *gm)
 //		hookcreator(p);
 		creator_map(p);
 	}
-	//else if (p->menu == 4)
-	//	draw_main_menu(p);
+//	printf("%i ",p->difficulty);
+//	else if (p->menu == 4)
+//		mouse_release_menu(
 }

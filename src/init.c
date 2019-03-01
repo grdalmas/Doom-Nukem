@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 02:36:40 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:14:58 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void			initplayer(t_struct *param)
 	param->choice = 0;
 	param->sound = 1;
 	param->difficulty = 0;
-	system("afplay ./musics/amblobby.mp3 &");
+	param->sound = 1;
 	init_time_struct(&param->time);
 }

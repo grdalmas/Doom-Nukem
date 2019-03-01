@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:03:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 05:02:34 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 
 static int			matrice_sprite(t_struct *p, int i)
 {
-//	double		invdet;
 	double		spritex;
 	double		spritey;
 	double		transformx;
