@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/01 01:11:41 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:29:07 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ static void		labyrinthe(t_struct *p, int x, int y, int cb)
 				draw_line2(y, x + cb + 300, y, p);
 				draw_line2(y + cb, x + cb + 300, y + cb, p);
 				draw_line2(y, x + 300, y + cb, p);
+
+				mlx_string_put(p->mlx_ptr, p->w_ptr, x + cb + 606, y + 10, 0xffffff, "SOL");
 }
 
 void			*inverse_map(t_struct *p)

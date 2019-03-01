@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:09:48 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 02:37:44 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-
+/*
 void		print_map(t_struct *p)
 {
 	int i;
@@ -33,7 +33,7 @@ i++;
 	}
 		printf("\n");
 }
-
+*/
 
 
 void		take_object(t_struct *p)
@@ -43,12 +43,12 @@ void		take_object(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
 		inverse_map(p);
-		print_map(p);
+//		print_map(p);
 	}
 	else if (p->menu == -1)
 	{
 		inverse_map(p);
-		print_map(p);
+//		print_map(p);
 		p->menu = 1; //         MENU EDITEUR
 	}
 
@@ -147,7 +147,7 @@ int				key_press_hook(t_struct *p)
 		p->c->pas += 7;
 		p->pas = 21;
 	}
-		else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1
+	else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1
 			|| p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
 		sprint = 0.2;
@@ -171,9 +171,3 @@ int				key_press_hook(t_struct *p)
 	move_up(p, key, 0, s);
 	return (0);
 }
-/*
-void			hookcreator(t_struct *p)
-{
-
-	printf("%i", p->mouse_event.x);
-}*/
