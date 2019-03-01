@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 00:05:25 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:43:46 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 			else if (x > 1183 && x < 1183 + 76 && y > 247 && y < 247 + 76)
 				p->edit = 23;
 			else if (x > 1280 && x < 1357 && y > 240 && y < 240 + 76)
-				p->edit = 58;
+				p->edit = 7;
 			else if (x > 1380 && x < 1457 && y > 240 && y < 240 + 76)
 				p->edit = 4;
 			else if (x > 1480 && x < 1557 && y > 240 && y < 240 + 76)
@@ -120,12 +120,17 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 
 			//		printf("b : %i \n", button);
 
-			printf("y : %i \n", y);
-			printf("x good : %i \n", x);
-			printf("y good : %i \n", y);
+//			printf("y : %i \n", y);
+//			printf("x good : %i \n", x);
+//			printf("y good : %i \n", y);
 
-			if (x > 1357 && x < 1396 && y > 600 && 638 > y && p->edit > 0)
-				p->floor = p->edit;
+			if (x > 1357 && x < 1396 && y > 600 && 638 > y)
+			{
+				if (p->edit > 0 && p->edit != 121)
+					p->floor = p->edit;
+				else
+					p->floor = 7;
+			}
 
 			x = (x - 496) / 40;
 			y = (y - 37) / 40;
@@ -172,10 +177,10 @@ int				mouse_button(int button, int x, int y, t_struct *p)
 					}
 				}
 			}
-			printf("x good : %i \n", x);
-			printf("y good : %i \n", y);
-			printf("x sprite : %d\n", (int)p->sprite[20].y);
-			printf("y sprite : %d\n", (int)p->sprite[20].x);
+//			printf("x good : %i \n", x);
+//			printf("y good : %i \n", y);
+//			printf("x sprite : %d\n", (int)p->sprite[20].y);
+//			printf("y sprite : %d\n", (int)p->sprite[20].x);
 		}
 	}
 	else if (p->menu == 4)
