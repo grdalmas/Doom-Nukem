@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/28 22:55:22 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 02:43:25 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,26 @@ void	draw_game(void *gm)
 	}
 	else if (p->menu == 2) // GAME OVER MODE
 	{
+	//	printf("dead\n %i" , p->dead);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340, 0);
-		s = ft_itoa(p->temp);
+		if (p->temp > 79)
+		p->dead++;
+		s = ft_itoa(5 - p->dead);
 		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 500, 0xffffff, "Retour au menu :");
 		mlx_string_put(p->mlx_ptr, p->w_ptr, 1080, 500, 0xffffff, s);
 		free(s);
+		if (p->dead == 5)
+		{
+			p->menu = 4;
+			//free(p->sprite);
+			p->sprite = NULL;
+		//	printf("1%i \n", p->h);
+			init(p);
+			initplayer(p);
+		//	printf("2%i \n", p->h);
+//			p->choice = 0;
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
+		}
 	}
 	else if (p->menu == 3) // MAP EDITOR
 	{

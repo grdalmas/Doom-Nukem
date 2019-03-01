@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 14:59:26 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:24:53 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void		touch_by_enemy(t_struct *p)
 	{
 		p->life = 0;
 		p->menu = 2;
-		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
+		p->temp = 0;
+		//mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 400, 0xffffff, "GAME OVER");
 	}
 }
 

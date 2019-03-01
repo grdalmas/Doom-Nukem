@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 00:33:06 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 01:42:58 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,6 +233,7 @@ typedef struct		s_struct
 	int				choice;
 	int				sound;
 	int				difficulty;
+	int			dead;
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
