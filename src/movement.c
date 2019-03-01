@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/28 05:12:43 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 02:34:08 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,9 @@ void			move_up(t_struct *p, int move, int i, double s)
 			p->elevator = 5;
 		elevator(p);
 	}
-	else if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
+	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 	{
+		write(1, "1\n", 2);
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
@@ -153,8 +154,9 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
+	if ((move == 0 && (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)) || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
+		write(1, "2\n", 2);
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * i * s / 4))]
