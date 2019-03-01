@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 01:46:01 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 02:36:40 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void			*init(t_struct *param)
 	camera->tpobj = 0;
 	param->life = 100;
 	param->floor = 7;
+	param->dead = 0;
 	return (NULL);
 }
 
