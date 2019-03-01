@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 00:10:21 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:52:37 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,27 @@ void		touch_by_enemyhard(t_struct *p)
 	}
 }
 
+void		soundpain(t_struct *p)
+{
+	if (p->soundpain >= p->life + 5 )
+	{
+p->soundpainmum++;
+printf("%i", p->soundpainmum);
+		p->soundpain = p->life;
+		if (p->soundpainmum == 1)
+		system("afplay ./Musiques/pain_1.mp3 &");
+		else if (p->soundpainmum == 2)
+		system("afplay ./Musiques/pain_2.mp3 &");
+		else if (p->soundpainmum == 3)
+		system("afplay ./Musiques/pain_4.mp3 &");
+		else if (p->soundpainmum == 4)
+		{
+			p->soundpainmum = 0;
+			system("afplay ./Musiques/pain_3.mp3 &");
+		}
+	}
+}
+
 void		hit_enemy(t_struct *p)
 {
 	int i;
@@ -92,9 +113,12 @@ void		life_barre(t_struct *p)
 	//	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, ft_itoa(p->life));
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 15, 0xffffff, "%");
 	i = 0;
+	if (p->sound == 1)
+	soundpain(p);
 	while (i < p->life * 3)
 	{
-		//if ((int)p->life % 9 == 0)
+
+			
 		p->c->x1 = 10 + i;
 		draw_line2(10, 10 + i, 40, p);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 06:53:09 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:46:36 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void			*init(t_struct *param)
 
 	if (!(camera = (t_camera *)malloc(sizeof(t_camera))))
 		return (NULL);
+	param->soundpain = 100;
+	param->soundpainmum = 0;
 	param->c = camera;
 	camera->p_x = 6.5;
 	camera->p_y = 7.5;
