@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 01:41:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 06:11:18 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		creator_map(t_struct * p)
 //	if (x > 1357 && x < 1396 && y > 600 && 638 > y && p->edit > 0)
 	if (p->floor != 0)
 	{
-	printf("pfloor : %d\n", p->floor);
+//	printf("pfloor : %d\n", p->floor);
 //		img_to_img(p, 1357,
 //						600, p->floor, 0.15625);
 		img_to_img(p, 155 + (i - 1) * 40 + 300,

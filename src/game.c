@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 06:21:31 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/01 04:24:01 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,19 @@ void	draw_game(void *gm)
 		free(s);
 		if (p->dead == 5)
 		{
+
+
+			printf("---->BACK TO LIFE\n");
+
+
 			p->menu = 4;
 			//free(p->sprite);
-			p->sprite = NULL;
+//			p->sprite = NULL;
+			p->sprite[0].k = 2;
+			p->sprite[1].k = 8;
+			p->sprite[3].k = 1;
+			p->sprite[16].k = 7;
+			p->sprite[19].k = 6;
 		//	printf("1%i \n", p->h);
 			init(p);
 			initplayer(p);
