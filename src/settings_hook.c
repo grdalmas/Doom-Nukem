@@ -3,6 +3,8 @@
 
 int		mouse_motion_settings(int x, int y, t_struct *p)
 {
+
+		y = y+30;
     if (p->choice == 2)
     {
 		if (x >= 600 && x <= 1025 && y >= 562 && y <= 610)
@@ -57,6 +59,7 @@ int		mouse_clic_settings(int b, int x, int y, t_struct *p)
 
 int		mouse_release_settings(int b, int x, int y, t_struct *p)
 {
+		y = y+30;
     if (p->choice == 2)
     {
 		if ((b == 1) && x >= 600 && x <= 1025 && y >= 562 && y <= 610)
