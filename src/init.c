@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 06:52:51 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/01 22:47:50 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void			initplayer(t_struct *param)
 	param->trons = 0;
 	param->elev = 0;
 	param->trumplive = 1;
-	param->menu = 1;
+	param->menu = 3;
 	param->choice = 0;
 	param->sound = 1;
 	param->difficulty = 0;
