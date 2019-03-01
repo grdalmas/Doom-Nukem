@@ -5,12 +5,12 @@ int		mouse_motion_menu(int x, int y, t_struct *p)
 {
     if (p->choice == 0)
     {
-		y = y+30;
-		if (x >= 635 && x <= 990 && y >= 565 && y <= 635)
+//		y = y+30;
+		if (x >= 635 && x <= 990 && y >= 515 && y <= 605)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[123].img_ptr, 0, 0);
-		else if (x >= 630 && x <= 990 && y >= 768 && y <= 815)
+		else if (x >= 630 && x <= 990 && y >= 730 && y <= 800)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
-		else if (x >= 720 && x <= 900 && y >= 860 && y <= 910)
+		else if (x >= 720 && x <= 900 && y >= 822 && y <= 883)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[125].img_ptr, 0, 0);
 		else
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[122].img_ptr, 0, 0);
@@ -38,9 +38,11 @@ int		mouse_clic_menu(int b, int x, int y, t_struct *p)
 
 int		mouse_release_menu(int b, int x, int y, t_struct *p)
 {
+
+
     if (p->choice == 0)
     {
-		if ((b == 1) && x >= 635 && x <= 990 && y >= 565 && y <= 635)
+		if ((b == 1) && x >= 635 && x <= 990 && y >= 515 && y <= 605)
         {
             p->choice = 1;
 			mlx_clear_window(p->mlx_ptr, p->w_ptr);
@@ -49,9 +51,13 @@ int		mouse_release_menu(int b, int x, int y, t_struct *p)
             //p->gm.current_state = RUN;
 			p->menu = 1;
 		}
-		else if ((b == 1) && x >= 630 && x <= 990 && y >= 768 && y <= 815)
-            p->choice = 2;
-		else if ((b == 1) && x >= 720 && x <= 900 && y >= 860 && y <= 910)
+		else if ((b == 1) && x >= 630 && x <= 990 && y >= 730 && y <= 800)
+		{
+			p->choice = 2;
+			mouse_release_settings(b, x, y, p);
+			mouse_motion_settings(x, y, p);
+		}
+			else if ((b == 1) && x >= 720 && x <= 900 && y >= 822 && y <= 883)
 			close_window(p);
 		else
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[122].img_ptr, 0, 0);
