@@ -6,25 +6,11 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 07:09:04 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 09:00:19 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
-void			init_menu(t_game *gm)
-{
-//	gm->draw[MENU] = draw_main_menu;
-	//gm->draw[RUN] = draw_game;
-	//gm->draw[MAP_CREA] = draw_map_creator;
-	//gm->event_key[MENU] = eventk_menu;
-	//gm->event_key[GAME] = eventk_game;
-	//gm->event_key[MAP_CREA] = eventk_map_creator;
-	//gm->event_mouse[MENU] = eventm_menu;
-	//gm->event_mouse[GAME] = eventm_game;
-	//gm->event_mouse[MAP_CREA] = eventm_map_creator;
-	gm->current_state = MENU;
-}
 
 int				close_window(t_struct *p)
 {
@@ -51,7 +37,6 @@ void			*init(t_struct *param)
 	camera->plane_y = 1;
 	camera->move_speed = 0.2;
 	camera->pas = 1;
-	camera->youshall = 0; // suprimer tous les youshall
 	camera->tpobj = 0;
 	param->life = 100;
 	param->floor = 7;
@@ -62,7 +47,7 @@ void			*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 4;
+	param->k = 0;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();

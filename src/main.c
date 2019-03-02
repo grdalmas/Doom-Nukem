@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 07:01:20 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:35:24 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,14 @@ static void		window(t_struct *p, int w, int h)
 	p->img_str2 = mlx_get_data_addr(p->img_ptr2, &bpp, &p->size_line, &endian);
 	init(p);
 	initplayer(p);
-	init_menu(&p->gm);
+//	init_menu(&p->gm);
 	load_textures(p);
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[123].img_ptr, 0, 0);
 	mlx_hook(p->w_ptr, KEYPRESS, KEYPRESSMASK, keypress, p);
 	mlx_hook(p->w_ptr, KEYRELEASE, KEYRELEASEMASK, keyrelease, p);
 	mlx_hook(p->w_ptr, CLOSE, CLOSEMASK, close_window, p);
 	mlx_mouse_hook(p->w_ptr, mouse_button, p);
-	mlx_hook(p->w_ptr, MOTIONNOTIFY, POINTERMOTIONMASK, rotation2, p);
+	mlx_hook(p->w_ptr, MOTIONNOTIFY, POINTERMOTIONMASK, mouse_motion, p);
 	mlx_loop_hook(p->mlx_ptr, mlx_main_loop, p);
 	mlx_loop(p->mlx_ptr);
 }
