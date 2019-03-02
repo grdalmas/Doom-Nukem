@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 02:30:07 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:07:17 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,17 @@ void	draw_game(void *gm)
 			p->life -= 0.01;
 		else if (p->cure == 0 &&  p->difficulty == 1)
 			p->life -= 0.02;
-		else if (p->cure == 0 &&  p->k == 9)
+		if (p->cure == 0 &&  p->k == 9)
 			p->life -= 4;
-
+		if (p->trump == 7)
+		{
+		p->dead = 5;
+		p->menu = 2;
+		}
 	}
 	else if (p->menu == 2) // GAME OVER MODE
 	{
 	//	printf("dead\n %i" , p->dead);
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340, 0);
 		if (p->temp > 79)
 		p->dead++;
 		s = ft_itoa(5 - p->dead);
@@ -104,6 +107,8 @@ void	draw_game(void *gm)
 //			p->choice = 0;
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
 		}
+		else
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340, 0);
 	}
 	else if (p->menu == 3) // MAP EDITOR
 	{

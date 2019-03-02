@@ -93,7 +93,10 @@ void		take_object(t_struct *p)
 		if (p->sound == 1)
 			system("afplay ./doomzik/trump_message_music.mp3 &");
 		p->sprite[18].id = 14;
-		p->trump = 6;
+p->trump = 6;
+		//p->menu = 4;
+	//		p->menu = 2;
+
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
@@ -131,6 +134,12 @@ void		take_object(t_struct *p)
 		p->trump = 0;
 	else if (p->trump == 5)
 		p->trump = 0;
+	/*else if (p->trump == 7)
+	{
+		p->dead = 5;
+		p->menu = 2;
+	}*/
+
 }
 
 void			soundstep(t_struct *p)

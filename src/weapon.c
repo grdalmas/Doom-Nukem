@@ -85,7 +85,7 @@ void		hit_enemy(t_struct *p)
 	int i;
 
 	i = 4;
-	while (i < 10)
+	while (i < 18)
 	{
 		if (p->keypress[KEY_SPACEBAR] == 1 && ((int)p->sprite[i].x
 				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y))
@@ -187,6 +187,7 @@ void		soundtronco(t_struct *p)
 
 void		weapon(t_struct *p)
 {
+	p->weapon.id = 1;
 	if (p->weapon.id == 1)
 	{
 		if (p->temp == 1 && p->sound == 1)
