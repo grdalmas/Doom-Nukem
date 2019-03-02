@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 08:55:34 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 10:20:45 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,6 +240,7 @@ typedef struct		s_struct
 	int				ch;
 	int				sound;
 	int				difficulty;
+	float				sprint;
 	int			dead;
 
 //	t_game			gm;
@@ -286,7 +287,10 @@ void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
 void				skybox(t_struct *p, int y, int x);
 void				initplayer(t_struct *param);
 void				*init(t_struct *param);
-void				*inverse_map(t_struct *p);
+void				*inverse_map(t_struct *p, int i, int j, int k);
+void				take_object(t_struct *p);
+int					against_glitch(t_struct *p, int move, double s);
+int					against_glitch_straff(t_struct *p, int move, double s);
 /*
 **					draw_line.c
 */

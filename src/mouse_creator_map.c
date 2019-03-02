@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 08:16:58 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 08:51:16 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 09:16:22 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,24 +88,23 @@ static void		change_map(t_struct *p, int x, int y, int i)
 	}
 }
 
-
-void		mouse_creator_map(t_struct *p, int button, int x, int y)
+void			mouse_creator_map(t_struct *p, int button, int x, int y)
 {
-		choose_text(p, button, x, y);
-		choose_sprite(p, x, y);
-		x = (x - 496) / 40;
-		y = (y - 37) / 40;
-		if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
+	choose_text(p, button, x, y);
+	choose_sprite(p, x, y);
+	x = (x - 496) / 40;
+	y = (y - 37) / 40;
+	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
+	{
+		if (p->edits > 19)
 		{
-			if (p->edits > 19)
+			if (p->map[4][y][x] == 0)
 			{
-				if (p->map[4][y][x] == 0)
-				{
-					p->sprite[p->edits].k = 4;
-					p->sprite[p->edits].y = (int)x + 0.5;
-					p->sprite[p->edits].x = (int)y + 0.5;
-				}
+				p->sprite[p->edits].k = 4;
+				p->sprite[p->edits].y = (int)x + 0.5;
+				p->sprite[p->edits].x = (int)y + 0.5;
 			}
 		}
-		change_map(p, x, y, 0);
+	}
+	change_map(p, x, y, 0);
 }

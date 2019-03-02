@@ -6,95 +6,11 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 07:39:15 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 09:58:17 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
-void		take_object(t_struct *p)
-{
-	if (p->sprited[2] <= 1.5 && p->menu != -1)
-	{
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
-		p->menu = 3;
-		inverse_map(p);
-	}
-	else if (p->sprited[17] <= 1.5 && p->menu != -1)
-			system("afplay ./doomzik/mmpf.mp3 &");
-	else if (p->menu == -1)
-	{
-		inverse_map(p);
-		p->menu = 1;
-	}
-	else if (p->sprited[16] <= 1.5 && p->trump != 3 && p->sprite[16].k != 6)
-	{
-		p->trump = 3;
-		p->sprite[16].k = 6;
-		p->weapon.id = 1;
-		if (p->sound == 1)
-			system("afplay ./doomzik/chainsaw_start.mp3 &");
-	}
-	else if (p->k == 2 && p->sprited[0] <= 1.5 && p->trump != 2 && p->sprite[0].k != 6)
-	{
-		if (p->sound == 1)
-		{
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
-			system("afplay ./doomzik/zip.mp3 &");
-		}
-		p->tool = 1;
-		p->trump = 2;
-		p->sprite[0].k = 6;
-	}
-	else if (p->k == 1 && p->sprited[3] <= 1.5)
-	{
-		if (p->sound == 1)
-			system("afplay ./doomzik/zip.mp3 &");
-		p->maap = 1;
-		p->sprite[3].k = 6;
-	}
-	else if (p->k == 9 && p->sprited[18] <= 1.5 && p->trump != 6 && p->trump != 7)
-	{
-		if (p->sound == 1)
-			system("afplay ./doomzik/trump_message_music.mp3 &");
-		p->sprite[18].id = 14;
-p->trump = 6;
-	}
-	else if (p->sprited[19] <= 1.5 && p->trump != 4 && p->sprite[19].k != 6)
-	{
-		if (p->sound == 1)
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
-		p->trump = 4;
-		p->sprite[19].k = 6;
-		p->weapon.id = 2;
-	}
-	else if (p->k == 8 && (int)p->sprited[1] == 0)
-	{
-		if (p->sound == 1)
-		{
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
-			system("afplay ./doomzik/zip.mp3 &");
-		}
-		p->trump = 5;
-		p->sprite[1].k = 6;
-		p->cure = 1;
-		p->life += 50;
-		if (p->life > 100)
-			p->life = 100;
-	}
-	else if (p->trump == 1)
-		p->trump = 0;
-	else if (p->trump == 2)
-		p->trump = 0;
-	else if (p->trump == 3)
-		p->trump = 0;
-	else if (p->trump == 6)
-		p->trump = 7;
-	else if (p->trump == 4)
-		p->trump = 0;
-	else if (p->trump == 5)
-		p->trump = 0;
-}
 
 void			soundstep(t_struct *p)
 {
@@ -108,19 +24,14 @@ void			soundstep(t_struct *p)
 		system("afplay ./doomzik/pas4.mp3 &");
 	else if (p->c->pas == p->pas + 4 && (p->c->pas = 5) == 5)
 		system("afplay ./doomzik/pas5.mp3 &");
-	else if (p->c->pas ==  p->pas + 5 && (p->c->pas = 6) == 6)
+	else if (p->c->pas == p->pas + 5 && (p->c->pas = 6) == 6)
 		system("afplay ./doomzik/pas6.mp3 &");
 	else if (p->c->pas >= p->pas + 6 && (p->c->pas = 0) == 0)
 		system("afplay ./doomzik/pas7.mp3 &");
 }
 
-int				key_press_hook(t_struct *p)
+void			key_press_hook2(t_struct *p)
 {
-	double s;
-	int key;
-	float sprint;
-
-	key = 1;
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
@@ -129,26 +40,35 @@ int				key_press_hook(t_struct *p)
 		rotation(p, 1);
 	if (p->keypress[KEY_SHIFT] == 1)
 	{
-		sprint = 0.3;
+		p->sprint = 0.3;
 		p->c->pas += 7;
 		p->pas = 21;
 	}
 	else if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1
 			|| p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
-		sprint = 0.2;
+		p->sprint = 0.2;
 		p->pas = 35;
 		p->c->pas += 7;
 	}
+}
+
+int				key_press_hook(t_struct *p)
+{
+	double	s;
+	int		key;
+
+	key = 1;
+	key_press_hook2(p);
 	if (p->keypress[KEY_W] == 1 || p->keypress[KEY_S] == 1)
 	{
-		s = (p->keypress[KEY_W] ? sprint : - sprint);
+		s = (p->keypress[KEY_W] ? p->sprint : -p->sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->dir_x * s))]
 			[(int)((p->c->p_y + p->c->dir_y * s))];
 	}
 	if (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1)
 	{
-		s = (p->keypress[KEY_A] ? sprint : - sprint);
+		s = (p->keypress[KEY_A] ? p->sprint : -p->sprint);
 		key = p->map[p->k][(int)((p->c->p_x + p->c->plane_x * s))]
 			[(int)((p->c->p_y + p->c->plane_y * s))];
 	}

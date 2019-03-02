@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 05:02:34 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 10:07:54 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ static int			matrice_sprite(t_struct *p, int i)
 	spritey = (p->sprite[p->ordersprite[i]].y - p->c->p_y);
 	transformx = 1 * (p->c->dir_y * spritex - p->c->dir_x * spritey);
 	p->mspr.transy = 1 * (-p->c->plane_y * spritex + p->c->plane_x * spritey);
-	if ((int)(p->mspr.transy * 100)  == 0)
-		return(0) ;
+	if ((int)(p->mspr.transy * 100) == 0)
+		return (0);
 	p->mspr.spritescreenx = ((WIDTH / 2) * (1 + transformx / p->mspr.transy));
 	spriteheight = abs((int)(HEIGHT / (p->mspr.transy)));
 	p->mspr.starty = -spriteheight / 2 + HEIGHT / 2;
@@ -98,14 +98,14 @@ static int			matrice_sprite(t_struct *p, int i)
 		p->mspr.starty = 0;
 	if (p->mspr.endy >= HEIGHT + abs(p->h))
 		p->mspr.endy = HEIGHT - 1 + abs(p->h);
-	return(1);
+	return (1);
 }
 
 void				raysprite(t_struct *p, double d, int i, double ratio)
 {
 	double		spritewidth;
 	int			drawtmp;
-	
+
 	while (++i < NUMSPRITE)
 	{
 		if (p->sprite[p->ordersprite[i]].k == p->k)
@@ -114,19 +114,17 @@ void				raysprite(t_struct *p, double d, int i, double ratio)
 			p->tid = p->sprite[p->ordersprite[i]].id;
 			if (matrice_sprite(p, i) == 1)
 			{
-			spritewidth = abs((int)(HEIGHT / (p->mspr.transy)));
-			p->mspr.startx = -spritewidth / 2 + p->mspr.spritescreenx;
-			if (p->mspr.startx < 0)
-				p->mspr.startx = 0;
-			p->mspr.endx = spritewidth / 2 + p->mspr.spritescreenx;
-			d = spritewidth / 256;
-			drawtmp = p->mspr.startx;
-			p->mspr.startx = (1280 - p->mspr.endx);
-			p->mspr.endx = (1280 - drawtmp);
-			ratio = p->sprited[p->ordersprite[i]] * 0.1;
-			if (ratio > 1)
-				ratio = 1;
-			draw_sprite(p, d, ratio, 0);
+				spritewidth = abs((int)(HEIGHT / (p->mspr.transy)));
+				p->mspr.startx = -spritewidth / 2 + p->mspr.spritescreenx;
+				p->mspr.startx = (p->mspr.startx < 0) ? 0 : p->mspr.startx;
+				p->mspr.endx = spritewidth / 2 + p->mspr.spritescreenx;
+				d = spritewidth / 256;
+				drawtmp = p->mspr.startx;
+				p->mspr.startx = (1280 - p->mspr.endx);
+				p->mspr.endx = (1280 - drawtmp);
+				ratio = p->sprited[p->ordersprite[i]] * 0.1;
+				ratio = (ratio > 1) ? 1 : ratio;
+				draw_sprite(p, d, ratio, 0);
 			}
 		}
 	}
