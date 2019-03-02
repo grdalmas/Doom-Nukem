@@ -232,10 +232,13 @@ typedef struct		s_struct
 	int				mousex;
 	int				mousey;
 	char			floor;
+	char			soundpain;
+	char			soundpainmum;
 	int				choice;
 	int				sound;
 	int				difficulty;
 	int			dead;
+
 	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];

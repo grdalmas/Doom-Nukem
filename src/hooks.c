@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/01 23:12:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:56:36 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ void		take_object(t_struct *p)
 		
 	
 		if (p->sound == 1)
+		{
 		system("afplay ./Musiques/trump_message_pop.mp3 &");
+		
+		system("afplay ./Musiques/zip.mp3 &");
+		}
 		p->tool = 1;
 		p->trump = 2;
 		p->sprite[0].k = 6;
@@ -75,6 +79,8 @@ void		take_object(t_struct *p)
 	}
 	else if (p->k == 1 && (int)p->sprited[3] == 0)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
+		if (p->sound == 1)
+		system("afplay ./Musiques/zip.mp3 &");
 		p->maap = 1;
 		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
@@ -99,7 +105,10 @@ void		take_object(t_struct *p)
 	else if (p->k == 8 && (int)p->sprited[1] == 0)// && p->trump != 5) //&& p->sprite[1].k != 6)
 	{
 		if (p->sound == 1)
-		system("afplay ./Musiques/trump_message_pop.mp3 &");
+		{
+			system("afplay ./Musiques/trump_message_pop.mp3 &");
+			system("afplay ./Musiques/zip.mp3 &");
+		}
 		p->trump = 5;
 		p->sprite[1].k = 6;
 		p->cure = 1;
