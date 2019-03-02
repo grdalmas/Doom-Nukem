@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/01 00:13:41 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:42:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void			rotrump(t_struct *p)
 		p->sprite[17].id = 16;
 	else if (p->sprite[17].x < p->c->p_x && p->sprite[17].y > p->c->p_y)
 		p->sprite[17].id = 15;
+	if (p->trump != 6)
+	{
 	if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
 		p->sprite[18].id = 14;
 	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y < p->c->p_y)
@@ -39,7 +41,8 @@ void			rotrump(t_struct *p)
 		p->sprite[18].id = 16;
 	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y > p->c->p_y)
 		p->sprite[18].id = 15;
-}
+	}
+	}
 
 int				mlx_main_loop(t_struct *p)
 {

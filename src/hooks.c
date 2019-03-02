@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 03:02:25 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:07:06 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@
 
 void		take_object(t_struct *p)
 {
-	if (p->sprited[2] <= 2 && p->menu != -1)
+
+	 if (p->sprited[2] <= 2 && p->menu != -1)
 	{
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
@@ -89,7 +90,10 @@ void		take_object(t_struct *p)
 		if (p->sound == 1)
 			system("afplay ./doomzik/trump_message_music.mp3 &");
 		p->sprite[18].id = 14;
-		p->trump = 6;
+p->trump = 6;
+		//p->menu = 4;
+	//		p->menu = 2;
+
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
@@ -127,6 +131,12 @@ void		take_object(t_struct *p)
 		p->trump = 0;
 	else if (p->trump == 5)
 		p->trump = 0;
+	/*else if (p->trump == 7)
+	{
+		p->dead = 5;
+		p->menu = 2;
+	}*/
+
 }
 
 void			soundstep(t_struct *p)

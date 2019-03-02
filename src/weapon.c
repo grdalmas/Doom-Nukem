@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 01:37:19 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:18:57 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		hit_enemy(t_struct *p)
 	int i;
 
 	i = 4;
-	while (i < 10)
+	while (i < 18)
 	{
 		if (p->keypress[KEY_SPACEBAR] == 1 && ((int)p->sprite[i].x
 				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y))
@@ -187,6 +187,7 @@ void		soundtronco(t_struct *p)
 
 void		weapon(t_struct *p)
 {
+	p->weapon.id = 1;
 	if (p->weapon.id == 1)
 	{
 		if (p->temp == 1 && p->sound == 1)

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 02:29:16 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:30:38 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void		creator_map(t_struct * p)
 
 			if (p->map[4][j][i] == 1)
 			{
-			printf("je dessine image\n");
 				img_to_img(p, 155 + (i * 40),
 						35 + (j * 40), 9, 0.15625);
 			}

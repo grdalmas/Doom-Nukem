@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 03:26:24 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:08:33 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void			*init(t_struct *param)
 	param->life = 100;
 	param->floor = 7;
 	param->dead = 0;
+	param->cure = 1;
 	return (NULL);
 }
 
