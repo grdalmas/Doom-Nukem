@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 00:46:36 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:36:29 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 0;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -79,5 +79,6 @@ void			initplayer(t_struct *param)
 	param->sound = 1;
 	param->difficulty = 0;
 	param->sound = 1;
+//	param->pas = 0;
 	init_time_struct(&param->time);
 }
