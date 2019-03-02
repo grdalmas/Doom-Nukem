@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 00:36:29 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:15:41 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,7 @@ typedef struct		s_struct
 	char			soundpain;
 	char			soundpainmum;
 	int				choice;
+	int				ch;
 	int				sound;
 	int				difficulty;
 	int			dead;

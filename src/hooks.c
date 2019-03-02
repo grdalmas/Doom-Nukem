@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 01:42:04 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:51:26 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		take_object(t_struct *p)
 	else if (p->k == 9 && (int)p->sprited[18] == 0 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		if (p->sound == 1)
-		system("afplay ./Musiques/trump_message_pop.mp3 &");
+		system("afplay ./doomzik/trump_message_music.mp3 &");
 		p->sprite[18].id = 14;
 		p->trump = 6;
 		//		p->sprite[3].k = 6;
