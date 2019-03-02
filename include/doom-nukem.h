@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 07:10:20 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 08:55:34 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ typedef struct		s_camera
 	int				i_sprite;
 	char			gap_5[4];
 	double			len_sprite;
-	int				youshall;
+//	int				youshall;
 	int				tpobj;
 	double			ra;
 	int				colo;
@@ -242,7 +242,7 @@ typedef struct		s_struct
 	int				difficulty;
 	int			dead;
 
-	t_game			gm;
+//	t_game			gm;
 	t_img			image[NB_IMG];
 	t_img			texture[NB_TEXTURE];
 	t_page			current_page;
@@ -268,13 +268,12 @@ void 				move_greg(t_struct *p, int move);
 void 				move_tim(t_struct *p, int move);
 int					mlx_main_loop(t_struct *p);
 void				rotation(t_struct *p, int key);
-int					rotation2(int x, int y, t_struct *p);
 t_porte				*init_door(void);
 t_sprite            *init_sprite(void);
 void				weapon(t_struct *p);
 void				trump(t_struct *p);
 void				take_object(t_struct *p);
-void				init_menu(t_game *gm);
+//void				init_menu(t_game *gm);
 void				alive(t_struct *p);
 void				spawn(t_struct *p);
 void				rotrump(t_struct *p);
@@ -284,12 +283,10 @@ void				which_text(t_struct *p);
 void				creator_map(t_struct *p, int i, int j);
 void				minimap2(t_struct *p);
 void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
-int					mouse_button(int button, int x, int y, t_struct *p);
 void				skybox(t_struct *p, int y, int x);
 void				initplayer(t_struct *param);
 void				*init(t_struct *param);
 void				*inverse_map(t_struct *p);
-
 /*
 **					draw_line.c
 */
@@ -339,6 +336,9 @@ int					mouse_clic_diff(int b, int x, int y, t_struct *p);
 int					mouse_release_diff(int b, int x, int y, t_struct *p);
 int					mouse_motion_menu(int x, int y, t_struct *p, int s);
 int					mouse_release_menu(int b, int x, int y, t_struct *p);
+int					mouse_motion(int x, int y, t_struct *p);
+void				mouse_creator_map(t_struct *p, int button, int x, int y);
+int					mouse_button(int button, int x, int y, t_struct *p);
 void		draw_game(t_struct *p);
 
 #endif

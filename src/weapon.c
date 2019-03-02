@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 06:13:39 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 08:59:46 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void		soundtronco(t_struct *p)
 
 void		weapon(t_struct *p)
 {
-	p->weapon.id = 1;
+//	p->weapon.id = 1;
 	if (p->weapon.id == 1)
 	{
 		if (p->temp == 1 && p->sound == 1)

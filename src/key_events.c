@@ -6,27 +6,99 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 04:11:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 08:45:11 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-int			proxyporte(t_struct *p)
+int				proxyporte(t_struct *p)
 {
 	int i;
+
 	i = 0;
-	while (i < NUMPORTE -1)
+	while (i < NUMPORTE - 1)
 	{
 		if (p->map[p->k][(int)p->c->p_x][(int)p->c->p_y] == p->porte[i].zip ||
-				p->map[p->k][(int)p->c->p_x - 1][(int)p->c->p_y] == p->porte[i].zip ||
-				p->map[p->k][(int)p->c->p_x + 1][(int)p->c->p_y] == p->porte[i].zip ||
-				p->map[p->k][(int)p->c->p_x][(int)p->c->p_y - 1] == p->porte[i].zip ||
-				p->map[p->k][(int)p->c->p_x][(int)p->c->p_y + 1] == p->porte[i].zip)
+				p->map[p->k][(int)p->c->p_x - 1][(int)p->c->p_y]
+				== p->porte[i].zip ||
+				p->map[p->k][(int)p->c->p_x + 1][(int)p->c->p_y]
+				== p->porte[i].zip ||
+				p->map[p->k][(int)p->c->p_x][(int)p->c->p_y - 1]
+				== p->porte[i].zip ||
+				p->map[p->k][(int)p->c->p_x][(int)p->c->p_y + 1]
+				== p->porte[i].zip)
 			return (i);
 		i++;
 	}
-	return(-1);
+	return (-1);
+}
+
+void			keypress3(int keycode, t_struct *p)
+{
+	if (keycode == MLX_KEY_M)
+		p->keypress[KEY_M] = 1;
+	else if (keycode == MLX_KEY_E && p->menu == 1)
+	{
+		if (p->porte[proxyporte(p)].poort == 0)
+			p->porte[proxyporte(p)].poort = 1;
+		else if (p->porte[proxyporte(p)].poort == 1)
+			if (p->sprite[0].k == 6 && p->elev == 0 && p->k == 0 && p->trump
+					== 0 && (int)p->c->p_x == 6 && (int)p->c->p_y == 7)
+			{
+				p->elev = 1;
+				p->tool = 0;
+			}
+		if (p->sprite[0].k == 6)
+			p->porte[proxyporte(p)].poort = 0;
+		p->keypress[KEY_E] = 1;
+	}
+	else if (keycode == MLX_KEY_R)
+		p->keypress[KEY_R] = 1;
+	else if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0))
+	{
+		if (p->menu == 0)
+			p->menu = 1;
+		else
+		{
+			p->menu = 0;
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[120].img_ptr,
+					340, 0);
+		}
+	}
+	else if (keycode == MLX_KEY_SHIFT_LEFT)
+		p->keypress[KEY_SHIFT] = 1;
+	p->keypress[LAST_KEY_PRESS] = keycode;
+}
+
+void			keypress2(int keycode, t_struct *p)
+{
+	if (keycode == MLX_KEY_C)
+		p->keypress[KEY_C] = 1;
+	else if (keycode == MLX_KEY_SPACEBAR)
+		p->keypress[KEY_SPACEBAR] = 1;
+	else if (keycode == MLX_KEY_1)
+		p->keypress[KEY_1] = 1;
+	else if (keycode == MLX_KEY_2)
+		p->keypress[KEY_2] = 1;
+	else if (keycode == MLX_KEY_3)
+		p->keypress[KEY_3] = 1;
+	else if (keycode == MLX_KEY_4)
+		p->keypress[KEY_4] = 1;
+	else if (keycode == MLX_KEY_5)
+		p->keypress[KEY_5] = 1;
+	else if (keycode == MLX_KEY_PAD_1)
+		p->keypress[KEY_PAD_1] = 1;
+	else if (keycode == MLX_KEY_PAD_2)
+		p->keypress[KEY_PAD_2] = 1;
+	else if (keycode == MLX_KEY_PAD_3)
+		p->keypress[KEY_PAD_3] = 1;
+	else if (keycode == MLX_KEY_PAD_4)
+		p->keypress[KEY_PAD_4] = 1;
+	else if (keycode == MLX_KEY_PAD_5)
+		p->keypress[KEY_PAD_5] = 1;
+	else
+		keypress3(keycode, p);
 }
 
 int				keypress(int keycode, void *d)
@@ -53,77 +125,8 @@ int				keypress(int keycode, void *d)
 		p->keypress[KEY_DOWN] = 1;
 	else if (keycode == MLX_KEY_RIGHT)
 		p->keypress[KEY_RIGHT] = 1;
-	else if (keycode == MLX_KEY_C)
-		p->keypress[KEY_C] = 1;
-	else if (keycode == MLX_KEY_SPACEBAR)
-		p->keypress[KEY_SPACEBAR] = 1;
-	else if (keycode == MLX_KEY_1)
-		p->keypress[KEY_1] = 1;
-	else if (keycode == MLX_KEY_2)
-		p->keypress[KEY_2] = 1;
-	else if (keycode == MLX_KEY_3)
-		p->keypress[KEY_3] = 1;
-	else if (keycode == MLX_KEY_4)
-		p->keypress[KEY_4] = 1;
-	else if (keycode == MLX_KEY_5)
-		p->keypress[KEY_5] = 1;
-	else if (keycode == MLX_KEY_PAD_1)
-		p->keypress[KEY_PAD_1] = 1;
-	else if (keycode == MLX_KEY_PAD_2)
-		p->keypress[KEY_PAD_2] = 1;
-	else if (keycode == MLX_KEY_PAD_3)
-		p->keypress[KEY_PAD_3] = 1;
-	else if (keycode == MLX_KEY_PAD_4)
-		p->keypress[KEY_PAD_4] = 1;
-	else if (keycode == MLX_KEY_PAD_5)
-		p->keypress[KEY_PAD_5] = 1;
-	else if (keycode == MLX_KEY_M)
-	 	p->keypress[KEY_M] = 1;
-	else if (keycode == MLX_KEY_E && p->menu == 1)// && proxyporte(p) != 0)
-	{
-		if (p->porte[proxyporte(p)].poort == 0)
-			p->porte[proxyporte(p)].poort = 1;
-		else if (p->porte[proxyporte(p)].poort == 1)
-			if (p->sprite[0].k == 6 && p->elev == 0 && p->k == 0 && p->trump == 0  && (int)p->c->p_x == 6 && (int)p->c->p_y == 7)
-			{
-				p->elev = 1;
-				p->tool = 0;
-			}
-		if (p->sprite[0].k == 6)
-			p->porte[proxyporte(p)].poort = 0;
-		p->keypress[KEY_E] = 1;
-	}
-	//else if (keycode == MLX_KEY_F && proxyporte(p) >= 0)//&& proxyporte(p) != 0)
-	//	p->porte[proxyporte(p)].poort = 0;
-	else if (keycode == MLX_KEY_R)
-	{
-		p->keypress[KEY_R] = 1;
-	}
-	else if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0)) // PAUSE
-	{
-		if (p->menu == 0)
-			p->menu = 1;
-		else
-		{
-			p->menu = 0;
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[120].img_ptr, 340, 0);
-		}
-	}
-	else if (keycode == MLX_KEY_K)
-		p->h += 10;
-	else if (keycode == MLX_KEY_L)
-		p->h -= 10;
-	else if (keycode == MLX_KEY_SHIFT_LEFT)
-		p->keypress[KEY_SHIFT] = 1;
-	//else if (keycode == MLX_KEY_C)
-	//	p->sprite[16].id = 83;
-	//p->porte[0].open = 0;
-	p->keypress[LAST_KEY_PRESS] = keycode;
-	// key_press_hook(p->keypress[LAST_KEY_PRESS], d);
-	/*if (p->keypress[LAST_KEY_PRESS] == 'Q')
-	  {
-	  p->tdoor -= 0.1;
-	  }*/
+	else
+		keypress2(keycode, p);
 	return (1);
 }
 

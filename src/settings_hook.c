@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 05:55:11 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 06:44:55 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:26:17 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ static void			mouse_motion_settings_sound_off(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr,
 				p->w_ptr, p->tex[129].img_ptr, 0, 0);
 	else if (p->ch == 2)
-	{
-		write(1, "1\n", 2);
 		mlx_put_image_to_window(p->mlx_ptr,
 				p->w_ptr, p->tex[130].img_ptr, 0, 0);
-	}
 	else if (p->ch == 3)
 		mlx_put_image_to_window(p->mlx_ptr,
 				p->w_ptr, p->tex[128].img_ptr, 0, 0);
@@ -69,7 +66,7 @@ int					mouse_motion_settings(int x, int y, t_struct *p)
 			p->ch = 0;
 		if (p->sound == 1)
 			mouse_motion_settings_sound_on(p);
-		else
+		else if (p->sound == 0)
 			mouse_motion_settings_sound_off(p);
 	}
 	return (1);

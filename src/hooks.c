@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 05:55:53 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:39:15 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,14 @@ void		take_object(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
 		inverse_map(p);
-		//		print_map(p);
 	}
-	if (p->sprited[17] <= 1.5 && p->menu != -1)
-	{
+	else if (p->sprited[17] <= 1.5 && p->menu != -1)
 			system("afplay ./doomzik/mmpf.mp3 &");
-	}
 	else if (p->menu == -1)
 	{
 		inverse_map(p);
-		//		print_map(p);
-		p->menu = 1; //         MENU EDITEUR
+		p->menu = 1;
 	}
-
 	else if (p->sprited[16] <= 1.5 && p->trump != 3 && p->sprite[16].k != 6)
 	{
 		p->trump = 3;
@@ -40,42 +35,30 @@ void		take_object(t_struct *p)
 		if (p->sound == 1)
 			system("afplay ./doomzik/chainsaw_start.mp3 &");
 	}
-	// pour ramasser caisse a outils et ouvrir ascenceur
-	else if (p->k == 2 && p->sprited[0] <= 1.5 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 2 && p->sprited[0] <= 1.5 && p->trump != 2 && p->sprite[0].k != 6)
 	{
-
-
 		if (p->sound == 1)
 		{
 			system("afplay ./doomzik/trump_message_pop.mp3 &");
-
 			system("afplay ./doomzik/zip.mp3 &");
 		}
 		p->tool = 1;
 		p->trump = 2;
 		p->sprite[0].k = 6;
-		//		p->elev = 1;
-		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 1 && p->sprited[3] <= 1.5)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 1 && p->sprited[3] <= 1.5)
 	{
 		if (p->sound == 1)
 			system("afplay ./doomzik/zip.mp3 &");
 		p->maap = 1;
 		p->sprite[3].k = 6;
-		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 9 && p->sprited[18] <= 1.5 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 9 && p->sprited[18] <= 1.5 && p->trump != 6 && p->trump != 7)
 	{
 		if (p->sound == 1)
 			system("afplay ./doomzik/trump_message_music.mp3 &");
 		p->sprite[18].id = 14;
 p->trump = 6;
-		//p->menu = 4;
-	//		p->menu = 2;
-
-		//		p->sprite[3].k = 6;
-		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
 	else if (p->sprited[19] <= 1.5 && p->trump != 4 && p->sprite[19].k != 6)
 	{
@@ -85,7 +68,7 @@ p->trump = 6;
 		p->sprite[19].k = 6;
 		p->weapon.id = 2;
 	}
-	else if (p->k == 8 && (int)p->sprited[1] == 0)// && p->trump != 5) //&& p->sprite[1].k != 6)
+	else if (p->k == 8 && (int)p->sprited[1] == 0)
 	{
 		if (p->sound == 1)
 		{
@@ -111,12 +94,6 @@ p->trump = 6;
 		p->trump = 0;
 	else if (p->trump == 5)
 		p->trump = 0;
-	/*else if (p->trump == 7)
-	{
-		p->dead = 5;
-		p->menu = 2;
-	}*/
-
 }
 
 void			soundstep(t_struct *p)
