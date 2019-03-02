@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:51:52 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 01:15:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 05:01:27 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			which_text(t_struct *p)
 	if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] > 1)
 		p->tid = p->map[p->k][p->c->map_x % 18][p->c->map_y % 18];
 	else if (p->map[p->k][p->c->map_x % 18][p->c->map_y % 18] == 1
-		&& p->tid != 5)
+			&& p->tid != 5)
 	{
 		if (p->c->side == 0 && p->c->r_dir_x > 0)
 			p->tid = 9;
@@ -28,16 +28,10 @@ void			which_text(t_struct *p)
 		else
 			p->tid = 8;
 	}
-	if (p->k == 8 && p->tid == 5)// && p->s > 0)
-	{
-		printf("je rentre dans le bon\n");
+	if (p->k == 8 && p->tid == 5)
 		p->tid = 18;
-	}
 	else if (p->k == 0 && p->tid == 22 && p->elev == 0)
-	{
 		p->tid = 117;
-		p->porte[0].poort = 1;
-	}
 	else if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
 	else if (p->k == 7 && p->tid != 22)
@@ -48,17 +42,13 @@ void			which_text(t_struct *p)
 
 void			which_textf(t_struct *p)
 {
-
 	p->tid = 7;
-
 	if (p->k == 4)
 		p->tid = p->floor;
 	else if (p->k == 2 && p->tid != 24 && p->tid != 13)
 		p->tid = 23;
 	else if (p->k == 1)
 		p->tid = 65;
-	else if (p->k == 4)
-		p->tid = 67;
 	else if (p->k == 3)
 		p->tid = 90;
 	else if (p->k == 7)
