@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 03:59:02 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 06:13:39 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ void		soundpain(t_struct *p)
 {
 	if (p->soundpain >= p->life + 5 )
 	{
-p->soundpainmum++;
+		p->soundpainmum++;
 		p->soundpain = p->life;
 		if (p->soundpainmum == 1)
-		system("afplay ./doomzik/pain_1.mp3 &");
+			system("afplay ./doomzik/pain_1.mp3 &");
 		else if (p->soundpainmum == 2)
-		system("afplay ./doomzik/pain_2.mp3 &");
+			system("afplay ./doomzik/pain_2.mp3 &");
 		else if (p->soundpainmum == 3)
-		system("afplay ./doomzik/pain_4.mp3 &");
+			system("afplay ./doomzik/pain_4.mp3 &");
 		else if (p->soundpainmum == 4)
 		{
 			p->soundpainmum = 0;
@@ -88,7 +88,7 @@ void		hit_enemy(t_struct *p)
 	while (i < 18)
 	{
 		if (p->keypress[KEY_SPACEBAR] == 1 && ((int)p->sprite[i].x
-				== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y))
+					== (int)p->c->p_x && (int)p->sprite[i].y == (int)p->c->p_y))
 			p->sprite[i].pv--;
 		i++;
 	}
@@ -113,11 +113,11 @@ void		life_barre(t_struct *p)
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 15, 0xffffff, "%");
 	i = 0;
 	if (p->sound == 1)
-	soundpain(p);
+		soundpain(p);
 	while (i < p->life * 3)
 	{
 
-			
+
 		p->c->x1 = 10 + i;
 		draw_line2(10, 10 + i, 40, p);
 		i++;
@@ -129,33 +129,37 @@ void		reload(t_struct *p)
 	if (p->weapon.reload < 2)
 	{
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[96].img_ptr, 800, \
-			490);
+				490);
 		if (p->keypress[KEY_R] == 1 && p->sound == 1)
 			system("afplay ./doomzik/shotgun_pump.mp3 &");
 	}
 	else if (p->weapon.reload < 4)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[97].img_ptr, 800,
-			490);
+				490);
 	else if (p->weapon.reload < 6)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[98].img_ptr, 800,
-			490);
+				490);
 	else if (p->weapon.reload < 8)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[99].img_ptr, 800,
-			490);
+				490);
 	else if (p->weapon.reload < 10)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[100].img_ptr, 800,
-			490);
+				490);
 	else if (p->weapon.reload < 12)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[101].img_ptr, 800,
-			490);
+				490);
 }
 
 void		shoot(t_struct *p)
 {
+	if (p->keypress[KEY_R] == 1 && p->weapon.reload < 12)
+		p->weapon.reload += 1;
+	else
+		p->keypress[KEY_R] = 0;
 	if (p->keypress[KEY_SPACEBAR] == 1 && p->weapon.reload > 11)
 	{
 		if (p->sound == 1)
-		system("afplay ./doomzik/shotgun_shot.mp3 &");
+			system("afplay ./doomzik/shotgun_shot.mp3 &");
 		p->shoot = 1;
 		p->weapon.reload = 0;
 		p->weapon.sprite = 1;
@@ -164,11 +168,11 @@ void		shoot(t_struct *p)
 	{
 		if (p->weapon.sprite < 3)
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[93].img_ptr,
-				800, 670);
+					800, 670);
 		else if (p->weapon.sprite < 5)
 		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[94].img_ptr,
-				800, 670);
+					800, 670);
 			p->weapon.sprite = -1;
 		}
 		p->weapon.sprite++;
@@ -177,7 +181,7 @@ void		shoot(t_struct *p)
 		reload(p);
 	else
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[92].img_ptr,
-			800, 670);
+				800, 670);
 }
 
 void		soundtronco(t_struct *p)
@@ -195,12 +199,12 @@ void		weapon(t_struct *p)
 		if (p->keypress[KEY_SPACEBAR] == 0)// actionner la tronco
 		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr,
-				610, 697); // tronco 1
+					610, 697); // tronco 1
 			if (p->trons == 0)
 			{
 				p->trons = 1;
 				if (p->sound == 1)
-				system("afplay ./doomzik/chainsaw_attack_out.mp3 &");
+					system("afplay ./doomzik/chainsaw_attack_out.mp3 &");
 			}
 		}
 		//if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
@@ -213,12 +217,12 @@ void		weapon(t_struct *p)
 			{
 				p->trons = 0;
 				if (p->sound == 1)
-				system("afplay ./doomzik/chainsaw_attack_in.mp3 &");
+					system("afplay ./doomzik/chainsaw_attack_in.mp3 &");
 			}
 			soundtronco(p);
 			p->soundtmp = p->temp;
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr,
-				610, 583); // tronco 2
+					610, 583); // tronco 2
 		}
 	}
 	if (p->difficulty == 0)
