@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/27 15:21:02 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:14:24 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void		init_textures(t_struct *p)
 			p->tex[i].img_str = mlx_get_data_addr(p->tex[i].img_ptr, &bpp,
 					&p->tex[i].sizeline, &p->tex[i].endian);
 			close(fd);
-			//(p, i);
 		}
 		else
 		{
@@ -104,7 +103,6 @@ void		load_textures(t_struct *p)
 	p->tex[4].str = ft_strdup("textures/grass2.xpm");
 	p->tex[5].str = ft_strdup("textures/lever2.xpm");
 	p->tex[6].str = ft_strdup("textures/transpa.xpm");
-	//p->tex[6].str = ft_strdup("textures/Matrix.xpm");
 	p->tex[7].str = ft_strdup("textures/Basic-0-Floor.xpm");
 	p->tex[8].str = ft_strdup("textures/Basic-1.xpm");
 	p->tex[9].str = ft_strdup("textures/Basic-2.xpm");
@@ -127,9 +125,6 @@ void		load_textures(t_struct *p)
 
 t_porte		*init_door(void)
 {
-	//	p->porte[i].open = 0;
-	//	p->porte[i].spd = 0.2;
-	//	p->porte[i].zip = 2;
 	static t_porte porte[NUMPORTE] =
 	{
 		{0, 0.02, 22, 1},
