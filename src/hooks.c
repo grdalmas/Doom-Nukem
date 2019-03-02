@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 04:07:06 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:56:16 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@
 
 void		take_object(t_struct *p)
 {
-
-	 if (p->sprited[2] <= 2 && p->menu != -1)
+	if (p->sprited[2] <= 1.5 && p->menu != -1)
 	{
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
 		inverse_map(p);
 		//		print_map(p);
+	}
+	if (p->sprited[17] <= 1.5 && p->menu != -1)
+	{
+			system("afplay ./doomzik/mmpf.mp3 &");
 	}
 	else if (p->menu == -1)
 	{
@@ -52,24 +55,24 @@ void		take_object(t_struct *p)
 		p->menu = 1; //         MENU EDITEUR
 	}
 
-	else if (p->sprited[16] <= 2 && p->trump != 3 && p->sprite[16].k != 6)
+	else if (p->sprited[16] <= 1.5 && p->trump != 3 && p->sprite[16].k != 6)
 	{
 		p->trump = 3;
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
 		if (p->sound == 1)
-			system("afplay ./Musiques/chainsaw_start.mp3 &");
+			system("afplay ./doomzik/chainsaw_start.mp3 &");
 	}
 	// pour ramasser caisse a outils et ouvrir ascenceur
-	else if (p->k == 2 && p->sprited[0] <= 2 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 2 && p->sprited[0] <= 1.5 && p->trump != 2 && p->sprite[0].k != 6)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 
 
 		if (p->sound == 1)
 		{
-			system("afplay ./Musiques/trump_message_pop.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 &");
 
-			system("afplay ./Musiques/zip.mp3 &");
+			system("afplay ./doomzik/zip.mp3 &");
 		}
 		p->tool = 1;
 		p->trump = 2;
@@ -77,15 +80,15 @@ void		take_object(t_struct *p)
 		//		p->elev = 1;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 1 && p->sprited[3] <= 2)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 1 && p->sprited[3] <= 1.5)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		if (p->sound == 1)
-			system("afplay ./Musiques/zip.mp3 &");
+			system("afplay ./doomzik/zip.mp3 &");
 		p->maap = 1;
 		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->k == 9 && p->sprited[18] <= 2 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
+	else if (p->k == 9 && p->sprited[18] <= 1.5 && p->trump != 6 && p->trump != 7)//(int)p->c->p_x == (int)p->sprite[0].x && (int)p->sprite[0].y == (int)p->c->p_y)
 	{
 		if (p->sound == 1)
 			system("afplay ./doomzik/trump_message_music.mp3 &");
@@ -97,10 +100,10 @@ p->trump = 6;
 		//		p->sprite[3].k = 6;
 		// METTRE CONDITION POUR OUVRIR LA PORTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	else if (p->sprited[19] <= 2 && p->trump != 4 && p->sprite[19].k != 6)
+	else if (p->sprited[19] <= 1.5 && p->trump != 4 && p->sprite[19].k != 6)
 	{
 		if (p->sound == 1)
-			system("afplay ./Musiques/trump_message_pop.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 &");
 		p->trump = 4;
 		p->sprite[19].k = 6;
 		p->weapon.id = 2;
@@ -109,8 +112,8 @@ p->trump = 6;
 	{
 		if (p->sound == 1)
 		{
-			system("afplay ./Musiques/trump_message_pop.mp3 &");
-			system("afplay ./Musiques/zip.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 &");
+			system("afplay ./doomzik/zip.mp3 &");
 		}
 		p->trump = 5;
 		p->sprite[1].k = 6;
@@ -142,19 +145,19 @@ p->trump = 6;
 void			soundstep(t_struct *p)
 {
 	if (p->c->pas == p->pas && (p->c->pas = 1) == 1)
-		system("afplay ./musics/pas1.mp3 &");
+		system("afplay ./doomzik/pas1.mp3 &");
 	else if (p->c->pas == p->pas + 1 && (p->c->pas = 2) == 2)
-		system("afplay ./musics/pas2.mp3 &");
+		system("afplay ./doomzik/pas2.mp3 &");
 	else if (p->c->pas == p->pas + 2 && (p->c->pas = 3) == 3)
-		system("afplay ./musics/pas3.mp3 &");
+		system("afplay ./doomzik/pas3.mp3 &");
 	else if (p->c->pas == p->pas + 3 && (p->c->pas = 4) == 4)
-		system("afplay ./musics/pas4.mp3 &");
+		system("afplay ./doomzik/pas4.mp3 &");
 	else if (p->c->pas == p->pas + 4 && (p->c->pas = 5) == 5)
-		system("afplay ./musics/pas5.mp3 &");
+		system("afplay ./doomzik/pas5.mp3 &");
 	else if (p->c->pas ==  p->pas + 5 && (p->c->pas = 6) == 6)
-		system("afplay ./musics/pas6.mp3 &");
+		system("afplay ./doomzik/pas6.mp3 &");
 	else if (p->c->pas >= p->pas + 6 && (p->c->pas = 0) == 0)
-		system("afplay ./musics/pas7.mp3 &");
+		system("afplay ./doomzik/pas7.mp3 &");
 }
 
 int				key_press_hook(t_struct *p)

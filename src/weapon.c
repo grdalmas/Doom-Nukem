@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 04:18:57 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:59:02 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,15 @@ void		soundpain(t_struct *p)
 p->soundpainmum++;
 		p->soundpain = p->life;
 		if (p->soundpainmum == 1)
-		system("afplay ./Musiques/pain_1.mp3 &");
+		system("afplay ./doomzik/pain_1.mp3 &");
 		else if (p->soundpainmum == 2)
-		system("afplay ./Musiques/pain_2.mp3 &");
+		system("afplay ./doomzik/pain_2.mp3 &");
 		else if (p->soundpainmum == 3)
-		system("afplay ./Musiques/pain_4.mp3 &");
+		system("afplay ./doomzik/pain_4.mp3 &");
 		else if (p->soundpainmum == 4)
 		{
 			p->soundpainmum = 0;
-			system("afplay ./Musiques/pain_3.mp3 &");
+			system("afplay ./doomzik/pain_3.mp3 &");
 		}
 	}
 }
@@ -131,7 +131,7 @@ void		reload(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[96].img_ptr, 800, \
 			490);
 		if (p->keypress[KEY_R] == 1 && p->sound == 1)
-			system("afplay ./Musiques/shotgun_pump.mp3 &");
+			system("afplay ./doomzik/shotgun_pump.mp3 &");
 	}
 	else if (p->weapon.reload < 4)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[97].img_ptr, 800,
@@ -155,7 +155,7 @@ void		shoot(t_struct *p)
 	if (p->keypress[KEY_SPACEBAR] == 1 && p->weapon.reload > 11)
 	{
 		if (p->sound == 1)
-		system("afplay ./Musiques/shotgun_shot.mp3 &");
+		system("afplay ./doomzik/shotgun_shot.mp3 &");
 		p->shoot = 1;
 		p->weapon.reload = 0;
 		p->weapon.sprite = 1;
@@ -191,7 +191,7 @@ void		weapon(t_struct *p)
 	if (p->weapon.id == 1)
 	{
 		if (p->temp == 1 && p->sound == 1)
-			system("afplay ./Musiques/chainsaw_sustain.mp3 &");
+			system("afplay ./doomzik/chainsaw_sustain.mp3 &");
 		if (p->keypress[KEY_SPACEBAR] == 0)// actionner la tronco
 		{
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr,
@@ -200,7 +200,7 @@ void		weapon(t_struct *p)
 			{
 				p->trons = 1;
 				if (p->sound == 1)
-				system("afplay ./Musiques/chainsaw_attack_out.mp3 &");
+				system("afplay ./doomzik/chainsaw_attack_out.mp3 &");
 			}
 		}
 		//if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
@@ -208,12 +208,12 @@ void		weapon(t_struct *p)
 		else if (p->keypress[KEY_SPACEBAR] == 1)// actionner la tronco
 		{
 			if (p->temp == 1 && p->sound == 1)
-				system("afplay ./Musiques/chainsaw_attack_middle.mp3 &");
+				system("afplay ./doomzik/chainsaw_attack_middle.mp3 &");
 			if (p->trons == 1)
 			{
 				p->trons = 0;
 				if (p->sound == 1)
-				system("afplay ./Musiques/chainsaw_attack_in.mp3 &");
+				system("afplay ./doomzik/chainsaw_attack_in.mp3 &");
 			}
 			soundtronco(p);
 			p->soundtmp = p->temp;

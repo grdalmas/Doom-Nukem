@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 03:10:56 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 04:18:24 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			elevator(t_struct *p)
 			|| p->keypress[KEY_PAD_4] == 1 || p->keypress[KEY_PAD_5] == 1)
 	{
 		if (p->sound == 1)
-			system("afplay ./Musiques/elevator_beep.mp3 &");
+			system("afplay ./doomzik/elevator_beep.mp3 &");
 		if (p->k == 7)
 			p->h = 0;
 		if (p->keypress[KEY_1] == 1 || p->keypress[KEY_PAD_1] == 1)
@@ -88,7 +88,6 @@ static void		move_up3(t_struct *p, int move)
 	}
 	else if (move == 24 && p->k == 2)
 	{
-		//			p->k = 0;
 		p->c->p_y -= 3;
 	}
 	else if (move == 21)
@@ -100,11 +99,11 @@ static void		move_up2(t_struct *p, int move)
 	if (move == 13)
 	{
 		system("killall afplay");
-		system("afplay ./musics/lego.mp3 &");
+		system("afplay ./doomzik/lego.mp3 &");
 		if (p->k == 2)
 		{
 			system("killall afplay");
-			system("afplay ./musics/amblobby.mp3 &");
+			system("afplay ./doomzik/amblobby.mp3 &");
 		}
 		p->c->p_y = (p->k == 0) ? 13.5 : 1.5;
 		p->k = (p->k == 0) ? 2 : 0;
@@ -112,11 +111,11 @@ static void		move_up2(t_struct *p, int move)
 	else if (move == 12)
 	{
 		system("killall afplay");
-		system("afplay ./musics/ambbobo.mp3 &");
+		system("afplay ./doomzik/ambbobo.mp3 &");
 		if (p->k == 1)
 		{
 			system("killall afplay");
-			system("afplay ./musics/amblobby.mp3 &");
+			system("afplay ./doomzik/amblobby.mp3 &");
 		}
 		p->c->p_y = (p->k == 0) ? 1.5 : 13.5;
 		p->k = (p->k == 0) ? 1 : 0;
@@ -124,7 +123,7 @@ static void		move_up2(t_struct *p, int move)
 	move_up3(p, move);
 }
 
-int			against_glitch_straff(t_struct * p, int move, double s)
+int				against_glitch_straff(t_struct * p, int move, double s)
 {
 	if (p->map[p->k][(int)((p->c->p_x))][(int)((p->c->p_y))] == 0)
 	{
@@ -133,7 +132,6 @@ int			against_glitch_straff(t_struct * p, int move, double s)
 		{
 			if (p->map[p->k][(int)((p->c->p_x)) + 1][(int)((p->c->p_y)) + 1] == 0)
 			{
-				printf("y a un coin 1!!!\n");
 				if ((int)(p->c->p_x + p->c->plane_x * s) == (int)p->c->p_x + 1
 						|| (int)(p->c->p_y + p->c->plane_y * s) == (int)p->c->p_y + 1)
 					move = 1;
@@ -145,7 +143,6 @@ int			against_glitch_straff(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) + 1][(int)((p->c->p_y)) - 1] == 0)
 		{
-			printf("y a un coin 2!!!\n");
 			if ((int)(p->c->p_x + p->c->plane_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->plane_y * s) == (int)p->c->p_y - 1)
 				move = 1;
@@ -156,7 +153,6 @@ int			against_glitch_straff(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y)) - 1] == 0)
 		{
-			printf("y a un coin 3!!!\n");
 			if ((int)(p->c->p_x + p->c->plane_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->plane_y * s) == (int)p->c->p_y - 1)
 				move = 1;
@@ -167,7 +163,6 @@ int			against_glitch_straff(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y)) + 1] == 0)
 		{
-			printf("y a un coin 4!!!\n");
 			if ((int)(p->c->p_x + p->c->plane_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->plane_y * s) == (int)p->c->p_y + 1)
 				move = 1;
@@ -176,7 +171,7 @@ int			against_glitch_straff(t_struct * p, int move, double s)
 	return (move);
 }
 
-int			against_glitch(t_struct * p, int move, double s)
+int				against_glitch(t_struct * p, int move, double s)
 {
 	if (p->map[p->k][(int)((p->c->p_x))][(int)((p->c->p_y))] == 0)
 	{
@@ -185,7 +180,6 @@ int			against_glitch(t_struct * p, int move, double s)
 		{
 			if (p->map[p->k][(int)((p->c->p_x)) + 1][(int)((p->c->p_y)) + 1] == 0)
 			{
-				printf("y a un coin 1!!!\n");
 				if ((int)(p->c->p_x + p->c->dir_x * s) == (int)p->c->p_x + 1
 						|| (int)(p->c->p_y + p->c->dir_y * s) == (int)p->c->p_y + 1)
 					move = 1;
@@ -197,7 +191,6 @@ int			against_glitch(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) + 1][(int)((p->c->p_y)) - 1] == 0)
 		{
-			printf("y a un coin 2!!!\n");
 			if ((int)(p->c->p_x + p->c->dir_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->dir_y * s) == (int)p->c->p_y - 1)
 				move = 1;
@@ -208,7 +201,6 @@ int			against_glitch(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y)) - 1] == 0)
 		{
-			printf("y a un coin 3!!!\n");
 			if ((int)(p->c->p_x + p->c->dir_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->dir_y * s) == (int)p->c->p_y - 1)
 				move = 1;
@@ -219,7 +211,6 @@ int			against_glitch(t_struct * p, int move, double s)
 	{
 		if (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y)) + 1] == 0)
 		{
-			printf("y a un coin 4!!!\n");
 			if ((int)(p->c->p_x + p->c->dir_x * s) == (int)p->c->p_x - 1
 					|| (int)(p->c->p_y + p->c->dir_y * s) == (int)p->c->p_y + 1)
 				move = 1;
@@ -227,7 +218,6 @@ int			against_glitch(t_struct * p, int move, double s)
 	}
 	return (move);
 }
-
 
 void			move_up(t_struct *p, int move, int i, double s)
 {
@@ -279,7 +269,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-
 	if (move == 0 || (t < NUMPORTE && p->porte[t].poort == 0))
 	{
 		while (i < 5)
@@ -297,8 +286,8 @@ void			move_up(t_struct *p, int move, int i, double s)
 	else if (move == 12 || move == 13 || move == 68 || move == 66 || move == 24)
 	{
 		move_up2(p, move);
-		if (p->sound == 1)
-			system("afplay ./musics/tp.mp3 &");
+		if (p->sound == 1 && move != 24)
+			system("afplay ./doomzik/tp.mp3 &");
 		else
 			system("killall afplay");
 	}
