@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/03/02 08:57:14 by cmartine         ###   ########.fr        #
+#    Updated: 2019/03/02 10:19:52 by cmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,8 @@ SRC =		draw_3d.c\
 			settings_hook.c\
 			difficulty_hook.c\
 			mouse_creator_map.c\
+			take_object.c\
+			against_glitch.c\
 
 OBJ =		$(SRC:.c=.o)
 

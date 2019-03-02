@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 08:45:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 09:30:25 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,27 @@ int				proxyporte(t_struct *p)
 	return (-1);
 }
 
+void			keypress4(int keycode, t_struct *p)
+{
+	if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0))
+	{
+		if (p->menu == 0)
+			p->menu = 1;
+		else
+		{
+			p->menu = 0;
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[120].img_ptr,
+					340, 0);
+		}
+	}
+	else if (keycode == MLX_KEY_SHIFT_LEFT)
+		p->keypress[KEY_SHIFT] = 1;
+}
+
 void			keypress3(int keycode, t_struct *p)
 {
-	if (keycode == MLX_KEY_M)
-		p->keypress[KEY_M] = 1;
+	if (keycode == MLX_KEY_PAD_5)
+		p->keypress[KEY_PAD_5] = 1;
 	else if (keycode == MLX_KEY_E && p->menu == 1)
 	{
 		if (p->porte[proxyporte(p)].poort == 0)
@@ -55,20 +72,8 @@ void			keypress3(int keycode, t_struct *p)
 	}
 	else if (keycode == MLX_KEY_R)
 		p->keypress[KEY_R] = 1;
-	else if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0))
-	{
-		if (p->menu == 0)
-			p->menu = 1;
-		else
-		{
-			p->menu = 0;
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[120].img_ptr,
-					340, 0);
-		}
-	}
-	else if (keycode == MLX_KEY_SHIFT_LEFT)
-		p->keypress[KEY_SHIFT] = 1;
-	p->keypress[LAST_KEY_PRESS] = keycode;
+	else
+		keypress4(keycode, p);
 }
 
 void			keypress2(int keycode, t_struct *p)
@@ -95,8 +100,6 @@ void			keypress2(int keycode, t_struct *p)
 		p->keypress[KEY_PAD_3] = 1;
 	else if (keycode == MLX_KEY_PAD_4)
 		p->keypress[KEY_PAD_4] = 1;
-	else if (keycode == MLX_KEY_PAD_5)
-		p->keypress[KEY_PAD_5] = 1;
 	else
 		keypress3(keycode, p);
 }
@@ -130,30 +133,29 @@ int				keypress(int keycode, void *d)
 	return (1);
 }
 
-int				keyrelease(int keycode, void *d)
+void			keyrelease3(int keycode, t_struct *p)
 {
-	t_struct *p;
+	if (keycode == MLX_KEY_4)
+		p->keypress[KEY_4] = 0;
+	else if (keycode == MLX_KEY_5)
+		p->keypress[KEY_5] = 0;
+	else if (keycode == MLX_KEY_PAD_1)
+		p->keypress[KEY_PAD_1] = 0;
+	else if (keycode == MLX_KEY_PAD_2)
+		p->keypress[KEY_PAD_2] = 0;
+	else if (keycode == MLX_KEY_PAD_3)
+		p->keypress[KEY_PAD_3] = 0;
+	else if (keycode == MLX_KEY_PAD_4)
+		p->keypress[KEY_PAD_4] = 0;
+	else if (keycode == MLX_KEY_PAD_5)
+		p->keypress[KEY_PAD_5] = 0;
+	else if (keycode == MLX_KEY_SHIFT_LEFT)
+		p->keypress[KEY_SHIFT] = 0;
+}
 
-	if (!(p = (t_struct*)d))
-		return (0);
-	if (keycode == MLX_KEY_M)
-		p->keypress[KEY_M] = 0;
-	if (keycode == MLX_KEY_ESCAPE)
-		p->keypress[KEY_ESCAPE] = 0;
-	else if (keycode == MLX_KEY_W)
-		p->keypress[KEY_W] = 0;
-	else if (keycode == MLX_KEY_D)
-		p->keypress[KEY_D] = 0;
-	else if (keycode == MLX_KEY_A)
-		p->keypress[KEY_A] = 0;
-	else if (keycode == MLX_KEY_E && p->menu != 2 && p->menu != 4)
-	{
-		if (p->menu == 3)
-			p->menu = -1;
-		p->keypress[KEY_E] = 0;
-		take_object(p);
-	}
-	else if (keycode == MLX_KEY_S)
+void			keyrelease2(int keycode, t_struct *p)
+{
+	if (keycode == MLX_KEY_S)
 		p->keypress[KEY_S] = 0;
 	else if (keycode == MLX_KEY_LEFT)
 		p->keypress[KEY_LEFT] = 0;
@@ -177,22 +179,30 @@ int				keyrelease(int keycode, void *d)
 		p->keypress[KEY_2] = 0;
 	else if (keycode == MLX_KEY_3)
 		p->keypress[KEY_3] = 0;
-	else if (keycode == MLX_KEY_4)
-		p->keypress[KEY_4] = 0;
-	else if (keycode == MLX_KEY_5)
-		p->keypress[KEY_5] = 0;
-	else if (keycode == MLX_KEY_PAD_1)
-		p->keypress[KEY_PAD_1] = 0;
-	else if (keycode == MLX_KEY_PAD_2)
-		p->keypress[KEY_PAD_2] = 0;
-	else if (keycode == MLX_KEY_PAD_3)
-		p->keypress[KEY_PAD_3] = 0;
-	else if (keycode == MLX_KEY_PAD_4)
-		p->keypress[KEY_PAD_4] = 0;
-	else if (keycode == MLX_KEY_PAD_5)
-		p->keypress[KEY_PAD_5] = 0;
-	else if (keycode == MLX_KEY_SHIFT_LEFT)
-		p->keypress[KEY_SHIFT] = 0;
-	//key_press_hook(p->keypress[LAST_KEY_PRESS], c);
+}
+
+int				keyrelease(int keycode, void *d)
+{
+	t_struct *p;
+
+	if (!(p = (t_struct*)d))
+		return (0);
+	if (keycode == MLX_KEY_ESCAPE)
+		p->keypress[KEY_ESCAPE] = 0;
+	else if (keycode == MLX_KEY_W)
+		p->keypress[KEY_W] = 0;
+	else if (keycode == MLX_KEY_D)
+		p->keypress[KEY_D] = 0;
+	else if (keycode == MLX_KEY_A)
+		p->keypress[KEY_A] = 0;
+	else if (keycode == MLX_KEY_E && p->menu != 2 && p->menu != 4)
+	{
+		if (p->menu == 3)
+			p->menu = -1;
+		p->keypress[KEY_E] = 0;
+		take_object(p);
+	}
+	else
+		keyrelease2(keycode, p);
 	return (1);
 }

@@ -6,14 +6,13 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 07:48:53 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 08:20:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 09:15:37 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-
-static void			mouse_motion2(int x, int y, t_struct *p)
+static void		mouse_motion2(int x, int y, t_struct *p)
 {
 	double	tmp_dir_x;
 	double	tmp_plane_x;
