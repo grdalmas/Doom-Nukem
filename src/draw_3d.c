@@ -6,11 +6,28 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 16:56:19 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/02 05:20:55 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+void			shakeshadow(t_struct *p, int i, float distance)
+{
+	if (i == 0)
+	{
+		p->c->shadow = distance * 0.25;
+		if (p->c->shadow > 1)
+			p->c->shadow = 1;
+	}
+	else
+	{
+		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
+					- (double)HEIGHT)) * 0.25;
+		if (p->c->shadow > 1)
+			p->c->shadow = 1;
+	}
+}
 
 static void		floor_casting(t_struct *p, int x, int y, int z)
 {
@@ -23,17 +40,12 @@ static void		floor_casting(t_struct *p, int x, int y, int z)
 	which_textf(p);
 	y = p->c->y_end;
 	z = HEIGHT - y;
-	p->c->what = 1;
 	while (y++ < HEIGHT + abs(p->h) && z-- > 0 - abs(p->h))
 	{
 		distance = (double)HEIGHT / (2.0 * ((double)y) - (double)HEIGHT);
 		p->c->ra = distance / p->c->wall_dist;
 		if (p->k != 7)
-		{
-			p->c->shadow = distance * 0.25;
-			if (p->c->shadow > 1)
-				p->c->shadow = 1;
-		}
+			shakeshadow(p, 0, distance);
 		tmp_fl_x = p->c->ra * p->c->floor_x + (1.0 - p->c->ra) * p->c->p_x;
 		tmp_fl_y = p->c->ra * p->c->floor_y + (1.0 - p->c->ra) * p->c->p_y;
 		tex_x = (int)(tmp_fl_x * p->tex[p->tid].width) % p->tex[p->tid].width;
@@ -44,7 +56,6 @@ static void		floor_casting(t_struct *p, int x, int y, int z)
 		if (p->k != 9)
 			draw_pixel2(p, p->img_str2, x, z + p->h);
 	}
-	p->c->what = 0;
 }
 
 static void		draw_floor_3d(t_struct *p)
@@ -77,27 +88,22 @@ int				hodor(t_struct *p)
 
 	if (p->tid == p->porte[p->dodor].zip)
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : (p->c->offset
-			- p->porte[p->dodor].open) * 256));
+						- p->porte[p->dodor].open) * 256));
 	else
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : p->c->offset * 256));
+	draw_floor_3d(p);
 	return (tex_x);
 }
 
 void			color_text_sky(t_struct *p, int col, int line, int tex)
 {
 	col = col * BPP;
-	line = line * (2556); //p->tex[tex].height * 4;
-	if (col + line + 3 < 1633284 /* p->tex[tex].width * 4 * p->tex[tex].height*/
-		&& col >= 0 && line > 0)
-		//if (col + line + 3 < 262144 && col >= 0 && line >= 0  )
+	line = line * SKYHEIGHT;
+	if (col + line + 3 < SKYHW && col >= 0 && line > 0)
 	{
 		p->color.r = (unsigned char)(p->tex[tex].img_str[col + line]);
-		//p->color.r = (unsigned char)((1 - ratio * 0.8) * p->color.r);
 		p->color.g = (unsigned char)(p->tex[tex].img_str[col + line + 1]);
-		//p->color.g = (unsigned char)((1 - ratio * 0.8) * p->color.g);
 		p->color.b = (unsigned char)(p->tex[tex].img_str[col + line + 2]);
-		//p->color.b = (unsigned char)((1 - ratio * 0.8) * p->color.b);
-		//p->color.a = (unsigned char)(p->tex[p->tid].img_str[col + line + 3]);
 	}
 }
 
@@ -114,17 +120,9 @@ void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)
 	if (p->k == 9)
 		skybox(p, y - p->h, x);
 	tex_x = hodor(p);
-	draw_floor_3d(p);
 	floor_casting(p, x, 0, 0);
 	if (p->k != 7)
-	{
-		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
-			- (double)HEIGHT)) * 0.25;
-		//j aimerai bien bidouiller ca si j ai le temps
-		//p->c->shadow = distance * 0.25;
-		if (p->c->shadow > 1)
-			p->c->shadow = 1;
-	}
+		shakeshadow(p, 1, 0);
 	if (p->c->y_end > HEIGHT - p->h)
 		p->c->y_end = HEIGHT - 1 - p->h;
 	p->c->y_end += p->h;

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:12:31 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/26 16:11:35 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/02 05:06:18 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,5 @@ typedef struct 		s_game
 	t_menu			current_state;
 }					t_game;
 
-void		draw_game(void *gm);
 
 #endif

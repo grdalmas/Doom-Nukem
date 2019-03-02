@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 03:17:00 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 05:18:22 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define HEIGHT 960
 # define WIDTHMAP 270
 # define HEIGHTMAP 270
+# define SKYHEIGHT 2556
+#define SKYHW 1633284
 # define UP 126
 # define DOWN 125
 # define RIGHT 124
@@ -278,8 +280,8 @@ void				spawn(t_struct *p);
 void				rotrump(t_struct *p);
 void				sprite_move(t_struct *p);
 void				which_text(t_struct *p);
-void				draw_map_creator(void *gm);
-void				creator_map(t_struct *);
+//void				draw_map_creator(void *gm);
+void				creator_map(t_struct *p, int i, int j);
 void				minimap2(t_struct *p);
 void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
 int					mouse_button(int button, int x, int y, t_struct *p);
@@ -337,4 +339,6 @@ int					mouse_clic_diff(int b, int x, int y, t_struct *p);
 int					mouse_release_diff(int b, int x, int y, t_struct *p);
 int					mouse_motion_menu(int x, int y, t_struct *p);
 int					mouse_release_menu(int b, int x, int y, t_struct *p);
+void		draw_game(t_struct *p);
+
 #endif
