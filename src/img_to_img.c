@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 20:26:12 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 01:44:48 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 02:53:39 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	img_to_img(t_struct *p, int x, int y, int indice, float sizeup)
 			p->color.r = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline];
 			p->color.g = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline + 1];
 			p->color.b = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline + 2];
-			if (indice == 0)
 				draw_pixel2(p, p->img_str2, x, y);
-		//	else if (x > 0 && x < WIDTH)
-		//		draw_pixel2(p, p->img_str2, x, y);
 		}
 		col = (x - tmp) / sizeup;
 		if (col == p->tex[indice].sizeline / 4)

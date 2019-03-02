@@ -20,8 +20,6 @@ void			elevator(t_struct *p)
 			|| p->keypress[KEY_PAD_2] == 1 || p->keypress[KEY_PAD_3] == 1
 			|| p->keypress[KEY_PAD_4] == 1 || p->keypress[KEY_PAD_5] == 1)
 	{
-
-		printf("i'm in2\n");
 		if (p->sound == 1)
 			system("afplay ./Musiques/elevator_beep.mp3 &");
 		if (p->k == 7)
@@ -244,7 +242,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			break ;
 		t++;
 	}
-	if (move == 0 && (int)p->c->p_x == 7 && (int)p->c->p_y == 7
+	if ((int)p->c->p_x == 7 && (int)p->c->p_y == 7
 			&& p->k != 1 && p->k != 2 && p->k != 3 && p->k != 4)
 	{
 		printf("i'm in\n");

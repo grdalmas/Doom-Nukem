@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 00:38:39 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:08:03 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ int				keyrelease(int keycode, void *d)
 			p->menu = -1;
 		p->keypress[KEY_E] = 0;
 		take_object(p);
-
 	}
 	else if (keycode == MLX_KEY_S)
 		p->keypress[KEY_S] = 0;
@@ -168,9 +167,7 @@ int				keyrelease(int keycode, void *d)
 	else if (keycode == MLX_KEY_S)
 		p->keypress[KEY_S] = 0;
 	if (keycode == MLX_KEY_R)
-	{
 		p->keypress[KEY_R] = 1;
-	}
 	else if (keycode == MLX_KEY_1)
 		p->keypress[KEY_1] = 0;
 	else if (keycode == MLX_KEY_2)
