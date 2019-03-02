@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 00:10:14 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:38:39 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,16 @@ int				keypress(int keycode, void *d)
 		p->keypress[KEY_4] = 1;
 	else if (keycode == MLX_KEY_5)
 		p->keypress[KEY_5] = 1;
+	else if (keycode == MLX_KEY_PAD_1)
+		p->keypress[KEY_PAD_1] = 1;
+	else if (keycode == MLX_KEY_PAD_2)
+		p->keypress[KEY_PAD_2] = 1;
+	else if (keycode == MLX_KEY_PAD_3)
+		p->keypress[KEY_PAD_3] = 1;
+	else if (keycode == MLX_KEY_PAD_4)
+		p->keypress[KEY_PAD_4] = 1;
+	else if (keycode == MLX_KEY_PAD_5)
+		p->keypress[KEY_PAD_5] = 1;
 	else if (keycode == MLX_KEY_M)
 	 	p->keypress[KEY_M] = 1;
 	else if (keycode == MLX_KEY_E)// && proxyporte(p) != 0)
@@ -171,6 +181,16 @@ int				keyrelease(int keycode, void *d)
 		p->keypress[KEY_4] = 0;
 	else if (keycode == MLX_KEY_5)
 		p->keypress[KEY_5] = 0;
+	else if (keycode == MLX_KEY_PAD_1)
+		p->keypress[KEY_PAD_1] = 0;
+	else if (keycode == MLX_KEY_PAD_2)
+		p->keypress[KEY_PAD_2] = 0;
+	else if (keycode == MLX_KEY_PAD_3)
+		p->keypress[KEY_PAD_3] = 0;
+	else if (keycode == MLX_KEY_PAD_4)
+		p->keypress[KEY_PAD_4] = 0;
+	else if (keycode == MLX_KEY_PAD_5)
+		p->keypress[KEY_PAD_5] = 0;
 	else if (keycode == MLX_KEY_SHIFT_LEFT)
 		p->keypress[KEY_SHIFT] = 0;
 	//key_press_hook(p->keypress[LAST_KEY_PRESS], c);

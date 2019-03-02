@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 00:42:24 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 00:36:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ typedef enum		e_keystate
 	LAST_KEY_PRESS,
 	KEY_TAB, KEY_W, KEY_UP, KEY_DOWN, KEY_D, KEY_A, KEY_SHIFT,
 	KEY_C, KEY_LEFT, KEY_RIGHT, KEY_SPACEBAR, KEY_ESCAPE, KEY_Q, KEY_E, KEY_R,
-	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_M,
+	KEY_S, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_M, KEY_PAD_1, KEY_PAD_2,
+	KEY_PAD_3, KEY_PAD_4, KEY_PAD_5,
 	NB_KEYSTATE
 
 }					t_keystate;
