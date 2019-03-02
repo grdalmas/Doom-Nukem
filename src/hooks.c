@@ -154,7 +154,7 @@ int				key_press_hook(t_struct *p)
 	int key;
 	float sprint;
 
-	key = 0;
+	key = 1;
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)
