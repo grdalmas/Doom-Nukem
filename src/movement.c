@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 00:40:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:49:13 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ void			elevator(t_struct *p)
 		else if (p->keypress[KEY_4] == 1 || p->keypress[KEY_PAD_4] == 1)
 			p->k = 8;
 		else if (p->keypress[KEY_5] == 1 || p->keypress[KEY_PAD_5] == 1)
+		{
+			if (p->sprite[17].k == 6)
+				p->sprite[18].k = 6;
 			p->k = 9;
+		}
 		p->elevator = 0;
 		p->c->p_x = 6.5;
 		p->c->p_y = 7.5;
@@ -261,7 +265,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 	}
 	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 	{
-		//		write(1, "1\n", 2);
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->plane_x * i * s / 4))]
@@ -275,10 +278,8 @@ void			move_up(t_struct *p, int move, int i, double s)
 		}
 	}
 
-	if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
+	if (move == 0 || (t < NUMPORTE && p->porte[t].poort == 0))
 	{
-		//		write(1, "2\n", 2);
-		//	if ((p->c->middle_wall_dist > 0.5) && )
 		while (i < 5)
 		{
 			if (p->map[p->k][(int)((p->c->p_x + p->c->dir_x * i * s / 4))]

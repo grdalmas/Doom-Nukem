@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 00:52:37 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:37:19 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void		soundpain(t_struct *p)
 	if (p->soundpain >= p->life + 5 )
 	{
 p->soundpainmum++;
-printf("%i", p->soundpainmum);
 		p->soundpain = p->life;
 		if (p->soundpainmum == 1)
 		system("afplay ./Musiques/pain_1.mp3 &");

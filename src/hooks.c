@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 00:56:36 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:42:04 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ int				key_press_hook(t_struct *p)
 	int key;
 	float sprint;
 
-	key = 0;
+	key = 1;
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
 	if (p->keypress[KEY_LEFT] == 1)

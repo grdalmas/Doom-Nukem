@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 23:26:10 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:53:59 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,7 @@ void	draw_game(void *gm)
 		free(s);
 		if (p->dead == 5)
 		{
-
-
 			printf("---->BACK TO LIFE\n");
-
-
 			p->menu = 4;
 			//free(p->sprite);
 //			p->sprite = NULL;
