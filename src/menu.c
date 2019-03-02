@@ -1,90 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   menu.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/02 06:18:36 by cmartine          #+#    #+#             */
+/*   Updated: 2019/03/02 07:07:13 by cmartine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "doom-nukem.h"
 
+static void		mouse_motion_menu2(t_struct *p)
+{
+	if (p->ch == 0)
+		mlx_put_image_to_window(p->mlx_ptr,
+				p->w_ptr, p->tex[122].img_ptr, 0, 0);
+	if (p->ch == 1)
+		mlx_put_image_to_window(p->mlx_ptr,
+				p->w_ptr, p->tex[123].img_ptr, 0, 0);
+	if (p->ch == 2)
+		mlx_put_image_to_window(p->mlx_ptr,
+				p->w_ptr, p->tex[124].img_ptr, 0, 0);
+	if (p->ch == 3)
+		mlx_put_image_to_window(p->mlx_ptr,
+				p->w_ptr, p->tex[125].img_ptr, 0, 0);
+}
 
-int		mouse_motion_menu(int x, int y, t_struct *p)
+static void		menu_sound(t_struct *p, int s)
+{
+	if (p->ch != 0)
+	{
+		if (s == 1)
+			system("afplay ./doomzik/shotgun_pump.mp3 &");
+		if (s == 2)
+			system("afplay ./doomzik/elevator_button.mp3 &");
+		if (s == 3)
+			system("afplay ./doomzik/pain_1.mp3 &");
+	}
+}
+
+int				mouse_motion_menu(int x, int y, t_struct *p, int s)
 {
 	if (p->choice == 0)
 	{
-		//		y = y+30;
 		if (x >= 635 && x <= 990 && y >= 515 && y <= 605)
 		{
-			if (p->sound == 1)
-			{
-			if (p->ch != 1)
-				system("afplay ./doomzik/shotgun_pump.mp3 &");
+			s = (p->ch == 1) ? 0 : 1;
 			p->ch = 1;
-			}
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[123].img_ptr, 0, 0);
 		}
 		else if (x >= 630 && x <= 990 && y >= 730 && y <= 800)
 		{
-			if (p->sound == 1)
-			{
-			if (p->ch != 2)
-				system("afplay ./doomzik/elevator_button.mp3 &");
-			}
+			s = (p->ch == 2) ? 0 : 2;
 			p->ch = 2;
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
 		}
 		else if (x >= 720 && x <= 900 && y >= 822 && y <= 883)
 		{
-			if (p->sound == 1)
-			{
-			if (p->ch != 3)
-				system("afplay ./doomzik/pain_1.mp3 &");
+			s = (p->ch == 3) ? 0 : 3;
 			p->ch = 3;
-			}
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[125].img_ptr, 0, 0);
 		}
 		else
-		{
 			p->ch = 0;
-			//			system("afplay ./doomzik/shotgun_pump.mp3 &");
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[122].img_ptr, 0, 0);
-		}
+		mouse_motion_menu2(p);
+		menu_sound(p, s);
 	}
 	return (1);
 }
-/*
-   int		mouse_clic_menu(int b, int x, int y, t_struct *p)
-   {
-   int		i;
 
-   if (p->choice == 0)
-   {
-   if ((b == 1) && x >= 635 && x <= 990 && y >= 565 && y <= 635)
-//music
-else if ((b == 1) && x >= 630 && x <= 990 && y >= 768 && y <= 815)
-//music
-else if ((b == 1) && x >= 720 && x <= 900 && y >= 860 && y <= 910)
-//music (Je ne pense pas qu'il faille mettre une musique d'exit)
-else
-//music or nothing
-}
-return (1);
-}*/
-
-int		mouse_release_menu(int b, int x, int y, t_struct *p)
+static	void	start_game(t_struct *p)
 {
+	if (p->sound == 1)
+	{
+		p->ch = 0;
+		system("afplay ./doomzik/shotgun_shot.mp3 &");
+	}
+	p->choice = 1;
+	mlx_clear_window(p->mlx_ptr, p->w_ptr);
+	mlx_put_image_to_window(p->mlx_ptr,
+			p->w_ptr, p->tex[45].img_ptr, 0, 35);
+	mlx_put_image_to_window(p->mlx_ptr,
+			p->w_ptr, p->tex[138].img_ptr, 35, 310);
+	p->menu = 1;
+}
 
-
+int				mouse_release_menu(int b, int x, int y, t_struct *p)
+{
 	if (p->choice == 0)
 	{
 		if ((b == 1) && x >= 635 && x <= 990 && y >= 515 && y <= 605)
-		{
-			if (p->sound == 1)
-			{
-			p->ch = 0;
-			system("afplay ./doomzik/shotgun_shot.mp3 &");
-			}
-			p->choice = 1;
-			mlx_clear_window(p->mlx_ptr, p->w_ptr);
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 35);
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[138].img_ptr, 35, 310);
-			//p->gm.draw[RUN] = draw_game;
-			//p->gm.current_state = RUN;
-			p->menu = 1;
-		}
+			start_game(p);
 		else if ((b == 1) && x >= 630 && x <= 990 && y >= 730 && y <= 800)
 		{
 			p->ch = 0;
@@ -95,33 +100,8 @@ int		mouse_release_menu(int b, int x, int y, t_struct *p)
 		else if ((b == 1) && x >= 720 && x <= 900 && y >= 822 && y <= 883)
 			close_window(p);
 		else
-			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[122].img_ptr, 0, 0);
+			mlx_put_image_to_window(p->mlx_ptr,
+					p->w_ptr, p->tex[122].img_ptr, 0, 0);
 	}
 	return (1);
-}
-
-void	draw_main_menu(void *gm)
-{
-	t_struct	*p;
-
-	if (!(p = (t_struct*)gm))
-		return ;
-	if (p->choice == 0)
-	{
-		//mlx_hook(p->w_ptr, 4, (1L << 2), mouse_clic_menu, p);
-		mlx_hook(p->w_ptr, 5, (1L << 2), mouse_release_menu, p);
-		mlx_hook(p->w_ptr, 6, (1L << 6), mouse_motion_menu, p);
-	}
-	if (p->choice == 2)
-	{
-		//mlx_hook(p->w_ptr, 4, (1L << 2), mouse_clic_settings, p);
-		mlx_hook(p->w_ptr, 5, (1L << 2), mouse_release_settings, p);
-		mlx_hook(p->w_ptr, 6, (1L << 6), mouse_motion_settings, p);
-	}
-	if (p->choice == 3)
-	{
-		//mlx_hook(p->w_ptr, 4, (1L << 2), mouse_clic_diff, p);
-		mlx_hook(p->w_ptr, 5, (1L << 2), mouse_release_diff, p);
-		mlx_hook(p->w_ptr, 6, (1L << 6), mouse_motion_diff, p);
-	}
 }

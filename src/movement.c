@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 04:18:24 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 06:48:35 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,7 +235,6 @@ void			move_up(t_struct *p, int move, int i, double s)
 	if ((int)p->c->p_x == 7 && (int)p->c->p_y == 7
 			&& p->k != 1 && p->k != 2 && p->k != 3 && p->k != 4)
 	{
-		printf("i'm in\n");
 		if (p->k == 0)
 			p->elevator = 2;
 		if (p->k == 5)
@@ -269,7 +268,7 @@ void			move_up(t_struct *p, int move, int i, double s)
 			}
 		}
 	}
-	if (move == 0 || (t < NUMPORTE && p->porte[t].poort == 0))
+	if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
 	{
 		while (i < 5)
 		{

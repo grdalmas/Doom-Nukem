@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 04:39:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:09:04 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			init_menu(t_game *gm)
 {
-	gm->draw[MENU] = draw_main_menu;
+//	gm->draw[MENU] = draw_main_menu;
 	//gm->draw[RUN] = draw_game;
 	//gm->draw[MAP_CREA] = draw_map_creator;
 	//gm->event_key[MENU] = eventk_menu;
@@ -56,13 +56,13 @@ void			*init(t_struct *param)
 	param->life = 100;
 	param->floor = 7;
 	param->dead = 0;
-	param->cure = 1;
+	param->cure = 0;
 	return (NULL);
 }
 
 void			initplayer(t_struct *param)
 {
-	param->k = 0;
+	param->k = 4;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();

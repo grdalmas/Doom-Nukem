@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 05:18:22 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:10:20 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,7 +337,7 @@ int					mouse_release_settings(int b, int x, int y, t_struct *p);
 int					mouse_motion_diff(int x, int y, t_struct *p);
 int					mouse_clic_diff(int b, int x, int y, t_struct *p);
 int					mouse_release_diff(int b, int x, int y, t_struct *p);
-int					mouse_motion_menu(int x, int y, t_struct *p);
+int					mouse_motion_menu(int x, int y, t_struct *p, int s);
 int					mouse_release_menu(int b, int x, int y, t_struct *p);
 void		draw_game(t_struct *p);
 

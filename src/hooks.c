@@ -6,34 +6,11 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 03:56:16 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 05:55:53 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
-/*
-   void		print_map(t_struct *p)
-   {
-   int i;
-   int j;
-
-   i = 0;
-   while (i < 15)
-   {
-   j= 0;
-   while (j < 15)
-   {
-   printf("%d ",p->map[4][i][j]);
-   j++;
-   }
-   i++;
-   printf("\n");
-
-   }
-   printf("\n");
-   }
-   */
 
 void		take_object(t_struct *p)
 {

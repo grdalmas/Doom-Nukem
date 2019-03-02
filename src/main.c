@@ -6,23 +6,31 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 05:06:32 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:01:20 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void			sprite_move(t_struct *p)
+void			rotrump2(t_struct *p)
 {
-	flyisabug(p);
-	if (p->k == 5)
-		movemy(p, 4);
-	else if (p->k == 8)
-		movemy2(p, 10);
+	if (p->trump != 6)
+	{
+		if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
+			p->sprite[18].id = 14;
+		else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y < p->c->p_y)
+			p->sprite[18].id = 17;
+		else if (p->sprite[18].x > p->c->p_x && p->sprite[18].y < p->c->p_y)
+			p->sprite[18].id = 16;
+		else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y > p->c->p_y)
+			p->sprite[18].id = 15;
+	}
+	if (p->cure == 0)
+		p->life -= 4;
 }
 
 void			rotrump(t_struct *p)
-{// sprite qui change selon les angles, modifier le number !!!
+{
 	if (p->sprite[17].x > p->c->p_x && p->sprite[17].y > p->c->p_y)
 		p->sprite[17].id = 14;
 	else if (p->sprite[17].x < p->c->p_x && p->sprite[17].y < p->c->p_y)
@@ -31,18 +39,45 @@ void			rotrump(t_struct *p)
 		p->sprite[17].id = 16;
 	else if (p->sprite[17].x < p->c->p_x && p->sprite[17].y > p->c->p_y)
 		p->sprite[17].id = 15;
-	if (p->trump != 6)
+}
+
+void			timer(t_struct *p)
+{
+	char *str;
+
+	str = ft_itoa((int)(11 - p->s / 20));
+	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 50, 0xffffff, str);
+	free(str);
+}
+
+void			sprite_move(t_struct *p)
+{
+	if (p->k == 5)
+		movemy(p, 4);
+	else if (p->k == 8)
 	{
-	if (p->sprite[18].x > p->c->p_x && p->sprite[18].y > p->c->p_y)
-		p->sprite[18].id = 14;
-	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y < p->c->p_y)
-		p->sprite[18].id = 17;
-	else if (p->sprite[18].x > p->c->p_x && p->sprite[18].y < p->c->p_y)
-		p->sprite[18].id = 16;
-	else if (p->sprite[18].x < p->c->p_x && p->sprite[18].y > p->c->p_y)
-		p->sprite[18].id = 15;
+		if (p->keypress[KEY_E] == 1 && (int)p->c->p_x == 2
+				&& (int)p->c->p_y == 7 && p->s < 0)
+		{
+			if (p->sound == 1)
+				system("afplay ./doomzik/elevator_button.mp3 &");
+			p->s = 0;
+		}
+		if (p->s >= 0)
+		{
+			p->porte[1].poort = 0;
+			timer(p);
+			p->s++;
+			if (p->s >= 200)
+				spawn(p);
+		}
+		movemy2(p, 10);
 	}
-	}
+	else if (p->k == 0)
+		rotrump(p);
+	else if (p->k == 9 && p->trump != 6)
+		rotrump2(p);
+}
 
 int				mlx_main_loop(t_struct *p)
 {
@@ -52,7 +87,6 @@ int				mlx_main_loop(t_struct *p)
 	if (p)
 	{
 		draw_game(p);
-	//	p->gm.draw[p->gm.current_state](p);
 	}
 	return (0);
 }
@@ -70,7 +104,6 @@ static void		window(t_struct *p, int w, int h)
 	p->img_ptr3 = mlx_xpm_file_to_image(p->mlx_ptr, "textures/dom.xpm", &w, &h);
 	p->img_str = mlx_get_data_addr(p->img_ptr, &bpp, &size_l, &endian);
 	p->img_str2 = mlx_get_data_addr(p->img_ptr2, &bpp, &p->size_line, &endian);
-	//	p->img_str3 = mlx_get_data_addr(p->img_ptr3, &bpp, &size_l, &endian);
 	init(p);
 	initplayer(p);
 	init_menu(&p->gm);

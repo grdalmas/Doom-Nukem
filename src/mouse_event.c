@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 02:28:37 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 07:16:56 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			rotation2(int x, int y, t_struct *p)
 	else if (p->menu == 4)
 	{
 		if (p->choice == 0)
-		mouse_motion_menu(x, y, p);
+		mouse_motion_menu(x, y, p, 0);
 		else if (p->choice == 2)
 			mouse_motion_settings(x, y, p);
 		else if (p->choice == 3)
