@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:12:06 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/01 04:20:35 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 02:28:37 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ int			rotation2(int x, int y, t_struct *p)
 
 int				mouse_button(int button, int x, int y, t_struct *p)
 {
+	printf("je susi ds mouse button\n");
 	if (p->menu == 3)
 	{
+	printf("je\n");
 		{
 			if (button == 2)
 			{

@@ -13,7 +13,7 @@ int		mouse_motion_settings(int x, int y, t_struct *p)
 			if (p->sound == 1)
 			{
 				if (p->ch != 1)
-					system("afplay ./doomzik/zip.mp3 &");
+					system("afplay ./doomzik/elevator_button.mp3 &");
 				p->ch = 1;
 				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[132].img_ptr, 0, 0);
 			}
@@ -26,7 +26,7 @@ int		mouse_motion_settings(int x, int y, t_struct *p)
 			if (p->sound == 1)
 			{
 				if (p->ch != 2)
-					system("afplay ./doomzik/zip.mp3 &");
+					system("afplay ./doomzik/elevator_button.mp3 &");
 				p->ch = 2;
 				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[133].img_ptr, 0, 0);
 			}
@@ -43,7 +43,7 @@ int		mouse_motion_settings(int x, int y, t_struct *p)
 			if (p->sound == 1)
 			{
 				if (p->ch != 3)
-					system("afplay ./doomzik/zip.mp3 &");
+					system("afplay ./doomzik/elevator_button.mp3 &");
 				p->ch = 3;
 				mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[131].img_ptr, 0, 0);
 			}
@@ -91,8 +91,6 @@ int		mouse_release_settings(int b, int x, int y, t_struct *p)
 	{
 		if ((b == 1) && x >= 600 && x <= 1025 && y >= 562 && y <= 610)
 		{
-			if (p->sound == 1)
-				system("afplay ./doomzik/tp.mp3 &");
 			p->choice = 3;
 			mouse_release_diff(b, x, y, p);
 		}
@@ -101,16 +99,10 @@ int		mouse_release_settings(int b, int x, int y, t_struct *p)
 			if (p->sound == 1)
 				p->sound = 0;
 			else if (p->sound == 0)
-			{
-				system("afplay ./doomzik/tp.mp3 &");
 				p->sound = 1;
-			}
 		}
 		else if ((b == 1) && x >= 1105 && x <= 1320 && y >= 895 && y <= 930)
 		{
-
-			if (p->sound == 1)
-				system("afplay ./doomzik/pain_1.mp3 &");
 			p->choice = 0;
 			mouse_release_menu(b, x, y, p);
 		}

@@ -21,7 +21,7 @@ int		mouse_motion_menu(int x, int y, t_struct *p)
 			if (p->sound == 1)
 			{
 			if (p->ch != 2)
-				system("afplay ./doomzik/zip.mp3 &");
+				system("afplay ./doomzik/elevator_button.mp3 &");
 			}
 			p->ch = 2;
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
@@ -80,17 +80,14 @@ int		mouse_release_menu(int b, int x, int y, t_struct *p)
 			p->choice = 1;
 			mlx_clear_window(p->mlx_ptr, p->w_ptr);
 			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[45].img_ptr, 0, 35);
+			mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[138].img_ptr, 35, 310);
 			//p->gm.draw[RUN] = draw_game;
 			//p->gm.current_state = RUN;
 			p->menu = 1;
 		}
 		else if ((b == 1) && x >= 630 && x <= 990 && y >= 730 && y <= 800)
 		{
-			if (p->sound == 1)
-			{
 			p->ch = 0;
-			system("afplay ./doomzik/tp.mp3 &");
-			}
 			p->choice = 2;
 			mouse_release_settings(b, x, y, p);
 			mouse_motion_settings(x, y, p);

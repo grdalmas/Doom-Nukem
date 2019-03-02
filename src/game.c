@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 01:53:59 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/02 02:30:07 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	draw_game(void *gm)
 	if (p->keypress[KEY_E] == 1 && p->k == 8 && (int)p->c->p_x == 2 && (int)p->c->p_y == 7 && p->s < 0)
 	{
 		if (p->sound == 1)
-			system ("afplay ./Musiques/elevator_button.mp3 &");
+			system ("afplay ./doomzik/elevator_button.mp3 &");
 		p->s = 0;
 	}
 		if (p->s >= 0)

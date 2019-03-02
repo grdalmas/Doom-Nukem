@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 01:15:41 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/02 03:17:00 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define MOTIONNOTIFY 6
 # define CLOSEMASK (1L<<17)
 # define NUMSPRITE 25
-# define TEX 138
+# define TEX 139
 # define FOV 60
 # define PI 3.14159256
 # define PORTE 1
