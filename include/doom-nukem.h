@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 10:20:45 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:48:52 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,7 @@ void				rotrump(t_struct *p);
 void				sprite_move(t_struct *p);
 void				which_text(t_struct *p);
 //void				draw_map_creator(void *gm);
+void				shakeshadow(t_struct *p, int i, float distance);
 void				creator_map(t_struct *p, int i, int j);
 void				minimap2(t_struct *p);
 void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 05:00:21 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:56:41 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +125,7 @@ void		load_textures(t_struct *p)
 
 t_porte		*init_door(void)
 {
-	static t_porte porte[NUMPORTE] =
-	{
-		{0, 0.02, 22, 1},
-		{1, 0.02, 2, 1},
-	};
+	static t_porte porte[NUMPORTE] = {{0, 0.02, 22, 1}, {1, 0.02, 2, 1}};
+
 	return (porte);
 }

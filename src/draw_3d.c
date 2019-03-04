@@ -6,28 +6,11 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 05:20:55 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:53:06 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
-
-void			shakeshadow(t_struct *p, int i, float distance)
-{
-	if (i == 0)
-	{
-		p->c->shadow = distance * 0.25;
-		if (p->c->shadow > 1)
-			p->c->shadow = 1;
-	}
-	else
-	{
-		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
-					- (double)HEIGHT)) * 0.25;
-		if (p->c->shadow > 1)
-			p->c->shadow = 1;
-	}
-}
 
 static void		floor_casting(t_struct *p, int x, int y, int z)
 {
