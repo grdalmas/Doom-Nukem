@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 17:37:22 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:32:14 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,6 +294,7 @@ int					against_glitch(t_struct *p, int move, double s);
 int					against_glitch_straff(t_struct *p, int move, double s);
 void				rotrump2(t_struct *p);
 void				rotrump(t_struct *p);
+void				keypress3(int keycode, t_struct *p);
 /*
 **					draw_line.c
 */

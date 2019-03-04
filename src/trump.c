@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 17:42:01 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/04 17:35:20 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:53:54 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			rotrump(t_struct *p)
 		p->sprite[17].id = 15;
 }
 
-void		trump(t_struct *p)
+void			trump(t_struct *p)
 {
 	if (p->trumplive == 1)
 	{
