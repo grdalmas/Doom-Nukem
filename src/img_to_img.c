@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 20:26:12 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 02:53:39 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:34:02 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void	img_to_img(t_struct *p, int x, int y, int indice, float sizeup)
+void			img_to_img(t_struct *p, int x, int y, int indice, float sizeup)
 {
 	int line;
 	int col;
@@ -32,7 +32,7 @@ void	img_to_img(t_struct *p, int x, int y, int indice, float sizeup)
 			p->color.r = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline];
 			p->color.g = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline + 1];
 			p->color.b = p->tex[indice].img_str[col * 32 / 8 + line * p->tex[indice].sizeline + 2];
-				draw_pixel2(p, p->img_str2, x, y);
+			draw_pixel2(p, p->img_str2, x, y);
 		}
 		col = (x - tmp) / sizeup;
 		if (col == p->tex[indice].sizeline / 4)

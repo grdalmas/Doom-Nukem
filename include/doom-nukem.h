@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 16:48:52 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:37:22 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,6 +292,8 @@ void				*inverse_map(t_struct *p, int i, int j, int k);
 void				take_object(t_struct *p);
 int					against_glitch(t_struct *p, int move, double s);
 int					against_glitch_straff(t_struct *p, int move, double s);
+void				rotrump2(t_struct *p);
+void				rotrump(t_struct *p);
 /*
 **					draw_line.c
 */
@@ -344,6 +346,6 @@ int					mouse_release_menu(int b, int x, int y, t_struct *p);
 int					mouse_motion(int x, int y, t_struct *p);
 void				mouse_creator_map(t_struct *p, int button, int x, int y);
 int					mouse_button(int button, int x, int y, t_struct *p);
-void		draw_game(t_struct *p);
+void				draw_game(t_struct *p);
 
 #endif
