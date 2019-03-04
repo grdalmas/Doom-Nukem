@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 08:59:46 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/04 21:35:12 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,14 @@ void		weapon2(t_struct *p)
 	if (p->temp == 1 && p->sound == 1)
 		system("afplay ./doomzik/chainsaw_attack_middle.mp3 &");
 	if (p->trons == 1)
-		{
-			p->trons = 0;
-			if (p->sound == 1)
+	{
+		p->trons = 0;
+		if (p->sound == 1)
 			system("afplay ./doomzik/chainsaw_attack_in.mp3 &");
-		}
-		soundtronco(p);
-		p->soundtmp = p->temp;
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr,
-				610, 583); // tronco 2
+	}
+	soundtronco(p);
+	p->soundtmp = p->temp;
+	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583); // tronco 2
 }
 
 void		weapon(t_struct *p)

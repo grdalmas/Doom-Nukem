@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 19:32:14 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/04 22:07:55 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define DOOM_NUKEM_H
 
 # include "mlx_macos_key.h"
-# include "game_manager.h"
 # include "../minilibx/mlx.h"
 # include "../libft/libft.h"
 # include "delta_time.h"
@@ -27,7 +26,7 @@
 # define WIDTHMAP 270
 # define HEIGHTMAP 270
 # define SKYHEIGHT 2556
-#define SKYHW 1633284
+# define SKYHW 1633284
 # define UP 126
 # define DOWN 125
 # define RIGHT 124
@@ -53,7 +52,6 @@
 # define NUMENEMY 1
 /*
 **	Enumeration des touches qui peuvent etre presse ensemble
-**	Exemple: Avancer + decalage droit (W + D)
 **	Utile aussi pour sauvegarder l'etat de la touche
 **	pour agir en consequence dans l'expose.
 */
@@ -243,10 +241,7 @@ typedef struct		s_struct
 	float				sprint;
 	int			dead;
 
-//	t_game			gm;
-	t_img			image[NB_IMG];
-	t_img			texture[NB_TEXTURE];
-	t_page			current_page;
+
 }					t_struct;
 
 int					close_window(t_struct *p);
