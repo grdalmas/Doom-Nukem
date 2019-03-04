@@ -6,11 +6,21 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:01:22 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 03:19:50 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:11:58 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+void		load_textures7(t_struct *p)
+{
+	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.xpm");
+	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.xpm");
+	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.xpm");
+	p->tex[137].str = ft_strdup("textures/menu/DIFFICULTY.xpm");
+	p->tex[138].str = ft_strdup("textures/keys.xpm");
+	init_textures(p);
+}
 
 void		load_textures6(t_struct *p)
 {
@@ -31,19 +41,13 @@ void		load_textures6(t_struct *p)
 	p->tex[126].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON.xpm");
 	p->tex[127].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF.xpm");
 	p->tex[128].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-RETURN.xpm");
-	p->tex[129].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-DIFFICULTY.xpm");
+	p->tex[129].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-DIFF.xpm");
 	p->tex[130].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-COLOR.xpm");
 	p->tex[131].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-RETURN.xpm");
-	p->tex[132].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-DIFFICULTY.xpm");
+	p->tex[132].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-DIFF.xpm");
 	p->tex[133].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-COLOR.xpm");
-	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.xpm");
-	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.xpm");
-	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.xpm");
-	p->tex[137].str = ft_strdup("textures/menu/DIFFICULTY.xpm");
-	p->tex[138].str = ft_strdup("textures/keys.xpm");
-	init_textures(p);
+	load_textures7(p);
 }
-
 
 void		load_textures5(t_struct *p)
 {

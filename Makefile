@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/03/02 10:19:52 by cmartine         ###   ########.fr        #
+#    Updated: 2019/03/04 19:28:42 by grdalmas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ INC_DIR =	include\
 	# SOURCES
 SRC =		draw_3d.c\
 			draw_3d2.c\
+			draw_3d3.c\
 			minimap.c\
 			minimap2.c\
 			hooks.c\
@@ -43,6 +44,7 @@ SRC =		draw_3d.c\
 			textures.c\
 			delta_time.c\
 			key_events.c\
+			key_events2.c\
 			mouse_event.c\
 			weapon.c\
 			trump.c\

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:12:39 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 06:36:11 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:02:09 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			spawn(t_struct *p)
 		p->porte[1].poort = 0;
 }
 
-void		alive(t_struct *p)
+void			alive(t_struct *p)
 {
 	int i;
 	int alldead;
@@ -52,4 +52,3 @@ void		alive(t_struct *p)
 	if (p->sprite[17].k == 6)
 		p->trumplive = 0;
 }
-

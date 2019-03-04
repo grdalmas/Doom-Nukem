@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 07:08:08 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:14:09 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void		ingame(t_struct *p, int i)
 	}
 }
 
-void	ingameover(t_struct *p)
+void		ingameover(t_struct *p)
 {
 	char *s;
 
 	if (p->temp > 79)
 		p->dead++;
 	s = ft_itoa(5 - p->dead);
-	mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 500, 0xffffff, "Retour au menu :");
+	mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 500, 0xffffff, "Retour au menu:");
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 1080, 500, 0xffffff, s);
 	free(s);
 	if (p->dead == 5)
@@ -58,14 +58,15 @@ void	ingameover(t_struct *p)
 		p->sprite[19].k = 6;
 		init(p);
 		initplayer(p);
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0, 0);
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0,
+			0);
 	}
 	else
-		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340, 0);
+		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[119].img_ptr, 340,
+			0);
 }
 
-
-void	draw_game(t_struct *p)
+void		draw_game(t_struct *p)
 {
 	char *s;
 
@@ -83,7 +84,8 @@ void	draw_game(t_struct *p)
 		if (p->edit != 0)
 			img_to_img(p, p->mousex - 350, p->mousey - 20, p->edit, 0.15625);
 		else if (p->edits > 19)
-			img_to_img(p, p->mousex - 350, p->mousey - 20, p->sprite[p->edits].id, 0.15625);
+			img_to_img(p, p->mousex - 350, p->mousey - 20,
+				p->sprite[p->edits].id, 0.15625);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		//		hookcreator(p);
 		creator_map(p, 0, 0);
@@ -91,8 +93,6 @@ void	draw_game(t_struct *p)
 	s = ft_itoa((int)p->time.fps); /// FPS
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 1595, 5, 0xffffff, s);
 	free(s); ///////////////////////////////////////////////
-
-
 	//	printf("%i ",p->difficulty);
 	//	else if (p->menu == 4)
 	//		mouse_release_menu(
