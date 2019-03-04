@@ -349,4 +349,31 @@ void				mouse_creator_map(t_struct *p, int button, int x, int y);
 int					mouse_button(int button, int x, int y, t_struct *p);
 void				draw_game(t_struct *p);
 
+/*
+**					Weapon
+*/
+
+void				touch_by_enemy(t_struct *p);
+void				touch_by_enemyhard(t_struct *p);
+void				soundpain(t_struct *p);
+void				hit_enemy(t_struct *p);
+void				life_barre(t_struct *p);
+void				reload(t_struct *p);
+void				shoot2(t_struct *p);
+void				shoot(t_struct *p);
+void				soundtronco(t_struct *p);
+
+/*
+**					Raycasting
+*/
+
+void				wall_dist(t_struct *p);
+void				shoothit(t_struct *p, int i);
+void				sadside(t_struct *p);
+void				hit_walls(t_struct *p, int x, int hit, int i);
+void				walls_sides(t_struct *p, int x);
+t_sprite			*init_sprite(void);
+void				draw_transparent_wall_3(t_struct *p, int tex);
+void				draw_transparent_wall_2(t_struct *p, int x, int y, int wall_height, int col, int tex_x);
+void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height);
 #endif
