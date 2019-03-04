@@ -61,6 +61,10 @@ SRC =		draw_3d.c\
 			mouse_creator_map.c\
 			take_object.c\
 			against_glitch.c\
+			weapon2.c\
+			weapon3.c\
+			raycasting2.c\
+			raycasting3.c\
 
 OBJ =		$(SRC:.c=.o)
 
