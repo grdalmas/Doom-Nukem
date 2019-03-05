@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/03/05 01:41:55 by cmartine         ###   ########.fr        #
+#    Updated: 2019/03/05 05:19:15 by cmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ INC_DIR =	include\
 	# SOURCES
 SRC =		draw_3d.c\
 			draw_3d2.c\
-			draw_3d3.c\
 			minimap.c\
 			minimap2.c\
 			hooks.c\
@@ -39,6 +38,7 @@ SRC =		draw_3d.c\
 			movement.c\
 			movements2.c\
 			raycasting.c\
+			raycasting2.c\
 			save_map.c\
 			sprite.c\
 			textures.c\

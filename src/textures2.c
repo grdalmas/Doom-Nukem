@@ -6,11 +6,38 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:01:22 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 19:11:58 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:15:04 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+static void	init_textures(t_struct *p)
+{
+	int i;
+	int bpp;
+	int fd;
+
+	i = 0;
+	while (i < TEX)
+	{
+		if ((fd = open(p->tex[i].str, O_RDONLY)) != -1)
+		{
+			p->tex[i].img_ptr = mlx_xpm_file_to_image(p->mlx_ptr, p->tex[i].str,
+					&p->tex[i].width, &p->tex[i].height);
+			p->tex[i].img_str = mlx_get_data_addr(p->tex[i].img_ptr, &bpp,
+					&p->tex[i].sizeline, &p->tex[i].endian);
+			close(fd);
+		}
+		else
+		{
+			ft_putendl("error, textures are missing");
+			system("killall afplay");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+}
 
 void		load_textures7(t_struct *p)
 {

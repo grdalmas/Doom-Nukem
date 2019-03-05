@@ -6,11 +6,28 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 16:53:06 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:03:58 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
+
+static void			shakeshadow(t_struct *p, int i, float distance)
+{
+	if (i == 0)
+	{
+		p->c->shadow = distance * 0.25;
+		if (p->c->shadow > 1)
+			p->c->shadow = 1;
+	}
+	else
+	{
+		p->c->shadow = ((double)HEIGHT / (2.0 * (double)p->c->y_end
+					- (double)HEIGHT)) * 0.25;
+		if (p->c->shadow > 1)
+			p->c->shadow = 1;
+	}
+}
 
 static void		floor_casting(t_struct *p, int x, int y, int z)
 {
@@ -65,7 +82,7 @@ static void		draw_floor_3d(t_struct *p)
 	}
 }
 
-int				hodor(t_struct *p)
+static int				hodor(t_struct *p)
 {
 	int			tex_x;
 
@@ -76,18 +93,6 @@ int				hodor(t_struct *p)
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : p->c->offset * 256));
 	draw_floor_3d(p);
 	return (tex_x);
-}
-
-void			color_text_sky(t_struct *p, int col, int line, int tex)
-{
-	col = col * BPP;
-	line = line * SKYHEIGHT;
-	if (col + line + 3 < SKYHW && col >= 0 && line > 0)
-	{
-		p->color.r = (unsigned char)(p->tex[tex].img_str[col + line]);
-		p->color.g = (unsigned char)(p->tex[tex].img_str[col + line + 1]);
-		p->color.b = (unsigned char)(p->tex[tex].img_str[col + line + 2]);
-	}
 }
 
 void			draw_wall_3d(t_struct *p, int x, int y, int wall_height)

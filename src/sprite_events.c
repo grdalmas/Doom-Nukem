@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:20:54 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 03:52:02 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:40:08 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void			flyisabug(t_struct *p)
+static void			flyisabug(t_struct *p)
 {
 	float	s;
 	int		nb;
@@ -33,7 +33,7 @@ void			flyisabug(t_struct *p)
 		p->sprite[4].y -= s;
 }
 
-void			mvmy(t_struct *p, int i, float sx, float sy)
+static void			mvmy(t_struct *p, int i, float sx, float sy)
 {
 	int j;
 
@@ -54,7 +54,7 @@ void			mvmy(t_struct *p, int i, float sx, float sy)
 	flyisabug(p);
 }
 
-void			mvmy2(t_struct *p, int i, float sx, float sy)
+static void			mvmy2(t_struct *p, int i, float sx, float sy)
 {
 	int j;
 

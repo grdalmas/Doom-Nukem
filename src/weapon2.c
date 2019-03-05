@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 02:51:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:14:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void		touch_by_enemy(t_struct *p)
+static void		touch_by_enemy(t_struct *p)
 {
 	int i;
 
@@ -36,7 +36,7 @@ void		touch_by_enemy(t_struct *p)
 	}
 }
 
-void		touch_by_enemyhard(t_struct *p)
+static void		touch_by_enemyhard(t_struct *p)
 {
 	int i;
 
@@ -60,27 +60,7 @@ void		touch_by_enemyhard(t_struct *p)
 	}
 }
 
-void		soundpain(t_struct *p)
-{
-	if (p->soundpain >= p->life + 5)
-	{
-		p->soundpainmum++;
-		p->soundpain = p->life;
-		if (p->soundpainmum == 1)
-			system("afplay ./doomzik/pain_1.mp3 &");
-		else if (p->soundpainmum == 2)
-			system("afplay ./doomzik/pain_2.mp3 &");
-		else if (p->soundpainmum == 3)
-			system("afplay ./doomzik/pain_4.mp3 &");
-		else if (p->soundpainmum == 4)
-		{
-			p->soundpainmum = 0;
-			system("afplay ./doomzik/pain_3.mp3 &");
-		}
-	}
-}
-
-void		hit_enemy(t_struct *p)
+static void		hit_enemy(t_struct *p)
 {
 	int i;
 
@@ -94,7 +74,7 @@ void		hit_enemy(t_struct *p)
 	}
 }
 
-void		life_barre(t_struct *p)
+static void		life_barre(t_struct *p)
 {
 	int		i;
 	char	*str;
@@ -119,4 +99,18 @@ void		life_barre(t_struct *p)
 		draw_line2(10, 10 + i, 40, p);
 		i++;
 	}
+}
+
+void			weapon3(t_struct *p)
+{
+	if (p->difficulty == 0)
+		touch_by_enemy(p);
+	else
+		touch_by_enemyhard(p);
+	if (p->weapon.id == 1)
+		hit_enemy(p);
+	if (p->weapon.id == 2)
+		shoot(p);
+	life_barre(p);
+	trump(p);
 }

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 03:48:52 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:26:26 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ void			*init(t_struct *param)
 	camera->dir_y = 0;
 	camera->plane_x = 0;
 	camera->plane_y = 1;
-	camera->move_speed = 0.2;
 	camera->pas = 1;
-	camera->tpobj = 0;
 	param->life = 100;
 	param->floor = 7;
 	param->dead = 0;
 	param->cure = 0;
+	param->maap = 0;
+	system("afplay ./doomzik/amblobby.mp3 &");
 	return (NULL);
 }
 
 void			initplayer(t_struct *param)
 {
-	param->k = 8;
+	param->k = 0;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -101,4 +101,9 @@ t_sprite	*init_sprite(void)
 	return (sprite);
 }
 
+t_porte		*init_door(void)
+{
+	static t_porte porte[NUMPORTE] = {{0, 0.02, 22, 1}, {1, 0.02, 2, 1}};
 
+	return (porte);
+}

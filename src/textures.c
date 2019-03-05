@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 05:39:10 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/04 16:56:41 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:41:21 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		init_textures(t_struct *p)
 	}
 }
 
-void		load_textures3(t_struct *p)
+static void		load_textures3(t_struct *p)
 {
 	p->tex[48].str = ft_strdup("textures/TRUMP5.xpm");
 	p->tex[49].str = ft_strdup("textures/TRUMP6.xpm");
@@ -65,7 +65,7 @@ void		load_textures3(t_struct *p)
 	load_textures4(p);
 }
 
-void		load_textures2(t_struct *p)
+static void		load_textures2(t_struct *p)
 {
 	p->tex[24].str = ft_strdup("textures/lego_logo.xpm");
 	p->tex[25].str = ft_strdup("textures/klimt.xpm");
@@ -121,11 +121,4 @@ void		load_textures(t_struct *p)
 	p->tex[22].str = ft_strdup("textures/door_elevator.xpm");
 	p->tex[23].str = ft_strdup("textures/lego_sol.xpm");
 	load_textures2(p);
-}
-
-t_porte		*init_door(void)
-{
-	static t_porte porte[NUMPORTE] = {{0, 0.02, 22, 1}, {1, 0.02, 2, 1}};
-
-	return (porte);
 }
