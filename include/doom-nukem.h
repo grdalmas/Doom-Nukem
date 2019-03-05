@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 22:07:55 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 01:41:24 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,25 @@
 # define PORTE 1
 # define NUMPORTE 2
 # define NUMENEMY 1
+# define WMHM4 291600
+# define WH4 4915200
+# define SKYHW 1633284
+# define WIDTHMINUSONE WIDTH - 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 **	Enumeration des touches qui peuvent etre presse ensemble
 **	Utile aussi pour sauvegarder l'etat de la touche
