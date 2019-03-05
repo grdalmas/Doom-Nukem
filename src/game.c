@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 02:52:32 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:46:53 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,25 @@ void		ingame(t_struct *p, int i)
 	}
 }
 
+void		reinit_sprite(t_struct *p)
+{
+	int i;
+
+	i = 4;
+	while (i < 10)
+	{
+		p->sprite[i].k = 5;
+		p->sprite[i].pv = 10;
+		i++;
+	}
+	while (i < 16)
+	{
+		p->sprite[i].k = 8;
+		p->sprite[i].pv = 10;
+		i++;
+	}
+}
+
 void		ingameover(t_struct *p)
 {
 	char *s;
@@ -50,10 +69,12 @@ void		ingameover(t_struct *p)
 	free(s);
 	if (p->dead == 5)
 	{
+		reinit_sprite(p);
 		p->menu = 4;
 		p->sprite[0].k = 2;
 		p->sprite[1].k = 8;
 		p->sprite[3].k = 1;
+		p->sprite[16].id = 86;
 		p->sprite[16].k = 7;
 		p->sprite[19].k = 6;
 		init(p);
