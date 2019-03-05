@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 08:16:58 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 09:16:22 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:45:49 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void		change_map(t_struct *p, int x, int y, int i)
 			i = 19;
 			while (++i < 24)
 			{
-				if (p->sprite[i].x == y && p->sprite[i].y == x)
+				if ((int)p->sprite[i].x == y && 14 - (int)p->sprite[i].y  == x)
 					break ;
 			}
 			if (i == 24)
@@ -101,7 +101,7 @@ void			mouse_creator_map(t_struct *p, int button, int x, int y)
 			if (p->map[4][y][x] == 0)
 			{
 				p->sprite[p->edits].k = 4;
-				p->sprite[p->edits].y = (int)x + 0.5;
+				p->sprite[p->edits].y = 15 - ((int)x + 0.5);
 				p->sprite[p->edits].x = (int)y + 0.5;
 			}
 		}

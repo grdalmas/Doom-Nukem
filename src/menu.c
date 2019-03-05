@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 06:18:36 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 07:07:13 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:49:37 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int				mouse_motion_menu(int x, int y, t_struct *p, int s)
 		else
 			p->ch = 0;
 		mouse_motion_menu2(p);
-		menu_sound(p, s);
+		if (p->sound == 1)
+			menu_sound(p, s);
 	}
 	return (1);
 }

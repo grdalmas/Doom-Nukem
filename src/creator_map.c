@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 08:21:24 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:27:41 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void			creator_map2(t_struct *p, int i, int j)
 	{
 		if (p->sprite[i].k == 4)
 		{
-			img_to_img(p, 135 + (p->sprite[i].y * 40),
+			img_to_img(p, 135 + ((15 - p->sprite[i].y) * 40),
 					15 + (p->sprite[i].x * 40), p->sprite[i].id, 0.15625);
 		}
 		i++;
