@@ -47,7 +47,7 @@ void			*init(t_struct *param)
 
 void			initplayer(t_struct *param)
 {
-	param->k = 0;
+	param->k = 8;
 	param->keypress[KEY_Q] = 2;
 	param->porte = init_door();
 	param->sprite = init_sprite();
@@ -87,7 +87,7 @@ t_sprite	*init_sprite(void)
 		{8, 119, 13, 2.5, 10},
 		{8, 119, 7.5, 2, 10},
 		{8, 119, 7.5, 12.5, 10}, // mechant 15
-		{7, 86, 4.5, 3.5, 1}, // tronconneuse 16 !
+		{7, 86, 4.5, 3.5, 1},// tronconneuse 16 !
 		{0, 14, 11, 11, 10}, //trump 17
 		{9, 14, 7.5, 1.5, 10}, //trump 18
 		{6, 95, 7.5, 2, 1}, // pompe 19
