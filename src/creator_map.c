@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creator_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 00:11:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 05:51:28 by bbataini         ###   ########.fr       */
+/*   Created: 2019/03/05 10:59:22 by tifuret           #+#    #+#             */
+/*   Updated: 2019/03/05 11:03:40 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void			creator_map_textures(t_struct *p)
 {
 	ft_bzero(p->img_str2, WIDTH * HEIGHT * 4);
-	//mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[42].img_ptr, 300, 0);
 	img_to_img3(p, 0, 0, 42);
 	img_to_img(p, 946, 240, 7);
 	img_to_img(p, 841, 135, 8);

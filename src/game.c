@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 06:30:54 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:05:52 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-static void			sprite_move(t_struct *p)
+static void		sprite_move(t_struct *p)
 {
 	if (p->k == 5)
 		movemy(p, 4);
@@ -89,7 +89,7 @@ static void		reinit_sprite(t_struct *p)
 	}
 }
 
-static void	ingameover(t_struct *p)
+static void		ingameover(t_struct *p)
 {
 	char *s;
 
@@ -116,7 +116,7 @@ static void	ingameover(t_struct *p)
 	}
 }
 
-int			draw_game(t_struct *p)
+int				draw_game(t_struct *p)
 {
 	char *s;
 

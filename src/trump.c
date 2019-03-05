@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trump.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 17:42:01 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 05:48:21 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:01:21 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void			trump(t_struct *p)
 				1400, -100);
 	}
 }
+
 void			rotrump2(t_struct *p)
 {
 	if (p->trump != 6)
@@ -67,4 +68,3 @@ void			rotrump(t_struct *p)
 	else if (p->sprite[17].x < p->c->p_x && p->sprite[17].y > p->c->p_y)
 		p->sprite[17].id = 15;
 }
-

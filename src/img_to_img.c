@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_to_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 20:26:12 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 06:09:23 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:38:47 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,62 +99,14 @@ void			img_to_img(t_struct *p, int x, int y, int indice)
 	}
 }
 
-static void			color_text_sky(t_struct *p, int col, int line, int tex)
+void			color_text_sky(t_struct *p, int col, int line)
 {
 	col = col * BPP;
 	line = line * SKYHEIGHT;
 	if (col + line + 3 < SKYHW && col >= 0 && line > 0)
 	{
-		p->color.r = (unsigned char)(p->tex[tex].img_str[col + line]);
-		p->color.g = (unsigned char)(p->tex[tex].img_str[col + line + 1]);
-		p->color.b = (unsigned char)(p->tex[tex].img_str[col + line + 2]);
-	}
-}
-
-void			skybox(t_struct *p, int y, int x)
-{
-	double		t;
-	int			tex;
-	int			tx;
-	int			ty;
-	int			tmp_y;
-
-	tex = 0;
-	t = atan2(p->c->r_dir_x, p->c->r_dir_y) * 180 / PI;
-	while (t < 0.0)
-		t += 360.0;
-	while (t >= 360.0)
-		t -= 360.0;
-	if (t >= 0 && t < 90)
-		tex = 107;
-	else if (t >= 90 && t < 180)
-		tex = 108;
-	else if (t >= 180 && t < 270)
-		tex = 109;
-	else if (t >= 270 && t < 360)
-		tex = 110;
-	tx = ((int)((t / 90.0) * (double)p->tex[tex].width) % p->tex[tex].width);
-	while (y-- >= 0 - p->h)
-	{
-		if (y < 0)
-		{
-			if (t >= 0 && t < 90)
-				tex = 111;
-			else if (t >= 90 && t < 180)
-				tex = 112;
-			else if (t >= 180 && t < 270)
-				tex = 113;
-			else if (t >= 270 && t < 360)
-				tex = 114;
-			tmp_y = -y;
-			ty = (int)(((double)tmp_y / ((double)((HEIGHT)) / 2.1))
-					* p->tex[tex].height) % (p->tex[tex].height);
-			ty = 639 - ty;
-		}
-		else
-			ty = (int)(((double)y / ((double)((HEIGHT)) / 2.1))
-					* p->tex[tex].height) % (p->tex[tex].height);
-		color_text_sky(p, tx, ty, tex);
-		draw_pixel2(p, p->img_str2, x, y + p->h);
+		p->color.r = (unsigned char)(p->tex[p->skytex].img_str[col + line]);
+		p->color.g = (unsigned char)(p->tex[p->skytex].img_str[col + line + 1]);
+		p->color.b = (unsigned char)(p->tex[p->skytex].img_str[col + line + 2]);
 	}
 }

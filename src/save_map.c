@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:11:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 05:37:01 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:39:48 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void			free_line(char **line_split)
 	free(line_split);
 }
 
-static void		create_map2(t_struct *p, int i, char **l_s, int k)
+static void			create_map2(t_struct *p, int i, char **l_s, int k)
 {
 	int j;
 
@@ -56,7 +56,7 @@ static void		create_map2(t_struct *p, int i, char **l_s, int k)
 	}
 }
 
-static void		create_map(t_struct *info, int fd, int k)
+static void			create_map(t_struct *info, int fd, int k)
 {
 	int		i;
 	char	**line_split;
@@ -93,7 +93,7 @@ static void			save_map2(t_struct *param, const char *file, int k)
 	close(fd);
 }
 
-void			save_map(t_struct *param)
+void				save_map(t_struct *param)
 {
 	if (!(param->map = (int ***)malloc(sizeof(int **) * 9)))
 		exit(EXIT_FAILURE);

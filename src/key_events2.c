@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   key_events2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 19:25:34 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 05:15:36 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:09:05 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-static int				proxyporte(t_struct *p)
+static int			proxyporte(t_struct *p)
 {
 	int i;
 
@@ -51,7 +51,7 @@ static void			keypress4(int keycode, t_struct *p)
 		p->keypress[KEY_SHIFT] = 1;
 }
 
-void			keypress3(int keycode, t_struct *p)
+void				keypress3(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_PAD_5)
 		p->keypress[KEY_PAD_5] = 1;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 05:03:58 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:04:41 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-static void			shakeshadow(t_struct *p, int i, float distance)
+static void		shakeshadow(t_struct *p, int i, float distance)
 {
 	if (i == 0)
 	{
@@ -82,7 +82,7 @@ static void		draw_floor_3d(t_struct *p)
 	}
 }
 
-static int				hodor(t_struct *p)
+static int		hodor(t_struct *p)
 {
 	int			tex_x;
 
