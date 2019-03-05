@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 20:42:03 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:51:04 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void		life_barre(t_struct *p)
 	str = ft_itoa(p->life);
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, str);
 	free(str);
-	//	mlx_string_put(p->mlx_ptr, p->w_ptr, 660, 15, 0xffffff, ft_itoa(p->life));
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 15, 0xffffff, "%");
 	i = 0;
 	if (p->sound == 1)

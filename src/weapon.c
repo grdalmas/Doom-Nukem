@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 21:35:12 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:49:58 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		weapon2(t_struct *p)
 	}
 	soundtronco(p);
 	p->soundtmp = p->temp;
-	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583); // tronco 2
+	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583);
 }
 
 void		weapon(t_struct *p)
@@ -59,8 +59,6 @@ void		weapon(t_struct *p)
 					system("afplay ./doomzik/chainsaw_attack_out.mp3 &");
 			}
 		}
-		//if (p->keypress[KEY_SPACEBAR] == 1) // actionner la tronco
-		//	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[87].img_ptr, 610, 697); // tronco 1
 		else if (p->keypress[KEY_SPACEBAR] == 1)// actionner la tronco
 			weapon2(p);
 	}
