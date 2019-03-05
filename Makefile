@@ -6,7 +6,7 @@
 #    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/03/04 19:28:42 by grdalmas         ###   ########.fr        #
+#    Updated: 2019/03/05 01:41:55 by cmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ SRC =		draw_3d.c\
 			against_glitch.c\
 			weapon2.c\
 			weapon3.c\
-			raycasting2.c\
+#			raycasting2.c\
 			raycasting3.c\
 
 OBJ =		$(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 10:23:33 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 01:49:55 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ static void		move_up2(t_struct *p, int move)
 	}
 	move_up3(p, move);
 }
-
 void			move_up(t_struct *p, int move, int i, double s)
 {
 	int t;

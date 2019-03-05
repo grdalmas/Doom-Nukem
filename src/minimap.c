@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/02/22 06:06:28 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 01:39:16 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,5 @@ void			minimap(t_struct *p)
 	p->c->x1 = p->c->p_x * 18;
 	draw_line(p->c->p_y * 18, p->c->p_x * 18
 			+ p->c->dir_x * 18, p->c->p_y * 18 + p->c->dir_y * 18, p);
+	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr, 35, 35);
 }
