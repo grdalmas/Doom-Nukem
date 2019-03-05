@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 15:45:50 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 16:54:32 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,6 @@ static void		ingameover(t_struct *p)
 
 int				draw_game(t_struct *p)
 {
-	char *s;
-
 	p->time.update(&p->time);
 	if (p->temp < 80)
 		p->temp++;
