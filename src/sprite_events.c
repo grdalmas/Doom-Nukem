@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:20:54 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 17:31:36 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:52:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void			mvmy2(t_struct *p, int i, float sx, float sy)
 	int j;
 
 	j = 10;
-	while (j < 16)
+	while (j < 15)
 	{
 		if (p->sprite[j].k == 8 && ((int)(p->sprite[i].x + sx)
 					== (int)p->sprite[j].x && (int)(p->sprite[i].y + sy)
 						== (int)p->sprite[j].y && j != i))
 			break ;
-		else if (j >= 15)
+		else if (j >= 14)
 		{
 			p->sprite[i].x += sx;
 			p->sprite[i].y += sy;
@@ -105,7 +105,7 @@ void			movemy2(t_struct *p, int i)
 	float sx;
 	float sy;
 
-	while (p->k == 8 && i < 18)
+	while (p->k == 8 && i < 16)
 	{
 		if (p->temp % 20 < 10)
 			p->sprite[i].id = 84;
