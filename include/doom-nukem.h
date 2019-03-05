@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 01:41:24 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:01:43 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,6 @@
 # define WH4 4915200
 # define SKYHW 1633284
 # define WIDTHMINUSONE WIDTH - 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 **	Enumeration des touches qui peuvent etre presse ensemble
@@ -138,7 +124,6 @@ typedef struct		s_tex
 	char			*img_str;
 	int				sizeline;
 	int				endian;
-//	int				open;
 }					t_tex;
 
 typedef struct		s_camera
@@ -150,8 +135,6 @@ typedef struct		s_camera
 	double			plane_x;
 	double			plane_y;
 	double			camera_x;
-	double			r_pos_x;
-	double			r_pos_y;
 	double			r_dir_x;
 	double			r_dir_y;
 	double			floor_x;
@@ -161,36 +144,27 @@ typedef struct		s_camera
 	int				side;
 	int				step_x;
 	int				step_y;
-	char			gap_1[4];
 	double			shadow;
 	int				what;
-	char			gap_2[4];
 	double			side_x;
 	double			side_y;
 	double			delta_x;
 	double			delta_y;
 	double			wall_dist;
 	int				y_end;
-	char			gap_3[4];
 	double			offset;
 	double			rotation_speed;
 	double			move_speed;
 	int				pas;
-	char			gap_4[4];
 	double			inter_x;
 	double			inter_y;
 	int				i_sprite;
-	char			gap_5[4];
 	double			len_sprite;
-//	int				youshall;
 	int				tpobj;
 	double			ra;
 	int				colo;
 	int				x1;
 	int				calc;
-
-//	float			offse;
-	double			middle_wall_dist;
 }					t_camera;
 
 typedef struct		s_struct
@@ -198,11 +172,9 @@ typedef struct		s_struct
 	t_tex			tex[TEX];
 	t_delta_time	time;
 	t_porte			*porte;
-//	t_enemy			*enemy;
 	double			zbuff[WIDTH];
 	double			sprited[NUMSPRITE];
 	int				ordersprite[NUMSPRITE];
-	char			gap_1[4];
 	t_mspr			mspr;
 	int				bpp;
 	int				size_line;
@@ -219,10 +191,8 @@ typedef struct		s_struct
 	int				tid;
 	int				x;
 	int				y;
-	char			gap_2[4];
 	t_sprite		*sprite;
 	t_color			color;
-	char			gap_3[4];
 	t_camera		*c;
 	int				ox;
 	int				oy;
@@ -257,8 +227,8 @@ typedef struct		s_struct
 	int				ch;
 	int				sound;
 	int				difficulty;
-	float				sprint;
-	int			dead;
+	float			sprint;
+	int				dead;
 
 
 }					t_struct;
@@ -268,33 +238,27 @@ void				draw_pixel2(t_struct *p, char *img_str, int x, int y);
 int					*fill_color(int *str, int x, int y, int c);
 int					hooks(t_struct *param);
 void				init_textures(t_struct *p);
+int					key_press_hook(t_struct *p);
 void				load_textures(t_struct *p);
 void				load_textures4(t_struct *p);
-int					key_press_hook(t_struct *p);
-void				move_up(t_struct *p, int move, int i, double s);
 void				minimap(t_struct *p);
+void				move_up(t_struct *p, int move, int i, double s);
+void				move_up2(t_struct *p, int move);
 void				order_sprite(t_struct *p);
 void				raycasting(t_struct *param, int x, int z);
 void				raysprite(t_struct *p, double d, int i, double ratio);
 void				save_map(t_struct *info);
 int					keyrelease(int keycode, void *d);
 int					keypress(int keycode, void *d);
-void 				move_greg(t_struct *p, int move);
-void 				move_tim(t_struct *p, int move);
 int					mlx_main_loop(t_struct *p);
-void				rotation(t_struct *p, int key);
 t_porte				*init_door(void);
-t_sprite            *init_sprite(void);
 void				weapon(t_struct *p);
 void				trump(t_struct *p);
 void				take_object(t_struct *p);
-//void				init_menu(t_game *gm);
 void				alive(t_struct *p);
 void				spawn(t_struct *p);
-void				rotrump(t_struct *p);
 void				sprite_move(t_struct *p);
 void				which_text(t_struct *p);
-//void				draw_map_creator(void *gm);
 void				shakeshadow(t_struct *p, int i, float distance);
 void				creator_map(t_struct *p, int i, int j);
 void				minimap2(t_struct *p);
@@ -309,6 +273,7 @@ int					against_glitch_straff(t_struct *p, int move, double s);
 void				rotrump2(t_struct *p);
 void				rotrump(t_struct *p);
 void				keypress3(int keycode, t_struct *p);
+void				elevator(t_struct *);
 /*
 **					draw_line.c
 */
@@ -387,7 +352,5 @@ void				sadside(t_struct *p);
 void				hit_walls(t_struct *p, int x, int hit, int i);
 void				walls_sides(t_struct *p, int x);
 t_sprite			*init_sprite(void);
-void				draw_transparent_wall_3(t_struct *p, int tex);
-void				draw_transparent_wall_2(t_struct *p, int x, int y, int wall_height, int col, int tex_x);
 void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height);
 #endif

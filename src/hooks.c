@@ -6,13 +6,34 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 09:58:17 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:48:45 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void			soundstep(t_struct *p)
+static void			rotation(t_struct *p, int mod)
+{
+	double tmp_dir_x;
+	double tmp_plane_x;
+
+	if (mod == 0)
+		p->c->rotation_speed = 0.1;
+	if (mod == 1)
+		p->c->rotation_speed = -0.1;
+	tmp_dir_x = p->c->dir_x;
+	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) -
+		p->c->dir_y * sin(-p->c->rotation_speed);
+	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) +
+		p->c->dir_y * cos(-p->c->rotation_speed);
+	tmp_plane_x = p->c->plane_x;
+	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) -
+		p->c->plane_y * sin(-p->c->rotation_speed);
+	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) +
+		p->c->plane_y * cos(-p->c->rotation_speed);
+}
+
+static void			soundstep(t_struct *p)
 {
 	if (p->c->pas == p->pas && (p->c->pas = 1) == 1)
 		system("afplay ./doomzik/pas1.mp3 &");
@@ -30,7 +51,7 @@ void			soundstep(t_struct *p)
 		system("afplay ./doomzik/pas7.mp3 &");
 }
 
-void			key_press_hook2(t_struct *p)
+static void			key_press_hook2(t_struct *p)
 {
 	if (p->keypress[KEY_ESCAPE] == 1)
 		close_window(p);
@@ -53,7 +74,7 @@ void			key_press_hook2(t_struct *p)
 	}
 }
 
-int				key_press_hook(t_struct *p)
+int					key_press_hook(t_struct *p)
 {
 	double	s;
 	int		key;

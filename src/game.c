@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 17:14:09 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:52:32 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void		draw_game(t_struct *p)
 			img_to_img(p, p->mousex - 350, p->mousey - 20,
 				p->sprite[p->edits].id, 0.15625);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
-		//		hookcreator(p);
 		creator_map(p, 0, 0);
 	}
 	s = ft_itoa((int)p->time.fps); /// FPS

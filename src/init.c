@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 01:19:37 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 03:05:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,38 @@ void			initplayer(t_struct *param)
 	param->difficulty = 0;
 	init_time_struct(&param->time);
 }
+
+t_sprite	*init_sprite(void)
+{
+	static t_sprite sprite[NUMSPRITE] = {
+		{2, 0, 7.5, 7.5, 1}, // tools
+		{8, 1, 7.5, 9.5, 10}, // medikit
+		{0, 51, 9.5, 2.5, 1000}, // computer
+		{1, 3, 3, 3, 1}, //map
+		{5, 82, 7.5, 2, 10},  // se raproche du player 4
+		{5, 82, 1.5, 10.5, 10}, // se rapproche du player 5
+		{5, 82, 3.5, 11.5, 10}, // se rapproche du player 6
+		{5, 82, 7.5, 1.5, 10}, // se rapproche du player 7
+		{5, 82, 9.5, 13.5, 10}, // se rapproche du player 8
+		{5, 82, 7.5, 3.5, 10}, // se rapproche du player 9
+		{8, 119, 2.5, 2.5, 10}, // mechant 10
+		{8, 119, 4, 4, 10},
+		{8, 119, 13, 13, 10},
+		{8, 119, 13, 2.5, 10},
+		{8, 119, 7.5, 2, 10},
+		{8, 119, 7.5, 12.5, 10}, // mechant 15
+		{7, 86, 4.5, 3.5, 1}, // tronconneuse 16 !
+		{0, 14, 11, 11, 10}, //trump 17
+		{9, 14, 7.5, 1.5, 10}, //trump 18
+		{6, 95, 7.5, 2, 1}, // pompe 19
+		{6, 51, 0, 0, 0},//editeur
+		{6, 33, 0, 0, 0},
+		{6, 46, 0, 0, 0},
+		{6, 50, 0, 0, 0},//editeur
+		{1, 33, 7.5, 7.5,1}, // 22 statue
+	};
+
+	return (sprite);
+}
+
+
