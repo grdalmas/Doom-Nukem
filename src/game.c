@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 15:42:20 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 15:45:50 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,5 @@ int				draw_game(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		creator_map(p, 0, 0);
 	}
-	// A SUPPPRIMER FPS
-	s = ft_itoa((int)p->time.fps);
-	mlx_string_put(p->mlx_ptr, p->w_ptr, 1595, 5, 0xffffff, s);
-	free(s); ///////////////////////////////////////////////
 	return (0);
 }
