@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:11:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/28 06:01:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:37:01 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void			free_line(char **line_split)
+static void			free_line(char **line_split)
 {
 	int i;
 
@@ -82,7 +82,7 @@ static void		create_map(t_struct *info, int fd, int k)
 	}
 }
 
-void			save_map2(t_struct *param, const char *file, int k)
+static void			save_map2(t_struct *param, const char *file, int k)
 {
 	int		fd;
 

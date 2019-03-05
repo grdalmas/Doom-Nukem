@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 08:16:58 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 03:45:49 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 04:33:44 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void		change_map(t_struct *p, int x, int y, int i)
 			i = 19;
 			while (++i < 24)
 			{
-				if ((int)p->sprite[i].x == y && 14 - (int)p->sprite[i].y  == x)
+				if ((int)p->sprite[i].x == y && 14 - (int)p->sprite[i].y == x)
 					break ;
 			}
 			if (i == 24)
@@ -88,12 +88,8 @@ static void		change_map(t_struct *p, int x, int y, int i)
 	}
 }
 
-void			mouse_creator_map(t_struct *p, int button, int x, int y)
+static void		change_sprite(t_struct *p, int x, int y, int i)
 {
-	choose_text(p, button, x, y);
-	choose_sprite(p, x, y);
-	x = (x - 496) / 40;
-	y = (y - 37) / 40;
 	if (x >= 0 && x <= 14 && y >= 0 && y <= 14 && p->edit == 0)
 	{
 		if (p->edits > 19)
@@ -106,5 +102,27 @@ void			mouse_creator_map(t_struct *p, int button, int x, int y)
 			}
 		}
 	}
+	while (++i < 24)
+	{
+		if ((int)p->sprite[i].x == (int)p->sprite[p->edits].x
+				&& (int)p->sprite[i].y == (int)p->sprite[p->edits].y
+				&& (i != p->edits))
+			break ;
+	}
+	if (i != 24)
+	{
+		p->sprite[p->edits].k = 6;
+		p->sprite[p->edits].y = 0;
+		p->sprite[p->edits].x = 0;
+	}
+}
+
+void			mouse_creator_map(t_struct *p, int button, int x, int y)
+{
+	choose_text(p, button, x, y);
+	choose_sprite(p, x, y);
+	x = (x - 496) / 40;
+	y = (y - 37) / 40;
+	change_sprite(p, x, y, 19);
 	change_map(p, x, y, 0);
 }

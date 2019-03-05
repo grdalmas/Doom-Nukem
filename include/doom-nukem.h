@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 03:01:43 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:10:11 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@
 # define WIDTHMINUSONE WIDTH - 1
 
 /*
-**	Enumeration des touches qui peuvent etre presse ensemble
-**	Utile aussi pour sauvegarder l'etat de la touche
-**	pour agir en consequence dans l'expose.
-*/
+ **	Enumeration des touches qui peuvent etre presse ensemble
+ **	Utile aussi pour sauvegarder l'etat de la touche
+ **	pour agir en consequence dans l'expose.
+ */
 
 typedef enum		e_keystate
 {
@@ -111,7 +111,7 @@ typedef struct		s_mspr
 	int				endx;
 	int				endy;
 	int				spritescreenx;
-	char			gap_1[4];
+	//	char			gap_1[4];
 	double			transy;
 }						t_mspr;
 
@@ -125,6 +125,14 @@ typedef struct		s_tex
 	int				sizeline;
 	int				endian;
 }					t_tex;
+
+typedef struct        s_iti
+{
+	int l;
+	int c;
+	int tmp;
+	int tmpy;
+}                    t_iti;
 
 typedef struct		s_camera
 {
@@ -154,13 +162,7 @@ typedef struct		s_camera
 	int				y_end;
 	double			offset;
 	double			rotation_speed;
-	double			move_speed;
 	int				pas;
-	double			inter_x;
-	double			inter_y;
-	int				i_sprite;
-	double			len_sprite;
-	int				tpobj;
 	double			ra;
 	int				colo;
 	int				x1;
@@ -208,9 +210,8 @@ typedef struct		s_struct
 	int				trump;
 	int				tool;
 	int				maap;
-	char            cure;
+	char			cure;
 	char			temp;
-	char			soundtmp;
 	char			trons;
 	char			elev;
 	char			pas;
@@ -229,128 +230,180 @@ typedef struct		s_struct
 	int				difficulty;
 	float			sprint;
 	int				dead;
-
+	t_iti			i;
 
 }					t_struct;
 
-int					close_window(t_struct *p);
-void				draw_pixel2(t_struct *p, char *img_str, int x, int y);
-int					*fill_color(int *str, int x, int y, int c);
-int					hooks(t_struct *param);
-void				init_textures(t_struct *p);
-int					key_press_hook(t_struct *p);
-void				load_textures(t_struct *p);
-void				load_textures4(t_struct *p);
-void				minimap(t_struct *p);
-void				move_up(t_struct *p, int move, int i, double s);
-void				move_up2(t_struct *p, int move);
-void				order_sprite(t_struct *p);
-void				raycasting(t_struct *param, int x, int z);
-void				raysprite(t_struct *p, double d, int i, double ratio);
-void				save_map(t_struct *info);
-int					keyrelease(int keycode, void *d);
-int					keypress(int keycode, void *d);
-int					mlx_main_loop(t_struct *p);
-t_porte				*init_door(void);
-void				weapon(t_struct *p);
-void				trump(t_struct *p);
-void				take_object(t_struct *p);
-void				alive(t_struct *p);
-void				spawn(t_struct *p);
-void				sprite_move(t_struct *p);
-void				which_text(t_struct *p);
-void				shakeshadow(t_struct *p, int i, float distance);
-void				creator_map(t_struct *p, int i, int j);
-void				minimap2(t_struct *p);
-void				img_to_img(t_struct *p, int x, int y, int indice, float	 sizeup);
-void				skybox(t_struct *p, int y, int x);
-void				initplayer(t_struct *param);
-void				*init(t_struct *param);
-void				*inverse_map(t_struct *p, int i, int j, int k);
-void				take_object(t_struct *p);
+/*
+ **					against_glitch.c
+ */
 int					against_glitch(t_struct *p, int move, double s);
 int					against_glitch_straff(t_struct *p, int move, double s);
-void				rotrump2(t_struct *p);
-void				rotrump(t_struct *p);
-void				keypress3(int keycode, t_struct *p);
-void				elevator(t_struct *);
-/*
-**					draw_line.c
-*/
-void				draw_pixel(char *img_str, int x, int y, int color);
-void				draw_line(int y, int x2, int y2, t_struct *p);
 
 /*
-**					draw_line2.c
-*/
-void				draw_line2(int y, int x2, int y2, t_struct *p);
-int					*fill_color2(int *str, int x, int y, int c);
-
+ **					creator_map.c
+ */
+void				creator_map(t_struct *p, int i, int j);
 /*
-**					draw_3d.c
-*/
-void				color_text_sky(t_struct *p, int col, int line, int tex);
+ **					difficulty_hook.c
+ */
+int					mouse_motion_diff(int x, int y, t_struct *p);
+int					mouse_release_diff(int b, int x, int y, t_struct *p);
+/*
+ **					draw_3d.c
+ */
 void				draw_wall_3d(t_struct *p, int x, int y, int wall_height);
-
 /*
-**					draw_3d2.c
-*/
+ **					draw_3d2.c
+ */
 void				which_text(t_struct *p);
 void				which_textf(t_struct *p);
 void				color_text(t_struct *p, int col, int line, double ratio);
 void				color_text2(t_struct *p, int col,int line, double ratio);
 void				color_textf(t_struct *p, int col, int line, double ratio);
-
 /*
-**					sprite_event.c
-*/
-void				flyisabug(t_struct *p);
-void				mvmy(t_struct *p, int i, float sx, float sy);
-void				mvmy2(t_struct *p, int i, float sx, float sy);
+ **					draw_line.c
+ */
+void				draw_pixel(char *img_str, int x, int y, int color);
+void				draw_pixel2(t_struct *p, char *img_str, int x, int y);
+void				draw_line(int y, int x2, int y2, t_struct *p);
+/*
+ **					draw_line2.c
+ */
+void				draw_line2(int y, int x2, int y2, t_struct *p);
+int					*fill_color2(int *str, int x, int y, int c);
+/*
+ **					game.c
+ */
+int					draw_game(t_struct *p);
+/*
+ **					hooks.c
+ */
+int					key_press_hook(t_struct *p);
+/*
+ **					img_to_img.c
+ */
+void                img_to_img2(t_struct *p, int x, int y, int indice);
+void                img_to_img3(t_struct *p, int x, int y, int indice);
+void				img_to_img(t_struct *p, int x, int y, int indice);
+void				skybox(t_struct *p, int y, int x);
+/*
+ **					init.c
+ */
+
+int					close_window(t_struct *p);
+void				*init(t_struct *param);
+void				initplayer(t_struct *param);
+t_sprite			*init_sprite(void);
+t_porte				*init_door(void);
+/*
+ **					key_event.c
+ */
+int					keyrelease(int keycode, void *d);
+int					keypress(int keycode, void *d);
+/*
+ **					key_event2.c
+ */
+void				keypress3(int keycode, t_struct *p);
+/*
+ **					main.c
+ */
+void				timer(t_struct *p);
+/*
+ **					menu.c
+ */
+int					mouse_release_menu(int b, int x, int y, t_struct *p);
+int					mouse_motion_menu(int x, int y, t_struct *p, int s);
+/*
+ **					minimap.c
+ */
+int					*fill_color(int *str, int x, int y, int c);
+void				minimap(t_struct *p);
+/*
+ **					minimap2.c
+ */
+void				minimap2(t_struct *p);
+void				*inverse_map(t_struct *p, int i, int j, int k);
+/*
+ **					mouse_creator_map.c
+ */
+void				mouse_creator_map(t_struct *p, int button, int x, int y);
+/*
+ **					mouse_event.c
+ */
+int					mouse_motion(int x, int y, t_struct *p);
+int					mouse_button(int button, int x, int y, t_struct *p);
+/*
+ **					movement.c
+ */
+void				move_up(t_struct *p, int move, int i, double s);
+/*
+ **					movement2.c
+ */
+void				move_up2(t_struct *p, int move);
+void				elevator(t_struct *);
+/*
+ **					player_events.c
+ */
+void				alive(t_struct *p);
+void				spawn(t_struct *p);
+/*
+ **					raycasting.c
+ */
+void				walls_sides(t_struct *p, int x);
+/*
+ **					raycasting2.c
+ */
+void				raycasting(t_struct *param, int x, int z);
+/*
+ **					save_map.c
+ */
+void				save_map(t_struct *info);
+/*
+ **					settings_hook.c
+ */
+int					mouse_motion_settings(int x, int y, t_struct *p);
+int					mouse_release_settings(int b, int x, int y, t_struct *p);
+/*
+ **					sprite.c
+ */
+void				order_sprite(t_struct *p);
+void				raysprite(t_struct *p, double d, int i, double ratio);
+/*
+ **					sprite_event.c
+ */
 void				movemy(t_struct *p, int i);
 void				movemy2(t_struct *p, int i);
-
 /*
-**					menu
-*/
-
-void				draw_main_menu(void *gm);
-int					mouse_motion_settings(int x, int y, t_struct *p);
-int					mouse_clic_settings(int b, int x, int y, t_struct *p);
-int					mouse_release_settings(int b, int x, int y, t_struct *p);
-int					mouse_motion_diff(int x, int y, t_struct *p);
-int					mouse_clic_diff(int b, int x, int y, t_struct *p);
-int					mouse_release_diff(int b, int x, int y, t_struct *p);
-int					mouse_motion_menu(int x, int y, t_struct *p, int s);
-int					mouse_release_menu(int b, int x, int y, t_struct *p);
-int					mouse_motion(int x, int y, t_struct *p);
-void				mouse_creator_map(t_struct *p, int button, int x, int y);
-int					mouse_button(int button, int x, int y, t_struct *p);
-void				draw_game(t_struct *p);
-
+ **					take_object.c
+ */
+void				take_object(t_struct *p);
 /*
-**					Weapon
-*/
-
-void				touch_by_enemy(t_struct *p);
-void				touch_by_enemyhard(t_struct *p);
+ **					textures.c
+ */
+void				load_textures(t_struct *p);
+/*
+ **					textures2.c
+ */
+void				load_textures4(t_struct *p);
+/*
+ **					trump.c
+ */
+void				trump(t_struct *p);
+void				rotrump2(t_struct *p);
+void				rotrump(t_struct *p);
+/*
+ **					weapon.c
+ */
+void				weapon(t_struct *p);
+/*
+ **					weapon2.c
+ */
+void				weapon3(t_struct *p);
+/*
+ **					weapon3.c
+ */
 void				soundpain(t_struct *p);
-void				hit_enemy(t_struct *p);
-void				life_barre(t_struct *p);
-void				reload(t_struct *p);
-void				shoot2(t_struct *p);
 void				shoot(t_struct *p);
-void				soundtronco(t_struct *p);
 
-/*
-**					Raycasting
-*/
-
-void				wall_dist(t_struct *p);
-void				shoothit(t_struct *p, int i);
-void				sadside(t_struct *p);
-void				hit_walls(t_struct *p, int x, int hit, int i);
-void				walls_sides(t_struct *p, int x);
-t_sprite			*init_sprite(void);
-void				draw_transparent_wall(t_struct *p, int x, int y, int wall_height);
 #endif

@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 06:18:36 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 03:49:37 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:22:13 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static	void	start_game(t_struct *p)
 	{
 		p->ch = 0;
 		system("afplay ./doomzik/shotgun_shot.mp3 &");
+		system("afplay ./doomzik/amblobby.mp3 &");
 	}
 	p->choice = 1;
 	mlx_clear_window(p->mlx_ptr, p->w_ptr);

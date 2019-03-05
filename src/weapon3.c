@@ -6,13 +6,33 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:29 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 20:39:33 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 06:14:45 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void		reload(t_struct *p)
+void		soundpain(t_struct *p)
+{
+	if (p->soundpain >= p->life + 5)
+	{
+		p->soundpainmum++;
+		p->soundpain = p->life;
+		if (p->soundpainmum == 1)
+			system("afplay ./doomzik/pain_1.mp3 &");
+		else if (p->soundpainmum == 2)
+			system("afplay ./doomzik/pain_2.mp3 &");
+		else if (p->soundpainmum == 3)
+			system("afplay ./doomzik/pain_4.mp3 &");
+		else if (p->soundpainmum == 4)
+		{
+			p->soundpainmum = 0;
+			system("afplay ./doomzik/pain_3.mp3 &");
+		}
+	}
+}
+
+static void		reload(t_struct *p)
 {
 	if (p->weapon.reload < 2)
 	{
@@ -38,7 +58,7 @@ void		reload(t_struct *p)
 				490);
 }
 
-void		shoot2(t_struct *p)
+static void		shoot2(t_struct *p)
 {
 	if (p->weapon.sprite > 0)
 	{
@@ -60,7 +80,7 @@ void		shoot2(t_struct *p)
 				800, 670);
 }
 
-void		shoot(t_struct *p)
+void			shoot(t_struct *p)
 {
 	if (p->keypress[KEY_R] == 1 && p->weapon.reload < 12)
 		p->weapon.reload += 1;
@@ -75,9 +95,4 @@ void		shoot(t_struct *p)
 		p->weapon.sprite = 1;
 	}
 	shoot2(p);
-}
-
-void		soundtronco(t_struct *p)
-{
-	(void)p;
 }

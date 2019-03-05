@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 19:25:34 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 19:25:52 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:15:36 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-int				proxyporte(t_struct *p)
+static int				proxyporte(t_struct *p)
 {
 	int i;
 
@@ -34,7 +34,7 @@ int				proxyporte(t_struct *p)
 	return (-1);
 }
 
-void			keypress4(int keycode, t_struct *p)
+static void			keypress4(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_P && (p->menu == 1 || p->menu == 0))
 	{

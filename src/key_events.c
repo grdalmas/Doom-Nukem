@@ -6,13 +6,13 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 20:32:50 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/05 05:13:09 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-void			keypress2(int keycode, t_struct *p)
+static void			keypress2(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_C)
 		p->keypress[KEY_C] = 1;
@@ -69,7 +69,7 @@ int				keypress(int keycode, void *d)
 	return (1);
 }
 
-void			keyrelease3(int keycode, t_struct *p)
+static void			keyrelease3(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_4)
 		p->keypress[KEY_4] = 0;
@@ -89,7 +89,7 @@ void			keyrelease3(int keycode, t_struct *p)
 		p->keypress[KEY_SHIFT] = 0;
 }
 
-void			keyrelease2(int keycode, t_struct *p)
+static void			keyrelease2(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_S)
 		p->keypress[KEY_S] = 0;

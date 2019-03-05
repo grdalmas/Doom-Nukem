@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 09:39:04 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 03:53:55 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 04:16:56 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static void		take_object3(t_struct *p)
 		if (p->life > 100)
 			p->life = 100;
 	}
+	else
+		take_object4(p);
 }
 
 static void		take_object2(t_struct *p)
@@ -83,6 +85,8 @@ static void		take_object2(t_struct *p)
 		p->maap = 1;
 		p->sprite[3].k = 6;
 	}
+	else
+		take_object3(p);
 }
 
 void			take_object(t_struct *p)
@@ -108,7 +112,6 @@ void			take_object(t_struct *p)
 		if (p->sound == 1)
 			system("afplay ./doomzik/chainsaw_start.mp3 &");
 	}
-	take_object2(p);
-	take_object3(p);
-	take_object4(p);
+	else
+		take_object2(p);
 }
