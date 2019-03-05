@@ -12,7 +12,7 @@
 
 #include "doom-nukem.h"
 
-void		soundpain(t_struct *p)
+void				soundpain(t_struct *p)
 {
 	if (p->soundpain >= p->life + 5)
 	{
@@ -32,7 +32,7 @@ void		soundpain(t_struct *p)
 	}
 }
 
-static void		reload(t_struct *p)
+static void			reload(t_struct *p)
 {
 	if (p->weapon.reload < 2)
 	{
@@ -58,7 +58,7 @@ static void		reload(t_struct *p)
 				490);
 }
 
-static void		shoot2(t_struct *p)
+static void			shoot2(t_struct *p)
 {
 	if (p->weapon.sprite > 0)
 	{
@@ -80,7 +80,7 @@ static void		shoot2(t_struct *p)
 				800, 670);
 }
 
-void			shoot(t_struct *p)
+void				shoot(t_struct *p)
 {
 	if (p->keypress[KEY_R] == 1 && p->weapon.reload < 12)
 		p->weapon.reload += 1;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:29:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 05:13:09 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:43:25 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-static void			keypress2(int keycode, t_struct *p)
+static void		keypress2(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_C)
 		p->keypress[KEY_C] = 1;
@@ -69,7 +69,7 @@ int				keypress(int keycode, void *d)
 	return (1);
 }
 
-static void			keyrelease3(int keycode, t_struct *p)
+static void		keyrelease3(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_4)
 		p->keypress[KEY_4] = 0;
@@ -89,7 +89,7 @@ static void			keyrelease3(int keycode, t_struct *p)
 		p->keypress[KEY_SHIFT] = 0;
 }
 
-static void			keyrelease2(int keycode, t_struct *p)
+static void		keyrelease2(int keycode, t_struct *p)
 {
 	if (keycode == MLX_KEY_S)
 		p->keypress[KEY_S] = 0;

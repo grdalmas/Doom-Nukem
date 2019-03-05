@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 04:52:16 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:03:16 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void		sadside(t_struct *p)
 	}
 }
 
-static void			hit_walls(t_struct *p, int x, int hit, int i)
+static void		hit_walls(t_struct *p, int x, int hit, int i)
 {
 	while (hit == 0)
 	{

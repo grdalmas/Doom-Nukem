@@ -12,7 +12,7 @@
 
 #include "doom-nukem.h"
 
-static void			flyisabug(t_struct *p)
+static void		flyisabug(t_struct *p)
 {
 	float	s;
 	int		nb;
@@ -33,9 +33,9 @@ static void			flyisabug(t_struct *p)
 		p->sprite[4].y -= s;
 }
 
-static void			mvmy(t_struct *p, int i, float sx, float sy)
+static void		mvmy(t_struct *p, int i, float sx, float sy)
 {
-	int j;
+	int		j;
 
 	j = 4;
 	while (j < 10)
@@ -54,9 +54,9 @@ static void			mvmy(t_struct *p, int i, float sx, float sy)
 	flyisabug(p);
 }
 
-static void			mvmy2(t_struct *p, int i, float sx, float sy)
+static void		mvmy2(t_struct *p, int i, float sx, float sy)
 {
-	int j;
+	int		j;
 
 	j = 10;
 	while (j < 15)
@@ -76,8 +76,8 @@ static void			mvmy2(t_struct *p, int i, float sx, float sy)
 
 void			movemy(t_struct *p, int i)
 {
-	float sx;
-	float sy;
+	float		sx;
+	float		sy;
 
 	while (p->k == 5 && i < 10)
 	{
@@ -102,8 +102,8 @@ void			movemy(t_struct *p, int i)
 
 void			movemy2(t_struct *p, int i)
 {
-	float sx;
-	float sy;
+	float		sx;
+	float		sy;
 
 	while (p->k == 8 && i < 16)
 	{

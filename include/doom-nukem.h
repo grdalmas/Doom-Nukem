@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doom-nukem.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 06:10:11 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:37:21 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,6 +231,8 @@ typedef struct		s_struct
 	float			sprint;
 	int				dead;
 	t_iti			i;
+	int 			skytex;
+	double			skyt;
 
 }					t_struct;
 
@@ -405,5 +407,14 @@ void				weapon3(t_struct *p);
  */
 void				soundpain(t_struct *p);
 void				shoot(t_struct *p);
-
+/*
+**					skybox.c
+*/
+void				skybox3(t_struct *p);
+void				skybox2(t_struct *p);
+void				skybox(t_struct *p, int y, int x);
+/*
+**					img_to_img.c
+*/
+void				color_text_sky(t_struct *p, int col, int line);
 #endif

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   against_glitch.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 10:17:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 04:54:34 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:08:16 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom-nukem.h"
 
-static int				against_glitch_straff2(t_struct *p, int move, double s)
+static int		against_glitch_straff2(t_struct *p, int move, double s)
 {
 	if (p->map[p->k][(int)((p->c->p_x))][(int)((p->c->p_y)) - 1] > 0
 			&& (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y))] > 0))
@@ -66,7 +66,7 @@ int				against_glitch_straff(t_struct *p, int move, double s)
 	return (move);
 }
 
-static int				against_glitch2(t_struct *p, int move, double s)
+static int		against_glitch2(t_struct *p, int move, double s)
 {
 	if (p->map[p->k][(int)((p->c->p_x))][(int)((p->c->p_y)) - 1] > 0
 			&& (p->map[p->k][(int)((p->c->p_x)) - 1][(int)((p->c->p_y))] > 0))

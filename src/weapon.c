@@ -25,7 +25,7 @@ static void		weapon2(t_struct *p)
 	mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[88].img_ptr, 610, 583);
 }
 
-void		weapon(t_struct *p)
+void			weapon(t_struct *p)
 {
 	if (p->weapon.id == 1)
 	{

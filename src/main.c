@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:09:28 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 05:24:43 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/05 11:40:59 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void			timer(t_struct *p)
 	mlx_string_put(p->mlx_ptr, p->w_ptr, 691, 50, 0xffffff, str);
 	free(str);
 }
+
 static void		window(t_struct *p, int w, int h)
 {
 	int			bpp;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+         #
+#    By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 21:19:36 by cmartine          #+#    #+#              #
-#    Updated: 2019/03/05 05:19:15 by cmartine         ###   ########.fr        #
+#    Updated: 2019/03/05 11:35:43 by tifuret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,8 @@ SRC =		draw_3d.c\
 			against_glitch.c\
 			weapon2.c\
 			weapon3.c\
-#			raycasting2.c\
-			raycasting3.c\
+			skybox.c\
+
 
 OBJ =		$(SRC:.c=.o)
 

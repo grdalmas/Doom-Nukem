@@ -12,11 +12,11 @@
 
 #include "doom-nukem.h"
 
-void		init_textures(t_struct *p)
+void			init_textures(t_struct *p)
 {
-	int i;
-	int bpp;
-	int fd;
+	int			i;
+	int			bpp;
+	int			fd;
 
 	i = 0;
 	while (i < TEX)
@@ -94,7 +94,7 @@ static void		load_textures2(t_struct *p)
 	load_textures3(p);
 }
 
-void		load_textures(t_struct *p)
+void			load_textures(t_struct *p)
 {
 	p->tex[0].str = ft_strdup("textures/tools.xpm");
 	p->tex[1].str = ft_strdup("textures/cure.xpm");
