@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 21:17:13 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:46:05 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void		hit_enemy(t_struct *p)
 	}
 }
 
-static void		life_barre(t_struct *p)
+static void		health_bare(t_struct *p)
 {
 	int		i;
 	char	*str;
@@ -112,6 +112,6 @@ void			weapon3(t_struct *p)
 		hit_enemy(p);
 	if (p->weapon.id == 2)
 		shoot(p);
-	life_barre(p);
+	health_bare(p);
 	trump(p);
 }

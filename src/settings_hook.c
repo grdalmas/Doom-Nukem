@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 05:55:11 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:59:42 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:42:40 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int					mouse_motion_settings(int x, int y, t_struct *p)
 				|| (x >= 1105 && x <= 1320 && y >= 895 && y <= 930))
 		{
 			if (p->ch != 1 && p->ch != 2 && p->ch != 3 && p->sound == 1)
-				system("afplay ./doomzik/elevator_button.mp3 &");
+				system("afplay ./doomzik/elevator_button.mp3 & 2>&1");
 			if (x >= 600 && x <= 1025 && y >= 562 && y <= 610)
 				p->ch = 1;
 			else if (x >= 790 && x <= 900 && y >= 835 && y <= 930)
