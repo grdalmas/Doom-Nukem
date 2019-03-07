@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 09:39:04 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:59:58 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:12:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void		take_object4(t_struct *p)
 		p->sprite[18].id = 14;
 		p->trump = 6;
 	}
+	else if (p->sprited[17] <= 1.5 && p->menu != -1 && p->sound == 1)
+		system("afplay ./doomzik/mmpf.mp3 &");
 }
 
 static void		take_object3(t_struct *p)
@@ -93,14 +95,16 @@ void			take_object(t_struct *p)
 {
 	if (p->sprited[2] <= 1.5 && p->menu != -1)
 	{
+		if (p->sound == 1)
+			system("afplay ./doomzik/startup_xp.mp3 &");
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->img_ptr2, 340, 0);
 		p->menu = 3;
 		inverse_map(p, 0, 0, 0);
 	}
-	else if (p->sprited[17] <= 1.5 && p->menu != -1 && p->sound == 1)
-		system("afplay ./doomzik/mmpf.mp3 &");
 	else if (p->menu == -1)
 	{
+		if (p->sound == 1)
+			system("afplay ./doomzik/shutdown_xp.mp3 &");
 		inverse_map(p, 0, 0, 0);
 		p->menu = 1;
 	}
