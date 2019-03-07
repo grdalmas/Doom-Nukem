@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   take_object.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 09:39:04 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 04:16:56 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:58 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		take_object4(t_struct *p)
 {

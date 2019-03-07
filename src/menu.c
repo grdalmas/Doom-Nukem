@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   menu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 06:18:36 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 06:22:13 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:55 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		mouse_motion_menu2(t_struct *p)
 {

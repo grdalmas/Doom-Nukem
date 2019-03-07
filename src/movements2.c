@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   movements2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 15:17:50 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 02:45:03 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:17 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		elevator2(t_struct *p)
 {

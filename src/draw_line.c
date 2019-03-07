@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:49:54 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:44:17 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:23 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void		draw_pixel(char *img_str, int x, int y, int color)
 {

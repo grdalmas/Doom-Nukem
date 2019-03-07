@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   player_events.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:12:39 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/04 17:02:09 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:20 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void			spawn(t_struct *p)
 {

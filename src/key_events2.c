@@ -6,11 +6,11 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 19:25:34 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:45:31 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:48 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static int			proxyporte(t_struct *p)
 {

@@ -6,11 +6,11 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:59:22 by tifuret           #+#    #+#             */
-/*   Updated: 2019/03/05 11:03:40 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 20:57:55 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/doom-nukem.h"
+#include "../include/doom_nukem.h"
 
 static void			creator_map_textures(t_struct *p)
 {

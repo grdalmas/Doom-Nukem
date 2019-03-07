@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minimap2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 03:42:36 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/02 09:26:50 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:01 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		floor_(t_struct *p, int x, int y, int cb)
 {

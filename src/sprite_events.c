@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_events.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:20:54 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 05:40:08 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:50 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		flyisabug(t_struct *p)
 {

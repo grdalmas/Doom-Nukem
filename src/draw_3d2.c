@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3d2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:51:52 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/02 05:01:27 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:17 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void			which_text(t_struct *p)
 {
