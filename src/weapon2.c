@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:26 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 06:14:29 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:17:13 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ static void		life_barre(t_struct *p)
 
 void			weapon3(t_struct *p)
 {
+	p->weapon.id = 1;
 	if (p->difficulty == 0)
 		touch_by_enemy(p);
 	else

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 02:44:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 06:00:04 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:30:05 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		weapon2(t_struct *p)
 {
-	if (p->temp == 1 && p->sound == 1)
+	if (p->temp == 0 && p->sound == 1)
 		system("afplay ./doomzik/chainsaw_attack_middle.mp3 &");
 	if (p->trons == 1)
 	{
@@ -29,7 +29,7 @@ void			weapon(t_struct *p)
 {
 	if (p->weapon.id == 1)
 	{
-		if (p->temp == 1 && p->sound == 1)
+		if (p->temp % 40 == 0 && p->sound == 1)
 			system("afplay ./doomzik/chainsaw_sustain.mp3 &");
 		if (p->keypress[KEY_SPACEBAR] == 0)
 		{
@@ -38,7 +38,7 @@ void			weapon(t_struct *p)
 			if (p->trons == 0)
 			{
 				p->trons = 1;
-				if (p->sound == 1)
+				if (p->sound == 0)
 					system("afplay ./doomzik/chainsaw_attack_out.mp3 &");
 			}
 		}
