@@ -12922,14 +12922,14 @@ calls=192 0
 
 fn=(446) ImageLoaderMachOCompressed::resolveTwolevel(ImageLoader::LinkContext const&, char const*, ImageLoader const*, ImageLoader const*, unsigned int, bool, bool, ImageLoader const**)
 0 287336
-cfn=(448) ImageLoader::findExportedSymbolAddress(ImageLoader::LinkContext const&, char const*, ImageLoader const*, int, bool, ImageLoader const**, unsigned long*) const
+cfn=(448) ImageLoader::findExdoordSymbolAddress(ImageLoader::LinkContext const&, char const*, ImageLoader const*, int, bool, ImageLoader const**, unsigned long*) const
 calls=10262 0 
 0 67267760
 0 143668
 
-fn=(450) ImageLoader::findExportedSymbol(char const*, bool, ImageLoader const**) const
+fn=(450) ImageLoader::findExdoordSymbol(char const*, bool, ImageLoader const**) const
 0 92358
-cfn=(452) ImageLoaderMachO::findExportedSymbol(char const*, bool, char const*, ImageLoader const**) const
+cfn=(452) ImageLoaderMachO::findExdoordSymbol(char const*, bool, char const*, ImageLoader const**) const
 calls=10262 0 
 0 65050643
 
@@ -13720,11 +13720,11 @@ calls=579 0
 
 fn=(452)
 0 153930
-cfn=(454) ImageLoaderMachOCompressed::findShallowExportedSymbol(char const*, ImageLoader const**) const
+cfn=(454) ImageLoaderMachOCompressed::findShallowExdoordSymbol(char const*, ImageLoader const**) const
 calls=10262 0 
 0 17999988
 0 41894
-cfn=(466) ImageLoaderMachOCompressed::libReExported(unsigned int) const
+cfn=(466) ImageLoaderMachOCompressed::libReExdoord(unsigned int) const
 calls=2137 0 
 0 19233
 0 130436
@@ -13740,14 +13740,14 @@ cfn=(468) ImageLoaderMachO::libPath(unsigned int) const
 calls=34729 0 
 0 10256015
 0 243103
-cfn=(453) ImageLoaderMachO::findExportedSymbol(char const*, bool, char const*, ImageLoader const**) const'2
+cfn=(453) ImageLoaderMachO::findExdoordSymbol(char const*, bool, char const*, ImageLoader const**) const'2
 calls=34729 0 
 0 34801283
 0 347208
 
 fn=(453)
 0 532920
-cfn=(455) ImageLoaderMachOCompressed::findShallowExportedSymbol(char const*, ImageLoader const**) const'2
+cfn=(455) ImageLoaderMachOCompressed::findShallowExdoordSymbol(char const*, ImageLoader const**) const'2
 calls=590 0 
 0 714745
 cfn=(454)
@@ -16074,7 +16074,7 @@ cfn=(450)
 calls=10262 0 
 0 65143001
 0 102620
-cfn=(458) ImageLoaderMachO::getExportedSymbolAddress(ImageLoader::Symbol const*, ImageLoader::LinkContext const&, ImageLoader const*, bool, char const*) const
+cfn=(458) ImageLoaderMachO::getExdoordSymbolAddress(ImageLoader::Symbol const*, ImageLoader::LinkContext const&, ImageLoader const*, bool, char const*) const
 calls=10262 0 
 0 1714279
 0 123144
@@ -16819,7 +16819,7 @@ calls=116129 0
 
 fn=(458)
 0 123288
-cfn=(460) ImageLoaderMachOCompressed::exportedSymbolAddress(ImageLoader::LinkContext const&, ImageLoader::Symbol const*, ImageLoader const*, bool) const
+cfn=(460) ImageLoaderMachOCompressed::exdoordSymbolAddress(ImageLoader::LinkContext const&, ImageLoader::Symbol const*, ImageLoader const*, bool) const
 calls=10274 0 
 0 1377169
 0 82192
@@ -24478,7 +24478,7 @@ fn=(2100) pthread_attr_init
 fn=(2488)
 0 78
 
-fn=(3124) _pthread_workqueue_supported
+fn=(3124) _pthread_workqueue_supdoord
 0 2
 
 fn=(660)

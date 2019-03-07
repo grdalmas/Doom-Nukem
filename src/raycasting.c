@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:59:30 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:56:26 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ static void		hit_walls(t_struct *p, int x, int hit, int i)
 				hit = 1;
 			p->shoot = (x == 640) ? 0 : p->shoot;
 			wall_dist(p);
-			while (i < NUMPORTE && p->porte[i].zip
+			while (i < NUMDOOR && p->door[i].zip
 					!= p->map[p->k][p->c->map_x][p->c->map_y])
 				i++;
-			if (p->c->offset < p->porte[i].open - 0.02)
+			if (p->c->offset < p->door[i].open - 0.02)
 				hit = 0;
 		}
 	}

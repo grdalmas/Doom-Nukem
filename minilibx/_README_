@@ -14,7 +14,7 @@ Cette minilibX est la version native pour MacOSX.
 L'interface / l'API, reste identique a la version precedente. Les man presents dans la minilibX
 d'origine sont toujours valides.
 
-Le fichier mlx.h a inclure dans vos programmes rapelle les petites differences de comportement
+Le fichier mlx.h a inclure dans vos programmes rapelle les petites differences de comdoorment
 entre les 2 versions, dues a la gestion graphique differente selon les systemes d'exploitation.
 
 #

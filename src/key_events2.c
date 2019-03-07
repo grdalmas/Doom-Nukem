@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   key_events2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 19:25:34 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:58:48 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:57:56 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom_nukem.h"
 
-static int			proxyporte(t_struct *p)
+static int			proxydoor(t_struct *p)
 {
 	int i;
 
 	i = 0;
-	while (i < NUMPORTE - 1)
+	while (i < NUMDOOR - 1)
 	{
-		if (p->map[p->k][(int)p->c->p_x][(int)p->c->p_y] == p->porte[i].zip
+		if (p->map[p->k][(int)p->c->p_x][(int)p->c->p_y] == p->door[i].zip
 				|| p->map[p->k][(int)p->c->p_x - 1][(int)p->c->p_y]
-				== p->porte[i].zip
+				== p->door[i].zip
 				|| p->map[p->k][(int)p->c->p_x + 1][(int)p->c->p_y]
-				== p->porte[i].zip
+				== p->door[i].zip
 				|| p->map[p->k][(int)p->c->p_x][(int)p->c->p_y - 1]
-				== p->porte[i].zip
+				== p->door[i].zip
 				|| p->map[p->k][(int)p->c->p_x][(int)p->c->p_y + 1]
-				== p->porte[i].zip)
+				== p->door[i].zip)
 			return (i);
 		i++;
 	}
@@ -57,9 +57,9 @@ void				keypress3(int keycode, t_struct *p)
 		p->keypress[KEY_PAD_5] = 1;
 	else if (keycode == MLX_KEY_E && p->menu == 1)
 	{
-		if (p->porte[proxyporte(p)].poort == 0)
-			p->porte[proxyporte(p)].poort = 1;
-		else if (p->porte[proxyporte(p)].poort == 1)
+		if (p->door[proxydoor(p)].poort == 0)
+			p->door[proxydoor(p)].poort = 1;
+		else if (p->door[proxydoor(p)].poort == 1)
 			if (p->sprite[0].k == 6 && p->elev == 0 && p->k == 0 && p->trump
 					== 0 && (int)p->c->p_x == 6 && (int)p->c->p_y == 7)
 			{
@@ -67,7 +67,7 @@ void				keypress3(int keycode, t_struct *p)
 				p->tool = 0;
 			}
 		if (p->sprite[0].k == 6)
-			p->porte[proxyporte(p)].poort = 0;
+			p->door[proxydoor(p)].poort = 0;
 		p->keypress[KEY_E] = 1;
 	}
 	else if (keycode == MLX_KEY_R)

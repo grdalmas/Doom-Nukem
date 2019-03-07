@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/07 21:41:42 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:57:13 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void		rooms(t_struct *p, int move, int t, double s)
 {
 	if (move == 0 && (p->keypress[KEY_A] == 1 || p->keypress[KEY_D] == 1))
 		straff(p, s);
-	else if (move == 0 || (t < NUMPORTE && p->porte[t].open >= 0.6))
+	else if (move == 0 || (t < NUMDOOR && p->door[t].open >= 0.6))
 		straight_on(p, s);
 	else if (move == 12 || move == 13 || move == 68 || move == 66 || move == 24)
 	{
@@ -69,9 +69,9 @@ void			move_up(t_struct *p, int move, int t, double s)
 	int tmp;
 
 	tmp = 0;
-	while (t < NUMPORTE)
+	while (t < NUMDOOR)
 	{
-		if (p->porte[t].zip == move)
+		if (p->door[t].zip == move)
 			break ;
 		t++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:59:54 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 22:00:42 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void			draw_sprite(t_struct *p, double d, double ratio, int col)
 	{
 		col = (p->x - p->mspr.startx) / d;
 		col = col * BPP;
-		if (p->mspr.transy > 0 && p->x > 0 && p->x < WIDTH &&
-				p->mspr.transy < p->zbuff[p->x])
+		if (p->mspr.transy > 0 && p->x > 0 && p->x < WIDTH
+			&& p->mspr.transy < p->zbuff[p->x])
 		{
 			p->y = p->mspr.starty - 1;
 			while (++p->y < p->mspr.endy)

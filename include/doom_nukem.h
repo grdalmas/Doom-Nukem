@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doom_nukem.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:57:05 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:57:31 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@
 # define TEX 139
 # define FOV 60
 # define PI 3.14159256
-# define PORTE 1
-# define NUMPORTE 2
+# define NUMDOOR 2
 # define NUMENEMY 1
 # define WMHM4 291600
 # define WH4 4915200
@@ -72,13 +71,13 @@ typedef enum		e_keystate
 
 }					t_keystate;
 
-typedef struct		s_porte
+typedef struct		s_door
 {
 	float	open;
 	float	spd;
 	int		zip;
 	int		poort;
-}					t_porte;
+}					t_door;
 
 typedef struct		s_color
 {
@@ -172,7 +171,7 @@ typedef struct		s_struct
 {
 	t_tex			tex[TEX];
 	t_delta_time	time;
-	t_porte			*porte;
+	t_door			*door;
 	double			zbuff[WIDTH];
 	double			sprited[NUMSPRITE];
 	int				ordersprite[NUMSPRITE];
@@ -294,7 +293,7 @@ int					close_window(t_struct *p);
 void				*init(t_struct *param);
 void				initplayer(t_struct *param);
 t_sprite			*init_sprite(void);
-t_porte				*init_door(void);
+t_door				*init_door(void);
 /*
 **					key_event.c
 */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 03:10:31 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:58:14 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:53:17 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ static int		hodor(t_struct *p)
 {
 	int			tex_x;
 
-	if (p->tid == p->porte[p->dodor].zip)
+	if (p->tid == p->door[p->dodor].zip)
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : (p->c->offset
-						- p->porte[p->dodor].open) * 256));
+						- p->door[p->dodor].open) * 256));
 	else
 		tex_x = (int)((p->c->offset * 256 >= 256 ? 255 : p->c->offset * 256));
 	draw_floor_3d(p);

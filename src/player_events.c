@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_events.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 18:12:39 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:59:20 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:58:51 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			spawn(t_struct *p)
 	int i;
 
 	if (((int)p->c->p_x != 10 || (int)p->c->p_x != 9) && (int)p->c->p_y != 7)
-		p->porte[1].poort = 1;
+		p->door[1].poort = 1;
 	i = 10;
 	while (i < 16)
 	{
@@ -27,7 +27,7 @@ void			spawn(t_struct *p)
 	}
 	p->s = -1;
 	if ((int)p->c->p_x == 7.5 && (int)p->c->p_y == 10.5)
-		p->porte[1].poort = 0;
+		p->door[1].poort = 0;
 }
 
 void			alive(t_struct *p)

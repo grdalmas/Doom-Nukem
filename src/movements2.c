@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 15:17:50 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 21:42:18 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:58:58 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void		elevator2(t_struct *p)
 	p->c->dir_y = 0;
 	p->c->plane_x = 0;
 	p->c->plane_y = 1;
-	p->porte[0].open = 0;
-	p->porte[0].poort = 1;
+	p->door[0].open = 0;
+	p->door[0].poort = 1;
 }
 
 void			elevator(t_struct *p)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 21:40:53 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:57:22 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		initplayer(t_struct *param)
 {
 	param->k = 0;
 	param->keypress[KEY_Q] = 2;
-	param->porte = init_door();
+	param->door = init_door();
 	param->sprite = init_sprite();
 	param->weapon.id = 0;
 	param->h = 0;
@@ -94,9 +94,9 @@ t_sprite	*init_sprite(void)
 	return (sprite);
 }
 
-t_porte		*init_door(void)
+t_door		*init_door(void)
 {
-	static t_porte porte[NUMPORTE] = {{0, 0.02, 22, 1}, {1, 0.02, 2, 1}};
+	static t_door door[NUMDOOR] = {{0, 0.02, 22, 1}, {1, 0.02, 2, 1}};
 
-	return (porte);
+	return (door);
 }

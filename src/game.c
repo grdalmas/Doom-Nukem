@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 21:40:06 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:58:28 by grdalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		sprite_move(t_struct *p)
 		}
 		if (p->s >= 0)
 		{
-			p->porte[1].poort = 0;
+			p->door[1].poort = 0;
 			timer(p);
 			p->s++;
 			if (p->s >= 200)
@@ -48,12 +48,12 @@ static void		ingame(t_struct *p, int i)
 	alive(p);
 	weapon(p);
 	sprite_move(p);
-	while (i < NUMPORTE)
+	while (i < NUMDOOR)
 	{
-		if (p->porte[i].poort == 1 && p->porte[i].open > 0)
-			p->porte[i].open -= p->porte[i].spd;
-		if (p->porte[i].poort == 0 && p->porte[i].open <= 1)
-			p->porte[i].open += p->porte[i].spd;
+		if (p->door[i].poort == 1 && p->door[i].open > 0)
+			p->door[i].open -= p->door[i].spd;
+		if (p->door[i].poort == 0 && p->door[i].open <= 1)
+			p->door[i].open += p->door[i].spd;
 		i++;
 	}
 	if (p->cure == 0 && p->difficulty == 0)
