@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 11:37:21 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 20:10:02 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 # define WMHM4 291600
 # define WH4 4915200
 # define SKYHW 1633284
-# define WIDTHMINUSONE WIDTH - 1
+# define WIDTHMINUSONE 1279
 
 /*
  **	Enumeration des touches qui peuvent etre presse ensemble
