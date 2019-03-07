@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 06:18:36 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 06:22:13 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:20:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static void		menu_sound(t_struct *p, int s)
 	if (p->ch != 0)
 	{
 		if (s == 1)
-			system("afplay ./doomzik/shotgun_pump.mp3 &");
+			system("afplay ./doomzik/shotgun_pump.mp3 & 2>&1");
 		if (s == 2)
-			system("afplay ./doomzik/elevator_button.mp3 &");
+			system("afplay ./doomzik/elevator_button.mp3 & 2>&1");
 		if (s == 3)
-			system("afplay ./doomzik/pain_1.mp3 &");
+			system("afplay ./doomzik/pain_1.mp3 & 2>&1");
 	}
 }
 
@@ -74,8 +74,8 @@ static	void	start_game(t_struct *p)
 	if (p->sound == 1)
 	{
 		p->ch = 0;
-		system("afplay ./doomzik/shotgun_shot.mp3 &");
-		system("afplay ./doomzik/amblobby.mp3 &");
+		system("afplay ./doomzik/shotgun_shot.mp3 & 2>&1");
+		system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 	}
 	p->choice = 1;
 	mlx_clear_window(p->mlx_ptr, p->w_ptr);

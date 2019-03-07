@@ -6,7 +6,7 @@
 /*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 09:39:04 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 04:16:56 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:25:19 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void		take_object4(t_struct *p)
 			&& p->trump != 7)
 	{
 		if (p->sound == 1)
-			system("afplay ./doomzik/trump_message_music.mp3 &");
+			system("afplay ./doomzik/trump_message_music.mp3 & 2>&1");
 		p->sprite[18].id = 14;
 		p->trump = 6;
 	}
@@ -41,7 +41,7 @@ static void		take_object3(t_struct *p)
 	if (p->sprited[19] <= 1.5 && p->trump != 4 && p->sprite[19].k != 6)
 	{
 		if (p->sound == 1)
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 & 2>&1");
 		p->trump = 4;
 		p->sprite[19].k = 6;
 		p->weapon.id = 2;
@@ -50,8 +50,8 @@ static void		take_object3(t_struct *p)
 	{
 		if (p->sound == 1)
 		{
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
-			system("afplay ./doomzik/zip.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 & 2>&1");
+			system("afplay ./doomzik/zip.mp3 & 2>&1");
 		}
 		p->trump = 5;
 		p->sprite[1].k = 6;
@@ -71,8 +71,8 @@ static void		take_object2(t_struct *p)
 	{
 		if (p->sound == 1)
 		{
-			system("afplay ./doomzik/trump_message_pop.mp3 &");
-			system("afplay ./doomzik/zip.mp3 &");
+			system("afplay ./doomzik/trump_message_pop.mp3 & 2>&1");
+			system("afplay ./doomzik/zip.mp3 & 2>&1");
 		}
 		p->tool = 1;
 		p->trump = 2;
@@ -81,7 +81,7 @@ static void		take_object2(t_struct *p)
 	else if (p->k == 1 && p->sprited[3] <= 1.5)
 	{
 		if (p->sound == 1)
-			system("afplay ./doomzik/zip.mp3 &");
+			system("afplay ./doomzik/zip.mp3 & 2>&1");
 		p->maap = 1;
 		p->sprite[3].k = 6;
 	}
@@ -98,7 +98,7 @@ void			take_object(t_struct *p)
 		inverse_map(p, 0, 0, 0);
 	}
 	else if (p->sprited[17] <= 1.5 && p->menu != -1 && p->sound == 1)
-		system("afplay ./doomzik/mmpf.mp3 &");
+		system("afplay ./doomzik/mmpf.mp3 & 2>&1");
 	else if (p->menu == -1)
 	{
 		inverse_map(p, 0, 0, 0);
@@ -110,7 +110,7 @@ void			take_object(t_struct *p)
 		p->sprite[16].k = 6;
 		p->weapon.id = 1;
 		if (p->sound == 1)
-			system("afplay ./doomzik/chainsaw_start.mp3 &");
+			system("afplay ./doomzik/chainsaw_start.mp3 & 2>&1");
 	}
 	else
 		take_object2(p);

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:37:58 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:21:58 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		sprite_move(t_struct *p)
 				&& (int)p->c->p_y == 7 && p->s < 0)
 		{
 			if (p->sound == 1)
-				system("afplay ./doomzik/elevator_button.mp3 &");
+				system("afplay ./doomzik/elevator_button.mp3 & 2>&1");
 			p->s = 0;
 		}
 		if (p->s >= 0)

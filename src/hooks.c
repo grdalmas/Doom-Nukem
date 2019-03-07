@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:40:14 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:22:18 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ static void			rotation(t_struct *p, int mod)
 static void			soundstep(t_struct *p)
 {
 	if (p->c->pas == p->pas && (p->c->pas = 1) == 1)
-		system("afplay ./doomzik/pas1.mp3 &");
+		system("afplay ./doomzik/pas1.mp3 & 2>&1");
 	else if (p->c->pas == p->pas + 1 && (p->c->pas = 2) == 2)
-		system("afplay ./doomzik/pas2.mp3 &");
+		system("afplay ./doomzik/pas2.mp3 & 2>&1");
 	else if (p->c->pas == p->pas + 2 && (p->c->pas = 3) == 3)
-		system("afplay ./doomzik/pas3.mp3 &");
+		system("afplay ./doomzik/pas3.mp3 & 2>&1");
 	else if (p->c->pas == p->pas + 3 && (p->c->pas = 4) == 4)
-		system("afplay ./doomzik/pas4.mp3 &");
+		system("afplay ./doomzik/pas4.mp3 & 2>&1");
 	else if (p->c->pas == p->pas + 4 && (p->c->pas = 5) == 5)
-		system("afplay ./doomzik/pas5.mp3 &");
+		system("afplay ./doomzik/pas5.mp3 & 2>&1");
 	else if (p->c->pas == p->pas + 5 && (p->c->pas = 6) == 6)
-		system("afplay ./doomzik/pas6.mp3 &");
+		system("afplay ./doomzik/pas6.mp3 & 2>&1");
 	else if (p->c->pas >= p->pas + 6 && (p->c->pas = 0) == 0)
-		system("afplay ./doomzik/pas7.mp3 &");
+		system("afplay ./doomzik/pas7.mp3 & 2>&1");
 }
 
 static void			key_press_hook2(t_struct *p)

@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:29 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 06:14:45 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:26:36 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void				soundpain(t_struct *p)
 		p->soundpainmum++;
 		p->soundpain = p->life;
 		if (p->soundpainmum == 1)
-			system("afplay ./doomzik/pain_1.mp3 &");
+			system("afplay ./doomzik/pain_1.mp3 & 2>&1");
 		else if (p->soundpainmum == 2)
-			system("afplay ./doomzik/pain_2.mp3 &");
+			system("afplay ./doomzik/pain_2.mp3 & 2>&1");
 		else if (p->soundpainmum == 3)
-			system("afplay ./doomzik/pain_4.mp3 &");
+					system("afplay ./doomzik/pain_4.mp3 & 2>&1");
 		else if (p->soundpainmum == 4)
 		{
 			p->soundpainmum = 0;
-			system("afplay ./doomzik/pain_3.mp3 &");
+			system("afplay ./doomzik/pain_3.mp3 & 2>&1");
 		}
 	}
 }
@@ -39,7 +39,7 @@ static void			reload(t_struct *p)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[96].img_ptr, 800, \
 				490);
 		if (p->keypress[KEY_R] == 1 && p->sound == 1)
-			system("afplay ./doomzik/shotgun_pump.mp3 &");
+			system("afplay ./doomzik/shotgun_pump.mp3 & 2>&1");
 	}
 	else if (p->weapon.reload < 4)
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[97].img_ptr, 800,
@@ -89,7 +89,7 @@ void				shoot(t_struct *p)
 	if (p->keypress[KEY_SPACEBAR] == 1 && p->weapon.reload > 11)
 	{
 		if (p->sound == 1)
-			system("afplay ./doomzik/shotgun_shot.mp3 &");
+			system("afplay ./doomzik/shotgun_shot.mp3 & 2>&1");
 		p->shoot = 1;
 		p->weapon.reload = 0;
 		p->weapon.sprite = 1;

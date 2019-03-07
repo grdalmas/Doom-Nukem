@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 15:17:50 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 02:45:03 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:24:10 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			elevator(t_struct *p)
 			|| p->keypress[KEY_PAD_4] == 1 || p->keypress[KEY_PAD_5] == 1)
 	{
 		if (p->sound == 1)
-			system("afplay ./doomzik/elevator_beep.mp3 &");
+			system("afplay ./doomzik/elevator_beep.mp3 & 2>&1");
 		p->h = (p->k == 7) ? 0 : p->h;
 		elevator2(p);
 	}
@@ -66,13 +66,13 @@ static void		move_up3(t_struct *p, int move)
 		system("killall afplay");
 		if (p->k == 0 && move == 68)
 		{
-			system("afplay ./doomzik/vivaldi_spring.mp3 &");
+			system("afplay ./doomzik/vivaldi_spring.mp3 & 2>&1");
 			p->c->p_x = 1.5;
 			p->k = 3;
 		}
 		else if (p->k == 0 && move == 66)
 		{
-			system("afplay ./doomzik/Doom_1.mp3 &");
+			system("afplay ./doomzik/Doom_1.mp3 & 2>&1");
 			p->c->p_x = 13.5;
 			p->k = 4;
 		}
@@ -80,7 +80,7 @@ static void		move_up3(t_struct *p, int move)
 		{
 			p->k = 0;
 			p->c->p_x = ((int)p->c->p_x == 13) ? 1.5 : 13.5;
-			system("afplay ./doomzik/amblobby.mp3 &");
+			system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 		}
 	}
 	else if (move == 24 && p->k == 2)
@@ -92,11 +92,11 @@ void			move_up2(t_struct *p, int move)
 	if (move == 13)
 	{
 		system("killall afplay");
-		system("afplay ./doomzik/lego.mp3 &");
+		system("afplay ./doomzik/lego.mp3 & 2>&1");
 		if (p->k == 2)
 		{
 			system("killall afplay");
-			system("afplay ./doomzik/amblobby.mp3 &");
+			system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 		}
 		p->c->p_y = (p->k == 0) ? 13.5 : 1.5;
 		p->k = (p->k == 0) ? 2 : 0;
@@ -104,11 +104,11 @@ void			move_up2(t_struct *p, int move)
 	else if (move == 12)
 	{
 		system("killall afplay");
-		system("afplay ./doomzik/ambbobo.mp3 &");
+		system("afplay ./doomzik/ambbobo.mp3 & 2>&1");
 		if (p->k == 1)
 		{
 			system("killall afplay");
-			system("afplay ./doomzik/amblobby.mp3 &");
+			system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 		}
 		p->c->p_y = (p->k == 0) ? 1.5 : 13.5;
 		p->k = (p->k == 0) ? 1 : 0;

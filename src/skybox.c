@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 11:33:39 by tifuret           #+#    #+#             */
-/*   Updated: 2019/03/07 20:41:15 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:51:56 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void			skybox2(t_struct *p)
 		p->skytex = 110;
 }
 
-void			skybox(t_struct *p, int y, int x)
+void				skybox(t_struct *p, int y, int x)
 {
 	int			tx;
 	int			ty;

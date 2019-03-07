@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 04:42:59 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 20:39:01 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:21:27 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int				mouse_motion_diff(int x, int y, t_struct *p)
 				|| (x >= 1105 && x <= 1320 && y >= 855 && y <= 900))
 		{
 			if (p->ch != 1 && p->ch != 2 && p->ch != 3 && p->sound == 1)
-				system("afplay ./doomzik/elevator_button.mp3 &");
+				system("afplay ./doomzik/elevator_button.mp3 & 2>&1");
 			if (x >= 715 && x <= 905 && y >= 523 && y <= 585)
 				p->ch = 1;
 			else if (x >= 710 && x <= 910 && y >= 650 && y <= 700)
@@ -57,11 +57,15 @@ int				mouse_release_diff(int b, int x, int y, t_struct *p)
 	if (p->choice == 3)
 	{
 		if ((b == 1) && x >= 715 && x <= 905 && y >= 523 && y <= 585)
+		{
+			if (p->sound == 1)
+				system("afplay ./doomzik/mmpf.mp3 & 2>&1");
 			p->difficulty = 0;
+		}
 		else if ((b == 1) && x >= 710 && x <= 910 && y >= 650 && y <= 704)
 		{
 			if (p->sound == 1)
-				system("afplay ./doomzik/youshall.mp3 &");
+				system("afplay ./doomzik/youshall.mp3 & 2>&1");
 			p->difficulty = 1;
 		}
 		else if ((b == 1) && x >= 1105 && x <= 1320 && y >= 855 && y <= 900)

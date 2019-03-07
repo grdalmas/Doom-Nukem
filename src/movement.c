@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 01:01:59 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 02:44:08 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:23:29 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		rooms(t_struct *p, int move, int t, double s)
 	{
 		move_up2(p, move);
 		if (p->sound == 1)
-			system("afplay ./doomzik/tp.mp3 &");
+			system("afplay ./doomzik/tp.mp3 & 2>&1");
 		else
 			system("killall afplay");
 	}

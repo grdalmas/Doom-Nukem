@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:47:29 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:22:38 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		*init(t_struct *param)
 	param->dead = 0;
 	param->cure = 0;
 	param->maap = 0;
-	system("afplay ./doomzik/amblobby.mp3 &");
+	system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 	return (NULL);
 }
 
