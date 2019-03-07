@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:49:54 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 16:43:44 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:44:17 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	draw_case_one(int y1, int x2, int y2, t_struct *p)
 		else
 		{
 			x = p->c->x1 - 1;
-			while (++x <= x2 && (p->c->calc = (x + (WIDTHMAP * (y1 + (y2 - y1) *
-				(x - p->c->x1) / (x2 - p->c->x1))))) < WIDTHMAP * HEIGHTMAP)
+			while (++x <= x2 && (p->c->calc = (x + (WIDTHMAP * (y1 + (y2 - y1)
+				* (x - p->c->x1) / (x2 - p->c->x1))))) < WIDTHMAP * HEIGHTMAP)
 			{
 				if (p->c->calc >= 0 && x >= 0 && x < WIDTHMAP)
 					((int *)p->img_str)[p->c->calc] = p->c->colo;
@@ -69,8 +69,8 @@ static void	draw_case_two(int y1, int x2, int y2, t_struct *p)
 	if (y2 < y1)
 	{
 		y = y2 - 1;
-		while (++y <= y1 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1) /
-						(y2 - y1)) + (WIDTHMAP * y)) < WIDTHMAP * HEIGHTMAP)
+		while (++y <= y1 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1)
+						/ (y2 - y1)) + (WIDTHMAP * y)) < WIDTHMAP * HEIGHTMAP)
 		{
 			if (calc >= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1))
 		>= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1)) < WIDTHMAP)
@@ -80,8 +80,8 @@ static void	draw_case_two(int y1, int x2, int y2, t_struct *p)
 	else
 	{
 		y = y1 - 1;
-		while (++y <= y2 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1) /
-					(y2 - y1)) + (WIDTHMAP * y)) < WIDTHMAP * HEIGHTMAP)
+		while (++y <= y2 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1)
+						/ (y2 - y1)) + (WIDTHMAP * y)) < WIDTHMAP * HEIGHTMAP)
 		{
 			if (calc >= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1))
 		>= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1)) < WIDTHMAP)

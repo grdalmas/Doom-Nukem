@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 02:06:49 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 02:48:45 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:40:14 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ static void			rotation(t_struct *p, int mod)
 	if (mod == 1)
 		p->c->rotation_speed = -0.1;
 	tmp_dir_x = p->c->dir_x;
-	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed) -
-		p->c->dir_y * sin(-p->c->rotation_speed);
-	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed) +
-		p->c->dir_y * cos(-p->c->rotation_speed);
+	p->c->dir_x = tmp_dir_x * cos(-p->c->rotation_speed)
+		- p->c->dir_y * sin(-p->c->rotation_speed);
+	p->c->dir_y = tmp_dir_x * sin(-p->c->rotation_speed)
+		+ p->c->dir_y * cos(-p->c->rotation_speed);
 	tmp_plane_x = p->c->plane_x;
-	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed) -
-		p->c->plane_y * sin(-p->c->rotation_speed);
-	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed) +
-		p->c->plane_y * cos(-p->c->rotation_speed);
+	p->c->plane_x = tmp_plane_x * cos(-p->c->rotation_speed)
+		- p->c->plane_y * sin(-p->c->rotation_speed);
+	p->c->plane_y = tmp_plane_x * sin(-p->c->rotation_speed)
+		+ p->c->plane_y * cos(-p->c->rotation_speed);
 }
 
 static void			soundstep(t_struct *p)

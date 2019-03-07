@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:42:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 11:03:16 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 20:40:33 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ static void		wall_dist(t_struct *p)
 {
 	if (p->c->side == 0)
 	{
-		p->c->wall_dist = fabs((p->c->map_x - p->c->p_x +
-					(1.0 - p->c->step_x) / 2.0) / p->c->r_dir_x);
+		p->c->wall_dist = fabs((p->c->map_x - p->c->p_x
+					+ (1.0 - p->c->step_x) / 2.0) / p->c->r_dir_x);
 		p->c->offset = p->c->p_y + ((p->c->map_x
 					- p->c->p_x + (1 - p->c->step_x) / 2)
 				/ p->c->r_dir_x) * p->c->r_dir_y;
 	}
 	else
 	{
-		p->c->wall_dist = fabs((p->c->map_y - p->c->p_y +
-					(1.0 - p->c->step_y) / 2.0) / p->c->r_dir_y);
+		p->c->wall_dist = fabs((p->c->map_y - p->c->p_y
+					+ (1.0 - p->c->step_y) / 2.0) / p->c->r_dir_y);
 		p->c->offset = p->c->p_x + ((p->c->map_y - p->c->p_y
 					+ (1 - p->c->step_y) / 2)
 				/ p->c->r_dir_y) * p->c->r_dir_x;
