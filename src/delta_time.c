@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   delta_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 14:46:03 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/02/27 15:45:42 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:07 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 #include "delta_time.h"
-#include <stdio.h>
 
 void				ft_putnbrendl(int nb)
 {

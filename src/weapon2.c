@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   weapon2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:26 by grdalmas          #+#    #+#             */
 /*   Updated: 2019/03/07 21:17:13 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		touch_by_enemy(t_struct *p)
 {

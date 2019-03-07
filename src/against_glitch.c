@@ -6,11 +6,11 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 10:17:00 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 11:08:16 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 20:57:50 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static int		against_glitch_straff2(t_struct *p, int move, double s)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   difficulty_hook.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 04:42:59 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/04 20:39:01 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:11 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void		mouse_motion_diff2(t_struct *p)
 {

@@ -6,11 +6,11 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 20:26:12 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 11:38:47 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 20:58:36 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void			img_to_img3(t_struct *p, int x, int y, int indice)
 {

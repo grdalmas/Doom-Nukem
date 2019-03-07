@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   settings_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 05:55:11 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 06:21:28 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:42 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void			mouse_motion_settings_sound_off(t_struct *p)
 {

@@ -6,13 +6,13 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 11:33:39 by tifuret           #+#    #+#             */
-/*   Updated: 2019/03/05 11:38:52 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:05:11 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
-void			skybox3(t_struct *p)
+static void			skybox3(t_struct *p)
 {
 	if (p->skyt >= 0 && p->skyt < 90)
 		p->skytex = 111;
@@ -24,7 +24,7 @@ void			skybox3(t_struct *p)
 		p->skytex = 114;
 }
 
-void			skybox2(t_struct *p)
+static void			skybox2(t_struct *p)
 {
 	p->skytex = 0;
 	p->skyt = atan2(p->c->r_dir_x, p->c->r_dir_y) * 180 / PI;
@@ -42,7 +42,7 @@ void			skybox2(t_struct *p)
 		p->skytex = 110;
 }
 
-void			skybox(t_struct *p, int y, int x)
+void				skybox(t_struct *p, int y, int x)
 {
 	int			tx;
 	int			ty;

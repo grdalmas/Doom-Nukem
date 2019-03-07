@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 02:30:42 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/02 10:07:54 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:54 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static int			sprited(t_struct *p, int i)
 {
