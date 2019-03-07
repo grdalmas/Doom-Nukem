@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   weapon3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 20:39:29 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 06:14:45 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 21:00:22 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void				soundpain(t_struct *p)
 {

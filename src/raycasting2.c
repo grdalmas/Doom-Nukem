@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmartine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 04:39:14 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/05 04:51:40 by cmartine         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:59:35 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 static void	draw_transparent_wall2(t_struct *p, int x, int y, int wall_h)
 {

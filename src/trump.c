@@ -6,11 +6,11 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 17:42:01 by bbataini          #+#    #+#             */
-/*   Updated: 2019/03/05 11:01:21 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:00:09 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doom-nukem.h"
+#include "doom_nukem.h"
 
 void			trump(t_struct *p)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doom-nukem.h                                       :+:      :+:    :+:   */
+/*   doom_nukem.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 03:12:51 by cmartine          #+#    #+#             */
-/*   Updated: 2019/03/07 20:10:02 by bbataini         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:57:05 by tifuret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@
 # define WIDTHMINUSONE 1279
 
 /*
- **	Enumeration des touches qui peuvent etre presse ensemble
- **	Utile aussi pour sauvegarder l'etat de la touche
- **	pour agir en consequence dans l'expose.
- */
+**	Enumeration des touches qui peuvent etre presse ensemble
+**	Utile aussi pour sauvegarder l'etat de la touche
+**	pour agir en consequence dans l'expose.
+*/
 
 typedef enum		e_keystate
 {
@@ -111,9 +111,8 @@ typedef struct		s_mspr
 	int				endx;
 	int				endy;
 	int				spritescreenx;
-	//	char			gap_1[4];
 	double			transy;
-}						t_mspr;
+}					t_mspr;
 
 typedef struct		s_tex
 {
@@ -126,13 +125,13 @@ typedef struct		s_tex
 	int				endian;
 }					t_tex;
 
-typedef struct        s_iti
+typedef struct		s_iti
 {
 	int l;
 	int c;
 	int tmp;
 	int tmpy;
-}                    t_iti;
+}					t_iti;
 
 typedef struct		s_camera
 {
@@ -231,180 +230,178 @@ typedef struct		s_struct
 	float			sprint;
 	int				dead;
 	t_iti			i;
-	int 			skytex;
+	int				skytex;
 	double			skyt;
-
 }					t_struct;
 
 /*
- **					against_glitch.c
- */
+**					against_glitch.c
+*/
 int					against_glitch(t_struct *p, int move, double s);
 int					against_glitch_straff(t_struct *p, int move, double s);
 
 /*
- **					creator_map.c
- */
+**					creator_map.c
+*/
 void				creator_map(t_struct *p, int i, int j);
 /*
- **					difficulty_hook.c
- */
+**					difficulty_hook.c
+*/
 int					mouse_motion_diff(int x, int y, t_struct *p);
 int					mouse_release_diff(int b, int x, int y, t_struct *p);
 /*
- **					draw_3d.c
- */
+**					draw_3d.c
+*/
 void				draw_wall_3d(t_struct *p, int x, int y, int wall_height);
 /*
- **					draw_3d2.c
- */
+**					draw_3d2.c
+*/
 void				which_text(t_struct *p);
 void				which_textf(t_struct *p);
 void				color_text(t_struct *p, int col, int line, double ratio);
-void				color_text2(t_struct *p, int col,int line, double ratio);
+void				color_text2(t_struct *p, int col, int line, double ratio);
 void				color_textf(t_struct *p, int col, int line, double ratio);
 /*
- **					draw_line.c
- */
+**					draw_line.c
+*/
 void				draw_pixel(char *img_str, int x, int y, int color);
 void				draw_pixel2(t_struct *p, char *img_str, int x, int y);
 void				draw_line(int y, int x2, int y2, t_struct *p);
 /*
- **					draw_line2.c
- */
+**					draw_line2.c
+*/
 void				draw_line2(int y, int x2, int y2, t_struct *p);
 int					*fill_color2(int *str, int x, int y, int c);
 /*
- **					game.c
- */
+**					game.c
+*/
 int					draw_game(t_struct *p);
 /*
- **					hooks.c
- */
+**					hooks.c
+*/
 int					key_press_hook(t_struct *p);
 /*
- **					img_to_img.c
- */
-void                img_to_img2(t_struct *p, int x, int y, int indice);
-void                img_to_img3(t_struct *p, int x, int y, int indice);
+**					img_to_img.c
+*/
+void				img_to_img2(t_struct *p, int x, int y, int indice);
+void				img_to_img3(t_struct *p, int x, int y, int indice);
 void				img_to_img(t_struct *p, int x, int y, int indice);
 void				skybox(t_struct *p, int y, int x);
 /*
- **					init.c
- */
-
+**					init.c
+*/
 int					close_window(t_struct *p);
 void				*init(t_struct *param);
 void				initplayer(t_struct *param);
 t_sprite			*init_sprite(void);
 t_porte				*init_door(void);
 /*
- **					key_event.c
- */
+**					key_event.c
+*/
 int					keyrelease(int keycode, void *d);
 int					keypress(int keycode, void *d);
 /*
- **					key_event2.c
- */
+**					key_event2.c
+*/
 void				keypress3(int keycode, t_struct *p);
 /*
- **					main.c
- */
+**					main.c
+*/
 void				timer(t_struct *p);
 /*
- **					menu.c
- */
+**					menu.c
+*/
 int					mouse_release_menu(int b, int x, int y, t_struct *p);
 int					mouse_motion_menu(int x, int y, t_struct *p, int s);
 /*
- **					minimap.c
- */
+**					minimap.c
+*/
 int					*fill_color(int *str, int x, int y, int c);
 void				minimap(t_struct *p);
 /*
- **					minimap2.c
- */
+**					minimap2.c
+*/
 void				minimap2(t_struct *p);
 void				*inverse_map(t_struct *p, int i, int j, int k);
 /*
- **					mouse_creator_map.c
- */
+**					mouse_creator_map.c
+*/
 void				mouse_creator_map(t_struct *p, int button, int x, int y);
 /*
- **					mouse_event.c
- */
+**					mouse_event.c
+*/
 int					mouse_motion(int x, int y, t_struct *p);
 int					mouse_button(int button, int x, int y, t_struct *p);
 /*
- **					movement.c
- */
+**					movement.c
+*/
 void				move_up(t_struct *p, int move, int i, double s);
 /*
- **					movement2.c
- */
+**					movement2.c
+*/
 void				move_up2(t_struct *p, int move);
-void				elevator(t_struct *);
+void				elevator(t_struct *p);
 /*
- **					player_events.c
- */
+**					player_events.c
+*/
 void				alive(t_struct *p);
 void				spawn(t_struct *p);
 /*
- **					raycasting.c
- */
+**					raycasting.c
+*/
 void				walls_sides(t_struct *p, int x);
 /*
- **					raycasting2.c
- */
+**					raycasting2.c
+*/
 void				raycasting(t_struct *param, int x, int z);
 /*
- **					save_map.c
- */
+**					save_map.c
+*/
 void				save_map(t_struct *info);
 /*
- **					settings_hook.c
- */
+**					settings_hook.c
+*/
 int					mouse_motion_settings(int x, int y, t_struct *p);
 int					mouse_release_settings(int b, int x, int y, t_struct *p);
 /*
- **					sprite.c
- */
+**					sprite.c
+*/
 void				order_sprite(t_struct *p);
 void				raysprite(t_struct *p, double d, int i, double ratio);
 /*
- **					sprite_event.c
- */
+**					sprite_event.c
+*/
 void				movemy(t_struct *p, int i);
 void				movemy2(t_struct *p, int i);
 /*
- **					take_object.c
- */
+**					take_object.c
+*/
 void				take_object(t_struct *p);
 /*
- **					textures.c
- */
+**					textures.c
+*/
 void				load_textures(t_struct *p);
 /*
- **					textures2.c
- */
+**					textures2.c
+*/
 void				load_textures4(t_struct *p);
 /*
- **					trump.c
- */
+**					trump.c
+*/
 void				trump(t_struct *p);
 void				rotrump2(t_struct *p);
 void				rotrump(t_struct *p);
 /*
- **					weapon.c
- */
+**					weapon.c
+*/
 void				weapon(t_struct *p);
 /*
- **					weapon2.c
- */
+**					weapon2.c
+*/
 void				weapon3(t_struct *p);
 /*
- **					weapon3.c
- */
+**					weapon3.c
+*/
 void				soundpain(t_struct *p);
 void				shoot(t_struct *p);
 /*
