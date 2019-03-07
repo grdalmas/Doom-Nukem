@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:28:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:58:39 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:40:53 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		*init(t_struct *param)
 	param->dead = 0;
 	param->cure = 0;
 	param->maap = 0;
-	system("afplay ./doomzik/amblobby.mp3 &");
+	system("afplay ./doomzik/amblobby.mp3 & 2>&1");
 	return (NULL);
 }
 

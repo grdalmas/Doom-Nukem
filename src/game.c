@@ -6,7 +6,7 @@
 /*   By: tifuret <tifuret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/07 20:58:30 by tifuret          ###   ########.fr       */
+/*   Updated: 2019/03/07 21:40:06 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		sprite_move(t_struct *p)
 				&& (int)p->c->p_y == 7 && p->s < 0)
 		{
 			if (p->sound == 1)
-				system("afplay ./doomzik/elevator_button.mp3 &");
+				system("afplay ./doomzik/elevator_button.mp3 & 2>&1");
 			p->s = 0;
 		}
 		if (p->s >= 0)
