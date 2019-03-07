@@ -32,7 +32,7 @@
 # define RIGHT 124
 # define LEFT 123
 # define SPACE 49
-# define PAS 35 // plus besoin
+# define PAS 35
 # define BPP 4
 # define WHBPP 4915200
 # define KEYPRESS 2
@@ -410,8 +410,6 @@ void				shoot(t_struct *p);
 /*
 **					skybox.c
 */
-void				skybox3(t_struct *p);
-void				skybox2(t_struct *p);
 void				skybox(t_struct *p, int y, int x);
 /*
 **					img_to_img.c

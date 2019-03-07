@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 04:29:09 by cmartine          #+#    #+#             */
-/*   Updated: 2019/02/27 16:51:29 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:44:47 by cmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ static void		draw_case_two(int y1, int x2, int y2, t_struct *p)
 	if (y2 < y1)
 	{
 		y = y2 - 1;
-		while (++y <= y1 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1) /
-						(y2 - y1)) + (WIDTH * y)) < WIDTH * HEIGHT)
+		while (++y <= y1 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1)
+						/ (y2 - y1)) + (WIDTH * y)) < WIDTH * HEIGHT)
 		{
 			if (calc >= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1))
 		>= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1)) < WIDTH)
@@ -80,8 +80,8 @@ static void		draw_case_two(int y1, int x2, int y2, t_struct *p)
 	else
 	{
 		y = y1 - 1;
-		while (++y <= y2 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1) /
-					(y2 - y1)) + (WIDTH * y)) < WIDTH * HEIGHT)
+		while (++y <= y2 && (calc = (p->c->x1 + (x2 - p->c->x1) * (y - y1)
+						/ (y2 - y1)) + (WIDTH * y)) < WIDTH * HEIGHT)
 		{
 			if (calc >= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1))
 		>= 0 && (p->c->x1 + (x2 - p->c->x1) * (y - y1) / (y2 - y1)) < WIDTH)
