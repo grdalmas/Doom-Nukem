@@ -6,7 +6,7 @@
 /*   By: grdalmas <grdalmas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:35:25 by grdalmas          #+#    #+#             */
-/*   Updated: 2019/03/05 16:54:32 by grdalmas         ###   ########.fr       */
+/*   Updated: 2019/03/07 20:37:58 by bbataini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static void		reinit_sprite(t_struct *p)
 	p->sprite[0].k = 2;
 	p->sprite[1].k = 8;
 	p->sprite[3].k = 1;
+	p->sprite[16].k = 7;
 	while (i < 10)
 	{
 		p->sprite[i].k = 5;
@@ -100,11 +101,11 @@ static void		ingameover(t_struct *p)
 	{
 		reinit_sprite(p);
 		p->menu = 4;
+		free(p->c);
 		init(p);
 		initplayer(p);
 		mlx_put_image_to_window(p->mlx_ptr, p->w_ptr, p->tex[124].img_ptr, 0,
 				0);
-		free(s);
 	}
 	else
 	{
@@ -113,8 +114,8 @@ static void		ingameover(t_struct *p)
 		mlx_string_put(p->mlx_ptr, p->w_ptr, 900, 500, 0xffffff,
 				"Retour au menu:");
 		mlx_string_put(p->mlx_ptr, p->w_ptr, 1080, 500, 0xffffff, s);
-		free(s);
 	}
+	free(s);
 }
 
 int				draw_game(t_struct *p)
