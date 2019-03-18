@@ -31,6 +31,8 @@ void			init_textures(t_struct *p)
 		}
 		else
 		{
+			ft_putendl("Could not load :");
+			ft_putendl(p->tex[i].str);
 			ft_putendl("error, textures are missing");
 			system("killall afplay");
 			exit(EXIT_FAILURE);
@@ -69,7 +71,7 @@ static void		load_textures2(t_struct *p)
 {
 	p->tex[24].str = ft_strdup("textures/lego_logo.xpm");
 	p->tex[25].str = ft_strdup("textures/klimt.xpm");
-	p->tex[26].str = ft_strdup("textures/la_liberte_guidant_le_peuple.xpm");
+	p->tex[26].str = ft_strdup("textures/La_liberte_guidant_le_peuple.xpm");
 	p->tex[27].str = ft_strdup("textures/la_Meduse.xpm");
 	p->tex[28].str = ft_strdup("textures/nympheas.xpm");
 	p->tex[29].str = ft_strdup("textures/redon.xpm");
