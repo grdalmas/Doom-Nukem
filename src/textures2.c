@@ -31,6 +31,8 @@ static void	init_textures(t_struct *p)
 		}
 		else
 		{
+			ft_putendl("Could not load :");
+			ft_putendl(p->tex[i].str);
 			ft_putendl("error, textures are missing");
 			system("killall afplay");
 			exit(EXIT_FAILURE);
@@ -41,9 +43,9 @@ static void	init_textures(t_struct *p)
 
 void		load_textures7(t_struct *p)
 {
-	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.xpm");
-	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.xpm");
-	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.xpm");
+	p->tex[134].str = ft_strdup("textures/menu/DIFFICULTY-EASY.XPM");
+	p->tex[135].str = ft_strdup("textures/menu/DIFFICULTY-HARD.XPM");
+	p->tex[136].str = ft_strdup("textures/menu/DIFFICULTY-RETURN.XPM");
 	p->tex[137].str = ft_strdup("textures/menu/DIFFICULTY.xpm");
 	p->tex[138].str = ft_strdup("textures/keys.xpm");
 	init_textures(p);
@@ -61,18 +63,18 @@ void		load_textures6(t_struct *p)
 	p->tex[119].str = ft_strdup("textures/game_over.xpm");
 	p->tex[120].str = ft_strdup("textures/pause.xpm");
 	p->tex[121].str = ft_strdup("textures/eraser.xpm");
-	p->tex[122].str = ft_strdup("textures/menu/MENU.xpm");
-	p->tex[123].str = ft_strdup("textures/menu/MENU_START.xpm");
-	p->tex[124].str = ft_strdup("textures/menu/MENU_SETTINGS.xpm");
-	p->tex[125].str = ft_strdup("textures/menu/MENU_QUIT.xpm");
-	p->tex[126].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON.xpm");
-	p->tex[127].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF.xpm");
-	p->tex[128].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-RETURN.xpm");
-	p->tex[129].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-DIFF.xpm");
-	p->tex[130].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-COLOR.xpm");
-	p->tex[131].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-RETURN.xpm");
-	p->tex[132].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-DIFF.xpm");
-	p->tex[133].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-COLOR.xpm");
+	p->tex[122].str = ft_strdup("textures/menu/MENU.XPM");
+	p->tex[123].str = ft_strdup("textures/menu/MENU_START.XPM");
+	p->tex[124].str = ft_strdup("textures/menu/MENU_SETTINGS.XPM");
+	p->tex[125].str = ft_strdup("textures/menu/MENU_QUIT.XPM");
+	p->tex[126].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON.XPM");
+	p->tex[127].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF.XPM");
+	p->tex[128].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-RETURN.XPM");
+	p->tex[129].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-DIFF.XPM");
+	p->tex[130].str = ft_strdup("textures/menu/SETTINGS-SOUND_OFF-COLOR.XPM");
+	p->tex[131].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-RETURN.XPM");
+	p->tex[132].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-DIFF.XPM");
+	p->tex[133].str = ft_strdup("textures/menu/SETTINGS-SOUND_ON-COLOR.XPM");
 	load_textures7(p);
 }
 

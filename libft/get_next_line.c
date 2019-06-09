@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+/* GM: Under Loonix OPEN_MAX is deprecated, set it to some "sensible" value */
+#ifndef OPEN_MAX
+#define OPEN_MAX FOPEN_MAX
+#endif
 
 static char		*ft_join_bufs(const int fd, char **mybuf, char **line)
 {
